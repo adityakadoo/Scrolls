@@ -64,4 +64,4 @@ $\phi$ contains no words.
 
 Any ***problem*** is, given a $w$ in $\sum^*$, decide whether or not $w$ is in $L$.
 
-> If test membership in $L_X$ is hard, then compiling programs in programming language $X$ is hard.
+> If testing membership in $L_X$ is hard, then compiling programs in programming language $X$ is hard.

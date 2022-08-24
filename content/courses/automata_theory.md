@@ -56,9 +56,9 @@ A language $(L)$ over $\Sigma$ is basically $L\sube\Sigma$.
 
 #### Empty Language
 
-$\phi$ contains no words.
+$\empty$ contains no words.
 
-> $\phi\ne\\\{\epsilon\\\}$
+> $\empty\ne\\\{\epsilon\\\}$
 
 ### Problems
 
@@ -122,7 +122,7 @@ The ***extended transition function*** $(\hat\delta:Q\times\Sigma^*\rightarrow P
 
 The ***language*** of NFA $(L(A))$ is defined as,
 $$
-    L(A)=\\\{w\in\Sigma:\hat\delta(q_0,w)\cap F\ne\phi\\\}
+    L(A)=\\\{w\in\Sigma:\hat\delta(q_0,w)\cap F\ne\empty\\\}
 $$
 
 #### Equivalence of DFA and NFA
@@ -130,7 +130,7 @@ $$
 Given an NFA $(N=\\\{Q_N,\Sigma,\delta_N,q_0,F_N\\\})$ it can be converted to a DFA $D=\\\{Q_D,\Sigma,\delta_D,\\\{q_0\\\},F_D\\\}$ such that $L(D)=L(N)$ using ***subset construction*** method.
 
 1. $Q_D=P(Q_N)$
-2. $F_D=\\\{S\sube Q_N:S\cap F_N\ne\phi\\\}$
+2. $F_D=\\\{S\sube Q_N:S\cap F_N\ne\empty\\\}$
 3. $\delta_D:P(Q_N)\times\Sigma\rightarrow P(Q_N)$ is defined as,
 $$
     \delta_D(S,a)=\bigcup_{p\in S}\delta_N(p,a)
@@ -174,12 +174,118 @@ Given an $\epsilon$-NFA $(E=\\\{Q_E,\Sigma,\delta_E,q_0,F_E\\\})$ it can be conv
 
 1. $Q_D=P(Q_E)$
 2. $q_D=\text{Ecl}(q_0)$
-3. $F_D=\\\{S:S\in Q_D$ and $S\cap F_E\ne\phi\\\}$
+3. $F_D=\\\{S:S\in Q_D$ and $S\cap F_E\ne\empty\\\}$
 4. $\delta_D:Q_D\times\Sigma$ is defined as follows,
 $$
 \delta_D(S,a)=\bigcup_{r\in\bigcup_{p\in S}\delta_E(p,a)}\text{Ecl}(r)
 $$
 
 ##### **Theorem** : A language $L$ is accepted by some $\epsilon$-NFA iff $L$ is accepted by some DFA.
-- *Basis*: 
+Proof
+- *Basis*: Since $\hat\delta_E(q_0, \epsilon)=\text{Ecl}(q_0)$ and $\hat\delta_D(q_D, \epsilon)=\hat\delta_D(\text{Ecl}(q_D),\epsilon)=\text{Ecl}(q_0)$, $\hat\delta_E(q_0, \epsilon) = \hat\delta_D(q_D, \epsilon)$ 
+- *Induction*: As $\hat\delta_E(q_0, w[:-1])=\hat\delta_D(q_D,w[:-1])$ and,
+$$
+    \hat\delta_E(q_0,w)=\bigcup_{r\in\bigcup_{p\in\hat\delta_E(q_0, w[:-1])}\delta_E(p,w[-1])}\text{Ecl}(r)
+$$
+and $\hat\delta_D(q_D,w)$ is defined in a similar way,
+$$
+    \therefore\hat\delta_E(q_0, w)=\hat\delta_D(q_D,w)
+$$
+
+## Regular Expressions and Languages
+
+### Regular Expressions
+
+#### Operators on Regular Languages
+
+1. ***Union***: The union of two languages $L$ and $M$ is defined as $L\cup M$.
+2. ***Concatenation***: The concatenation of two languages $L$ and $M$ is defined as $LM=\\\{xy:x\in L,y\in M\\\}$.
+3. ***Kleene closure***: The Kleene closure of a language $L$ is defined inductively as,
+    
+    - *Basis*: $\epsilon\in L^&ast;$
+
+    - *Induction*: If $w\in L^&ast;$ and $x\in L$ then, $wx\in L^&ast;$
+
+#### Building Regular-Expressions
+
+- *Basis*: It contains 2 parts:
+  1. The constants $\boldsymbol{\epsilon}$ and $\boldsymbol{\empty}$ are regular expressions such that $L(\boldsymbol{\epsilon})=\\\{\epsilon\\\}$ and $L(\boldsymbol{\empty})=\empty$.
+  2. Every symbol $\boldsymbol{a}$ such that $a\in\Sigma$ is a regular expression then $L(\boldsymbol{a})=\\\{a\\\}$
+- *Induction*: There are four parts for the induction step where $E$ and $F$ are regular expressions:
+  1. $L(E+F)=L(E)\cup L(F)$
+  2. $L(EF)=L(E)L(F)$
+  3. $L(E^&ast;)=(L(E))^&ast;$
+  4. $L((E))=L(E)$
+
+#### Precedence of Regular-Expression Operators
+
+> &ast; >> . >> +
+
+### Finite Automata and Regular-Expressions
+
+#### From DFA to Regular Expressions
+
+##### **Theorem**: If $L=L(A)$ for some DFA $A$, then there is a regular expression $R$ such that $L=L(R)$.
+Proof
+
+Let the DFA have $n$ nodes each labelled with a number from $[1,n]$.
+
+> $R_{ij}^{(k)}=\\\{w:\hat\delta(i,w)=j$ and $\forall t$ such that $0<t<|w|-1,\ \hat\delta(i,w[:t])\le k\\\}$
+
+- *Basis*: Let $S=\\\{a:\delta(i,a)=j\\\}$. If $S=\empty$ then $R_{ij}^{(0)}=\empty$ else $R_{ij}^{(0)}=\sum_{a\in S}a$
+- *Induction*:
+    $$
+        R_{ij}^{(k)}=R_{ij}^{(k-1)} + R_{ik}^{(k-1)}(R_{kk}^{(k-1)})^&ast;R_{kj}^{(k-1)}
+    $$
+
+#### Coverting Regular Expressions to Automata
+
+##### **Theorem**: Every language accepted by a regular expression is also accepted by a finite automaton.
+Proof
+Let $L=L(R)$ for some regular expression $R$. We show that $L=L(E)$ for some $\epsilon$-NFA $E$ with:
+1. Exactly on accepting state.
+2. No arcs into the initial state.
+3. No arcs out of the accepting state.
+
+- *Basis*: For the 3 base cases:
+  1. $$
+  2. $$
+  3. $$
+  
 - *Induction*: 
+  1. $$
+  2. $$
+  3. $$
+
+### Algebraic Laws for Regular Expressions
+
+#### Associativity and Commutativity
+
+- $L+M=M+L$
+- $(L+M)+N=L+(M+N)$
+- $(LM)N$=$L(MN)$
+
+#### Identities and Annihilators
+
+- $\empty+L=L+\empty=L$
+- $\epsilon L=L\epsilon=L$
+- $\empty L=l\empty=\empty$
+
+#### Distributive Laws
+
+- $L(M+N)=LM+LN$
+- $(M+N)L=ML+NL$
+
+#### Idempotent Law
+
+- $L+L=L$
+
+#### Laws with Closure
+
+- $(L^&ast;)^&ast;=L^&ast;$
+- $\empty^&ast;=\epsilon$
+- $\epsilon^&ast;=\epsilon$
+> $L^+=LL^&ast;$
+- $L^&ast;=L^++\epsilon$
+> $L?=\epsilon+L$
+- $(L^&ast;M^&ast;)^&ast;=(L+M)^&ast;$

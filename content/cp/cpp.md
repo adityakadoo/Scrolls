@@ -3,7 +3,7 @@ title: "C++"
 date: 2022-08-20T12:27:03+05:30
 draft: false
 math: true
-tags: ["Programming Languages","Computer Science"]
+tags: ["Programming-Languages","Computer-Science"]
 ---
 
 ## Basic Utilities

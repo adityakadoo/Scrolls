@@ -87,8 +87,8 @@ A ***deterministic  finite automaton*** $( A(Q,\Sigma,\delta,q_0,F) )$ consists 
 
 A ***transition diagram*** for a $A$ is a graph $G(V,E)$ defined as follows:-
 
-1. $V=\\\{q:\forall q\in Q\\\}$
-2. $E=\\\{q_1\xrightarrow{s}q_2:s\in\Sigma\text{ and }\delta(q_1,s)=q_2\\\}$
+1. $V=\\\{q:q\in Q\\\}$
+2. $E=\\\{q_1\xrightarrow{a}q_2:a\in\Sigma\text{ and }\delta(q_1,a)=q_2\\\}$
 3. An arrow pointing into $q_0$.
 4. All nodes in $F$ are denoted with double circle.
 
@@ -147,7 +147,7 @@ Proof
 - *Basis*: For $w=\epsilon,\\\ \hat\delta_D(\\\{q_0\\\},w)=\\\{q_0\\\}$ and $\hat\delta_N(q_0,w)=\\\{q_0\\\}$
 - *Induction*: As $\hat\delta_N(q_0,w[:-1])=\hat\delta_D(\\\{q_0\\\},w[:-1])$
 $$
-\hat\delta_N(q_0,w)=\bigcup_{p\in\hat\delta_N(\\\{q_0\\\},w[:-1])}\delta_N(p,w[-1])
+\hat\delta_N(q_0,w)=\bigcup_{p\in\hat\delta_N(q_0,w[:-1])}\delta_N(p,w[-1])
 $$
 $$
 \hat\delta_D(\\\{q_0\\\},w)=\delta_D(\hat\delta_D(\\\{q_0\\\},w[:-1]),w[-1])=\bigcup_{p\in\hat\delta_D(\\\{q_0\\\},w[:-1])}\delta_N(p,w[-1])
@@ -188,7 +188,7 @@ $$
 
 ##### **Theorem** : A language $L$ is accepted by some $\epsilon$-NFA iff $L$ is accepted by some DFA.
 Proof
-- *Basis*: Since $\hat\delta_E(q_0, \epsilon)=\text{Ecl}(q_0)$ and $\hat\delta_D(q_D, \epsilon)=\hat\delta_D(\text{Ecl}(q_D),\epsilon)=\text{Ecl}(q_0)$, $\hat\delta_E(q_0, \epsilon) = \hat\delta_D(q_D, \epsilon)$ 
+- *Basis*: Since $\hat\delta_E(q_0, \epsilon)=\text{Ecl}(q_0)$ and $\hat\delta_D(q_D, \epsilon)=\hat\delta_D(\text{Ecl}(q_0),\epsilon)=\text{Ecl}(q_0)$, $\hat\delta_E(q_0, \epsilon) = \hat\delta_D(q_D, \epsilon)$ 
 - *Induction*: As $\hat\delta_E(q_0, w[:-1])=\hat\delta_D(q_D,w[:-1])$ and,
 $$
     \hat\delta_E(q_0,w)=\bigcup_{r\in\bigcup_{p\in\hat\delta_E(q_0, w[:-1])}\delta_E(p,w[-1])}\text{Ecl}(r)
@@ -275,7 +275,7 @@ Let $L=L(R)$ for some regular expression $R$. We show that $L=L(E)$ for some $\e
 
 - $\empty+L=L+\empty=L$
 - $\epsilon L=L\epsilon=L$
-- $\empty L=l\empty=\empty$
+- $\empty L=L\empty=\empty$
 
 #### Distributive Laws
 
@@ -396,7 +396,7 @@ Equivalent States $(p,q)$
 : For all input strings $w$, $\hat\delta(p,w)$ is an accepting state iff $\hat\delta(q,w)$ is an accepting state.
 
 Finding all pairs of distinguishable pairs by table method.
-- *Basis*: If $p$ is an accepting atate and $q$ is a nonaccepting, then the pair $\\\{p,q\\\}$ is distinguishable.
+- *Basis*: If $p$ is an accepting state and $q$ is a nonaccepting, then the pair $\\\{p,q\\\}$ is distinguishable.
 - *Induction*: Let $r=\delta(p,a)$ and $s=\delta(q,a)$ then $p$ and $q$ are distinguishable if $r$ and $s$ are known to be distinguishable.
 
 ##### **Theorem**: Any pair that is left indistinguishable from the table-filling algorithm then the states are equivatent.
@@ -405,4 +405,4 @@ Finding all pairs of distinguishable pairs by table method.
 
 ##### **Theorem**: The equivalence states are transitive. That is, if in some DFA $A=(Q,\sum,\delta,q_0,F)$ we find that states $p$ and $q$ are equivalent, and we also find that $q$ and $r$ are equivalent, then it must be that $p$ and $r$ are equivalent.
 
-Therfore the "equivalence of states" is an equivalence relation over $Q$. This means we can divide the $Q$ into different equivalence classes and the Minimal DFA needs to have at least these many states.
+Therefore the "equivalence of states" is an equivalence relation over $Q$. This means we can divide the $Q$ into different equivalence classes and the Minimal DFA needs to have at least these many states representing every equivalence class.

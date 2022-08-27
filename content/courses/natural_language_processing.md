@@ -8,7 +8,7 @@ math: true
 
 ## Part of Speech Tagging
 
-### Viterbi Algorithm
+### HMM-based Tagging
 
 #### Parameters
 
@@ -26,7 +26,7 @@ There are 2 kinds of probabilities:
 
 > By Markov assumption, current word's tag only depends on previous word's tag.
 
-#### Algorithm
+#### Viterbi Algorithm
 
 ```cpp
 #define BProb(t1,t0) () // Bigram
@@ -64,3 +64,59 @@ vector<string> viterbi(vector<string> sentence, vector<string> labels){
 ```
 
 ### Discriminative Learning
+
+HMM based POS tagging cannot handle "free word order" and "agglutination" well.
+
+#### Feature Engineering
+
+1. Word-based features
+   - $f_{21}$: Dictionary index of the current word
+   - $f_{22}$: Dictionary index of the previous word
+   - $f_{23}$: Dictionary index of the next word
+2. Part of Speech tag-based features
+   - $f_{24}$: Index of POS of previous word
+3. Morphology-based features
+   - $f_{25}$: does the current word have a noun suffix like 's', 'es', 'ies', etc.
+   - $f_{26}$: does the current word have a verbal suffix like 'd', 'ed', 't', etc.
+   - $f_{27}$ and $f_{28}$: above two for previous word.
+   - $f_{29}$ and $f_{2,10}$: above two for next word.
+
+#### Morphology
+
+Morphemes
+: Smallest meaning-bearing units forming a word.
+e.g.: In "quickly", "quick" and "ly".
+
+- **Analytic Languages**: Morphemes largely separate from one another.
+- **Synthetic Languages**: Joins the morphemes.
+
+Syncretism
+: Overloading of roles per morpheme is called ***syncretism***.
+e.g.: "will go": since number and person are indeterminate here
+
+#### Maximum Entropy Markov Model
+
+$$
+    P(t_i=t|F_i)=\dfrac{e^{\sum_{j=1.k}\lambda_jf_{ij}}}{{\sum_{t'\in S}}e^{\sum_{j=1.k}\lambda_jf_{ij}(t')}}
+$$
+
+#### Beam Search Algorithm
+
+
+```cpp
+#define WProb(t,w) ()
+
+vector<string> beam_search(vector<string> sentence, vector<string> labels){
+    int n = sentence.size();
+    int l = labels.size();
+    // labels[0] = "^"
+    vector<string> best1,best2;
+    float p1,p2;
+    // Iterate through all cases and keep track of best 2
+    return res;
+}
+```
+
+## Parsing
+
+### CYK Parsing

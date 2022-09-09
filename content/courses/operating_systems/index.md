@@ -19,7 +19,7 @@ Main objectives of OS include:-
 4. **Persistence** : Ensuring permanent memory does not get erased and stays organised.
 5. **Design Goals** : Abstractions, performance, isolation, reliability, energy-efficiency
 
-## Virtualization
+## CPU Virtualization
 
 ### Abstraction : Process
 
@@ -226,3 +226,87 @@ All these operation are also **priviledge** operations.
 > Once the OS gains control, how to decide which process gets executed next?
 
 This is done by the **scheduler**. Once the decision is made the OS executes a low-level piece of code which is called **context switch**. It is basically saving the register values of the current process and restoring the same for the next process.
+
+## Memory Virtualization
+
+### Abstraction : Address Spaces
+
+![Address space example](images/address_space.png)
+
+3 regions of code in the address space:-
+- Code: Keeps the data related to the code
+- Stack: Keeps track of the function calls and scope variables
+- Heap: Holds the dynamically allocated memory
+
+Objectives of Memory virtualization:-
+- Transparency
+- Efficiency
+- Protection/Isolation
+
+### Memory API
+
+#### Automatic/Stack Memory
+
+This is the memory that is accessed when using a variable on **stack**. This is temporary and is overwritten when the variable goes out of scope
+
+```c
+void func() {
+    int x; // declares an integer on the stack
+    ...
+}
+```
+
+#### Heap Memory
+
+This is a long-lived memory which is handled explicitly by the programmer.
+
+```c
+void func() {
+    int *x = (int *) malloc(sizeof(int)); // allocates memory on heap
+    ...
+    free(x); // frees the allocated memory
+}
+```
+> `malloc()` and `free()` are not system calls but library calls built on top of system calls. Apart from these there is `calloc()` and `realloc()`.
+
+> `mmap()` is another call to get **anonymous** memory allocated in the swap space.
+
+### Address Translation
+
+The hardware provides a generic technique called **hardware-based address translation** to map virtual addresses to physical address but this is quite low-level and the OS has to step-in and manage which areas are free.
+
+We assume that:
+- Address space must be mapped to *contiguous* physical memory
+- The physical space is large compared to the address space
+- All address spaces are of exactly same size
+
+This is done at runtime by the **Memory Management Unit(MMU)** in the CPU. The hardware maintains a **base** and a **bound** to keep track of where an address space is mapped. If memory outside this is accessed CPU raises a segmentation fault.
+
+OS thus has to maintain the location of memory not in use in a data structure such as **free list**.
+
+### Segmentation
+
+Instead of keeping track of base and bound pair of the entire address space as this wastes a lot of used space, store base and bound of different segments such as the code, stack and heap. Along with their seperate bounds also keep track of direction in which it grows and it's read/write permissions.
+
+#### OS issues
+
+1. ***Context Switch***: During a context switch the OS needs to make sure the addresses corresponding to all the segments of the address space are stored.
+2. ***External Fragmentation***: This happens when the spaces left in between allocated segments is not enough to store a new segment but the total free space is sufficient to do so.
+
+### Free Space Management
+
+#### Free List Approach
+
+Using a linked list to keep track of free unallocated segments of memory. Every node stores the start and size of the free segment. When new segements are to be allocated find a node with enough space and shrink it to account for newly occupied memory. Later when a segment is freed, collase joined node together.
+
+#### Some allocation strategies
+
+- Best fit: node with min size greater than required.
+- Worst fit: node with max size greater than required. Basically largest node.
+- First fit: first node greater than required. Greedy but fast.
+- Next fit: Instead of searching from the start search from the next node of last allocation.
+
+#### Other Approaches
+
+- Segregated Allocator: Keeps a region of memory to allocate the most segments with the most frequent size and a separate block to keep segments with other sizes.
+- Buddy Allocator: Only divides free segments in half. Simplifies the coallesing part.

@@ -3,6 +3,7 @@ title: "Operating Systems"
 date: 2022-08-19T10:31:05+05:30
 draft: false
 tags: ["Computer-Science"]
+math: true
 ---
 
 ## Resources
@@ -69,7 +70,7 @@ Following are the types of states a process can be in:-
 - **Process List**: A list maintained by the OS of all the processes and their PCB.
 - **Process Control Block** (PCB): A C struct that keeps track of all the meta-data associated with one process.
 
-### Process API
+#### Process API in Linux
 
 In UNIX systems new processes are created with the use of 2 system calls `fork()` and `exec()`.
 
@@ -214,7 +215,7 @@ All these operation are also **priviledge** operations.
 | Remove from process list      |                                               |                             |
 
 
-### Switching Between Process
+#### Switching Between Process
 
 > How can the operating system **regain control** of the CPU so that it can switch process?
 
@@ -226,6 +227,68 @@ All these operation are also **priviledge** operations.
 > Once the OS gains control, how to decide which process gets executed next?
 
 This is done by the **scheduler**. Once the decision is made the OS executes a low-level piece of code which is called **context switch**. It is basically saving the register values of the current process and restoring the same for the next process.
+
+### Scheduling
+
+#### Workload Assumptions
+
+1. Each job runs for the same amount of time.
+2. All jobs arrive at the same time.
+3. All jobs only use the CPU.
+4. The run-time of each job is known.
+
+#### Scheduling Metrics
+
+We first define a performance index,
+$$
+    T_{turnaround} = T_{completion} - T_{arrival}
+$$
+For now, $T_{turnaround} = T_{completion}$.
+
+Another metric that we need to keep track of is fairness.
+
+> Jain's Fairness Index?
+
+#### First In First Out
+
+This works and produces least turnaround time with current assumptions.
+
+I assumption 1 is removed, then this stops giving the most optimum solution.
+
+#### Shortest Job First
+
+This produces the best results without assumption 1.
+
+If assumption 2 is also removed then in some cases this method performs poorly.
+
+#### Shortest Time-to-Completion First
+
+With only assumptions 3 and 4 this is the theoretically most optimum solution. This can be easily implemented using a heap. It also makes use of timed interrupts and context switching.
+
+In modern systems another new metric is quite important called **Response time**.
+$$
+    T_{response} = T_{firstrun}-T_{arrival}
+$$
+STCF doesn't necessarily perform well in this case.
+
+#### Round Robin
+
+Aka **time slicing**, in this method a time slice is fixed and after every such time period an interrupt is passed. After an interrupt the OS makes sure to rotate between different processes to ensure low response time and fairness.
+
+#### Incorporating I/O
+
+This relaxes the 3rd assumption and whenever a process is engaged in I/O operation it is *blocked*. At it's place a different process is allowed to use the CPU.
+
+#### Multi-Level Feedback Queues
+
+1. If Priority(A) > Priority(B), A runs (B doesn’t).
+2. If Priority(A) = Priority(B), A & B run in RR.
+3. When a job enters the system, it is placed at the highest
+priority (the topmost queue).
+4. Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is
+reduced (i.e., it moves down one queue).
+5. After some time period S, move all the jobs in the system
+to the topmost queue.
 
 ## Memory Virtualization
 
@@ -310,3 +373,31 @@ Using a linked list to keep track of free unallocated segments of memory. Every 
 
 - Segregated Allocator: Keeps a region of memory to allocate the most segments with the most frequent size and a separate block to keep segments with other sizes.
 - Buddy Allocator: Only divides free segments in half. Simplifies the coallesing part.
+
+### Paging : Intro
+
+Memory is divided in terms of ***pages*** with fixed sizes. Thus every address space is given a fixed amount of pages.
+
+#### Address Translation
+
+Every address can be broken into 2 parts: Virtual page number and the byte offset.
+
+> For example, for a 64-byte address space i.e. 6-bit addresses and 16 byte page-size we get the 2-bit VPN and 4-bit offset.
+
+For a typical 32-bit address space with 4KB pages, the address is split into 20-bit VPN and 12-bit offset. This means $2^{20}$ VPN to PPN translation that the **Page Table** will have to hold. This means for 4 bytes per **Page table entry** a huge 4MB per process (400MB for 100 such processes). Thus the PgTable is stored in the memory somewhere.
+
+#### Page Table entry
+
+- **Valid bit**: Valid VPN or not.
+- **Protection bits**: R/W permissions
+- **Present bit**: Whether present in memory or not.
+- **Dirty bit**: The page has been modified or not.
+- **Reference bit**: Tracks whether a page has been accessed.
+
+#### Problems with Paging
+
+1. Too slow: The page table is stored in memory so for each memory access, 2 memory accesses are needed.
+2. Too large: The total size of the Page Table is so large it needs to be stored in the memory.
+
+### Paging : Faster Translations
+

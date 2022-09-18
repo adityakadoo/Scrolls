@@ -134,7 +134,7 @@ $$
     P[|X-\mu|\ge\alpha]\le\dfrac{\sigma^2}{\alpha^2}
 $$
 
-#### Convulution
+#### Convolution
 
 When $Z=X+Y$,
 $$
@@ -191,7 +191,7 @@ Null Space $\mathcal N(A)$
 Rank $r(A)$
 : The maximal number of linearly independent columns of matrix $A$.
 
-> **Rank-Nullity Theorem**: $r(\mathcal C)=r(\mathcal N)$
+> **Rank-Nullity Theorem**: $r(\mathcal C(A))+r(\mathcal N(A))=\text{dim}(A)$
 
 > A square matrix $A$ of dimensions $n\times n$ is invertible iff $r(A)=n$
 
@@ -208,17 +208,11 @@ $$
 
 ### Datasets
 
-#### Training set
-
 Train set
 : The dataset on which we train the model.
 
-#### Validation set
-
 Validation set
 : For hyper-parameter tuning
-
-#### Test set
 
 Test set
 : For judging the model's accuracy on unseen data.
@@ -311,7 +305,7 @@ As $\lambda\rightarrow0$ this expression doesn't give a solution. Another way of
 Condition number
 : The ratio of minimum eigenvalue to maximum eigenvalue.
 $$
-    \text{Cond}(A)=\dfrac{\min(eigen(A))}{\min(eigen(A))}
+    \text{Cond}(A)=\dfrac{\min(eigen(A))}{\max(eigen(A))}
 $$
 
 A high condition number means the matrix can be inverted. A way to do this is to add a factor of $\lambda I$ to the matrix $X^TX$ since this lower bounds the condition number.This is also the solution of a particular Loss function as shown below.

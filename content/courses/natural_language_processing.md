@@ -109,14 +109,90 @@ $$
 vector<string> beam_search(vector<string> sentence, vector<string> labels){
     int n = sentence.size();
     int l = labels.size();
+    int k = 3; // Beam size
     // labels[0] = "^"
-    vector<string> best1,best2;
-    float p1,p2;
-    // Iterate through all cases and keep track of best 2
+    vector<vector<pair<float,vector<int>>>> best(n+1, vector<pair<float,
+        vector<int>>>(k, make_pair(0,vector<int>(n))));
+    best[0][0].first = 1;
+    best[0][0].second[0] = 0;
+    for(int i=1;i<k;i++){
+        best[0][i].first = 0;
+        best[0][i].second[0] = min(i,l-1);
+    }
+    for(int i=0;i<n;i++)
+        for(int j=0;j<k;j++)
+            for(int u=0;u<l;u++){
+                pair<float,vector<int>> p = make_pair(best[i][j].first*
+                    Prob(best[i][j].second, i+1, label[u]),best[i][j].second);
+                labls[i] = u;
+                for(int v=0;v<k;v++)
+                    if(p>best[i+1][v])
+                        swap(p,best[i+1][v]);
+            }
+    vector<string> res(n);
+    pair<float,vector<int>> maxp = max_element(best[n].begin(),best[n].end());
+    for(int i=0;i<maxp.second.size();i++)
+        res[i] = labels[maxp.second[i]];
     return res;
 }
 ```
 
 ## Parsing
 
-### CYK Parsing
+### Context Free Grammar Parsing
+
+We are given a CFG with terminals as POS tags from the language and vairables from segment labels. This grammar is converted to Chomsky form.
+
+#### CYK Algorithm
+
+```cpp
+class node{
+    string label;
+    node* left;
+    node* right;
+};
+
+node* CYK(vector<pair<string,string>> sent, map<pair<string,string>,string> rules)
+{
+    int n = pos_labels.size();
+    vector<vector<pair<int,string>>> dp(n, vector<
+            pair<int, string>>(n, make_pair(0,"")));
+    for(int i=0;i<n;i++)
+        for(int j=i;j>=0;j--)
+            if(i==j)
+                dp[j][i] = make_pair(i, sent[i][0]);
+            else{
+                dp[j][i] = make_pair(-1, "---");
+                for(int k=j+1;k<=i;k++){
+                    pair<string,string> rule = make_pair(dp[j][k-1].second,
+                                                         dp[k][i].second);
+                    if(rules.find(rule)!=rules.end()){
+                        dp[j][i] = make_pair(k, rules[rule]);
+                        break;
+                    }
+                }
+            }
+    node* r;
+    // make the tree
+    return r;
+}
+```
+
+#### Shift reduce algorithm
+
+Using a stack and working through a Push-down automaton based on the language.
+
+### Probabilistic Parsing
+
+In the normal CFG related to the language, we add probability value to each rule. This can be found using the dataset.
+
+Probability of a Parse Tree is defined as the product probabilities of all the rules used in the parse tree. This way we find the parse tree with highest probability.
+
+We can also define the probability of a sentence as the sum of probabilities of its parse trees.
+$$
+    P(S) = \sum_{t} P(t)\cdot P(S|t) = \sum_{t} P(t)
+$$
+
+### Dependency Parsing
+
+Instead of creating chunks of words we create dependency relations between words itself. This creates a tree of words as nodes.

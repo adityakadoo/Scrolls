@@ -406,3 +406,91 @@ Finding all pairs of distinguishable pairs by table method.
 ##### **Theorem**: The equivalence states are transitive. That is, if in some DFA $A=(Q,\sum,\delta,q_0,F)$ we find that states $p$ and $q$ are equivalent, and we also find that $q$ and $r$ are equivalent, then it must be that $p$ and $r$ are equivalent.
 
 Therefore the "equivalence of states" is an equivalence relation over $Q$. This means we can divide the $Q$ into different equivalence classes and the Minimal DFA needs to have at least these many states representing every equivalence class.
+
+## Context-free Grammars
+
+### CFG Basics
+
+#### Definition of CFGs
+
+A CFG $G(V,T,P,S)$ is defined as,
+
+Terminals $(T\sube\\\{a,\cdots,z\\\})$
+: Set of symbols of the language being defined.
+
+Variable $(V\sube\\\{A,\cdots,Z\\\})$
+: Aka nonterminal or syntactic categories; Set of finite variables that each represent a language.
+
+Start Symbol $(S)$
+: A special variable which represents the required language.
+
+Rules $(P)$
+: A set of rules describing recursive definitions of variables such that,
+$$
+    P\sube\\\{A_0\rightarrow w_0|A_0\in V\text{ and }w_0\in(T\cup V)^&ast;\\\}
+$$
+
+#### Derivation relation
+
+We define this relation as,
+$$
+    R_{\boldsymbol{\Rightarrow}}=\\\{(\alpha A\beta,\alpha\gamma\beta)|A\rightarrow\gamma\in P\\\}
+$$
+So in short $\alpha A\beta\Rightarrow\alpha\gamma\beta$.
+
+We can extend this relation to a more powerful derivation in multiple steps relation $\xRightarrow{&ast;}$ as,
+- *Basis*: For any string $\alpha$, $\alpha\xRightarrow{&ast;}\alpha$
+- *Induction*: If $\alpha\xRightarrow{&ast;}\beta$ then $\beta\Rightarrow\gamma$ then $\alpha\xRightarrow{&ast;}\gamma$
+
+#### Leftmost and Rightmost Derivations
+
+While deriving the leftmost string that occurs in a rule as head is always substituted first. This gives use new relations $\xRightarrow[lm]{}$ and $\xRightarrow[lm]{&ast;}$.
+
+Similarly we can also define the relations $\xRightarrow[rm]{}$ and $\xRightarrow[rm]{&ast;}$
+
+#### Language of a Grammar
+
+The language $L$ given by a CFG $G$ is defined as,
+$$
+    L(G) = \\\{w\in T^{&ast;}| S\xRightarrow[G]{&ast;}w\\\}
+$$
+
+#### Sentential Forms
+
+Sentinal Forms
+: All the strings $\alpha\in(V\cup T)^{&ast;}$ such that $S\xRightarrow{&ast;}\alpha$ are ***sentential form***.
+
+Similar we can define ***right-sentential form*** and ***left-sentential form***.
+
+### Parse Trees
+
+#### Constructing Parse Trees
+
+For a grammar $G$ we construct the parse tree of $G$ as,
+
+1. Each interior node is labelled by a variable in $V$.
+2. Each leaf is either labelled by a variable or a terminal or $\epsilon$. If a leaf has $\epsilon$ as label then it must be an only child.
+3. If an interior node is labeled $A$ and its children are labeled
+$$
+    X_1,X_2,\dots,X_k
+$$
+then $A\rightarrow X_1X_2\dots X_k\in P$ and $A$ can have $\epsilon$ as child only if $A\rightarrow\epsilon\in P$.
+
+#### Yield of a Parse Tree
+
+Yield
+: For a particular parse tree, the string obtained by joining the labels of the leafs in the parse tree.
+
+More important parse trees are the ones where:
+- Yield is a terminal string.
+- Root is labeled by the start symbol. 
+
+#### Inference, Derivation and Parse Trees
+
+While describing a grammar $G$ and a string $w$ the following 5 are equivalent,
+
+1. The recursive inference procedure determines that terminal string $w$ is in th language $A$.
+2. $A\xRightarrow{&ast;}w$
+3. $A\xRightarrow[lm]{&ast;}e$
+4. $A\xRightarrow[rm]{&ast;}e$
+5. There is a parse tree with root $A$ and yield $w$.

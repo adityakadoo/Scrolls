@@ -508,6 +508,47 @@ Proof
 
 ## Push-down Automaton
 
+Pushdown Automaton $(\mathcal P(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F) )$
+:   1. A finite set of *states* $(Q)$.
+    2. A finite set of *input symbols* $(\Sigma)$.
+    3. A finite *stack alphabet* that can be push onto the stack $(\Gamma)$
+    4. A *transition function* $(\delta:Q\times\Sigma\cup\\\{\epsilon\\\}\times\Gamma\rightarrow\mathcal P(Q\times\Gamma^{&ast;}))$ such that $(p,\gamma)\in\delta(q,a,X)$ means that on the input symbol $a$ we go from $q$ to $p$ and change the top of the stack from symbol $X$ to string $\gamma$
+    5. A *start state* $(q_0\in Q)$
+    6. The *stack start symbol* $(Z_0)$ that is empty stack has this at the top initially
+    7. A set of *final states* $F\sube Q$
+
+Transition Diagram $(G(V,E))$
+:   1. $V=\\\{q:q\in Q\\\}$
+    2. An arrow pointing into $q_0$
+    3. Double circle around states in $F$
+    4. $E=\\\{q\xrightarrow{a,X/\gamma}p:(p,\gamma)\in\delta(q,a,X)\\\}$
+
+Instantaneous Description $(ID=(q,w,\gamma))$
+:   1. $q$ is the state
+    2. $w$ is the remaining input
+    3. $\gamma$ is the stack contents
+
+Transition Relation $(\vdash\sube(ID)^2)$
+:   If $(p,\alpha)\in\delta(q,a,X)$ then, $\forall w\in\Sigma^{&ast;},\forall\beta\in\Gamma^{&ast;}$
+    $$
+        (q,aw,X\beta)\vdash(p,w,\alpha\beta)
+    $$
+
+Generalised Transition Relation $(\vdash^{&ast;})$
+:   - *Basis*: $I\vdash^{&ast;}I$ for all $ID\text{s}$
+    - *Induction*: If $I\vdash K$ and $K\vdash^{&ast;}J$ then $I\vdash^{&ast;}J$
+
+##### **Theorem** : If $(q,x,\alpha)\vdash^{&ast;}(p,y,\beta)$, then for any strings $w$ in $\Sigma^{&ast;}$ and $\gamma$ in $\Gamma^{&ast;}$, it is also true that $(q,xw,\alpha\gamma)\vdash^{&ast;}(p,yw,\beta\gamma)$
+
+##### **Theorem** : If $(q,xw,\alpha)\vdash^{&ast;}(p,yw,\beta)$ then $(q,x,\alpha)\vdash^{&ast;}(p,y,\beta)$
+
+### Language of a PDA
+
+#### Acceptance by Final State
+$$
+    L(P) = \\\{w|(q_0,w,Z_0)\vdash^{&ast;}(q,\epsilon,\alpha)\\\}
+$$
+
 ## Properties of CFLs
 
 ### Normal Forms of CFGs
@@ -664,4 +705,103 @@ Proof
 : Involves PDA :(
 
 ### Descision Properties
- 
+
+## Turing Machines
+
+Turing Machine $M(Q, \Sigma, \Gamma, \delta, q_0, B, F)$
+:   - $Q$: Finite set of states of finite control
+    - $\Sigma$: Finite set of input symbols
+    - $\Gamma$: Complete set of tape symbols; $\Sigma$ is always a subset of $\Gamma$ and $\Sigma\sube\Gamma$
+    - $\delta$: Transition funtion such that $\delta: Q\times\Gamma\rightarrow Q\times\Gamma\times\\\{L,R\\\}$ and if $\delta(p, X)=(q, Y, L/R)$ means
+        - Control state goes from $p$ to $q$
+        - Current tape symbol $X$ is replaced by $Y$
+        - Tape is shifted towards left/right based on L/R.
+    - $q_0$: The start state thus $q_0\in Q$
+    - $B$: The blank symbol thus $B\in\Gamma$
+    - $F$: The set of final accepting states thus $F\sube Q$
+
+Instantaneous Description $ID(X_1X_2\cdots X_{i-1}qX_i\cdots X_n)$
+:   - $q$ is the state of the Turing machine
+    - Tape is scanning the $i\text{th}$ symbol from the left
+    - $X_1X_2\cdots X_n$ is the portion of the tape between the leftmost and the rightmost non-blank.
+
+Moves $(\vdash$ or $\vdash^{&ast;})$
+: If $\delta(q,X_i)=(p,Y,\alpha)$
+    - $\alpha=L$
+        $$
+            X_1X_2\cdots X_{i-1}qX_i\cdots X_n\vdash X_1\cdots X_{i-2}pX_{i-1}Y\cdots X_n
+        $$
+    - $i=1$ and $\alpha=L$
+        $$
+            qX_1\cdots X_n\vdash pBYX_2\cdots X_n
+        $$
+    - $i=n$, $Y=B$ and $\alpha=L$
+        $$
+            X_1\cdots X_{n-1}qX_n\vdash X_1\cdots X_{n-2}pX_{n-1}
+        $$
+    - $\alpha=R$
+        $$
+            X_1X_2\cdots X_{i-1}qX_i\cdots X_n\vdash X_1\cdots X_{i-1}YpX_{i+1}\cdots X_n
+        $$
+    - $i=n$ and $\alpha=R$
+        $$
+            X_1\cdots X_{n-1}qX_n\vdash X_1\cdots X_{n-1}YpB
+        $$
+    - $i=1$, $Y=B$ and $\alpha=R$
+        $$
+            qX_1\cdots X_n\vdash pX_2\cdots X_n
+        $$
+
+Transition diagram $G(V,E)$
+:   1. $V=Q$
+    2. $E=\\\{q\xrightarrow{X/Y\rightarrow}p:\delta(q,X)=(p,Y,R)\\\}\cup\\\{q\xrightarrow{X/Y\leftarrow}p:\delta(q,X)=(p,Y,L)\\\}$
+    3. An arrow pointing into $q_0$
+    4. All states in $F$ are double-circled
+
+Language of Turing Machine $(L(M))$
+:   $$
+        L(M) = \\\{w:q_0w\vdash^{&ast;}\alpha p\beta, p\in F\\\}
+    $$
+
+> The set of languages accepted by a Turing Machine is called Recursively Enumerable
+
+> Another notion of acceptance is when a Turing Machine halts on words in the language.
+
+### Programming Techniques
+
+1. **Storage in state**: Viewing the control states as tuples to store information
+2. **Multiple Tracks**: Using multiple tracks to store data, marks, etc. in a useful way.
+3. **Subroutines**: Creating copies of con trol states and transitions every time a subroutine is to be used from its initial state.
+
+### Extensions to Basic definition
+
+1. **Multitape Turing Machines**: Reads from more than one tapes.
+2. **Non-deterministic Turing Machines**: $\delta:Q\times\Gamma\rightarrow\mathcal P(Q\times\Gamma\times\\\{R,L\\\})$
+
+### Restrictions on Basic definition
+
+1. **TM with semi-infinite tapes**
+2. **Multistack Machines**
+3. **Counter Machines**
+
+## Undecidability
+
+Code for TM $(w_M)$
+: An elaborate way to encode $M$ and it's components into a finite bit-string that is unique to $M$.
+
+Diagonalization Language $(L_d)$
+: We enumerate all possible Turing Machines $M_i$ by enumerating their codes $w_i$. Now construct a table in which $(i,j)\text{th}$ entry is $1$ if $w_i$ is accepted by $M_j$ else it is $0$. Take the diagonal of this table and complement it to get the characteristic vector for $L_d$. The $i\text{th}$ bit of this characteristic vector denotes the membership of $w_i$ in $L_d$.
+
+##### **Theorem** : $L_d$ is not recursively enumerable.
+
+Proof
+: There is no $M_i$ in the table as described above that matches the characteristic vector of $L_d$ over $w_i\text{'s}$ therefore $\not\exist M,\\ L_d=L(M)$.
+
+Recursive Languages
+: Languages that have a Turing Machine that accepts all the words in the language and halts without accepting on all the words not in the language.
+
+> Recursive(Algorithmic) $\sube$ RE(Undecidable) $\sube$ Not RE
+
+> If $L$ is recursive then $\bar L$ is also recursive.
+
+> If $L$ and $\bar L$ are RE then they are both recursive.

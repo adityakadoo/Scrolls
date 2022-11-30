@@ -104,7 +104,7 @@ $$
 
 
 ```cpp
-#define WProb(t,w) ()
+#define Prob(t,w) ()
 
 vector<string> beam_search(vector<string> sentence, vector<string> labels){
     int n = sentence.size();
@@ -196,3 +196,29 @@ $$
 ### Dependency Parsing
 
 Instead of creating chunks of words we create dependency relations between words itself. This creates a tree of words as nodes.
+
+## FFNNBP
+
+Use softmax or sigmoid for sentiment analysis.
+
+## WordNet
+
+- ***Syntagmatic***: Based on relations such as Synonym, antonym, etc. *CAT* and *ANIMAL*
+- ***Paradigmatic***: Based on Co-occurences. *CAT* and *MEW*
+
+### Wordnet Engineering
+
+Principles of Synset creation
+:   - Minimality
+    - Coverage
+    - Replacibility
+
+These synsets are used to create Syntagmatic ConceptNets.
+
+Calculate Lexical Semantic Association(LSA) i.e. matrix of co-occurence frequencies. Apply PCA to get Paradigmatic WordNets.
+
+### Using WordNets
+
+$$P(Context\\ word | input\\ word)=P(w_1|w_2)=\frac{e^{(u_{w_1}^Tu_{w_2})}}{\Sigma_k e^{(u_{w_1}^Tu_{w_k})}}$$
+
+> Here $u_w$ is the word vector for $w$.

@@ -306,7 +306,7 @@ Objectives of Memory virtualization:-
 - Efficiency
 - Protection/Isolation
 
-### Memory API
+#### Memory API
 
 #### Automatic/Stack Memory
 
@@ -334,7 +334,7 @@ void func() {
 
 > `mmap()` is another call to get **anonymous** memory allocated in the swap space.
 
-### Address Translation
+#### Address Translation
 
 The hardware provides a generic technique called **hardware-based address translation** to map virtual addresses to physical address but this is quite low-level and the OS has to step-in and manage which areas are free.
 
@@ -347,34 +347,32 @@ This is done at runtime by the **Memory Management Unit(MMU)** in the CPU. The h
 
 OS thus has to maintain the location of memory not in use in a data structure such as **free list**.
 
-### Segmentation
+#### Segmentation
 
 Instead of keeping track of base and bound pair of the entire address space as this wastes a lot of used space, store base and bound of different segments such as the code, stack and heap. Along with their seperate bounds also keep track of direction in which it grows and it's read/write permissions.
 
-#### OS issues
+##### OS issues
 
 1. ***Context Switch***: During a context switch the OS needs to make sure the addresses corresponding to all the segments of the address space are stored.
 2. ***External Fragmentation***: This happens when the spaces left in between allocated segments is not enough to store a new segment but the total free space is sufficient to do so.
 
-### Free Space Management
+#### Free Space Management
 
-#### Free List Approach
+Free List Approach
+: Using a linked list to keep track of free unallocated segments of memory. Every node stores the start and size of the free segment. When new segements are to be allocated find a node with enough space and shrink it to account for newly occupied memory. Later when a segment is freed, collase joined node together.
 
-Using a linked list to keep track of free unallocated segments of memory. Every node stores the start and size of the free segment. When new segements are to be allocated find a node with enough space and shrink it to account for newly occupied memory. Later when a segment is freed, collase joined node together.
-
-#### Some allocation strategies
+Some allocation strategies
 
 - Best fit: node with min size greater than required.
 - Worst fit: node with max size greater than required. Basically largest node.
 - First fit: first node greater than required. Greedy but fast.
 - Next fit: Instead of searching from the start search from the next node of last allocation.
 
-#### Other Approaches
-
+Other Approaches
 - Segregated Allocator: Keeps a region of memory to allocate the most segments with the most frequent size and a separate block to keep segments with other sizes.
 - Buddy Allocator: Only divides free segments in half. Simplifies the coallesing part.
 
-### Paging : Intro
+### Paging
 
 Memory is divided in terms of ***pages*** with fixed sizes. Thus every address space is given a fixed amount of pages.
 
@@ -399,5 +397,80 @@ For a typical 32-bit address space with 4KB pages, the address is split into 20-
 1. Too slow: The page table is stored in memory so for each memory access, 2 memory accesses are needed.
 2. Too large: The total size of the Page Table is so large it needs to be stored in the memory.
 
-### Paging : Faster Translations
+#### Faster Translations
 
+Translation-Lookaside Buffer $(TLB)$
+: Its part of the MMU and simply caches the most popular virtual-to-physical address translations to improve performance. It works as follows
+
+```C
+VPN = (VirtualAddress & VPN_MASK) >> SHIFT
+(Success, TlbEntry) = TLB_Lookup(VPN)
+if (Success == True) // TLB Hit
+    if (CanAccess(TlbEntry.ProtectBits) == True)
+        Offset = VirtualAddress & OFFSET_MASK
+        PhysAddr = (TlbEntry.PFN << SHIFT) | Offset
+        AccessMemory(PhysAddr)
+    else
+        RaiseException(PROTECTION_FAULT)
+else // TLB Miss
+    PTEAddr = PTBR + (VPN * sizeof(PTE))
+    PTE = AccessMemory(PTEAddr)
+    if (PTE.Valid == False)
+        RaiseException(SEGMENTATION_FAULT)
+    else if (CanAccess(PTE.ProtectBits) == False)
+        RaiseException(PROTECTION_FAULT)
+    else
+        TLB_Insert(VPN, PTE.PFN, PTE.ProtectBits)
+        RetryInstruction()
+```
+
+TLB hits are typically handled by the hardware. When TLB misses are when the process traps into the OS and it is fetched this way.
+
+To make sure a process has access to TLB entries relavent to it only, the TLB entries also carry a address space identifier unique to every process.
+
+| VPN | PFN | valid | prot | ASID |
+| --- | --- | ----- | ---- | ---- |
+| 10  | 100 | 1     | rwx  | 1    |
+
+#### Smaller Tables
+
+Using Multi-level Page Tables to store the mappings instead of linear tables with exponentially more size. This works when the address space is used sparsely.
+
+## Concurrency
+
+### Abstraction : Threads, Locks and CVs
+
+Threads
+: A process can have multiple threads that can parallely execute while sharing the address space. 
+    - `clone(&t)` : creates a new thread
+    - `join(&t)` : waits for thread to join
+
+Locks
+: Only simple instructions available on the instruction set is executed atomically by the threads. Therefore to ensure atomicity while updating shared data structures a **lock** is used.
+    - `lock(&m)` : acquires the lock is available or else blocks till available
+    - `unlock(&m)` : releases the lock
+
+#### Ways to create Locks
+
+- Controlling Interrupts : Whenever lock is acquired disable interrupts and resume them when released. Dangerous as can't trust the programmer to use fairly.
+- Test and Set(Atomic Exchange) : `test-and-set` instruction in the instruction set to ensure atomicity, used to implement a spin-waiting lock. Very inefficient.
+- Compare and swap
+- Load-linked and store-conditional
+- Fetch and add
+- Yielding on fail: All the above implemented spinlocks. Simply yielding on failing to acquire performs better.
+- Waiting Queues to maintain fairness
+
+Conditional variables
+: A flag that wait for acquiring a lock till it is signaled by another process.
+    - `wait(&cv, &m)` : Waits for conditional variable cv and releases the lock.
+    - `signal(&cv)` : First to acquire the lock and be waiting on cv will execute
+    - `broadcast(&cv)` : all waiting threads are scheduled once
+
+Semaphores
+: Hybrid of locks and conditional variables in one object that maintains an internal state of number of active threads.
+    - `sem_wait(&s)` : Waits for a Semaphore
+    - `sem_post(&s)` : releases one semaphore
+
+## Persistence
+
+### Abstraction : File Systems

@@ -805,3 +805,65 @@ Recursive Languages
 > If $L$ is recursive then $\bar L$ is also recursive.
 
 > If $L$ and $\bar L$ are RE then they are both recursive.
+
+##### **Rice's Theorem** : Every nontrivial property of the RE languages is undecidable.
+
+> $L_u$ a.k.a. the universal language containing all the pairs $(M,w)$ where $M$ is a code for TM which accepts $w$.
+> $L_u$ is **Undecidable**.
+
+### Post Correspondence Problem
+
+Post Correspondence Problem $(PCP)$
+:   Given two lists of strings $A=[w_1,w_2,\dots w_k]$ and $B=[x_1,x_2,\dots x_k]$ with equal length, find a sequence of indices $i_1, i_2, \dots, i_m$ where,
+    $$
+        w_{i_1}w_{i_2}\cdots w_{i_m}=x_{i_1}x_{i_2}\cdots x_{i_m}
+    $$
+
+Modified PCP $(MPCP)$
+:   Given two lists of strings $A=[w_1,w_2,\dots w_k]$ and $B=[x_1,x_2,\dots x_k]$ with equal length, find a sequence of indices $i_1, i_2, \dots, i_m$ where,
+    $$
+        w_1w_{i_1}w_{i_2}\cdots w_{i_m}=x_1x_{i_1}x_{i_2}\cdots x_{i_m}
+    $$
+
+##### **Theorem** : MPCP reduces to PCP
+Proof
+: Given an instance of MPCP with lists $A$ and $B$ alphabets not containing $&ast;$ and $\\\$$ we define a PCP instance with lists $C=[y_0,y_1,\dots,y_{k+1}]$ and $D=[z_0,z_1,\dots,z_{k+1}]$
+    1. For $i=1,2,\dots,k$ let $y_i=w_i$ with a $&ast;$ after each symbol and let $z_i=x_i$ with a $&ast;$ before each symbol of $x_i$
+    2. $y_0=&ast;y_1$ and $z_0=z_1$
+    3. $y_{k+1}=\\\$$ and $z_{k+1}=&ast;\\\$$
+
+##### **Theorem** : MPCP is Undecidable.
+Proof
+: Reduce $L_u$ acceptability to MPCP.
+
+## Intractable Problems
+
+Polynomial Time $(\mathcal P)$
+: Class of languages which are accepted by a Turing machine $M$ with a time complexity $T(n)$ such that whenever $M$ is given an input $w$ of length $n$, $M$ halts after making at most $T(n)$ moves, regardless of whether or not $w$ is accepted.
+
+Nondeterministic Polynomial Time $(\mathcal{NP})$
+: Class of languages which are accepted by a nondeterministic Turing machine $M$ with a time complexity $T(n)$ such that whenever $M$ is given an input $w$ of length $n$, $M$ halts after making at most $T(n)$ moves.
+
+    A language $L$ belongs to $\mathcal{NP}$ iff $\exist$ a language $L_1\in\mathcal P$:-
+    - if for every $x\in L \exist$ some additional input $y$ with (with $y≤p(|x|)$) s.t. the string $x#y\in L_1$ (where $#$ represents some kind of pair).
+    - if $x\not\in L$ then for no string $y$ we have $x#y\in L_1$.
+    - Here, $y$ is a proof or certificate that $x\in L$.
+
+> A problem $A$ is said to be ***Polynomial-time reducible*** to problem $B$ if there exists a $\mathcal P$ TM which can generate solutions for $A$ given a constant time TM for solving $B$ that can be used as a subroutine.
+
+Complement of $\mathcal{NP}$ $(\text{Co-}\mathcal{NP})$
+: Complement of languages in $\mathcal{NP}$.
+
+> If $\mathcal P = \mathcal{NP}$, then Co-$\mathcal{NP}$ will also be $\mathcal{NP}$. But, whether $\mathcal P$ is equal to $\mathcal{NP}$ (or not) is not proven yet.
+
+> Language of Composite numbers is in $\mathcal{NP} and so is the language of Prime Numbers$
+
+### NP-Complete Problems
+
+- SAT
+- CNF-SAT
+- 3-SAT
+- Maximal Independent Set
+- Minimal Vertex Cover
+- Hamiltionian path
+- Travelling Salesman Problem

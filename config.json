@@ -2,5 +2,34 @@
    "baseURL": "https://adityakadoo.github.io/Scrolls/",
    "languageCode": "en-us",
    "title": "Scrolls",
-   "theme": "fuji"
+   "params": {
+      "logo": ":fish_cake:",
+      "dark": {
+         "bg": "#1a1b26",
+         "fg": "#24283b",
+         "disabled": "#565f89",
+         "text": "#a9b1d6",
+         "purple": "#bb9af7",
+         "blue": "#7aa2f7",
+         "cyan": "#7dcfff",
+         "green": "#9ece6a",
+         "yellow": "#e0af68",
+         "red": "#f7768e",
+         "icon": ":full_moon_with_face:"
+      },
+      "light": {
+         "bg": "#d5d6db",
+         "fg": "#24283b",
+         "disabled": "#9699a3",
+         "text": "#343b58",
+         "purple": "#0f4b6e",
+         "blue": "#34548a",
+         "cyan": "#0f4b6e",
+         "green": "#485e30",
+         "yellow": "#8f5e15",
+         "red": "#8c4351",
+         "icon": ":new_moon_with_face:"
+      },
+      "clicks": 0
+   }
 }

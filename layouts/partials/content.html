@@ -1,0 +1,17 @@
+<article id="article">
+    <div class="heading">
+        {{if .IsSection}}
+        {{emojify .Params.emoji}} {{.Title}}
+        {{else if .IsPage}}
+        {{emojify .Site.Params.logos.article}} {{.Title}}
+        {{end}}
+    </div>
+    <div id="content">
+        <div id="content-markdown">
+            {{.Content}}
+        </div>
+        <aside id="content-toc">
+            {{ .TableOfContents }}
+        </aside>
+    </div>
+</article>

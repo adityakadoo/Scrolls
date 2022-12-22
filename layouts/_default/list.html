@@ -1,9 +1,4 @@
-{{ define "main" }}
-<ul>
-    {{ range sort .Pages "Date" }}
-    <li>
-        <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
+{{define "main"}}
+{{partial "content.html" .}}
+{{partial "listing.html" .}}
+{{end}}

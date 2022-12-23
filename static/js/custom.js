@@ -6,23 +6,24 @@ window.onscroll = () => {
 };
 
 resizer = () => {
-    var width = document.body.clientWidth;
+    const vw = window.screen.width;
     var pages = document.getElementsByClassName("pages-item");
     var columns = document.getElementsByClassName("pages-column");
     var isSection = (columns.length !== 0);
 
     if (isSection) {
-        if (width / 4 < 350) {
+        if (vw / 4 < 340) {
             document.getElementById("list-container").style.flexDirection = "column";
             document.getElementById("sections-container").style.width = "100%";
             document.getElementById("pages-container").style.width = "100%";
-            var n_used_columns = Math.max(1, Math.floor(width / 350));
+            var n_used_columns = Math.max(1, Math.floor(vw / 340));
         } else {
             document.getElementById("list-container").style.flexDirection = "row";
             document.getElementById("sections-container").style.width = "25%";
             document.getElementById("pages-container").style.width = "75%";
-            var n_used_columns = Math.max(1, Math.floor((width * 3 / 4) / 350));
+            var n_used_columns = Math.max(1, Math.floor((vw * 3 / 4) / 340));
         }
+        console.log(vw, n_used_columns);
         let n_pages = pages.length;
         let n_columns = columns.length;
         var sorted_pages = [];
@@ -42,14 +43,16 @@ resizer = () => {
         }
     }
 
-    if (width * 3 / 10 < 350) {
-        document.getElementById("content").style.flexDirection = "column-reverse";
-        document.getElementById("content-markdown").style.width = "100%";
-        document.getElementById("content-toc").style.width = "initial";
-    } else {
-        document.getElementById("content").style.flexDirection = "row";
-        document.getElementById("content-markdown").style.width = "70%";
-        document.getElementById("content-toc").style.width = "30%";
+    if (document.getElementById("content") !== null) {
+        if (vw * 3 / 10 < 350) {
+            document.getElementById("content").style.flexDirection = "column-reverse";
+            document.getElementById("content-markdown").style.width = "100%";
+            document.getElementById("content-toc").style.width = "initial";
+        } else {
+            document.getElementById("content").style.flexDirection = "row";
+            document.getElementById("content-markdown").style.width = "70%";
+            document.getElementById("content-toc").style.width = "30%";
+        }
     }
 };
 

@@ -2,11 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-primary">
         {{$data := newScratch}}
         {{$data.Set "link" "//"}}
-        <div class="navbar-brand">
-            {{emojify .Site.Params.logos.icon}}
-        </div>
         <a class="navbar-brand" href="{{.Site.BaseURL}}">
-            {{.Site.Title}}
+            {{emojify .Site.Params.logos.icon}} {{.Site.Title}}
         </a>
         <div class="navbar-nav mr-auto">
             {{if (eq .Kind "404")}}

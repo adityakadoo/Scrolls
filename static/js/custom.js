@@ -23,7 +23,7 @@ resizer = () => {
             document.getElementById("pages-container").style.width = "75%";
             var n_used_columns = Math.max(1, Math.floor((vw * 3 / 4) / 340));
         }
-        console.log(vw, n_used_columns);
+        // console.log(vw, n_used_columns);
         let n_pages = pages.length;
         let n_columns = columns.length;
         var sorted_pages = [];

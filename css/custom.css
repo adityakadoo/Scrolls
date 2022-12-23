@@ -32,13 +32,13 @@ body {
     width: 100vw;
 }
 
-@media screen and (min-width: 1501px) {
+@media screen and (min-width: 1931px) {
     html,body {
         font-size: var(--font-size-lg);
     }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1930px) {
     html,body {
         font-size: var(--font-size-md);
     }
@@ -52,7 +52,7 @@ body {
 
 @media screen and (max-width: 992px) {
     html,body {
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-lg);
     }    
 }    
 

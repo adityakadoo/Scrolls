@@ -4,6 +4,10 @@ date: 2022-08-19T17:00:34+05:30
 draft: false
 math: true
 tags: ["Computer-Science"]
+description: "Notes of CS-310 Automata Theory course"
+resources:
+- name: thumbnail
+  src: images/thumbnail.png
 ---
 
 ## Resources

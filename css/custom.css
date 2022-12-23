@@ -52,7 +52,7 @@ body {
 
 @media screen and (max-width: 992px) {
     html,body {
-        font-size: var(--font-size-lg);
+        font-size: var(--font-size-xl);
     }    
 }    
 
@@ -198,7 +198,7 @@ html {
     margin: 10px;
     min-width: 320px;
     background-color: var(--fg);
-    border-radius: 25px;
+    border-radius: 1.5rem;
     border: var(--disabled) solid 1.5px;
 }
 
@@ -208,7 +208,7 @@ html {
     width: 100%;
     display: inline-block;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 1.5rem;
 }
 
 .pages-link:hover,
@@ -227,8 +227,7 @@ html {
 
 .pages-image {
     width: 100%;
-    border-radius: 25px 25px 0 0;
-    max-height: 12rem;
+    border-radius: 1.5rem 1.5rem 0 0;
 }
 
 .pages-path {

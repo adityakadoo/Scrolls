@@ -28,7 +28,9 @@
         <div class="pages-item" key="{{$keys.Get `last`}}">
             <a href="{{.Permalink}}" class="pages-link">
                 {{with .Resources.GetMatch "thumbnail"}}
-                <img class="pages-image" src="data:{{.MediaType}};base64,{{.Content | base64Encode}}">
+                <div style="max-height:12rem; overflow:hidden;">
+                    <img class="pages-image" src="data:{{.MediaType}};base64,{{.Content | base64Encode}}">
+                </div>
                 {{end}}
                 <div class="pages-path">
                     /{{replace (replace (path.Dir .RelPermalink) ($keys.Get "link") "") (path.Base .RelPermalink) "" |

@@ -1,56 +1,36 @@
-/* :root {
-    --bg: #1a1b26;
-    --fg: #24283b;
-    --disabled: #767fa9;
-    --text: #a9b1d6;
-    --purple: #bb9af7;
-    --blue: #7aa2f7;
-    --cyan: #7dcfff;
-    --green: #9ece6a;
-    --yellow: #e0af68;
-    --red: #f7768e;
-    --orange: #ff9e64;
-} */
-
-@font-face {
-    font-family: 'Fira Code iScript';
-    src: url('fonts/FiraCodeiScript-Regular.ttf');
-}
-
-
 h1 {
     font-size: 2.5rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--cyan);
 }
 
 h2 {
     font-size: 2rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--cyan);
 }
 
 h3 {
     font-size: 1.75rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--blue);
 }
 
 h4 {
     font-size: 1.5rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--blue);
 }
 
 h5 {
     font-size: 1.25rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--text);
 }
 
 h6 {
     font-size: 1rem;
-    font-family: Fugaz One;
+    font-family: var(--font-display);
     color: var(--disabled);
 }
 
@@ -65,7 +45,7 @@ ol {
 
 li::marker {
     color: var(--purple);
-    font-family: Major Mono Display;
+    font-family: var(--font-display-mono);
     font-weight: 700;
 }
 
@@ -79,7 +59,7 @@ del {
 
 blockquote {
     /* color: var(--blue); */
-    font-family: Merriweather;
+    font-family: var(--font-primary);
     background-color: var(--bg);
     border-left: 2px dashed var(--purple);
     border-bottom: 2px dashed var(--purple);
@@ -115,7 +95,7 @@ a:focus {
 }
 
 code {
-    font-family: Fira Code iScript;
+    font-family: var(--font-code);
     color: var(--red);
     font-weight: 700;
 }

@@ -85,6 +85,12 @@ body {
     overflow-y: hidden;
     flex-wrap: nowrap;
     width: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.navbar-nav::-webkit-scrollbar {
+    display: none;
 }
 
 .navbar-slash {

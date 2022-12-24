@@ -6,11 +6,11 @@ window.onscroll = () => {
 };
 
 resizer = () => {
-    const vw = window.screen.width;
+    const vw = Math.min(window.innerWidth,window.screen.width);
     var pages = document.getElementsByClassName("pages-item");
     var columns = document.getElementsByClassName("pages-column");
     var isSection = (columns.length !== 0);
-
+    console.log(vw, window.screen.width);
     if (isSection) {
         if (vw / 4 < 340) {
             document.getElementById("list-container").style.flexDirection = "column";
@@ -23,7 +23,7 @@ resizer = () => {
             document.getElementById("pages-container").style.width = "75%";
             var n_used_columns = Math.max(1, Math.floor((vw * 3 / 4) / 340));
         }
-        console.log(vw, n_used_columns);
+        // console.log(vw, n_used_columns);
         let n_pages = pages.length;
         let n_columns = columns.length;
         var sorted_pages = [];
@@ -41,7 +41,7 @@ resizer = () => {
                 columns[i].style.flex = "0%";
             }
         }
-        if (vw < 680) {
+        if (window.screen.width < 680) {
             document.getElementById("pages-container").style.fontSize = "clamp(var(--font-size-lg), 5vw, var(--font-size-xl))";
         }
         else {

@@ -66,18 +66,13 @@ body {
     }
 }
 
-/* html::-webkit-scrollbar {
-    display: none;
-}
-
-html {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-} */
-
 .navbar {
     background-color: var(--fg);
     padding: 0rem 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 4.3rem;
 }
 
 .navbar-nav {
@@ -85,6 +80,11 @@ html {
     flex-direction: row;
     align-items: baseline;
     padding-top: 0.3rem;
+    height: 3.7rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    width: auto;
 }
 
 .navbar-slash {
@@ -99,6 +99,11 @@ html {
     font-weight: 700;
     color: var(--text);
     padding: 0.5rem 0;
+    height: 3.0rem;
+}
+
+.nav-link {
+    padding: 0.5rem !important;
 }
 
 .nav-curr {

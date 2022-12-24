@@ -10,7 +10,7 @@ resizer = () => {
     var pages = document.getElementsByClassName("pages-item");
     var columns = document.getElementsByClassName("pages-column");
     var isSection = (columns.length !== 0);
-    console.log(vw, window.screen.width);
+    // console.log(vw, window.screen.width);
     if (isSection) {
         if (vw / 4 < 340) {
             document.getElementById("list-container").style.flexDirection = "column";

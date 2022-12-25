@@ -1,0 +1,115 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Scrolls</title><link rel=icon href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%f0%9f%8d%a5</text></svg>"><link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css integrity=sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO crossorigin=anonymous><script src=https://code.jquery.com/jquery-3.3.1.slim.min.js integrity=sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo crossorigin=anonymous></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js integrity=sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 crossorigin=anonymous></script>
+<script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js integrity=sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy crossorigin=anonymous></script>
+<link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Major+Mono+Display&family=Merriweather+Sans:wght@300;700&family=Merriweather:wght@300;700&display=swap" rel=stylesheet><link rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/custom.css><link rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/markdown.css><link rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/syntax.css><script type=text/javascript src=https://adityakadoo.github.io/Scrolls/js/custom.js></script></head><body><header id=header class=sticky><nav class="navbar navbar-expand-lg navbar-primary"><a class=navbar-brand href=https://adityakadoo.github.io/Scrolls/>🍥 Scrolls</a><div class="navbar-nav mr-auto"><div class=navbar-slash>/</div><div class=nav-item><a class=nav-link href=/Scrolls style=width:8.850000000000001ch>Scrolls</a></div><div class=navbar-slash>/</div><div class=nav-item><a class=nav-link href=/Scrolls/courses style=width:8.850000000000001ch>Courses</a></div><div class=navbar-slash>/</div><div class=nav-item><div class=nav-curr style=width:6.75ch>Ai Ml</div></div></div></nav><div class=Progress-container><div class=Progress-bar id=myBar></div></div></header><main id=main><article id=article><div class=heading>📜 Artificial Intelligence and Machine Learning</div><div id=content><div id=content-markdown><h2 id=probability>Probability</h2><h3 id=basic-terms>Basic Terms</h3><h4 id=sample-space>Sample Space</h4><dl><dt>Sample Space $(S)$</dt><dd>The set of all possible outcomes of an experiment.
+$$
+P(S)=1,P(\empty)=0
+$$</dd></dl><h4 id=probability-distribution>Probability Distribution</h4><dl><dt>Probability Distribution $(p)$</dt><dd>A function that gives the probabilities of occurence of different possible outcomes of an experiment.
+$$
+p:S\rightarrow[0,1]\\
+\sum_{x\in S}p(x)=1
+$$</dd></dl><h4 id=event>Event</h4><dl><dt>Event $(E)$</dt><dd>A set of outcomes of an experiement i.e. a subset of the sample space.
+$$
+E\sube S
+$$</dd></dl><h4 id=probability-of-an-event>Probability of an Event</h4><dl><dt>Probability of an event $P(E)$</dt><dd>The likelihood of an event happening. Mathematically given as,
+$$
+P(E)=\sum_{x\in S}p(x)\\
+P(\overline E)=1-P(E),\ \overline E=S-E
+P(E_1\cup E_2)=P(E_1)+P(E_2)-P(E_1\cap E_2)
+$$</dd></dl><h4 id=expectation>Expectation</h4><dl><dt>Expectation $E[.]$</dt><dd>For a RV $X$ on $\R$ with PMF $P$ expectation is defined as,
+$$
+E[X]=\sum_xP(X=x)
+$$</dd></dl><blockquote><p><strong>Linearity</strong>: $E[\alpha X+\beta Y]=\alpha E[X]+\beta E[Y]$</p></blockquote><blockquote><p><strong>MSE minimizer</strong>: Solution for $E[(X-z)^2]$ is $z=E[X]$</p></blockquote><blockquote><p><strong>Expectation of Product</strong>: $E[XY]=E[X]E[Y]$</p></blockquote><h4 id=variance>Variance</h4><dl><dt>Varaince $\text{Var}[.]$</dt><dd>For a RV $X$,
+$$
+\text{Var}[X]=E[X^2]-E[X]^2
+$$</dd></dl><blockquote><p>$\text{Var}[\alpha X+\beta]=\alpha^2\text{Var}[X]$</p></blockquote><blockquote><p>$\text{Var}[X+Y]=\text{Var}[X]+\text{Var}[Y]$ if $X$ and $Y$ are independent</p></blockquote><h4 id=covariance>Covariance</h4><dl><dt>Covariance $(\text{Cov}[.,.])$</dt><dd>For RVs $X$ and $Y$, covariance is defined as
+$$
+\text{Cov}[X,Y]=E[XY]-E[X]E[Y]
+$$</dd></dl><blockquote><p>$\text{Cov}[X,X]=\text{Var}[X]$</p></blockquote><blockquote><p>$\text{Cov}[X+Z,Y]=\text{Cov}[X,Y]+\text{Cov}[Z,Y]$</p></blockquote><blockquote><p>$\text{Cov}[X,Y]=0 \iff X$ and $Y$ are independent</p></blockquote><h3 id=important-results>Important Results</h3><h4 id=union-bound>Union Bound</h4><p>$$
+P(E_1\cup E_2)\le P(E_1)+P(E_2)
+$$</p><h4 id=disjoint-events>Disjoint Events</h4><p>$$
+P(\bigcup_{i=1}^nE_i)=\sum_{i=1}^np(x)
+$$</p><h4 id=conditional-probability>Conditional Probability</h4><p>For two event $E_1$ and $E_2$,
+$$
+P(E_1|E_2)=\dfrac{P(E_1\cap E_2)}{P(E_2)}
+$$</p><h4 id=bayes-theorem>Bayes&rsquo; Theorem</h4><p>$$
+P(E_1|E_2)=\dfrac{P(E_2|E_1)P(E_1)}{P(E_2)}
+$$</p><h4 id=marginal-distribution>Marginal Distribution</h4><p>For 2 random variables $X$ and $Y$ the joint distribution is $P(X,Y)$ and the probability that $X=x$ is given by,
+$$
+P(X=x)=\sum_YP(X=x,Y=y)
+$$</p><h4 id=independent-random-variables>Independent Random Variables</h4><p>$X$ and $Y$ are independent w.r.t. each other if,
+$$
+P(X=x,Y=y)=P(X=x)\cdot P(Y=y)
+$$</p><h4 id=chebyshevs-inequality>Chebyshev&rsquo;s Inequality</h4><p>If $X$ is a RV with mean $\mu$ and variance $\sigma^2$ then $\forall\alpha>0$
+$$
+P[|X-\mu|\ge\alpha]\le\dfrac{\sigma^2}{\alpha^2}
+$$</p><h4 id=convolution>Convolution</h4><p>When $Z=X+Y$,
+$$
+P(Z=z)=\sum_xP(X=x)P(Y=z-x)
+$$</p><h3 id=data-to-pdf>Data to PDF</h3><p>Consider a PDF $f:\R\rightarrow \R_0^+$ which needs to be found. We can generate samples from this PDF.
+$$
+E_f[x^k]=\lim_{n\rightarrow\infty}\dfrac{\sum_{i=1}^NX_i^k}{N}
+$$
+We define the moment generating function $M(\omega)$ as,
+$$
+M(\omega)=\int_{-\infty}^{\infty}e^{i\omega x}f(x)dx\\
+=1+i\omega E[x]-\dfrac{\omega^2E[x^2]}{2!}-i\dfrac{\omega^3E[x^3]}{3!}\cdots
+$$
+By using the Inverse Fourier Transform we get,
+$$
+f(x)=\dfrac{1}{s\pi}\int_{-\infty}^{\infty}e^{-i\omega x}M(\omega)d\omega
+$$</p><h2 id=linear-algebra>Linear Algebra</h2><h3 id=vectors-and-matrices>Vectors and Matrices</h3><dl><dt>Vector $v$</dt><dd>Ordered sequence of numbers.</dd><dt>Linearly Independent</dt><dd>A set of vectors is LI if one of them can&rsquo;t be reconstructed by taking linear combination of others.</dd><dt>Matrix $A,B,&mldr;$</dt><dd>Ordered sequence of vectors.</dd></dl><h3 id=linear-equations>Linear Equations</h3><p>$$
+Ax=B
+$$
+here $A\in\R^{m\times n}$, $x\in\R^n$ and $b\in\R^m$. This is solved using Gaussian Elimination.</p><h3 id=vector-spaces>Vector Spaces</h3><dl><dt>Vector Space $(\mathcal V)$</dt><dd>A set of vectors qualifies as a vector space if it is closed under the operation of summation and multiplication.</dd><dt>Column Space $\mathcal C(A)$</dt><dd>The vector space spanned by the column vectors of matrix $A$.</dd><dt>Null Space $\mathcal N(A)$</dt><dd>Solutions of the equation $Ax=0$.</dd><dt>Rank $r(A)$</dt><dd>The maximal number of linearly independent columns of matrix $A$.</dd></dl><blockquote><p><strong>Rank-Nullity Theorem</strong>: $r(\mathcal C(A))+r(\mathcal N(A))=\text{dim}(A)$</p></blockquote><blockquote><p>A square matrix $A$ of dimensions $n\times n$ is invertible iff $r(A)=n$</p></blockquote><blockquote><p>$\lim_{k\rightarrow\infty}W^k=\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n}$ iff</p></blockquote><p>$$
+\boldsymbol{1}^TW=\boldsymbol{1}^T\\
+W\boldsymbol{1}=\boldsymbol{1}\\
+\rho(W-\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n})&lt;1
+$$</p><blockquote><p>where $\rho(.)$ denotes the spectral radius of a matrix i.e. maximum of the absolute values of its eigenvalues.</p></blockquote><h2 id=loss-function-design>Loss Function Design</h2><h3 id=datasets>Datasets</h3><dl><dt>Train set</dt><dd>The dataset on which we train the model.</dd><dt>Validation set</dt><dd>For hyper-parameter tuning</dd><dt>Test set</dt><dd>For judging the model&rsquo;s accuracy on unseen data.</dd></dl><p>Consider a classification task where we have a dataset $D$ with $(x_i,y_i)$ values. $y_i\in\{-1,1\}$ and $x_i\in\R^d$ is the feature vector. Lets say
+$$
+Y=H(X)
+$$
+We must find $H(.)$.</p><h3 id=loss-minimization>Loss Minimization</h3><p>We define a Loss Function $L(.)$ that takes a function $H:\R^d\rightarrow\{1,-1\}$ needs to be minimised.
+$$
+H^*=\text{arg}_H\text{min}L(H)
+$$</p><p>Following are possible examples of $L$ given by,</p><ul><li>General Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(H(x_i)\ne y_i)$</li><li>Constant Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(c\ne y_i)$</li><li>Linear Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(w^Tx_i+b\ne y_i)$</li></ul><p>Assuming Linear Hypothesis we can make following modifications:</p><ul><li>Linear Hypothesis with Absolute Difference:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D|w^Tx_i+b-y_i|
+$$</li><li>Linear Hypothesis with Signum and Indicator Cost:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(\text{sgn}(w^Tx_i+b)\ne y_i)
+$$</li><li>Linear Hypothesis with Sigmoid Mapping:
+$$
+f(x_i)=\dfrac{1}{1+e^{-(w^Tx_i+b)}}
+$$
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(f(x_i)\ne \dfrac{y_i+1}{2})
+$$</li><li>Linear, Sigmoid and ReLU:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\text{max}(0,(\dfrac{1}{2}-f(x_i)\cdot y_i))
+$$</li></ul><p>Another example from Probabilistic Analysis:</p><ul><li>Binary Cross Entropy Loss:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D[-(\dfrac{y_i+1}{2})\log(f(x_i))-(1-\dfrac{y_i+1}{2})\log(1-f(x_i))]
+$$</li></ul><h3 id=accounting-for-noise>Accounting for Noise</h3><p>When $L=\sum_{i\in D}\max(0,-y_i(w^Tx_i+b))$, if $w^Tx_i+b$ takes a very small positive or negative value then the loss function should not consider this reliable as it could be the result of noise in measurement. Thus to deal with such values, we can add a $\plusmn1$ around the decision boundary.</p><h2 id=regression>Regression</h2><p>Consider the problem of housing price prediction. We have a feature vector with $n$ features given by the column vector $x\in\R^{n\times1}$. The price of a house is modelled by the RV $Y$. We need to find a function $f:\R^n\rightarrow\R$ that models the relation between $X$ and $Y$.</p><h3 id=mean-squared-loss>Mean Squared Loss</h3><p>Assuming Gaussian noise between $f(x_i)$ and $y_i$ we get,
+$$
+y_i=f(x_i)+e_i\\
+e_i=y_i-f(x_i)
+$$
+where $e\sim\mathcal{N}(0,\sigma^2)$. Maximizing the likelihood of $e_i$ we get the Mean Squared Loss.</p><blockquote><p>Similarly we get an $L_1$ Loss if we model noise as Laplacian distribution.</p></blockquote><h3 id=solving-of-linear-regression-wrt-msl>Solving of Linear Regression wrt MSL</h3><p>Assuming $f(x)=w^tx+b$ and,
+$$
+(w^*,b^*)=\arg\min\sum_{i\in D}(y_i-w^tx_i-b)^2
+$$</p><blockquote><p>$b^*=E[Y]$</p></blockquote><p>$$
+w^*=\arg\dfrac{d((y-w^tx)^2)}{dw}=0
+$$
+On solving this we get,</p><blockquote><p>$w^*=\dfrac{y}{\lambda}(I-\dfrac{xx^T}{\lambda+||x||^2_2})x$</p></blockquote><p>As $\lambda\rightarrow0$ this expression doesn&rsquo;t give a solution. Another way of writing this solution is,</p><blockquote><p>$w^*=(X^TX)^{-1}X^TY$</p></blockquote><h3 id=invertibility-of-xtx>Invertibility of $X^TX$</h3><dl><dt>Condition number</dt><dd>The ratio of minimum eigenvalue to maximum eigenvalue.
+$$
+\text{Cond}(A)=\dfrac{\min(eigen(A))}{\max(eigen(A))}
+$$</dd></dl><p>A high condition number means the matrix can be inverted. A way to do this is to add a factor of $\lambda I$ to the matrix $X^TX$ since this lower bounds the condition number.This is also the solution of a particular Loss function as shown below.</p><h2 id=regularisation>Regularisation</h2><p>There are different types of regularisation techniques such as:</p><ul><li>L1 regularisation</li><li>L2 regularisation</li><li>Dropout regularisation</li></ul><h3 id=l2-regularisation>L2 regularisation</h3><p>$$
+w^*=\sum_{i\in D}(y_i-w^Tx_i)^2+\lambda||w||^2
+$$</p><p>On solving we get,
+$$
+w^*=(X^TX+\lambda I)^{-1}X^TY
+$$</p><h3 id=overfitting>Overfitting</h3><p>Overfitting occures when the model is constrained to the training set and not able to perform well on the test set, here the gap between the training error and testing error is large.</p></div><aside id=content-toc><nav id=TableOfContents><ul><li><a href=#probability>Probability</a><ul><li><a href=#basic-terms>Basic Terms</a></li><li><a href=#important-results>Important Results</a></li><li><a href=#data-to-pdf>Data to PDF</a></li></ul></li><li><a href=#linear-algebra>Linear Algebra</a><ul><li><a href=#vectors-and-matrices>Vectors and Matrices</a></li><li><a href=#linear-equations>Linear Equations</a></li><li><a href=#vector-spaces>Vector Spaces</a></li></ul></li><li><a href=#loss-function-design>Loss Function Design</a><ul><li><a href=#datasets>Datasets</a></li><li><a href=#loss-minimization>Loss Minimization</a></li><li><a href=#accounting-for-noise>Accounting for Noise</a></li></ul></li><li><a href=#regression>Regression</a><ul><li><a href=#mean-squared-loss>Mean Squared Loss</a></li><li><a href=#solving-of-linear-regression-wrt-msl>Solving of Linear Regression wrt MSL</a></li><li><a href=#invertibility-of-xtx>Invertibility of $X^TX$</a></li></ul></li><li><a href=#regularisation>Regularisation</a><ul><li><a href=#l2-regularisation>L2 regularisation</a></li><li><a href=#overfitting>Overfitting</a></li></ul></li></ul></nav></aside></div></article></main><footer id=footer>Designed and made for fun using <a href=https://gohugo.io>Hugo</a>.<br>•••<br>You can reach me at the following,<br><a href=mailto:aditya1449kadoo@gmail.com>🚂 EMail</a>
+• <a href=https://github.com/adityakadoo>🚕 Github</a>
+• <a href=https://www.linkedin.com/in/aditya-kadoo-513284222/>🚲 Linkedin</a></footer></body><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css integrity=sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js integrity=sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O crossorigin=anonymous></script>
+<script>function __initialize_katex(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})}</script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js integrity=sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF crossorigin=anonymous onload=__initialize_katex()></script></html>

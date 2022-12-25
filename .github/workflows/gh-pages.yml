@@ -21,7 +21,11 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build
-        run: hugo --minify
+        run: |
+            cd exampleSite
+            mkdir themes
+            ln -s ../.. themes/Scrolls
+            hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

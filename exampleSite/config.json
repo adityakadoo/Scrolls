@@ -2,6 +2,7 @@
    "baseURL": "https://adityakadoo.github.io/Scrolls/",
    "languageCode": "en-us",
    "title": "Scrolls",
+   "theme": "Scrolls",
    "params": {
       "logos": {
          "icon": ":fish_cake:",

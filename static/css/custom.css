@@ -207,6 +207,7 @@ body {
     flex-direction: row;
     padding: 0 0.9375rem;
     margin: 0 0 0.9375rem 0;
+    gap: 0.9375rem;
 }
 
 #pages-container {
@@ -293,7 +294,7 @@ body {
 
 #sections-container {
     width: 25%;
-    padding: 0 0.9375rem;
+    /* padding: 0 0.9375rem; */
 }
 
 .heading {
@@ -381,7 +382,7 @@ body {
     font-size: 2rem;
     text-align: center;
     font-family: var(--font-display-mono);
-    padding-top: 3.15rem;
+    padding: 3.15rem;
 }
 
 #content {

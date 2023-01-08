@@ -6,7 +6,7 @@ window.onscroll = () => {
 };
 
 resizer = () => {
-    const vw = Math.min(window.innerWidth,window.screen.width);
+    const vw = Math.min(window.innerWidth, window.screen.width);
     var pages = document.getElementsByClassName("pages-item");
     var columns = document.getElementsByClassName("pages-column");
     var isSection = (columns.length !== 0);
@@ -49,7 +49,7 @@ resizer = () => {
         }
     }
 
-    if (document.getElementById("content") !== null) {
+    if (document.getElementById("content-markdown") !== null) {
         if (vw * 3 / 10 < 350) {
             document.getElementById("content").style.flexDirection = "column-reverse";
             document.getElementById("content-markdown").style.width = "100%";
@@ -59,6 +59,9 @@ resizer = () => {
             document.getElementById("content-markdown").style.width = "70%";
             document.getElementById("content-toc").style.width = "30%";
         }
+    }
+    else {
+        document.getElementById("content").style.display = "block";
     }
 
 };

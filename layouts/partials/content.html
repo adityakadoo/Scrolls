@@ -7,11 +7,15 @@
         {{end}}
     </div>
     <div id="content">
+        {{if .Params.toc}}
         <div id="content-markdown">
             {{.Content}}
         </div>
         <aside id="content-toc">
             {{ .TableOfContents }}
         </aside>
+        {{else}}
+        {{.Content}}
+        {{end}}
     </div>
 </article>

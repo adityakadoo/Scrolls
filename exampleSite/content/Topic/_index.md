@@ -6,6 +6,7 @@ description: "This is Description"
 emoji: ":rice_ball:"
 math: true
 markup: 'mmark'
+toc: true
 ---
 
 # Heading 1

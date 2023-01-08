@@ -8,6 +8,7 @@ description: "Notes of CS-310 Automata Theory course"
 resources:
 - name: thumbnail
   src: images/thumbnail.png
+toc: true
 ---
 
 ## Resources

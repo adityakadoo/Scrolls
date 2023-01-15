@@ -290,6 +290,7 @@ body {
     color: var(--text);
     padding: 0 0.9375rem 0.9375rem 0.9375rem;
     font-weight: 300;
+    font-size: 1rem;
 }
 
 #sections-container {
@@ -370,6 +371,7 @@ body {
     padding-top: 0.3125rem;
     font-weight: 300;
     text-align: justify;
+    font-size: 1rem;
 }
 
 #article {

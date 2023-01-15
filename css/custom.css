@@ -19,7 +19,7 @@
     --font-display-mono: "Major Mono Display", "Jetbrains Mono",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     --font-primary: "Merriweather", "Calibre", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --font-code: "Fira Code iScript", "Jetbrains Mono",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --font-code: "Fira Code iScript Italic", "Jetbrains Mono",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --font-code-italic: "Fira Code iScript Italic", "Jetbrains Mono",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 
 @font-face {

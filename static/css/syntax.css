@@ -93,43 +93,43 @@
 /* Keyword */
 .chroma .k {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordConstant */
 .chroma .kc {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordDeclaration */
 .chroma .kd {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordNamespace */
 .chroma .kn {
     color: var(--cyan);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordPseudo */
 .chroma .kp {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordReserved */
 .chroma .kr {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* KeywordType */
 .chroma .kt {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* Name */
@@ -151,7 +151,7 @@
 /* NameBuiltinPseudo */
 .chroma .bp {
     color: var(--cyan);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* NameClass */
@@ -189,7 +189,7 @@
 /* NameFunctionMagic */
 .chroma .fm {
     color: var(--cyan);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* NameLabel */
@@ -259,105 +259,105 @@
 /* LiteralDate */
 .chroma .ld {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralString */
 .chroma .s {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringAffix */
 .chroma .sa {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringBacktick */
 .chroma .sb {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringChar */
 .chroma .sc {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringDelimiter */
 .chroma .dl {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringDoc */
 .chroma .sd {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringDouble */
 .chroma .s2 {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringEscape */
 .chroma .se {
     color: var(--cyan);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringHeredoc */
 .chroma .sh {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringInterpol */
 .chroma .si {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringOther */
 .chroma .sx {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringRegex */
 .chroma .sr {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringSingle */
 .chroma .s1 {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
 /* LiteralStringSymbol */
 .chroma .ss {
     color: var(--green);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
     font-weight: 300;
 }
 
@@ -412,7 +412,7 @@
 /* OperatorWord */
 .chroma .ow {
     color: var(--purple);
-    font-family: 'Fira Code iScript Italic';
+    font-family: var(--font-code-italic);
 }
 
 /* Punctuation */
@@ -423,31 +423,31 @@
 /* Comment */
 .chroma .c {
     color: var(--disabled);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* CommentHashbang */
 .chroma .ch {
     color: var(--disabled);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* CommentMultiline */
 .chroma .cm {
     color: var(--disabled);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* CommentSingle */
 .chroma .c1 {
     color: var(--disabled);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* CommentSpecial */
 .chroma .cs {
     color: var(--disabled);
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* CommentPreproc */
@@ -459,7 +459,7 @@
 .chroma .cpf {
     color: var(--yellow);
     font-weight: 300;
-    font-family: "Fira Code iScript Italic";
+    font-family: var(--font-code-italic);
 }
 
 /* Generic */

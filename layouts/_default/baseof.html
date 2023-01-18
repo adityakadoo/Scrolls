@@ -32,6 +32,10 @@
     <script type="text/javascript" src="{{. | absURL}}"></script>
     {{end}}
 
+    {{if .Params.webgl}}
+    <script src="webgl-demo.js" type="module" defer></script>
+    {{end}}
+
 </head>
 
 <body>

@@ -133,3 +133,15 @@
 .content ol, .content ul {
     margin-left: 1.5rem;
 }
+
+.tableofcontent ol, .tableofcontent ul {
+    margin-left: 2rem;
+    counter-reset: item;
+    list-style-type: none;
+}
+
+.tableofcontent li:before {
+    content: counters(item, '.') ' ';
+    counter-increment: item;
+    padding-right: 0.85rem;
+}

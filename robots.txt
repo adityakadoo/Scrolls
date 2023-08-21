@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://adityakadoo.github.io/Scrolls/sitemap.xml

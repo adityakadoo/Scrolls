@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/math/</link><description>Recent content in Math on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 02 Sep 2022 09:46:58 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/math/</link><description>Recent content in Math on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Fri, 02 Sep 2022 09:46:58 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
 &lt;h3 id="ternary-search">Ternary Search&lt;/h3>
 &lt;p>We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:&lt;/p>
 &lt;ol>
@@ -8,39 +8,39 @@
 &lt;p>Here we assume the first case and find the maximum of $f(x)$ on the interval $[l,r]$.&lt;/p>
 &lt;h4 id="implementation">Implementation&lt;/h4>
 &lt;h5 id="iterative">Iterative&lt;/h5>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(l&lt;span style="color:#f92672">&amp;lt;=&lt;/span>r){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m2];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0b0;font-weight:bold">int&lt;/span> &lt;span style="color:#00a000">ternary_max&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">int&lt;/span>[] a, &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> l, &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> res&lt;span style="color:#666">=&lt;/span>&lt;span style="color:#666">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">while&lt;/span>(l&lt;span style="color:#666">&amp;lt;=&lt;/span>r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> m1 &lt;span style="color:#666">=&lt;/span> l&lt;span style="color:#666">+&lt;/span>(r&lt;span style="color:#666">-&lt;/span>l)&lt;span style="color:#666">/&lt;/span>&lt;span style="color:#666">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> m2 &lt;span style="color:#666">=&lt;/span> r&lt;span style="color:#666">-&lt;/span>(r&lt;span style="color:#666">-&lt;/span>l)&lt;span style="color:#666">/&lt;/span>&lt;span style="color:#666">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(a[m1]&lt;span style="color:#666">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">=&lt;/span> a[m2];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#666">=&lt;/span> m1&lt;span style="color:#666">+&lt;/span>&lt;span style="color:#666">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">else&lt;/span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(a[m1]&lt;span style="color:#666">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#666">=&lt;/span> m2&lt;span style="color:#666">-&lt;/span>&lt;span style="color:#666">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>{
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">else&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#666">=&lt;/span> m1&lt;span style="color:#666">+&lt;/span>&lt;span style="color:#666">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#666">=&lt;/span> m2;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> res;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="recursive">Recursive&lt;/h5>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(l&lt;span style="color:#f92672">==&lt;/span>r)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,r);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,l,m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,m2);
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0b0;font-weight:bold">int&lt;/span> &lt;span style="color:#00a000">ternary_max&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">int&lt;/span>[] a, &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> l, &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(l&lt;span style="color:#666">==&lt;/span>r)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> a[&lt;span style="color:#666">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> m1 &lt;span style="color:#666">=&lt;/span> l&lt;span style="color:#666">+&lt;/span>(r&lt;span style="color:#666">-&lt;/span>l)&lt;span style="color:#666">/&lt;/span>&lt;span style="color:#666">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> m2 &lt;span style="color:#666">=&lt;/span> r&lt;span style="color:#666">-&lt;/span>(r&lt;span style="color:#666">-&lt;/span>l)&lt;span style="color:#666">/&lt;/span>&lt;span style="color:#666">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(a[m1]&lt;span style="color:#666">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> ternary_max(a,m1&lt;span style="color:#666">+&lt;/span>&lt;span style="color:#666">1&lt;/span>,r);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">else&lt;/span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(a[m1]&lt;span style="color:#666">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> ternary_max(a,l,m2&lt;span style="color:#666">-&lt;/span>&lt;span style="color:#666">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> ternary_max(a,m1&lt;span style="color:#666">+&lt;/span>&lt;span style="color:#666">1&lt;/span>,m2);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof">Proof&lt;/h4>
 &lt;p>$$n=r-l+1$$&lt;/p>
@@ -65,30 +65,30 @@ Thus time complexity is $\mathcal O(\log n)$.&lt;/p>
 &lt;p>Used to find root of a function $f(x)$ on some interval $[a,b]$. It is assumed that $f$ is continuous and differentiable over this interval.&lt;/p>
 &lt;h4 id="implementation-1">Implementation&lt;/h4>
 &lt;h5 id="to-find-real-square-root-of-a-number">To find real square root of a number&lt;/h5>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> n){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">-&lt;/span>n;
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> &lt;span style="color:#00a000">sqrt&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> n){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">auto&lt;/span> f &lt;span style="color:#666">=&lt;/span> [&lt;span style="color:#666">=&lt;/span>] (&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> x&lt;span style="color:#666">*&lt;/span>x&lt;span style="color:#666">-&lt;/span>n;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f1 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">auto&lt;/span> f1 &lt;span style="color:#666">=&lt;/span> [&lt;span style="color:#666">=&lt;/span>] (&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> &lt;span style="color:#666">2&lt;/span>&lt;span style="color:#666">*&lt;/span>x;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>n,prev&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(res&lt;span style="color:#f92672">-&lt;/span>prev&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">1e-9&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prev &lt;span style="color:#f92672">=&lt;/span> res;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> res&lt;span style="color:#f92672">-&lt;/span>f(res)&lt;span style="color:#f92672">/&lt;/span>f1(res);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">float&lt;/span> res&lt;span style="color:#666">=&lt;/span>n,prev&lt;span style="color:#666">=&lt;/span>&lt;span style="color:#666">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">while&lt;/span>(res&lt;span style="color:#666">-&lt;/span>prev&lt;span style="color:#666">&amp;gt;&lt;/span>&lt;span style="color:#666">1e-9&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prev &lt;span style="color:#666">=&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">=&lt;/span> res&lt;span style="color:#666">-&lt;/span>f(res)&lt;span style="color:#666">/&lt;/span>f1(res);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> res;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="to-find-integer-part-of-square-root-of-a-number">To find integer part of square root of a number&lt;/h5>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> n) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>,nx&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> decreased &lt;span style="color:#f92672">=&lt;/span> false;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(x &lt;span style="color:#f92672">!=&lt;/span> nx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> (nx &lt;span style="color:#f92672">&amp;lt;=&lt;/span> x &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#f92672">!&lt;/span>decreased)) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> decreased &lt;span style="color:#f92672">=&lt;/span> nx &lt;span style="color:#f92672">&amp;lt;&lt;/span> x;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#f92672">=&lt;/span> nx;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nx &lt;span style="color:#f92672">=&lt;/span> (x &lt;span style="color:#f92672">+&lt;/span> n &lt;span style="color:#f92672">/&lt;/span> x) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0b0;font-weight:bold">int&lt;/span> &lt;span style="color:#00a000">sqrt&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">int&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">int&lt;/span> x &lt;span style="color:#666">=&lt;/span> &lt;span style="color:#666">1&lt;/span>,nx&lt;span style="color:#666">=&lt;/span>&lt;span style="color:#666">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">bool&lt;/span> decreased &lt;span style="color:#666">=&lt;/span> &lt;span style="color:#a2f">false&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">while&lt;/span>(x &lt;span style="color:#666">!=&lt;/span> nx &lt;span style="color:#666">&amp;amp;&amp;amp;&lt;/span> (nx &lt;span style="color:#666">&amp;lt;=&lt;/span> x &lt;span style="color:#666">||&lt;/span> &lt;span style="color:#666">!&lt;/span>decreased)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> decreased &lt;span style="color:#666">=&lt;/span> nx &lt;span style="color:#666">&amp;lt;&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#666">=&lt;/span> nx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nx &lt;span style="color:#666">=&lt;/span> (x &lt;span style="color:#666">+&lt;/span> n &lt;span style="color:#666">/&lt;/span> x) &lt;span style="color:#666">/&lt;/span> &lt;span style="color:#666">2&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> x;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-1">Proof&lt;/h4>
 &lt;p>It converges towards the root with every iteration.&lt;/p>
@@ -101,21 +101,21 @@ $$&lt;/p>
 &lt;p>Used to calculate the integral of a funtion $f$ over the interval $[a,b]$.&lt;/p>
 &lt;h4 id="implementation-2">Implementation&lt;/h4>
 &lt;p>Here $f(x)$ is some pre-defined function.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define N 1000*1000
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">integrate&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> a,&lt;span style="color:#66d9ef">float&lt;/span> b){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> h &lt;span style="color:#f92672">=&lt;/span> (b&lt;span style="color:#f92672">-&lt;/span>a)&lt;span style="color:#f92672">/&lt;/span>N;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [] (&lt;span style="color:#66d9ef">float&lt;/span> x) {...};
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> f(a)&lt;span style="color:#f92672">+&lt;/span>f(b);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>N;i&lt;span style="color:#f92672">++&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> a&lt;span style="color:#f92672">+&lt;/span>h&lt;span style="color:#f92672">*&lt;/span>(i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>;
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080">#define N 1000*1000
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#080">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> &lt;span style="color:#00a000">integrate&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> a,&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> b){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">float&lt;/span> h &lt;span style="color:#666">=&lt;/span> (b&lt;span style="color:#666">-&lt;/span>a)&lt;span style="color:#666">/&lt;/span>N;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">auto&lt;/span> f &lt;span style="color:#666">=&lt;/span> [] (&lt;span style="color:#0b0;font-weight:bold">float&lt;/span> x) {...};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">float&lt;/span> res &lt;span style="color:#666">=&lt;/span> f(a)&lt;span style="color:#666">+&lt;/span>f(b);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">for&lt;/span>(&lt;span style="color:#0b0;font-weight:bold">int&lt;/span> i&lt;span style="color:#666">=&lt;/span>&lt;span style="color:#666">0&lt;/span>;i&lt;span style="color:#666">&amp;lt;&lt;/span>N;i&lt;span style="color:#666">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0b0;font-weight:bold">float&lt;/span> x &lt;span style="color:#666">=&lt;/span> a&lt;span style="color:#666">+&lt;/span>h&lt;span style="color:#666">*&lt;/span>(i&lt;span style="color:#666">+&lt;/span>&lt;span style="color:#666">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span>(i&lt;span style="color:#666">%&lt;/span>&lt;span style="color:#666">2&lt;/span>&lt;span style="color:#666">==&lt;/span>&lt;span style="color:#666">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">+=&lt;/span> f(x)&lt;span style="color:#666">*&lt;/span>&lt;span style="color:#666">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">+=&lt;/span> f(x)&lt;span style="color:#666">*&lt;/span>&lt;span style="color:#666">4&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">*=&lt;/span> h&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#666">*=&lt;/span> h&lt;span style="color:#666">/&lt;/span>&lt;span style="color:#666">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> res;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-2">Proof&lt;/h4>
 &lt;p>Let $n$ be some natural number. We divide the integration segment $[a,b]$ into $2n$ equal parts:

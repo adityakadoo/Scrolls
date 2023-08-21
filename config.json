@@ -1,0 +1,13 @@
+{
+   "baseURL": "https://adityakadoo.github.io/Scrolls/",
+   "languageCode": "en-us",
+   "title": "Scrolls",
+   "theme": "hugo-theme-texify",
+   "markup": {
+      "tableOfContents": {
+         "endLevel": 4,
+         "ordered": true,
+         "startLevel": 2
+      }
+   }
+}

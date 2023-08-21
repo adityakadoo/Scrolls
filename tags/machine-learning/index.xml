@@ -1,3 +1,490 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine-Learning on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/machine-learning/</link><description>Recent content in Machine-Learning on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 06:52:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>Probability Basic Terms Sample Space Sample Space $(S)$ The set of all possible outcomes of an experiment. $$ P(S)=1,P(\empty)=0 $$ Probability Distribution Probability Distribution $(p)$ A function that gives the probabilities of occurence of different possible outcomes of an experiment. $$ p:S\rightarrow[0,1]\\ \sum_{x\in S}p(x)=1 $$ Event Event $(E)$ A set of outcomes of an experiement i.e. a subset of the sample space. $$ E\sube S $$ Probability of an Event Probability of an event $P(E)$ The likelihood of an event happening.</description></item><item><title>Natural Language Processing</title><link>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</link><pubDate>Wed, 24 Aug 2022 09:49:01 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</guid><description>Part of Speech Tagging HMM-based Tagging Parameters Input: A sequence of words and labels Output: A sequence of labels for every word Penn tag-set is generally used for POS tagging in english language.
-Hidden Markov Model There are 2 kinds of probabilities:
-Bigram Probabilities $(P(t_1|t_0))$ : Probability of current word being tag $t_1$ when previous word was tagged $t_0$. Lexical Probabilities $(P(w|t))$: Probability of word $w$ given it is tagged $t$.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine-Learning on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/machine-learning/</link><description>Recent content in Machine-Learning on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 06:52:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>&lt;h2 id="probability">Probability&lt;/h2>
+&lt;h3 id="basic-terms">Basic Terms&lt;/h3>
+&lt;h4 id="sample-space">Sample Space&lt;/h4>
+&lt;dl>
+&lt;dt>Sample Space $(S)$&lt;/dt>
+&lt;dd>The set of all possible outcomes of an experiment.
+$$
+P(S)=1,P(\empty)=0
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="probability-distribution">Probability Distribution&lt;/h4>
+&lt;dl>
+&lt;dt>Probability Distribution $(p)$&lt;/dt>
+&lt;dd>A function that gives the probabilities of occurence of different possible outcomes of an experiment.
+$$
+p:S\rightarrow[0,1]\\
+\sum_{x\in S}p(x)=1
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="event">Event&lt;/h4>
+&lt;dl>
+&lt;dt>Event $(E)$&lt;/dt>
+&lt;dd>A set of outcomes of an experiement i.e. a subset of the sample space.
+$$
+E\sube S
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="probability-of-an-event">Probability of an Event&lt;/h4>
+&lt;dl>
+&lt;dt>Probability of an event $P(E)$&lt;/dt>
+&lt;dd>The likelihood of an event happening. Mathematically given as,
+$$
+P(E)=\sum_{x\in S}p(x)\\
+P(\overline E)=1-P(E),\ \overline E=S-E
+P(E_1\cup E_2)=P(E_1)+P(E_2)-P(E_1\cap E_2)
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="expectation">Expectation&lt;/h4>
+&lt;dl>
+&lt;dt>Expectation $E[.]$&lt;/dt>
+&lt;dd>For a RV $X$ on $\R$ with PMF $P$ expectation is defined as,
+$$
+E[X]=\sum_xP(X=x)
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Linearity&lt;/strong>: $E[\alpha X+\beta Y]=\alpha E[X]+\beta E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>MSE minimizer&lt;/strong>: Solution for $E[(X-z)^2]$ is $z=E[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Expectation of Product&lt;/strong>: $E[XY]=E[X]E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="variance">Variance&lt;/h4>
+&lt;dl>
+&lt;dt>Varaince $\text{Var}[.]$&lt;/dt>
+&lt;dd>For a RV $X$,
+$$
+\text{Var}[X]=E[X^2]-E[X]^2
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\text{Var}[\alpha X+\beta]=\alpha^2\text{Var}[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Var}[X+Y]=\text{Var}[X]+\text{Var}[Y]$ if $X$ and $Y$ are independent&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="covariance">Covariance&lt;/h4>
+&lt;dl>
+&lt;dt>Covariance $(\text{Cov}[.,.])$&lt;/dt>
+&lt;dd>For RVs $X$ and $Y$, covariance is defined as
+$$
+\text{Cov}[X,Y]=E[XY]-E[X]E[Y]
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X,X]=\text{Var}[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X+Z,Y]=\text{Cov}[X,Y]+\text{Cov}[Z,Y]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X,Y]=0 \iff X$ and $Y$ are independent&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="important-results">Important Results&lt;/h3>
+&lt;h4 id="union-bound">Union Bound&lt;/h4>
+&lt;p>$$
+P(E_1\cup E_2)\le P(E_1)+P(E_2)
+$$&lt;/p>
+&lt;h4 id="disjoint-events">Disjoint Events&lt;/h4>
+&lt;p>$$
+P(\bigcup_{i=1}^nE_i)=\sum_{i=1}^np(x)
+$$&lt;/p>
+&lt;h4 id="conditional-probability">Conditional Probability&lt;/h4>
+&lt;p>For two event $E_1$ and $E_2$,
+$$
+P(E_1|E_2)=\dfrac{P(E_1\cap E_2)}{P(E_2)}
+$$&lt;/p>
+&lt;h4 id="bayes-theorem">Bayes&amp;rsquo; Theorem&lt;/h4>
+&lt;p>$$
+P(E_1|E_2)=\dfrac{P(E_2|E_1)P(E_1)}{P(E_2)}
+$$&lt;/p>
+&lt;h4 id="marginal-distribution">Marginal Distribution&lt;/h4>
+&lt;p>For 2 random variables $X$ and $Y$ the joint distribution is $P(X,Y)$ and the probability that $X=x$ is given by,
+$$
+P(X=x)=\sum_YP(X=x,Y=y)
+$$&lt;/p>
+&lt;h4 id="independent-random-variables">Independent Random Variables&lt;/h4>
+&lt;p>$X$ and $Y$ are independent w.r.t. each other if,
+$$
+P(X=x,Y=y)=P(X=x)\cdot P(Y=y)
+$$&lt;/p>
+&lt;h4 id="chebyshevs-inequality">Chebyshev&amp;rsquo;s Inequality&lt;/h4>
+&lt;p>If $X$ is a RV with mean $\mu$ and variance $\sigma^2$ then $\forall\alpha&amp;gt;0$
+$$
+P[|X-\mu|\ge\alpha]\le\dfrac{\sigma^2}{\alpha^2}
+$$&lt;/p>
+&lt;h4 id="convolution">Convolution&lt;/h4>
+&lt;p>When $Z=X+Y$,
+$$
+P(Z=z)=\sum_xP(X=x)P(Y=z-x)
+$$&lt;/p>
+&lt;h3 id="data-to-pdf">Data to PDF&lt;/h3>
+&lt;p>Consider a PDF $f:\R\rightarrow \R_0^+$ which needs to be found. We can generate samples from this PDF.
+$$
+E_f[x^k]=\lim_{n\rightarrow\infty}\dfrac{\sum_{i=1}^NX_i^k}{N}
+$$
+We define the moment generating function $M(\omega)$ as,
+$$
+M(\omega)=\int_{-\infty}^{\infty}e^{i\omega x}f(x)dx\\
+=1+i\omega E[x]-\dfrac{\omega^2E[x^2]}{2!}-i\dfrac{\omega^3E[x^3]}{3!}\cdots
+$$
+By using the Inverse Fourier Transform we get,
+$$
+f(x)=\dfrac{1}{s\pi}\int_{-\infty}^{\infty}e^{-i\omega x}M(\omega)d\omega
+$$&lt;/p>
+&lt;h2 id="linear-algebra">Linear Algebra&lt;/h2>
+&lt;h3 id="vectors-and-matrices">Vectors and Matrices&lt;/h3>
+&lt;dl>
+&lt;dt>Vector $v$&lt;/dt>
+&lt;dd>Ordered sequence of numbers.&lt;/dd>
+&lt;dt>Linearly Independent&lt;/dt>
+&lt;dd>A set of vectors is LI if one of them can&amp;rsquo;t be reconstructed by taking linear combination of others.&lt;/dd>
+&lt;dt>Matrix $A,B,&amp;hellip;$&lt;/dt>
+&lt;dd>Ordered sequence of vectors.&lt;/dd>
+&lt;/dl>
+&lt;h3 id="linear-equations">Linear Equations&lt;/h3>
+&lt;p>$$
+Ax=B
+$$
+here $A\in\R^{m\times n}$, $x\in\R^n$ and $b\in\R^m$. This is solved using Gaussian Elimination.&lt;/p>
+&lt;h3 id="vector-spaces">Vector Spaces&lt;/h3>
+&lt;dl>
+&lt;dt>Vector Space $(\mathcal V)$&lt;/dt>
+&lt;dd>A set of vectors qualifies as a vector space if it is closed under the operation of summation and multiplication.&lt;/dd>
+&lt;dt>Column Space $\mathcal C(A)$&lt;/dt>
+&lt;dd>The vector space spanned by the column vectors of matrix $A$.&lt;/dd>
+&lt;dt>Null Space $\mathcal N(A)$&lt;/dt>
+&lt;dd>Solutions of the equation $Ax=0$.&lt;/dd>
+&lt;dt>Rank $r(A)$&lt;/dt>
+&lt;dd>The maximal number of linearly independent columns of matrix $A$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Rank-Nullity Theorem&lt;/strong>: $r(\mathcal C(A))+r(\mathcal N(A))=\text{dim}(A)$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>A square matrix $A$ of dimensions $n\times n$ is invertible iff $r(A)=n$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\lim_{k\rightarrow\infty}W^k=\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n}$ iff&lt;/p>
+&lt;/blockquote>
+&lt;p>$$
+\boldsymbol{1}^TW=\boldsymbol{1}^T\\
+W\boldsymbol{1}=\boldsymbol{1}\\
+\rho(W-\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n})&amp;lt;1
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>where $\rho(.)$ denotes the spectral radius of a matrix i.e. maximum of the absolute values of its eigenvalues.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="loss-function-design">Loss Function Design&lt;/h2>
+&lt;h3 id="datasets">Datasets&lt;/h3>
+&lt;dl>
+&lt;dt>Train set&lt;/dt>
+&lt;dd>The dataset on which we train the model.&lt;/dd>
+&lt;dt>Validation set&lt;/dt>
+&lt;dd>For hyper-parameter tuning&lt;/dd>
+&lt;dt>Test set&lt;/dt>
+&lt;dd>For judging the model&amp;rsquo;s accuracy on unseen data.&lt;/dd>
+&lt;/dl>
+&lt;p>Consider a classification task where we have a dataset $D$ with $(x_i,y_i)$ values. $y_i\in\{-1,1\}$ and $x_i\in\R^d$ is the feature vector. Lets say
+$$
+Y=H(X)
+$$
+We must find $H(.)$.&lt;/p>
+&lt;h3 id="loss-minimization">Loss Minimization&lt;/h3>
+&lt;p>We define a Loss Function $L(.)$ that takes a function $H:\R^d\rightarrow\{1,-1\}$ needs to be minimised.
+$$
+H^*=\text{arg}_H\text{min}L(H)
+$$&lt;/p>
+&lt;p>Following are possible examples of $L$ given by,&lt;/p>
+&lt;ul>
+&lt;li>General Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(H(x_i)\ne y_i)$&lt;/li>
+&lt;li>Constant Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(c\ne y_i)$&lt;/li>
+&lt;li>Linear Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(w^Tx_i+b\ne y_i)$&lt;/li>
+&lt;/ul>
+&lt;p>Assuming Linear Hypothesis we can make following modifications:&lt;/p>
+&lt;ul>
+&lt;li>Linear Hypothesis with Absolute Difference:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D|w^Tx_i+b-y_i|
+$$&lt;/li>
+&lt;li>Linear Hypothesis with Signum and Indicator Cost:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(\text{sgn}(w^Tx_i+b)\ne y_i)
+$$&lt;/li>
+&lt;li>Linear Hypothesis with Sigmoid Mapping:
+$$
+f(x_i)=\dfrac{1}{1+e^{-(w^Tx_i+b)}}
+$$
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(f(x_i)\ne \dfrac{y_i+1}{2})
+$$&lt;/li>
+&lt;li>Linear, Sigmoid and ReLU:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\text{max}(0,(\dfrac{1}{2}-f(x_i)\cdot y_i))
+$$&lt;/li>
+&lt;/ul>
+&lt;p>Another example from Probabilistic Analysis:&lt;/p>
+&lt;ul>
+&lt;li>Binary Cross Entropy Loss:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D[-(\dfrac{y_i+1}{2})\log(f(x_i))-(1-\dfrac{y_i+1}{2})\log(1-f(x_i))]
+$$&lt;/li>
+&lt;/ul>
+&lt;h3 id="accounting-for-noise">Accounting for Noise&lt;/h3>
+&lt;p>When $L=\sum_{i\in D}\max(0,-y_i(w^Tx_i+b))$, if $w^Tx_i+b$ takes a very small positive or negative value then the loss function should not consider this reliable as it could be the result of noise in measurement. Thus to deal with such values, we can add a $\plusmn1$ around the decision boundary.&lt;/p>
+&lt;h2 id="regression">Regression&lt;/h2>
+&lt;p>Consider the problem of housing price prediction. We have a feature vector with $n$ features given by the column vector $x\in\R^{n\times1}$. The price of a house is modelled by the RV $Y$. We need to find a function $f:\R^n\rightarrow\R$ that models the relation between $X$ and $Y$.&lt;/p>
+&lt;h3 id="mean-squared-loss">Mean Squared Loss&lt;/h3>
+&lt;p>Assuming Gaussian noise between $f(x_i)$ and $y_i$ we get,
+$$
+y_i=f(x_i)+e_i\\
+e_i=y_i-f(x_i)
+$$
+where $e\sim\mathcal{N}(0,\sigma^2)$. Maximizing the likelihood of $e_i$ we get the Mean Squared Loss.&lt;/p>
+&lt;blockquote>
+&lt;p>Similarly we get an $L_1$ Loss if we model noise as Laplacian distribution.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="solving-of-linear-regression-wrt-msl">Solving of Linear Regression wrt MSL&lt;/h3>
+&lt;p>Assuming $f(x)=w^tx+b$ and,
+$$
+(w^*,b^*)=\arg\min\sum_{i\in D}(y_i-w^tx_i-b)^2
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>$b^*=E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;p>$$
+w^*=\arg\dfrac{d((y-w^tx)^2)}{dw}=0
+$$
+On solving this we get,&lt;/p>
+&lt;blockquote>
+&lt;p>$w^*=\dfrac{y}{\lambda}(I-\dfrac{xx^T}{\lambda+||x||^2_2})x$&lt;/p>
+&lt;/blockquote>
+&lt;p>As $\lambda\rightarrow0$ this expression doesn&amp;rsquo;t give a solution. Another way of writing this solution is,&lt;/p>
+&lt;blockquote>
+&lt;p>$w^*=(X^TX)^{-1}X^TY$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="invertibility-of-xtx">Invertibility of $X^TX$&lt;/h3>
+&lt;dl>
+&lt;dt>Condition number&lt;/dt>
+&lt;dd>The ratio of minimum eigenvalue to maximum eigenvalue.
+$$
+\text{Cond}(A)=\dfrac{\min(eigen(A))}{\max(eigen(A))}
+$$&lt;/dd>
+&lt;/dl>
+&lt;p>A high condition number means the matrix can be inverted. A way to do this is to add a factor of $\lambda I$ to the matrix $X^TX$ since this lower bounds the condition number.This is also the solution of a particular Loss function as shown below.&lt;/p>
+&lt;h2 id="regularisation">Regularisation&lt;/h2>
+&lt;p>There are different types of regularisation techniques such as:&lt;/p>
+&lt;ul>
+&lt;li>L1 regularisation&lt;/li>
+&lt;li>L2 regularisation&lt;/li>
+&lt;li>Dropout regularisation&lt;/li>
+&lt;/ul>
+&lt;h3 id="l2-regularisation">L2 regularisation&lt;/h3>
+&lt;p>$$
+w^*=\sum_{i\in D}(y_i-w^Tx_i)^2+\lambda||w||^2
+$$&lt;/p>
+&lt;p>On solving we get,
+$$
+w^*=(X^TX+\lambda I)^{-1}X^TY
+$$&lt;/p>
+&lt;h3 id="overfitting">Overfitting&lt;/h3>
+&lt;p>Overfitting occures when the model is constrained to the training set and not able to perform well on the test set, here the gap between the training error and testing error is large.&lt;/p></description></item><item><title>Natural Language Processing</title><link>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</link><pubDate>Wed, 24 Aug 2022 09:49:01 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</guid><description>&lt;h2 id="part-of-speech-tagging">Part of Speech Tagging&lt;/h2>
+&lt;h3 id="hmm-based-tagging">HMM-based Tagging&lt;/h3>
+&lt;h4 id="parameters">Parameters&lt;/h4>
+&lt;ul>
+&lt;li>&lt;em>Input&lt;/em>: A sequence of words and labels&lt;/li>
+&lt;li>&lt;em>Output&lt;/em>: A sequence of labels for every word&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Penn tag-set is generally used for POS tagging in english language.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="hidden-markov-model">Hidden Markov Model&lt;/h4>
+&lt;p>There are 2 kinds of probabilities:&lt;/p>
+&lt;ol>
+&lt;li>Bigram Probabilities $(P(t_1|t_0))$ : Probability of current word being tag $t_1$ when previous word was tagged $t_0$.&lt;/li>
+&lt;li>Lexical Probabilities $(P(w|t))$: Probability of word $w$ given it is tagged $t$.&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>By Markov assumption, current word&amp;rsquo;s tag only depends on previous word&amp;rsquo;s tag.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="viterbi-algorithm">Viterbi Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define BProb(t1,t0) () &lt;/span>&lt;span style="color:#75715e">// Bigram
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#define LProb(w,t) () &lt;/span>&lt;span style="color:#75715e">// Lexical
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> viterbi(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> sentence, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> labels){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> sentence.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> l &lt;span style="color:#f92672">=&lt;/span> labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// labels[0] = &amp;#34;^&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> dp(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(l, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> plabel(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(l,&lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;j&lt;span style="color:#f92672">++&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;k&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> p &lt;span style="color:#f92672">=&lt;/span> dp[i][k]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span> BProb(labels[j],labels[k])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span> LProb(sentence[i],labels[j]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">&amp;lt;&lt;/span>p){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j] &lt;span style="color:#f92672">=&lt;/span> p;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plabel[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j] &lt;span style="color:#f92672">=&lt;/span> k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> res(sentence.begin(),sentence.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> ptr&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ptr &lt;span style="color:#f92672">=&lt;/span> dp[n][ptr]&lt;span style="color:#f92672">&amp;lt;&lt;/span>dp[n][i] &lt;span style="color:#f92672">?&lt;/span> i : ptr;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> res[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#34;_.&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">--&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ptr &lt;span style="color:#f92672">=&lt;/span> slabel[i][ptr];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;_&amp;#34;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>labels[ptr];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="discriminative-learning">Discriminative Learning&lt;/h3>
+&lt;p>HMM based POS tagging cannot handle &amp;ldquo;free word order&amp;rdquo; and &amp;ldquo;agglutination&amp;rdquo; well.&lt;/p>
+&lt;h4 id="feature-engineering">Feature Engineering&lt;/h4>
+&lt;ol>
+&lt;li>Word-based features
+&lt;ul>
+&lt;li>$f_{21}$: Dictionary index of the current word&lt;/li>
+&lt;li>$f_{22}$: Dictionary index of the previous word&lt;/li>
+&lt;li>$f_{23}$: Dictionary index of the next word&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Part of Speech tag-based features
+&lt;ul>
+&lt;li>$f_{24}$: Index of POS of previous word&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Morphology-based features
+&lt;ul>
+&lt;li>$f_{25}$: does the current word have a noun suffix like &amp;rsquo;s&amp;rsquo;, &amp;rsquo;es&amp;rsquo;, &amp;lsquo;ies&amp;rsquo;, etc.&lt;/li>
+&lt;li>$f_{26}$: does the current word have a verbal suffix like &amp;rsquo;d&amp;rsquo;, &amp;rsquo;ed&amp;rsquo;, &amp;rsquo;t&amp;rsquo;, etc.&lt;/li>
+&lt;li>$f_{27}$ and $f_{28}$: above two for previous word.&lt;/li>
+&lt;li>$f_{29}$ and $f_{2,10}$: above two for next word.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="morphology">Morphology&lt;/h4>
+&lt;dl>
+&lt;dt>Morphemes&lt;/dt>
+&lt;dd>Smallest meaning-bearing units forming a word.
+e.g.: In &amp;ldquo;quickly&amp;rdquo;, &amp;ldquo;quick&amp;rdquo; and &amp;ldquo;ly&amp;rdquo;.&lt;/dd>
+&lt;/dl>
+&lt;ul>
+&lt;li>&lt;strong>Analytic Languages&lt;/strong>: Morphemes largely separate from one another.&lt;/li>
+&lt;li>&lt;strong>Synthetic Languages&lt;/strong>: Joins the morphemes.&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>Syncretism&lt;/dt>
+&lt;dd>Overloading of roles per morpheme is called &lt;em>&lt;strong>syncretism&lt;/strong>&lt;/em>.
+e.g.: &amp;ldquo;will go&amp;rdquo;: since number and person are indeterminate here&lt;/dd>
+&lt;/dl>
+&lt;h4 id="maximum-entropy-markov-model">Maximum Entropy Markov Model&lt;/h4>
+&lt;p>$$
+P(t_i=t|F_i)=\dfrac{e^{\sum_{j=1.k}\lambda_jf_{ij}}}{{\sum_{t&amp;rsquo;\in S}}e^{\sum_{j=1.k}\lambda_jf_{ij}(t&amp;rsquo;)}}
+$$&lt;/p>
+&lt;h4 id="beam-search-algorithm">Beam Search Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define Prob(t,w) ()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> beam_search(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> sentence, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> labels){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> sentence.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> l &lt;span style="color:#f92672">=&lt;/span> labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>; &lt;span style="color:#75715e">// Beam size
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// labels[0] = &amp;#34;^&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span> best(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span>(k, make_pair(&lt;span style="color:#ae81ff">0&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(n))));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>].first &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>].second[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;i&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][i].first &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][i].second[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> min(i,l&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;j&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;u&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;u&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> p &lt;span style="color:#f92672">=&lt;/span> make_pair(best[i][j].first&lt;span style="color:#f92672">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Prob(best[i][j].second, i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, label[u]),best[i][j].second);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> labls[i] &lt;span style="color:#f92672">=&lt;/span> u;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> v&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;v&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;v&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(p&lt;span style="color:#f92672">&amp;gt;&lt;/span>best[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][v])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> swap(p,best[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][v]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> res(n);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> maxp &lt;span style="color:#f92672">=&lt;/span> max_element(best[n].begin(),best[n].end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>maxp.second.size();i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i] &lt;span style="color:#f92672">=&lt;/span> labels[maxp.second[i]];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parsing">Parsing&lt;/h2>
+&lt;h3 id="context-free-grammar-parsing">Context Free Grammar Parsing&lt;/h3>
+&lt;p>We are given a CFG with terminals as POS tags from the language and vairables from segment labels. This grammar is converted to Chomsky form.&lt;/p>
+&lt;h4 id="cyk-algorithm">CYK Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string label;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> left;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> right;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>node&lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">CYK&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> sent, map&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&lt;/span>,string&lt;span style="color:#f92672">&amp;gt;&lt;/span> rules)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> pos_labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> dp(n, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>, string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span>(n, make_pair(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>)));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">==&lt;/span>j)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(i, sent[i][&lt;span style="color:#ae81ff">0&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;---&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>i;k&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&lt;/span> rule &lt;span style="color:#f92672">=&lt;/span> make_pair(dp[j][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].second,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[k][i].second);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(rules.find(rule)&lt;span style="color:#f92672">!=&lt;/span>rules.end()){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(k, rules[rule]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> r;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// make the tree
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">return&lt;/span> r;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="shift-reduce-algorithm">Shift reduce algorithm&lt;/h4>
+&lt;p>Using a stack and working through a Push-down automaton based on the language.&lt;/p>
+&lt;h3 id="probabilistic-parsing">Probabilistic Parsing&lt;/h3>
+&lt;p>In the normal CFG related to the language, we add probability value to each rule. This can be found using the dataset.&lt;/p>
+&lt;p>Probability of a Parse Tree is defined as the product probabilities of all the rules used in the parse tree. This way we find the parse tree with highest probability.&lt;/p>
+&lt;p>We can also define the probability of a sentence as the sum of probabilities of its parse trees.
+$$
+P(S) = \sum_{t} P(t)\cdot P(S|t) = \sum_{t} P(t)
+$$&lt;/p>
+&lt;h3 id="dependency-parsing">Dependency Parsing&lt;/h3>
+&lt;p>Instead of creating chunks of words we create dependency relations between words itself. This creates a tree of words as nodes.&lt;/p>
+&lt;h2 id="ffnnbp">FFNNBP&lt;/h2>
+&lt;p>Use softmax or sigmoid for sentiment analysis.&lt;/p>
+&lt;h2 id="wordnet">WordNet&lt;/h2>
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>Syntagmatic&lt;/strong>&lt;/em>: Based on relations such as Synonym, antonym, etc. &lt;em>CAT&lt;/em> and &lt;em>ANIMAL&lt;/em>&lt;/li>
+&lt;li>&lt;em>&lt;strong>Paradigmatic&lt;/strong>&lt;/em>: Based on Co-occurences. &lt;em>CAT&lt;/em> and &lt;em>MEW&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;h3 id="wordnet-engineering">Wordnet Engineering&lt;/h3>
+&lt;dl>
+&lt;dt>Principles of Synset creation&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Minimality&lt;/li>
+&lt;li>Coverage&lt;/li>
+&lt;li>Replacibility&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;p>These synsets are used to create Syntagmatic ConceptNets.&lt;/p>
+&lt;p>Calculate Lexical Semantic Association(LSA) i.e. matrix of co-occurence frequencies. Apply PCA to get Paradigmatic WordNets.&lt;/p>
+&lt;h3 id="using-wordnets">Using WordNets&lt;/h3>
+&lt;p>$$P(Context\ word | input\ word)=P(w_1|w_2)=\frac{e^{(u_{w_1}^Tu_{w_2})}}{\Sigma_k e^{(u_{w_1}^Tu_{w_k})}}$$&lt;/p>
+&lt;blockquote>
+&lt;p>Here $u_w$ is the word vector for $w$.&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

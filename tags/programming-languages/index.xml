@@ -1,1 +1,206 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming-Languages on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/programming-languages/</link><description>Recent content in Programming-Languages on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 20 Aug 2022 12:27:03 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/programming-languages/index.xml" rel="self" type="application/rss+xml"/><item><title>C++ - Standard Template Library</title><link>https://adityakadoo.github.io/Scrolls/cp/cpp/</link><pubDate>Sat, 20 Aug 2022 12:27:03 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/cpp/</guid><description>Basic Utilities Initializer lists 1int values[] {1, 2, 3}; 2std::vector&amp;lt;int&amp;gt; v {1, 2, 4, 8, 16}; 3std::vector&amp;lt;std::string&amp;gt; cities { 4 &amp;#34;Berlin&amp;#34;, &amp;#34;New York&amp;#34;, &amp;#34;London&amp;#34;, &amp;#34;Braunschweig&amp;#34;, &amp;#34;Cairo&amp;#34;, &amp;#34;Cologne&amp;#34; 5}; 6std::complex&amp;lt;double&amp;gt; c{4.0,3.0}; // equivalent to c(4.0,3.0) Range-based for loops Looping through a container 1for (auto&amp;amp; elem : vec) { 2 elem *= 3; 3} Looping through an initializer list 1for (int i : {1, 2, 3, 4, 5}) { 2 std::cout&amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 3} Lambda functions 1int x=0; 2int y=42; 3auto f1 = [=, &amp;amp;y] (std::string s) { 4 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 5 x++; // not very effective 6 y++; // super effective 7} 8auto f2 = [=] (std::string s) { 9 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 10 x++; // not very effective 11 y++; // not very effective 12} 13auto f3 = [&amp;amp;] (std::string s) { 14 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 15 x++; // super effective 16 y++; // super effective 17} Numeric Limits 1cout &amp;lt;&amp;lt; &amp;#34;max(short): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;short&amp;gt;::max() &amp;lt;&amp;lt; endl; 2cout &amp;lt;&amp;lt; &amp;#34;max(int): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;int&amp;gt;::max() &amp;lt;&amp;lt; endl; 3cout &amp;lt;&amp;lt; &amp;#34;max(long): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;long&amp;gt;::max() &amp;lt;&amp;lt; endl; Pair 1std::pair&amp;lt;T1, T2&amp;gt; p(e1,e2); Operation Effect Complexity make_pair(e1,e2) Returns a pair using types and values of e1 and e2 $\mathcal{O}(1)$ p.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Programming-Languages on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/programming-languages/</link><description>Recent content in Programming-Languages on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 20 Aug 2022 12:27:03 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/programming-languages/index.xml" rel="self" type="application/rss+xml"/><item><title>C++ - Standard Template Library</title><link>https://adityakadoo.github.io/Scrolls/cp/cpp/</link><pubDate>Sat, 20 Aug 2022 12:27:03 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/cpp/</guid><description>&lt;h2 id="basic-utilities">Basic Utilities&lt;/h2>
+&lt;h3 id="initializer-lists">Initializer lists&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> values[] {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> v {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">16&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> cities {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Berlin&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;New York&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;London&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Braunschweig&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Cairo&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Cologne&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>complex&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">double&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> c{&lt;span style="color:#ae81ff">4.0&lt;/span>,&lt;span style="color:#ae81ff">3.0&lt;/span>}; &lt;span style="color:#75715e">// equivalent to c(4.0,3.0)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="range-based-for-loops">Range-based &lt;em>for&lt;/em> loops&lt;/h3>
+&lt;ul>
+&lt;li>Looping through a container
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">auto&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> elem : vec) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> elem &lt;span style="color:#f92672">*=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Looping through an initializer list
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i : {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>}) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="lambda-functions">Lambda functions&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">42&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f1 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>y] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f2 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f3 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="numeric-limits">Numeric Limits&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(short): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">short&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(int): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(long): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">long&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pair">Pair&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>T1, T2&lt;span style="color:#f92672">&amp;gt;&lt;/span> p(e1,e2);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Operation&lt;/th>
+&lt;th>Effect&lt;/th>
+&lt;th>Complexity&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>make_pair(e1,e2)&lt;/code>&lt;/td>
+&lt;td>Returns a pair using types and values of e1 and e2&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p.first&lt;/code>&lt;/td>
+&lt;td>Returns reference to first value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p.second&lt;/code>&lt;/td>
+&lt;td>Returns reference to second value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p1==p2&lt;/code>&lt;/td>
+&lt;td>Returns &lt;code>p1.first==p2.first &amp;amp;&amp;amp; p1.second==p2.second&lt;/code>&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p1&amp;lt;p2&lt;/code>&lt;/td>
+&lt;td>Compares first values and if equal second of both values&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>swap(p1,p2)&lt;/code>&lt;/td>
+&lt;td>Swaps data of p1 and p2&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="tuple">Tuple&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>tuple&lt;span style="color:#f92672">&amp;lt;&lt;/span>T1,T2,T3,...Tk&lt;span style="color:#f92672">&amp;gt;&lt;/span> t(e1,e2,e3,...,ek);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Operation&lt;/th>
+&lt;th>Effect&lt;/th>
+&lt;th>Complexity&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>make_tuple(e1,e2,..., ek)&lt;/code>&lt;/td>
+&lt;td>Returns a tuple using types and values of e1, &amp;hellip;, ek&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>get&amp;lt;i&amp;gt;(t)&lt;/code>&lt;/td>
+&lt;td>Returns reference to the ith value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>t1==t2&lt;/code>&lt;/td>
+&lt;td>Returns whether all elements of t1 are equal to t2&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>t1&amp;lt;t2&lt;/code>&lt;/td>
+&lt;td>Compares elements of t1 and t2 lexicographically&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>swap(t1,t2)&lt;/code>&lt;/td>
+&lt;td>Swaps data of t1 and t2&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="stl-structure">STL Structure&lt;/h2>
+&lt;p>STL has 4 most important design components; containers, iterators, algorithms and function objects. These can be used to separate data structures from algorithms and provides a generic API for combining the two.&lt;/p>
+&lt;h3 id="containers">Containers&lt;/h3>
+&lt;p>There are 3 kinds of containers:&lt;/p>
+&lt;h4 id="sequence-containers">Sequence containers&lt;/h4>
+&lt;p>These are &lt;em>ordered collections&lt;/em> where every element has a certain position. These containers are usually implemented using &lt;em>arrays&lt;/em> or &lt;em>linked lists&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Vector&lt;/strong>: Vector manages it&amp;rsquo;s elements in the form of a dynamic array that can grow in one direction with random access.&lt;/li>
+&lt;li>&lt;strong>Deque&lt;/strong>: It is a dynamic array that can grow in both directions.&lt;/li>
+&lt;li>&lt;strong>Array&lt;/strong>: A container of fixed size with random access.&lt;/li>
+&lt;li>&lt;strong>List&lt;/strong>: It is a doubly linked list of elements with insertion or deletion at any position.&lt;/li>
+&lt;li>&lt;strong>Forward List&lt;/strong>: It is a singly linked list without backward operations of List.&lt;/li>
+&lt;/ol>
+&lt;h4 id="associative-containers">Associative containers&lt;/h4>
+&lt;p>These are &lt;em>sorted collections&lt;/em> where the position of every element depends on its value. These containers are usually implemented using &lt;em>binary trees&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Set&lt;/strong>: A set is a collection in which elements are sorted according to their own values. Each element may occur only once, so duplicates are not allowed.&lt;/li>
+&lt;li>&lt;strong>Multiset&lt;/strong>: A multiset is the same as a set except that duplicates are allowed. Thus, a multiset may contain multiple elements that have the same value.&lt;/li>
+&lt;li>&lt;strong>Map&lt;/strong>: A map contains elements that are key/value pairs. Each element has a key that is the basis for the sorting criterion and a value. Each key may occur only once, so duplicate keys are not allowed. A map can also be used as an associative array, an array that has an arbitrary index type.&lt;/li>
+&lt;li>&lt;strong>Multimap&lt;/strong>: A multimap is the same as a map except that duplicates are allowed. Thus, a multimap may contain multiple elements that have the same key. A multimap can also be used as dictionary.&lt;/li>
+&lt;/ol>
+&lt;h4 id="unordered-associative-containers">Unordered (associative) containers&lt;/h4>
+&lt;p>These are &lt;em>unordered collections&lt;/em> where the position of an element doesn&amp;rsquo;t matter. These containers are usually implemented using &lt;em>hash tables&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Unordered set&lt;/strong>: An unordered set is a collection of unordered elements, where each element may occur only once. Thus, duplicates are not allowed.&lt;/li>
+&lt;li>&lt;strong>Unordered multisets&lt;/strong>: An unordered multiset is the same as an unordered set except that duplicates are allowed. Thus, an unordered multiset may contain multiple elements that have the same value.&lt;/li>
+&lt;li>&lt;strong>Unordered map&lt;/strong>: An unordered map contains elements that are key/value pairs. Each key may occur only once, so duplicate keys are not allowed. An unordered map can also be used as an associative array, an array that has an arbitrary index type.&lt;/li>
+&lt;li>&lt;strong>Unordered multimap&lt;/strong>: An unordered multimap is the same as an unordered map except that duplicates are allowed. Thus, an unordered multimap may contain multiple elements that have the same key. An unordered multimap can also be used as dictionary.&lt;/li>
+&lt;/ol>
+&lt;h4 id="container-adapters">Container Adapters&lt;/h4>
+&lt;ol>
+&lt;li>&lt;strong>Stack&lt;/strong>: A stack (the name says it all) manages its elements by the LIFO (last-in-first-out) policy.&lt;/li>
+&lt;li>&lt;strong>Queue&lt;/strong>: A queue manages its elements by the FIFO (first-in-first-out) policy. That is, it is an ordinary buffer.&lt;/li>
+&lt;li>&lt;strong>Priority queue&lt;/strong>: A priority queue is a container in which the elements may have different priorities.&lt;/li>
+&lt;/ol>
+&lt;h3 id="iterators">Iterators&lt;/h3>
+&lt;p>We need a concept of an object that represents positions of elements in a container. Objects that fulfill this concept are called &lt;em>&lt;strong>iterators&lt;/strong>&lt;/em>. Following are the operations that one can perform using these iterators:&lt;/p>
+&lt;ul>
+&lt;li>Operator &lt;code>*&lt;/code> returns the element of the current position. If the elements have members, you can use operator &lt;code>-&amp;gt;&lt;/code> to access those members directly from the iterator.&lt;/li>
+&lt;li>Operator &lt;code>++&lt;/code> lets the iterator step forward to the next element. Most iterators also allow stepping backward by using operator &lt;code>--&lt;/code>.&lt;/li>
+&lt;li>Operators &lt;code>==&lt;/code> and &lt;code>!=&lt;/code> return whether two iterators represent the same position.&lt;/li>
+&lt;li>Operator &lt;code>=&lt;/code> assigns an iterator.&lt;/li>
+&lt;/ul>
+&lt;p>Apart from this every container class also provides following methods:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>begin()&lt;/code> returns an iterator that represents the beginning of the elements in the container. The beginning is the position of the first element, if any.&lt;/li>
+&lt;li>&lt;code>end()&lt;/code> returns an iterator that represents the end of the elements in the container. The end is the
+position behind the last element. Such an iterator is also called a past-the-end iterator.&lt;/li>
+&lt;/ul>
+&lt;p>Types of iterators:-&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Forward Iterators&lt;/strong>: Support only &lt;code>++&lt;/code> operator. Used in &lt;code>forward_list&lt;/code>, &lt;code>unordered_set&lt;/code>, &lt;code>unordered_multiset&lt;/code>, &lt;code>unordered_map&lt;/code> and &lt;code>unordered_multimap&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Bidirectional Iterators&lt;/strong>: Support &lt;code>++&lt;/code> and &lt;code>--&lt;/code> operators. Used in &lt;code>list&lt;/code>, &lt;code>set&lt;/code>, &lt;code>map&lt;/code>, &lt;code>multiset&lt;/code> and &lt;code>multimap&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Random-access Iterators&lt;/strong>: Support iterator arithmetic (&lt;code>+,-,&amp;gt;,&amp;lt;,&lt;/code>etc). Used in &lt;code>vector&lt;/code>, &lt;code>array&lt;/code>, &lt;code>deque&lt;/code> and &lt;code>string&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h3 id="algorithm">Algorithm&lt;/h3>
+&lt;h3 id="function-object">Function object&lt;/h3>
+&lt;h2 id="stl-containers">STL Containers&lt;/h2>
+&lt;p>&lt;img src="images/containers.png" alt="Containers">&lt;/p>
+&lt;h3 id="arrays">Arrays&lt;/h3>
+&lt;dl>
+&lt;dt>Array&lt;/dt>
+&lt;dd>An &lt;em>&lt;strong>array&lt;/strong>&lt;/em> is a sequence of elements with constant size.
+&lt;ul>
+&lt;li>Ordered collection&lt;/li>
+&lt;li>Random access&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="array-provides-mathcal-o1-element-access">Array provides $\mathcal O(1)$ element access.&lt;/h4>
+&lt;p>This is done by using iterator arithmetic to get to any element&amp;rsquo;s location.&lt;/p>
+&lt;h3 id="vectors">Vectors&lt;/h3>
+&lt;dl>
+&lt;dt>Vector&lt;/dt>
+&lt;dd>A &lt;em>&lt;strong>vector&lt;/strong>&lt;/em> models a dynamic array that can grow in one direction.
+&lt;ul>
+&lt;li>Ordered collection&lt;/li>
+&lt;li>Random access&lt;/li>
+&lt;li>Dynamic storage&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl></description></item></channel></rss>

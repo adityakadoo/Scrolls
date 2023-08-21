@@ -1,3 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/math/</link><description>Recent content in Math on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 02 Sep 2022 09:46:58 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>Numerical Methods (3) Ternary Search We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:
-The function strictly increases first, reaches maximum and then strictly decreases. The function strictly decreases first, reaches minimum and then strictly increases. Here we assume the first case and find the maximum of $f(x)$ on the interval $[l,r]$.
-Implementation Iterative 1int ternary_max(int[] a, int l, int r){ 2 int res=0; 3 while(l&amp;lt;=r){ 4 int m1 = l+(r-l)/3; 5 int m2 = r-(r-l)/3; 6 if(a[m1]&amp;lt;a[m2]){ 7 res = a[m2]; 8 l = m1+1; 9 } 10 else if(a[m1]&amp;gt;a[m2]){ 11 res = a[m1]; 12 r = m2-1; 13 } 14 else{ 15 res = a[m1]; 16 l = m1+1; 17 r = m2; 18 } 19 } 20 return res; 21} Recursive 1int ternary_max(int[] a, int l, int r){ 2 if(l==r) 3 return a[0]; 4 int m1 = l+(r-l)/3; 5 int m2 = r-(r-l)/3; 6 if(a[m1]&amp;lt;a[m2]){ 7 return ternary_max(a,m1+1,r); 8 else if(a[m1]&amp;gt;a[m2]){ 9 return ternary_max(a,l,m2-1); 10 else 11 return ternary_max(a,m1+1,m2); 12} Proof $$n=r-l+1$$</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/math/</link><description>Recent content in Math on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 02 Sep 2022 09:46:58 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
+&lt;h3 id="ternary-search">Ternary Search&lt;/h3>
+&lt;p>We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:&lt;/p>
+&lt;ol>
+&lt;li>The function strictly increases first, reaches maximum and then strictly decreases.&lt;/li>
+&lt;li>The function strictly decreases first, reaches minimum and then strictly increases.&lt;/li>
+&lt;/ol>
+&lt;p>Here we assume the first case and find the maximum of $f(x)$ on the interval $[l,r]$.&lt;/p>
+&lt;h4 id="implementation">Implementation&lt;/h4>
+&lt;h5 id="iterative">Iterative&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(l&lt;span style="color:#f92672">&amp;lt;=&lt;/span>r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m2];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="recursive">Recursive&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(l&lt;span style="color:#f92672">==&lt;/span>r)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,r);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,l,m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,m2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof">Proof&lt;/h4>
+&lt;p>$$n=r-l+1$$&lt;/p>
+&lt;h5 id="basis">Basis&lt;/h5>
+&lt;p>If $n=1$ then $a_0$ is the only and the maximum element&lt;/p>
+&lt;h5 id="induction">Induction&lt;/h5>
+&lt;p>Assuming our algorithm works for all arrays of size $\le n$. Consider an array $a$ with size $n+1$.
+$$m_1 = l+\lfloor\dfrac{r-l}{3}\rfloor$$
+$$m_2 = r-\lfloor\dfrac{r-l}{3}\rfloor$$&lt;/p>
+&lt;ul>
+&lt;li>If $a_{m_1}&amp;lt;a_{m_2}$ then the maximum can&amp;rsquo;t lie before $m_1$ therefore the max of $a[m_1+1:r]$ is the result.&lt;/li>
+&lt;li>If $a_{m_1}&amp;gt;a_{m_2}$ then the maximum can&amp;rsquo;t lie after $m_2$ therefore the max of $a[l:m_2-1]$ is the result.&lt;/li>
+&lt;li>If $a_{m_1}=a_{m_2}$ then the maximum can&amp;rsquo;t lie beyond $m_1$ or $m_2$ therefore the max of $a[m_1+1:m_2]$ is the result.&lt;/li>
+&lt;/ul>
+&lt;p>In every case the new search space is of size less than $n+1$ and our algorithm will work on it.&lt;/p>
+&lt;h4 id="analysis">Analysis&lt;/h4>
+&lt;p>$$
+T(n)=T(2n/3)+\mathcal{O}(1)
+$$
+Thus time complexity is $\mathcal O(\log n)$.&lt;/p>
+&lt;h3 id="newtons-method-for-finding-roots">Newton&amp;rsquo;s method for finding roots&lt;/h3>
+&lt;p>Used to find root of a function $f(x)$ on some interval $[a,b]$. It is assumed that $f$ is continuous and differentiable over this interval.&lt;/p>
+&lt;h4 id="implementation-1">Implementation&lt;/h4>
+&lt;h5 id="to-find-real-square-root-of-a-number">To find real square root of a number&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> n){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">-&lt;/span>n;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f1 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>n,prev&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(res&lt;span style="color:#f92672">-&lt;/span>prev&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">1e-9&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prev &lt;span style="color:#f92672">=&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> res&lt;span style="color:#f92672">-&lt;/span>f(res)&lt;span style="color:#f92672">/&lt;/span>f1(res);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="to-find-integer-part-of-square-root-of-a-number">To find integer part of square root of a number&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>,nx&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> decreased &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(x &lt;span style="color:#f92672">!=&lt;/span> nx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> (nx &lt;span style="color:#f92672">&amp;lt;=&lt;/span> x &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#f92672">!&lt;/span>decreased)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> decreased &lt;span style="color:#f92672">=&lt;/span> nx &lt;span style="color:#f92672">&amp;lt;&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#f92672">=&lt;/span> nx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nx &lt;span style="color:#f92672">=&lt;/span> (x &lt;span style="color:#f92672">+&lt;/span> n &lt;span style="color:#f92672">/&lt;/span> x) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-1">Proof&lt;/h4>
+&lt;p>It converges towards the root with every iteration.&lt;/p>
+&lt;p>$$
+|x_{i+1}-\sqrt{n}|=|\dfrac{x_i+\frac{n}{x_i}}{2}-\sqrt{n}|=\dfrac{|(\sqrt{x_i}-\dfrac{\sqrt{n}}{\sqrt{x_i}})^2|}{2}\le|x_i-\sqrt{n}|
+$$&lt;/p>
+&lt;h4 id="analysis-1">Analysis&lt;/h4>
+&lt;p>For $n$-digit precision requirement the complexity is $\mathcal O(n)$.&lt;/p>
+&lt;h3 id="simpsons-formula">Simpson&amp;rsquo;s Formula&lt;/h3>
+&lt;p>Used to calculate the integral of a funtion $f$ over the interval $[a,b]$.&lt;/p>
+&lt;h4 id="implementation-2">Implementation&lt;/h4>
+&lt;p>Here $f(x)$ is some pre-defined function.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define N 1000*1000
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">integrate&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> a,&lt;span style="color:#66d9ef">float&lt;/span> b){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> h &lt;span style="color:#f92672">=&lt;/span> (b&lt;span style="color:#f92672">-&lt;/span>a)&lt;span style="color:#f92672">/&lt;/span>N;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [] (&lt;span style="color:#66d9ef">float&lt;/span> x) {...};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> f(a)&lt;span style="color:#f92672">+&lt;/span>f(b);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>N;i&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> a&lt;span style="color:#f92672">+&lt;/span>h&lt;span style="color:#f92672">*&lt;/span>(i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">*=&lt;/span> h&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-2">Proof&lt;/h4>
+&lt;p>Let $n$ be some natural number. We divide the integration segment $[a,b]$ into $2n$ equal parts:
+$$
+x_i=a+ih,\ i=0\dots2n,\\ h=\dfrac{b-a}{2n}
+$$
+Now we calculate the integral separately on each of the segments $[x_{2i-2},x_{2i}$, $i=1\dots n$ and then add all the values.&lt;/p>
+&lt;p>So, suppose we consider the next segment $[x_{2i-2},x_{2i}]$, $i=1\dots n$. Replace the function $f(x)$ on it with a parabola $P(x)$ passing through 3 points $(x_{2i-2},x_{2i-1},x_{2i})$. Such a parabola always exists and is unique; it can be found analytically. For instance we could construct it using the Lagrange polynomial interpolation. The only remaining thing left to do is to integrate this polynomial. If you do this for a general function $f$, you receive a remarkably simple expression:
+$$
+\int_{x_{2i-2}}^{x_{2i}}f(x)dx\approx\int_{x_{2i-2}}^{x_{2i}}P(x)dx=(f(x_{2i-2})+4f(x_{2i-1})+f(x_{2i}))\frac{h}{3}
+$$
+Adding these values over all segments, we obtain the final Simpson&amp;rsquo;s formula:
+$$
+\int_a^bf(x)dx\approx(f(x_0)+4f(x_1)+2f(x_2)+\cdots+4f(x_{2N-1})+f(x_{2N}))\frac{h}{3}
+$$&lt;/p>
+&lt;h4 id="analysis-2">Analysis&lt;/h4>
+&lt;p>Only depends on the number of divisions thus $\mathcal O(n)$.&lt;/p>
+&lt;h2 id="dynamic-programming-4">Dynamic Programming (4)&lt;/h2>
+&lt;h2 id="combinatorics-10">Combinatorics (10)&lt;/h2>
+&lt;h2 id="data-structures-10">Data Structures (10)&lt;/h2>
+&lt;h2 id="string-processing-12">String Processing (12)&lt;/h2>
+&lt;h2 id="linear-algebra-4">Linear Algebra (4)&lt;/h2>
+&lt;h2 id="geometry-23">Geometry (23)&lt;/h2>
+&lt;h2 id="algebra-27">Algebra (27)&lt;/h2>
+&lt;h2 id="graphs-44">Graphs (44)&lt;/h2>
+&lt;h2 id="miscellaneous-12">Miscellaneous (12)&lt;/h2></description></item></channel></rss>

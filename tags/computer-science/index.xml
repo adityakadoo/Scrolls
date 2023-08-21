@@ -1,7 +1,2473 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Computer-Science on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/computer-science/</link><description>Recent content in Computer-Science on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 06:52:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/computer-science/index.xml" rel="self" type="application/rss+xml"/><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>Probability Basic Terms Sample Space Sample Space $(S)$ The set of all possible outcomes of an experiment. $$ P(S)=1,P(\empty)=0 $$ Probability Distribution Probability Distribution $(p)$ A function that gives the probabilities of occurence of different possible outcomes of an experiment. $$ p:S\rightarrow[0,1]\\ \sum_{x\in S}p(x)=1 $$ Event Event $(E)$ A set of outcomes of an experiement i.e. a subset of the sample space. $$ E\sube S $$ Probability of an Event Probability of an event $P(E)$ The likelihood of an event happening.</description></item><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>Numerical Methods (3) Ternary Search We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:
-The function strictly increases first, reaches maximum and then strictly decreases. The function strictly decreases first, reaches minimum and then strictly increases. Here we assume the first case and find the maximum of $f(x)$ on the interval $[l,r]$.
-Implementation Iterative 1int ternary_max(int[] a, int l, int r){ 2 int res=0; 3 while(l&amp;lt;=r){ 4 int m1 = l+(r-l)/3; 5 int m2 = r-(r-l)/3; 6 if(a[m1]&amp;lt;a[m2]){ 7 res = a[m2]; 8 l = m1+1; 9 } 10 else if(a[m1]&amp;gt;a[m2]){ 11 res = a[m1]; 12 r = m2-1; 13 } 14 else{ 15 res = a[m1]; 16 l = m1+1; 17 r = m2; 18 } 19 } 20 return res; 21} Recursive 1int ternary_max(int[] a, int l, int r){ 2 if(l==r) 3 return a[0]; 4 int m1 = l+(r-l)/3; 5 int m2 = r-(r-l)/3; 6 if(a[m1]&amp;lt;a[m2]){ 7 return ternary_max(a,m1+1,r); 8 else if(a[m1]&amp;gt;a[m2]){ 9 return ternary_max(a,l,m2-1); 10 else 11 return ternary_max(a,m1+1,m2); 12} Proof $$n=r-l+1$$</description></item><item><title>Natural Language Processing</title><link>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</link><pubDate>Wed, 24 Aug 2022 09:49:01 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</guid><description>Part of Speech Tagging HMM-based Tagging Parameters Input: A sequence of words and labels Output: A sequence of labels for every word Penn tag-set is generally used for POS tagging in english language.
-Hidden Markov Model There are 2 kinds of probabilities:
-Bigram Probabilities $(P(t_1|t_0))$ : Probability of current word being tag $t_1$ when previous word was tagged $t_0$. Lexical Probabilities $(P(w|t))$: Probability of word $w$ given it is tagged $t$.</description></item><item><title>C++ - Standard Template Library</title><link>https://adityakadoo.github.io/Scrolls/cp/cpp/</link><pubDate>Sat, 20 Aug 2022 12:27:03 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/cpp/</guid><description>Basic Utilities Initializer lists 1int values[] {1, 2, 3}; 2std::vector&amp;lt;int&amp;gt; v {1, 2, 4, 8, 16}; 3std::vector&amp;lt;std::string&amp;gt; cities { 4 &amp;#34;Berlin&amp;#34;, &amp;#34;New York&amp;#34;, &amp;#34;London&amp;#34;, &amp;#34;Braunschweig&amp;#34;, &amp;#34;Cairo&amp;#34;, &amp;#34;Cologne&amp;#34; 5}; 6std::complex&amp;lt;double&amp;gt; c{4.0,3.0}; // equivalent to c(4.0,3.0) Range-based for loops Looping through a container 1for (auto&amp;amp; elem : vec) { 2 elem *= 3; 3} Looping through an initializer list 1for (int i : {1, 2, 3, 4, 5}) { 2 std::cout&amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; 3} Lambda functions 1int x=0; 2int y=42; 3auto f1 = [=, &amp;amp;y] (std::string s) { 4 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 5 x++; // not very effective 6 y++; // super effective 7} 8auto f2 = [=] (std::string s) { 9 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 10 x++; // not very effective 11 y++; // not very effective 12} 13auto f3 = [&amp;amp;] (std::string s) { 14 cout&amp;lt;&amp;lt;s&amp;lt;&amp;lt;&amp;#34;\n&amp;#34;; 15 x++; // super effective 16 y++; // super effective 17} Numeric Limits 1cout &amp;lt;&amp;lt; &amp;#34;max(short): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;short&amp;gt;::max() &amp;lt;&amp;lt; endl; 2cout &amp;lt;&amp;lt; &amp;#34;max(int): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;int&amp;gt;::max() &amp;lt;&amp;lt; endl; 3cout &amp;lt;&amp;lt; &amp;#34;max(long): &amp;#34; &amp;lt;&amp;lt; numeric_limits&amp;lt;long&amp;gt;::max() &amp;lt;&amp;lt; endl; Pair 1std::pair&amp;lt;T1, T2&amp;gt; p(e1,e2); Operation Effect Complexity make_pair(e1,e2) Returns a pair using types and values of e1 and e2 $\mathcal{O}(1)$ p.</description></item><item><title>Automata Theory</title><link>https://adityakadoo.github.io/Scrolls/courses/automata_theory/</link><pubDate>Fri, 19 Aug 2022 17:00:34 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/automata_theory/</guid><description>Resources Hopcrot-Motwani-Ullman Central Concepts Alphabets Alphabet $ (\Sigma) $ An alphabet is a finite nonempty set of symbols. $ \Sigma= \{1, 0\} $ $ \Sigma = \{a,b,&amp;hellip;,z\}$ Strings String $(w)$ A string is a finite sequence of symbols chosen from $ \Sigma $. Empty String $(\epsilon)$ The empty string is a string with zero symbols. Length of a string $|w|=\#$ Symbols in $w$ $|\epsilon|=0$
-Power of Alphabets $\Sigma^k=\{w:|w|=k\}$ $\Sigma^+=\Sigma^1\cup\Sigma^2\cup&amp;hellip;$ $\Sigma^*=\Sigma^+\cup\{\epsilon\}$ $\Sigma^0= \{\epsilon\}$</description></item><item><title>Operating Systems</title><link>https://adityakadoo.github.io/Scrolls/courses/operating_systems/</link><pubDate>Fri, 19 Aug 2022 10:31:05 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/operating_systems/</guid><description>Resources Operating Systems - Three Easy Pieces Introduction to OS Main objectives of OS include:-
-CPU Virtualization : Making using the processor easy. Memory Virtualization : Making storage in memory easy. Concurrency : Ensuring correctness when multiple programs run together. Persistence : Ensuring permanent memory does not get erased and stays organised. Design Goals : Abstractions, performance, isolation, reliability, energy-efficiency CPU Virtualization Abstraction : Process The abstraction provided by the OS of a running program is called a process.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Computer-Science on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/computer-science/</link><description>Recent content in Computer-Science on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 06:52:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/computer-science/index.xml" rel="self" type="application/rss+xml"/><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>&lt;h2 id="probability">Probability&lt;/h2>
+&lt;h3 id="basic-terms">Basic Terms&lt;/h3>
+&lt;h4 id="sample-space">Sample Space&lt;/h4>
+&lt;dl>
+&lt;dt>Sample Space $(S)$&lt;/dt>
+&lt;dd>The set of all possible outcomes of an experiment.
+$$
+P(S)=1,P(\empty)=0
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="probability-distribution">Probability Distribution&lt;/h4>
+&lt;dl>
+&lt;dt>Probability Distribution $(p)$&lt;/dt>
+&lt;dd>A function that gives the probabilities of occurence of different possible outcomes of an experiment.
+$$
+p:S\rightarrow[0,1]\\
+\sum_{x\in S}p(x)=1
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="event">Event&lt;/h4>
+&lt;dl>
+&lt;dt>Event $(E)$&lt;/dt>
+&lt;dd>A set of outcomes of an experiement i.e. a subset of the sample space.
+$$
+E\sube S
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="probability-of-an-event">Probability of an Event&lt;/h4>
+&lt;dl>
+&lt;dt>Probability of an event $P(E)$&lt;/dt>
+&lt;dd>The likelihood of an event happening. Mathematically given as,
+$$
+P(E)=\sum_{x\in S}p(x)\\
+P(\overline E)=1-P(E),\ \overline E=S-E
+P(E_1\cup E_2)=P(E_1)+P(E_2)-P(E_1\cap E_2)
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="expectation">Expectation&lt;/h4>
+&lt;dl>
+&lt;dt>Expectation $E[.]$&lt;/dt>
+&lt;dd>For a RV $X$ on $\R$ with PMF $P$ expectation is defined as,
+$$
+E[X]=\sum_xP(X=x)
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Linearity&lt;/strong>: $E[\alpha X+\beta Y]=\alpha E[X]+\beta E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>MSE minimizer&lt;/strong>: Solution for $E[(X-z)^2]$ is $z=E[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Expectation of Product&lt;/strong>: $E[XY]=E[X]E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="variance">Variance&lt;/h4>
+&lt;dl>
+&lt;dt>Varaince $\text{Var}[.]$&lt;/dt>
+&lt;dd>For a RV $X$,
+$$
+\text{Var}[X]=E[X^2]-E[X]^2
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\text{Var}[\alpha X+\beta]=\alpha^2\text{Var}[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Var}[X+Y]=\text{Var}[X]+\text{Var}[Y]$ if $X$ and $Y$ are independent&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="covariance">Covariance&lt;/h4>
+&lt;dl>
+&lt;dt>Covariance $(\text{Cov}[.,.])$&lt;/dt>
+&lt;dd>For RVs $X$ and $Y$, covariance is defined as
+$$
+\text{Cov}[X,Y]=E[XY]-E[X]E[Y]
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X,X]=\text{Var}[X]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X+Z,Y]=\text{Cov}[X,Y]+\text{Cov}[Z,Y]$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\text{Cov}[X,Y]=0 \iff X$ and $Y$ are independent&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="important-results">Important Results&lt;/h3>
+&lt;h4 id="union-bound">Union Bound&lt;/h4>
+&lt;p>$$
+P(E_1\cup E_2)\le P(E_1)+P(E_2)
+$$&lt;/p>
+&lt;h4 id="disjoint-events">Disjoint Events&lt;/h4>
+&lt;p>$$
+P(\bigcup_{i=1}^nE_i)=\sum_{i=1}^np(x)
+$$&lt;/p>
+&lt;h4 id="conditional-probability">Conditional Probability&lt;/h4>
+&lt;p>For two event $E_1$ and $E_2$,
+$$
+P(E_1|E_2)=\dfrac{P(E_1\cap E_2)}{P(E_2)}
+$$&lt;/p>
+&lt;h4 id="bayes-theorem">Bayes&amp;rsquo; Theorem&lt;/h4>
+&lt;p>$$
+P(E_1|E_2)=\dfrac{P(E_2|E_1)P(E_1)}{P(E_2)}
+$$&lt;/p>
+&lt;h4 id="marginal-distribution">Marginal Distribution&lt;/h4>
+&lt;p>For 2 random variables $X$ and $Y$ the joint distribution is $P(X,Y)$ and the probability that $X=x$ is given by,
+$$
+P(X=x)=\sum_YP(X=x,Y=y)
+$$&lt;/p>
+&lt;h4 id="independent-random-variables">Independent Random Variables&lt;/h4>
+&lt;p>$X$ and $Y$ are independent w.r.t. each other if,
+$$
+P(X=x,Y=y)=P(X=x)\cdot P(Y=y)
+$$&lt;/p>
+&lt;h4 id="chebyshevs-inequality">Chebyshev&amp;rsquo;s Inequality&lt;/h4>
+&lt;p>If $X$ is a RV with mean $\mu$ and variance $\sigma^2$ then $\forall\alpha&amp;gt;0$
+$$
+P[|X-\mu|\ge\alpha]\le\dfrac{\sigma^2}{\alpha^2}
+$$&lt;/p>
+&lt;h4 id="convolution">Convolution&lt;/h4>
+&lt;p>When $Z=X+Y$,
+$$
+P(Z=z)=\sum_xP(X=x)P(Y=z-x)
+$$&lt;/p>
+&lt;h3 id="data-to-pdf">Data to PDF&lt;/h3>
+&lt;p>Consider a PDF $f:\R\rightarrow \R_0^+$ which needs to be found. We can generate samples from this PDF.
+$$
+E_f[x^k]=\lim_{n\rightarrow\infty}\dfrac{\sum_{i=1}^NX_i^k}{N}
+$$
+We define the moment generating function $M(\omega)$ as,
+$$
+M(\omega)=\int_{-\infty}^{\infty}e^{i\omega x}f(x)dx\\
+=1+i\omega E[x]-\dfrac{\omega^2E[x^2]}{2!}-i\dfrac{\omega^3E[x^3]}{3!}\cdots
+$$
+By using the Inverse Fourier Transform we get,
+$$
+f(x)=\dfrac{1}{s\pi}\int_{-\infty}^{\infty}e^{-i\omega x}M(\omega)d\omega
+$$&lt;/p>
+&lt;h2 id="linear-algebra">Linear Algebra&lt;/h2>
+&lt;h3 id="vectors-and-matrices">Vectors and Matrices&lt;/h3>
+&lt;dl>
+&lt;dt>Vector $v$&lt;/dt>
+&lt;dd>Ordered sequence of numbers.&lt;/dd>
+&lt;dt>Linearly Independent&lt;/dt>
+&lt;dd>A set of vectors is LI if one of them can&amp;rsquo;t be reconstructed by taking linear combination of others.&lt;/dd>
+&lt;dt>Matrix $A,B,&amp;hellip;$&lt;/dt>
+&lt;dd>Ordered sequence of vectors.&lt;/dd>
+&lt;/dl>
+&lt;h3 id="linear-equations">Linear Equations&lt;/h3>
+&lt;p>$$
+Ax=B
+$$
+here $A\in\R^{m\times n}$, $x\in\R^n$ and $b\in\R^m$. This is solved using Gaussian Elimination.&lt;/p>
+&lt;h3 id="vector-spaces">Vector Spaces&lt;/h3>
+&lt;dl>
+&lt;dt>Vector Space $(\mathcal V)$&lt;/dt>
+&lt;dd>A set of vectors qualifies as a vector space if it is closed under the operation of summation and multiplication.&lt;/dd>
+&lt;dt>Column Space $\mathcal C(A)$&lt;/dt>
+&lt;dd>The vector space spanned by the column vectors of matrix $A$.&lt;/dd>
+&lt;dt>Null Space $\mathcal N(A)$&lt;/dt>
+&lt;dd>Solutions of the equation $Ax=0$.&lt;/dd>
+&lt;dt>Rank $r(A)$&lt;/dt>
+&lt;dd>The maximal number of linearly independent columns of matrix $A$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Rank-Nullity Theorem&lt;/strong>: $r(\mathcal C(A))+r(\mathcal N(A))=\text{dim}(A)$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>A square matrix $A$ of dimensions $n\times n$ is invertible iff $r(A)=n$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>$\lim_{k\rightarrow\infty}W^k=\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n}$ iff&lt;/p>
+&lt;/blockquote>
+&lt;p>$$
+\boldsymbol{1}^TW=\boldsymbol{1}^T\\
+W\boldsymbol{1}=\boldsymbol{1}\\
+\rho(W-\dfrac{\boldsymbol{1}\boldsymbol{1}^T}{n})&amp;lt;1
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>where $\rho(.)$ denotes the spectral radius of a matrix i.e. maximum of the absolute values of its eigenvalues.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="loss-function-design">Loss Function Design&lt;/h2>
+&lt;h3 id="datasets">Datasets&lt;/h3>
+&lt;dl>
+&lt;dt>Train set&lt;/dt>
+&lt;dd>The dataset on which we train the model.&lt;/dd>
+&lt;dt>Validation set&lt;/dt>
+&lt;dd>For hyper-parameter tuning&lt;/dd>
+&lt;dt>Test set&lt;/dt>
+&lt;dd>For judging the model&amp;rsquo;s accuracy on unseen data.&lt;/dd>
+&lt;/dl>
+&lt;p>Consider a classification task where we have a dataset $D$ with $(x_i,y_i)$ values. $y_i\in\{-1,1\}$ and $x_i\in\R^d$ is the feature vector. Lets say
+$$
+Y=H(X)
+$$
+We must find $H(.)$.&lt;/p>
+&lt;h3 id="loss-minimization">Loss Minimization&lt;/h3>
+&lt;p>We define a Loss Function $L(.)$ that takes a function $H:\R^d\rightarrow\{1,-1\}$ needs to be minimised.
+$$
+H^*=\text{arg}_H\text{min}L(H)
+$$&lt;/p>
+&lt;p>Following are possible examples of $L$ given by,&lt;/p>
+&lt;ul>
+&lt;li>General Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(H(x_i)\ne y_i)$&lt;/li>
+&lt;li>Constant Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(c\ne y_i)$&lt;/li>
+&lt;li>Linear Hypothesis: $L(H) = \sum_{i\in D}\mathbb{I}(w^Tx_i+b\ne y_i)$&lt;/li>
+&lt;/ul>
+&lt;p>Assuming Linear Hypothesis we can make following modifications:&lt;/p>
+&lt;ul>
+&lt;li>Linear Hypothesis with Absolute Difference:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D|w^Tx_i+b-y_i|
+$$&lt;/li>
+&lt;li>Linear Hypothesis with Signum and Indicator Cost:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(\text{sgn}(w^Tx_i+b)\ne y_i)
+$$&lt;/li>
+&lt;li>Linear Hypothesis with Sigmoid Mapping:
+$$
+f(x_i)=\dfrac{1}{1+e^{-(w^Tx_i+b)}}
+$$
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\mathbb{I}(f(x_i)\ne \dfrac{y_i+1}{2})
+$$&lt;/li>
+&lt;li>Linear, Sigmoid and ReLU:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D\text{max}(0,(\dfrac{1}{2}-f(x_i)\cdot y_i))
+$$&lt;/li>
+&lt;/ul>
+&lt;p>Another example from Probabilistic Analysis:&lt;/p>
+&lt;ul>
+&lt;li>Binary Cross Entropy Loss:
+$$
+\{w^*,b^*\}=\text{arg}_{w,b}\text{min}\sum_D[-(\dfrac{y_i+1}{2})\log(f(x_i))-(1-\dfrac{y_i+1}{2})\log(1-f(x_i))]
+$$&lt;/li>
+&lt;/ul>
+&lt;h3 id="accounting-for-noise">Accounting for Noise&lt;/h3>
+&lt;p>When $L=\sum_{i\in D}\max(0,-y_i(w^Tx_i+b))$, if $w^Tx_i+b$ takes a very small positive or negative value then the loss function should not consider this reliable as it could be the result of noise in measurement. Thus to deal with such values, we can add a $\plusmn1$ around the decision boundary.&lt;/p>
+&lt;h2 id="regression">Regression&lt;/h2>
+&lt;p>Consider the problem of housing price prediction. We have a feature vector with $n$ features given by the column vector $x\in\R^{n\times1}$. The price of a house is modelled by the RV $Y$. We need to find a function $f:\R^n\rightarrow\R$ that models the relation between $X$ and $Y$.&lt;/p>
+&lt;h3 id="mean-squared-loss">Mean Squared Loss&lt;/h3>
+&lt;p>Assuming Gaussian noise between $f(x_i)$ and $y_i$ we get,
+$$
+y_i=f(x_i)+e_i\\
+e_i=y_i-f(x_i)
+$$
+where $e\sim\mathcal{N}(0,\sigma^2)$. Maximizing the likelihood of $e_i$ we get the Mean Squared Loss.&lt;/p>
+&lt;blockquote>
+&lt;p>Similarly we get an $L_1$ Loss if we model noise as Laplacian distribution.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="solving-of-linear-regression-wrt-msl">Solving of Linear Regression wrt MSL&lt;/h3>
+&lt;p>Assuming $f(x)=w^tx+b$ and,
+$$
+(w^*,b^*)=\arg\min\sum_{i\in D}(y_i-w^tx_i-b)^2
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>$b^*=E[Y]$&lt;/p>
+&lt;/blockquote>
+&lt;p>$$
+w^*=\arg\dfrac{d((y-w^tx)^2)}{dw}=0
+$$
+On solving this we get,&lt;/p>
+&lt;blockquote>
+&lt;p>$w^*=\dfrac{y}{\lambda}(I-\dfrac{xx^T}{\lambda+||x||^2_2})x$&lt;/p>
+&lt;/blockquote>
+&lt;p>As $\lambda\rightarrow0$ this expression doesn&amp;rsquo;t give a solution. Another way of writing this solution is,&lt;/p>
+&lt;blockquote>
+&lt;p>$w^*=(X^TX)^{-1}X^TY$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="invertibility-of-xtx">Invertibility of $X^TX$&lt;/h3>
+&lt;dl>
+&lt;dt>Condition number&lt;/dt>
+&lt;dd>The ratio of minimum eigenvalue to maximum eigenvalue.
+$$
+\text{Cond}(A)=\dfrac{\min(eigen(A))}{\max(eigen(A))}
+$$&lt;/dd>
+&lt;/dl>
+&lt;p>A high condition number means the matrix can be inverted. A way to do this is to add a factor of $\lambda I$ to the matrix $X^TX$ since this lower bounds the condition number.This is also the solution of a particular Loss function as shown below.&lt;/p>
+&lt;h2 id="regularisation">Regularisation&lt;/h2>
+&lt;p>There are different types of regularisation techniques such as:&lt;/p>
+&lt;ul>
+&lt;li>L1 regularisation&lt;/li>
+&lt;li>L2 regularisation&lt;/li>
+&lt;li>Dropout regularisation&lt;/li>
+&lt;/ul>
+&lt;h3 id="l2-regularisation">L2 regularisation&lt;/h3>
+&lt;p>$$
+w^*=\sum_{i\in D}(y_i-w^Tx_i)^2+\lambda||w||^2
+$$&lt;/p>
+&lt;p>On solving we get,
+$$
+w^*=(X^TX+\lambda I)^{-1}X^TY
+$$&lt;/p>
+&lt;h3 id="overfitting">Overfitting&lt;/h3>
+&lt;p>Overfitting occures when the model is constrained to the training set and not able to perform well on the test set, here the gap between the training error and testing error is large.&lt;/p></description></item><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
+&lt;h3 id="ternary-search">Ternary Search&lt;/h3>
+&lt;p>We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:&lt;/p>
+&lt;ol>
+&lt;li>The function strictly increases first, reaches maximum and then strictly decreases.&lt;/li>
+&lt;li>The function strictly decreases first, reaches minimum and then strictly increases.&lt;/li>
+&lt;/ol>
+&lt;p>Here we assume the first case and find the maximum of $f(x)$ on the interval $[l,r]$.&lt;/p>
+&lt;h4 id="implementation">Implementation&lt;/h4>
+&lt;h5 id="iterative">Iterative&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(l&lt;span style="color:#f92672">&amp;lt;=&lt;/span>r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m2];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> a[m1];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> l &lt;span style="color:#f92672">=&lt;/span> m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">=&lt;/span> m2;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="recursive">Recursive&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">ternary_max&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>[] a, &lt;span style="color:#66d9ef">int&lt;/span> l, &lt;span style="color:#66d9ef">int&lt;/span> r){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(l&lt;span style="color:#f92672">==&lt;/span>r)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m1 &lt;span style="color:#f92672">=&lt;/span> l&lt;span style="color:#f92672">+&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> m2 &lt;span style="color:#f92672">=&lt;/span> r&lt;span style="color:#f92672">-&lt;/span>(r&lt;span style="color:#f92672">-&lt;/span>l)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;lt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,r);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(a[m1]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[m2]){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,l,m2&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ternary_max(a,m1&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,m2);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof">Proof&lt;/h4>
+&lt;p>$$n=r-l+1$$&lt;/p>
+&lt;h5 id="basis">Basis&lt;/h5>
+&lt;p>If $n=1$ then $a_0$ is the only and the maximum element&lt;/p>
+&lt;h5 id="induction">Induction&lt;/h5>
+&lt;p>Assuming our algorithm works for all arrays of size $\le n$. Consider an array $a$ with size $n+1$.
+$$m_1 = l+\lfloor\dfrac{r-l}{3}\rfloor$$
+$$m_2 = r-\lfloor\dfrac{r-l}{3}\rfloor$$&lt;/p>
+&lt;ul>
+&lt;li>If $a_{m_1}&amp;lt;a_{m_2}$ then the maximum can&amp;rsquo;t lie before $m_1$ therefore the max of $a[m_1+1:r]$ is the result.&lt;/li>
+&lt;li>If $a_{m_1}&amp;gt;a_{m_2}$ then the maximum can&amp;rsquo;t lie after $m_2$ therefore the max of $a[l:m_2-1]$ is the result.&lt;/li>
+&lt;li>If $a_{m_1}=a_{m_2}$ then the maximum can&amp;rsquo;t lie beyond $m_1$ or $m_2$ therefore the max of $a[m_1+1:m_2]$ is the result.&lt;/li>
+&lt;/ul>
+&lt;p>In every case the new search space is of size less than $n+1$ and our algorithm will work on it.&lt;/p>
+&lt;h4 id="analysis">Analysis&lt;/h4>
+&lt;p>$$
+T(n)=T(2n/3)+\mathcal{O}(1)
+$$
+Thus time complexity is $\mathcal O(\log n)$.&lt;/p>
+&lt;h3 id="newtons-method-for-finding-roots">Newton&amp;rsquo;s method for finding roots&lt;/h3>
+&lt;p>Used to find root of a function $f(x)$ on some interval $[a,b]$. It is assumed that $f$ is continuous and differentiable over this interval.&lt;/p>
+&lt;h4 id="implementation-1">Implementation&lt;/h4>
+&lt;h5 id="to-find-real-square-root-of-a-number">To find real square root of a number&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> n){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">-&lt;/span>n;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f1 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (&lt;span style="color:#66d9ef">float&lt;/span> x){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res&lt;span style="color:#f92672">=&lt;/span>n,prev&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(res&lt;span style="color:#f92672">-&lt;/span>prev&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">1e-9&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prev &lt;span style="color:#f92672">=&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">=&lt;/span> res&lt;span style="color:#f92672">-&lt;/span>f(res)&lt;span style="color:#f92672">/&lt;/span>f1(res);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="to-find-integer-part-of-square-root-of-a-number">To find integer part of square root of a number&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> n) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>,nx&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> decreased &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span>(x &lt;span style="color:#f92672">!=&lt;/span> nx &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> (nx &lt;span style="color:#f92672">&amp;lt;=&lt;/span> x &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#f92672">!&lt;/span>decreased)) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> decreased &lt;span style="color:#f92672">=&lt;/span> nx &lt;span style="color:#f92672">&amp;lt;&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#f92672">=&lt;/span> nx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nx &lt;span style="color:#f92672">=&lt;/span> (x &lt;span style="color:#f92672">+&lt;/span> n &lt;span style="color:#f92672">/&lt;/span> x) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> x;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-1">Proof&lt;/h4>
+&lt;p>It converges towards the root with every iteration.&lt;/p>
+&lt;p>$$
+|x_{i+1}-\sqrt{n}|=|\dfrac{x_i+\frac{n}{x_i}}{2}-\sqrt{n}|=\dfrac{|(\sqrt{x_i}-\dfrac{\sqrt{n}}{\sqrt{x_i}})^2|}{2}\le|x_i-\sqrt{n}|
+$$&lt;/p>
+&lt;h4 id="analysis-1">Analysis&lt;/h4>
+&lt;p>For $n$-digit precision requirement the complexity is $\mathcal O(n)$.&lt;/p>
+&lt;h3 id="simpsons-formula">Simpson&amp;rsquo;s Formula&lt;/h3>
+&lt;p>Used to calculate the integral of a funtion $f$ over the interval $[a,b]$.&lt;/p>
+&lt;h4 id="implementation-2">Implementation&lt;/h4>
+&lt;p>Here $f(x)$ is some pre-defined function.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define N 1000*1000
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> &lt;span style="color:#a6e22e">integrate&lt;/span>(&lt;span style="color:#66d9ef">float&lt;/span> a,&lt;span style="color:#66d9ef">float&lt;/span> b){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> h &lt;span style="color:#f92672">=&lt;/span> (b&lt;span style="color:#f92672">-&lt;/span>a)&lt;span style="color:#f92672">/&lt;/span>N;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">auto&lt;/span> f &lt;span style="color:#f92672">=&lt;/span> [] (&lt;span style="color:#66d9ef">float&lt;/span> x) {...};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> res &lt;span style="color:#f92672">=&lt;/span> f(a)&lt;span style="color:#f92672">+&lt;/span>f(b);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>N;i&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> x &lt;span style="color:#f92672">=&lt;/span> a&lt;span style="color:#f92672">+&lt;/span>h&lt;span style="color:#f92672">*&lt;/span>(i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">+=&lt;/span> f(x)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res &lt;span style="color:#f92672">*=&lt;/span> h&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="proof-2">Proof&lt;/h4>
+&lt;p>Let $n$ be some natural number. We divide the integration segment $[a,b]$ into $2n$ equal parts:
+$$
+x_i=a+ih,\ i=0\dots2n,\\ h=\dfrac{b-a}{2n}
+$$
+Now we calculate the integral separately on each of the segments $[x_{2i-2},x_{2i}$, $i=1\dots n$ and then add all the values.&lt;/p>
+&lt;p>So, suppose we consider the next segment $[x_{2i-2},x_{2i}]$, $i=1\dots n$. Replace the function $f(x)$ on it with a parabola $P(x)$ passing through 3 points $(x_{2i-2},x_{2i-1},x_{2i})$. Such a parabola always exists and is unique; it can be found analytically. For instance we could construct it using the Lagrange polynomial interpolation. The only remaining thing left to do is to integrate this polynomial. If you do this for a general function $f$, you receive a remarkably simple expression:
+$$
+\int_{x_{2i-2}}^{x_{2i}}f(x)dx\approx\int_{x_{2i-2}}^{x_{2i}}P(x)dx=(f(x_{2i-2})+4f(x_{2i-1})+f(x_{2i}))\frac{h}{3}
+$$
+Adding these values over all segments, we obtain the final Simpson&amp;rsquo;s formula:
+$$
+\int_a^bf(x)dx\approx(f(x_0)+4f(x_1)+2f(x_2)+\cdots+4f(x_{2N-1})+f(x_{2N}))\frac{h}{3}
+$$&lt;/p>
+&lt;h4 id="analysis-2">Analysis&lt;/h4>
+&lt;p>Only depends on the number of divisions thus $\mathcal O(n)$.&lt;/p>
+&lt;h2 id="dynamic-programming-4">Dynamic Programming (4)&lt;/h2>
+&lt;h2 id="combinatorics-10">Combinatorics (10)&lt;/h2>
+&lt;h2 id="data-structures-10">Data Structures (10)&lt;/h2>
+&lt;h2 id="string-processing-12">String Processing (12)&lt;/h2>
+&lt;h2 id="linear-algebra-4">Linear Algebra (4)&lt;/h2>
+&lt;h2 id="geometry-23">Geometry (23)&lt;/h2>
+&lt;h2 id="algebra-27">Algebra (27)&lt;/h2>
+&lt;h2 id="graphs-44">Graphs (44)&lt;/h2>
+&lt;h2 id="miscellaneous-12">Miscellaneous (12)&lt;/h2></description></item><item><title>Natural Language Processing</title><link>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</link><pubDate>Wed, 24 Aug 2022 09:49:01 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/natural_language_processing/</guid><description>&lt;h2 id="part-of-speech-tagging">Part of Speech Tagging&lt;/h2>
+&lt;h3 id="hmm-based-tagging">HMM-based Tagging&lt;/h3>
+&lt;h4 id="parameters">Parameters&lt;/h4>
+&lt;ul>
+&lt;li>&lt;em>Input&lt;/em>: A sequence of words and labels&lt;/li>
+&lt;li>&lt;em>Output&lt;/em>: A sequence of labels for every word&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Penn tag-set is generally used for POS tagging in english language.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="hidden-markov-model">Hidden Markov Model&lt;/h4>
+&lt;p>There are 2 kinds of probabilities:&lt;/p>
+&lt;ol>
+&lt;li>Bigram Probabilities $(P(t_1|t_0))$ : Probability of current word being tag $t_1$ when previous word was tagged $t_0$.&lt;/li>
+&lt;li>Lexical Probabilities $(P(w|t))$: Probability of word $w$ given it is tagged $t$.&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>By Markov assumption, current word&amp;rsquo;s tag only depends on previous word&amp;rsquo;s tag.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="viterbi-algorithm">Viterbi Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define BProb(t1,t0) () &lt;/span>&lt;span style="color:#75715e">// Bigram
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#75715e">#define LProb(w,t) () &lt;/span>&lt;span style="color:#75715e">// Lexical
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> viterbi(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> sentence, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> labels){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> sentence.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> l &lt;span style="color:#f92672">=&lt;/span> labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// labels[0] = &amp;#34;^&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> dp(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(l, &lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> plabel(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(l,&lt;span style="color:#ae81ff">0&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;j&lt;span style="color:#f92672">++&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;k&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">float&lt;/span> p &lt;span style="color:#f92672">=&lt;/span> dp[i][k]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span> BProb(labels[j],labels[k])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">*&lt;/span> LProb(sentence[i],labels[j]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">&amp;lt;&lt;/span>p){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j] &lt;span style="color:#f92672">=&lt;/span> p;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plabel[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j] &lt;span style="color:#f92672">=&lt;/span> k;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> res(sentence.begin(),sentence.end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> ptr&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ptr &lt;span style="color:#f92672">=&lt;/span> dp[n][ptr]&lt;span style="color:#f92672">&amp;lt;&lt;/span>dp[n][i] &lt;span style="color:#f92672">?&lt;/span> i : ptr;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> res[n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#34;_.&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">--&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ptr &lt;span style="color:#f92672">=&lt;/span> slabel[i][ptr];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;_&amp;#34;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>labels[ptr];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="discriminative-learning">Discriminative Learning&lt;/h3>
+&lt;p>HMM based POS tagging cannot handle &amp;ldquo;free word order&amp;rdquo; and &amp;ldquo;agglutination&amp;rdquo; well.&lt;/p>
+&lt;h4 id="feature-engineering">Feature Engineering&lt;/h4>
+&lt;ol>
+&lt;li>Word-based features
+&lt;ul>
+&lt;li>$f_{21}$: Dictionary index of the current word&lt;/li>
+&lt;li>$f_{22}$: Dictionary index of the previous word&lt;/li>
+&lt;li>$f_{23}$: Dictionary index of the next word&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Part of Speech tag-based features
+&lt;ul>
+&lt;li>$f_{24}$: Index of POS of previous word&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Morphology-based features
+&lt;ul>
+&lt;li>$f_{25}$: does the current word have a noun suffix like &amp;rsquo;s&amp;rsquo;, &amp;rsquo;es&amp;rsquo;, &amp;lsquo;ies&amp;rsquo;, etc.&lt;/li>
+&lt;li>$f_{26}$: does the current word have a verbal suffix like &amp;rsquo;d&amp;rsquo;, &amp;rsquo;ed&amp;rsquo;, &amp;rsquo;t&amp;rsquo;, etc.&lt;/li>
+&lt;li>$f_{27}$ and $f_{28}$: above two for previous word.&lt;/li>
+&lt;li>$f_{29}$ and $f_{2,10}$: above two for next word.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="morphology">Morphology&lt;/h4>
+&lt;dl>
+&lt;dt>Morphemes&lt;/dt>
+&lt;dd>Smallest meaning-bearing units forming a word.
+e.g.: In &amp;ldquo;quickly&amp;rdquo;, &amp;ldquo;quick&amp;rdquo; and &amp;ldquo;ly&amp;rdquo;.&lt;/dd>
+&lt;/dl>
+&lt;ul>
+&lt;li>&lt;strong>Analytic Languages&lt;/strong>: Morphemes largely separate from one another.&lt;/li>
+&lt;li>&lt;strong>Synthetic Languages&lt;/strong>: Joins the morphemes.&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>Syncretism&lt;/dt>
+&lt;dd>Overloading of roles per morpheme is called &lt;em>&lt;strong>syncretism&lt;/strong>&lt;/em>.
+e.g.: &amp;ldquo;will go&amp;rdquo;: since number and person are indeterminate here&lt;/dd>
+&lt;/dl>
+&lt;h4 id="maximum-entropy-markov-model">Maximum Entropy Markov Model&lt;/h4>
+&lt;p>$$
+P(t_i=t|F_i)=\dfrac{e^{\sum_{j=1.k}\lambda_jf_{ij}}}{{\sum_{t&amp;rsquo;\in S}}e^{\sum_{j=1.k}\lambda_jf_{ij}(t&amp;rsquo;)}}
+$$&lt;/p>
+&lt;h4 id="beam-search-algorithm">Beam Search Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#define Prob(t,w) ()
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> beam_search(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> sentence, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> labels){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> sentence.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> l &lt;span style="color:#f92672">=&lt;/span> labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>; &lt;span style="color:#75715e">// Beam size
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// labels[0] = &amp;#34;^&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span> best(n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span>(k, make_pair(&lt;span style="color:#ae81ff">0&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(n))));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>].first &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>].second[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;i&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][i].first &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best[&lt;span style="color:#ae81ff">0&lt;/span>][i].second[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> min(i,l&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;j&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;u&lt;span style="color:#f92672">&amp;lt;&lt;/span>l;u&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> p &lt;span style="color:#f92672">=&lt;/span> make_pair(best[i][j].first&lt;span style="color:#f92672">*&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Prob(best[i][j].second, i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, label[u]),best[i][j].second);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> labls[i] &lt;span style="color:#f92672">=&lt;/span> u;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> v&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;v&lt;span style="color:#f92672">&amp;lt;&lt;/span>k;v&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(p&lt;span style="color:#f92672">&amp;gt;&lt;/span>best[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][v])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> swap(p,best[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][v]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> res(n);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">float&lt;/span>,vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> maxp &lt;span style="color:#f92672">=&lt;/span> max_element(best[n].begin(),best[n].end());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>maxp.second.size();i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> res[i] &lt;span style="color:#f92672">=&lt;/span> labels[maxp.second[i]];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> res;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="parsing">Parsing&lt;/h2>
+&lt;h3 id="context-free-grammar-parsing">Context Free Grammar Parsing&lt;/h3>
+&lt;p>We are given a CFG with terminals as POS tags from the language and vairables from segment labels. This grammar is converted to Chomsky form.&lt;/p>
+&lt;h4 id="cyk-algorithm">CYK Algorithm&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> string label;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> left;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> right;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>node&lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">CYK&lt;/span>(vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> sent, map&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&lt;/span>,string&lt;span style="color:#f92672">&amp;gt;&lt;/span> rules)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> pos_labels.size();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>,string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> dp(n, vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>, string&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span>(n, make_pair(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>)));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">==&lt;/span>j)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(i, sent[i][&lt;span style="color:#ae81ff">0&lt;/span>]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;---&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>i;k&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,string&lt;span style="color:#f92672">&amp;gt;&lt;/span> rule &lt;span style="color:#f92672">=&lt;/span> make_pair(dp[j][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].second,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[k][i].second);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(rules.find(rule)&lt;span style="color:#f92672">!=&lt;/span>rules.end()){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dp[j][i] &lt;span style="color:#f92672">=&lt;/span> make_pair(k, rules[rule]);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> node&lt;span style="color:#f92672">*&lt;/span> r;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// make the tree
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">return&lt;/span> r;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="shift-reduce-algorithm">Shift reduce algorithm&lt;/h4>
+&lt;p>Using a stack and working through a Push-down automaton based on the language.&lt;/p>
+&lt;h3 id="probabilistic-parsing">Probabilistic Parsing&lt;/h3>
+&lt;p>In the normal CFG related to the language, we add probability value to each rule. This can be found using the dataset.&lt;/p>
+&lt;p>Probability of a Parse Tree is defined as the product probabilities of all the rules used in the parse tree. This way we find the parse tree with highest probability.&lt;/p>
+&lt;p>We can also define the probability of a sentence as the sum of probabilities of its parse trees.
+$$
+P(S) = \sum_{t} P(t)\cdot P(S|t) = \sum_{t} P(t)
+$$&lt;/p>
+&lt;h3 id="dependency-parsing">Dependency Parsing&lt;/h3>
+&lt;p>Instead of creating chunks of words we create dependency relations between words itself. This creates a tree of words as nodes.&lt;/p>
+&lt;h2 id="ffnnbp">FFNNBP&lt;/h2>
+&lt;p>Use softmax or sigmoid for sentiment analysis.&lt;/p>
+&lt;h2 id="wordnet">WordNet&lt;/h2>
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>Syntagmatic&lt;/strong>&lt;/em>: Based on relations such as Synonym, antonym, etc. &lt;em>CAT&lt;/em> and &lt;em>ANIMAL&lt;/em>&lt;/li>
+&lt;li>&lt;em>&lt;strong>Paradigmatic&lt;/strong>&lt;/em>: Based on Co-occurences. &lt;em>CAT&lt;/em> and &lt;em>MEW&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;h3 id="wordnet-engineering">Wordnet Engineering&lt;/h3>
+&lt;dl>
+&lt;dt>Principles of Synset creation&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Minimality&lt;/li>
+&lt;li>Coverage&lt;/li>
+&lt;li>Replacibility&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;p>These synsets are used to create Syntagmatic ConceptNets.&lt;/p>
+&lt;p>Calculate Lexical Semantic Association(LSA) i.e. matrix of co-occurence frequencies. Apply PCA to get Paradigmatic WordNets.&lt;/p>
+&lt;h3 id="using-wordnets">Using WordNets&lt;/h3>
+&lt;p>$$P(Context\ word | input\ word)=P(w_1|w_2)=\frac{e^{(u_{w_1}^Tu_{w_2})}}{\Sigma_k e^{(u_{w_1}^Tu_{w_k})}}$$&lt;/p>
+&lt;blockquote>
+&lt;p>Here $u_w$ is the word vector for $w$.&lt;/p>
+&lt;/blockquote></description></item><item><title>C++ - Standard Template Library</title><link>https://adityakadoo.github.io/Scrolls/cp/cpp/</link><pubDate>Sat, 20 Aug 2022 12:27:03 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/cp/cpp/</guid><description>&lt;h2 id="basic-utilities">Basic Utilities&lt;/h2>
+&lt;h3 id="initializer-lists">Initializer lists&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> values[] {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> v {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">16&lt;/span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>string&lt;span style="color:#f92672">&amp;gt;&lt;/span> cities {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Berlin&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;New York&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;London&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Braunschweig&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Cairo&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;Cologne&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>complex&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">double&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> c{&lt;span style="color:#ae81ff">4.0&lt;/span>,&lt;span style="color:#ae81ff">3.0&lt;/span>}; &lt;span style="color:#75715e">// equivalent to c(4.0,3.0)
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="range-based-for-loops">Range-based &lt;em>for&lt;/em> loops&lt;/h3>
+&lt;ul>
+&lt;li>Looping through a container
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">auto&lt;/span>&lt;span style="color:#f92672">&amp;amp;&lt;/span> elem : vec) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> elem &lt;span style="color:#f92672">*=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>Looping through an initializer list
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i : {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>}) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="lambda-functions">Lambda functions&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">42&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f1 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>y] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f2 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">=&lt;/span>] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// not very effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> f3 &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>] (std&lt;span style="color:#f92672">::&lt;/span>string s) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>s&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> y&lt;span style="color:#f92672">++&lt;/span>; &lt;span style="color:#75715e">// super effective
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="numeric-limits">Numeric Limits&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(short): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">short&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(int): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;max(long): &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> numeric_limits&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">long&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>max() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> endl;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pair">Pair&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>T1, T2&lt;span style="color:#f92672">&amp;gt;&lt;/span> p(e1,e2);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Operation&lt;/th>
+&lt;th>Effect&lt;/th>
+&lt;th>Complexity&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>make_pair(e1,e2)&lt;/code>&lt;/td>
+&lt;td>Returns a pair using types and values of e1 and e2&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p.first&lt;/code>&lt;/td>
+&lt;td>Returns reference to first value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p.second&lt;/code>&lt;/td>
+&lt;td>Returns reference to second value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p1==p2&lt;/code>&lt;/td>
+&lt;td>Returns &lt;code>p1.first==p2.first &amp;amp;&amp;amp; p1.second==p2.second&lt;/code>&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>p1&amp;lt;p2&lt;/code>&lt;/td>
+&lt;td>Compares first values and if equal second of both values&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>swap(p1,p2)&lt;/code>&lt;/td>
+&lt;td>Swaps data of p1 and p2&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="tuple">Tuple&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>tuple&lt;span style="color:#f92672">&amp;lt;&lt;/span>T1,T2,T3,...Tk&lt;span style="color:#f92672">&amp;gt;&lt;/span> t(e1,e2,e3,...,ek);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Operation&lt;/th>
+&lt;th>Effect&lt;/th>
+&lt;th>Complexity&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>make_tuple(e1,e2,..., ek)&lt;/code>&lt;/td>
+&lt;td>Returns a tuple using types and values of e1, &amp;hellip;, ek&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>get&amp;lt;i&amp;gt;(t)&lt;/code>&lt;/td>
+&lt;td>Returns reference to the ith value&lt;/td>
+&lt;td>$\mathcal{O}(1)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>t1==t2&lt;/code>&lt;/td>
+&lt;td>Returns whether all elements of t1 are equal to t2&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>t1&amp;lt;t2&lt;/code>&lt;/td>
+&lt;td>Compares elements of t1 and t2 lexicographically&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>swap(t1,t2)&lt;/code>&lt;/td>
+&lt;td>Swaps data of t1 and t2&lt;/td>
+&lt;td>$\mathcal{O}(k)$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="stl-structure">STL Structure&lt;/h2>
+&lt;p>STL has 4 most important design components; containers, iterators, algorithms and function objects. These can be used to separate data structures from algorithms and provides a generic API for combining the two.&lt;/p>
+&lt;h3 id="containers">Containers&lt;/h3>
+&lt;p>There are 3 kinds of containers:&lt;/p>
+&lt;h4 id="sequence-containers">Sequence containers&lt;/h4>
+&lt;p>These are &lt;em>ordered collections&lt;/em> where every element has a certain position. These containers are usually implemented using &lt;em>arrays&lt;/em> or &lt;em>linked lists&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Vector&lt;/strong>: Vector manages it&amp;rsquo;s elements in the form of a dynamic array that can grow in one direction with random access.&lt;/li>
+&lt;li>&lt;strong>Deque&lt;/strong>: It is a dynamic array that can grow in both directions.&lt;/li>
+&lt;li>&lt;strong>Array&lt;/strong>: A container of fixed size with random access.&lt;/li>
+&lt;li>&lt;strong>List&lt;/strong>: It is a doubly linked list of elements with insertion or deletion at any position.&lt;/li>
+&lt;li>&lt;strong>Forward List&lt;/strong>: It is a singly linked list without backward operations of List.&lt;/li>
+&lt;/ol>
+&lt;h4 id="associative-containers">Associative containers&lt;/h4>
+&lt;p>These are &lt;em>sorted collections&lt;/em> where the position of every element depends on its value. These containers are usually implemented using &lt;em>binary trees&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Set&lt;/strong>: A set is a collection in which elements are sorted according to their own values. Each element may occur only once, so duplicates are not allowed.&lt;/li>
+&lt;li>&lt;strong>Multiset&lt;/strong>: A multiset is the same as a set except that duplicates are allowed. Thus, a multiset may contain multiple elements that have the same value.&lt;/li>
+&lt;li>&lt;strong>Map&lt;/strong>: A map contains elements that are key/value pairs. Each element has a key that is the basis for the sorting criterion and a value. Each key may occur only once, so duplicate keys are not allowed. A map can also be used as an associative array, an array that has an arbitrary index type.&lt;/li>
+&lt;li>&lt;strong>Multimap&lt;/strong>: A multimap is the same as a map except that duplicates are allowed. Thus, a multimap may contain multiple elements that have the same key. A multimap can also be used as dictionary.&lt;/li>
+&lt;/ol>
+&lt;h4 id="unordered-associative-containers">Unordered (associative) containers&lt;/h4>
+&lt;p>These are &lt;em>unordered collections&lt;/em> where the position of an element doesn&amp;rsquo;t matter. These containers are usually implemented using &lt;em>hash tables&lt;/em>.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Unordered set&lt;/strong>: An unordered set is a collection of unordered elements, where each element may occur only once. Thus, duplicates are not allowed.&lt;/li>
+&lt;li>&lt;strong>Unordered multisets&lt;/strong>: An unordered multiset is the same as an unordered set except that duplicates are allowed. Thus, an unordered multiset may contain multiple elements that have the same value.&lt;/li>
+&lt;li>&lt;strong>Unordered map&lt;/strong>: An unordered map contains elements that are key/value pairs. Each key may occur only once, so duplicate keys are not allowed. An unordered map can also be used as an associative array, an array that has an arbitrary index type.&lt;/li>
+&lt;li>&lt;strong>Unordered multimap&lt;/strong>: An unordered multimap is the same as an unordered map except that duplicates are allowed. Thus, an unordered multimap may contain multiple elements that have the same key. An unordered multimap can also be used as dictionary.&lt;/li>
+&lt;/ol>
+&lt;h4 id="container-adapters">Container Adapters&lt;/h4>
+&lt;ol>
+&lt;li>&lt;strong>Stack&lt;/strong>: A stack (the name says it all) manages its elements by the LIFO (last-in-first-out) policy.&lt;/li>
+&lt;li>&lt;strong>Queue&lt;/strong>: A queue manages its elements by the FIFO (first-in-first-out) policy. That is, it is an ordinary buffer.&lt;/li>
+&lt;li>&lt;strong>Priority queue&lt;/strong>: A priority queue is a container in which the elements may have different priorities.&lt;/li>
+&lt;/ol>
+&lt;h3 id="iterators">Iterators&lt;/h3>
+&lt;p>We need a concept of an object that represents positions of elements in a container. Objects that fulfill this concept are called &lt;em>&lt;strong>iterators&lt;/strong>&lt;/em>. Following are the operations that one can perform using these iterators:&lt;/p>
+&lt;ul>
+&lt;li>Operator &lt;code>*&lt;/code> returns the element of the current position. If the elements have members, you can use operator &lt;code>-&amp;gt;&lt;/code> to access those members directly from the iterator.&lt;/li>
+&lt;li>Operator &lt;code>++&lt;/code> lets the iterator step forward to the next element. Most iterators also allow stepping backward by using operator &lt;code>--&lt;/code>.&lt;/li>
+&lt;li>Operators &lt;code>==&lt;/code> and &lt;code>!=&lt;/code> return whether two iterators represent the same position.&lt;/li>
+&lt;li>Operator &lt;code>=&lt;/code> assigns an iterator.&lt;/li>
+&lt;/ul>
+&lt;p>Apart from this every container class also provides following methods:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>begin()&lt;/code> returns an iterator that represents the beginning of the elements in the container. The beginning is the position of the first element, if any.&lt;/li>
+&lt;li>&lt;code>end()&lt;/code> returns an iterator that represents the end of the elements in the container. The end is the
+position behind the last element. Such an iterator is also called a past-the-end iterator.&lt;/li>
+&lt;/ul>
+&lt;p>Types of iterators:-&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Forward Iterators&lt;/strong>: Support only &lt;code>++&lt;/code> operator. Used in &lt;code>forward_list&lt;/code>, &lt;code>unordered_set&lt;/code>, &lt;code>unordered_multiset&lt;/code>, &lt;code>unordered_map&lt;/code> and &lt;code>unordered_multimap&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Bidirectional Iterators&lt;/strong>: Support &lt;code>++&lt;/code> and &lt;code>--&lt;/code> operators. Used in &lt;code>list&lt;/code>, &lt;code>set&lt;/code>, &lt;code>map&lt;/code>, &lt;code>multiset&lt;/code> and &lt;code>multimap&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Random-access Iterators&lt;/strong>: Support iterator arithmetic (&lt;code>+,-,&amp;gt;,&amp;lt;,&lt;/code>etc). Used in &lt;code>vector&lt;/code>, &lt;code>array&lt;/code>, &lt;code>deque&lt;/code> and &lt;code>string&lt;/code>.&lt;/li>
+&lt;/ol>
+&lt;h3 id="algorithm">Algorithm&lt;/h3>
+&lt;h3 id="function-object">Function object&lt;/h3>
+&lt;h2 id="stl-containers">STL Containers&lt;/h2>
+&lt;p>&lt;img src="images/containers.png" alt="Containers">&lt;/p>
+&lt;h3 id="arrays">Arrays&lt;/h3>
+&lt;dl>
+&lt;dt>Array&lt;/dt>
+&lt;dd>An &lt;em>&lt;strong>array&lt;/strong>&lt;/em> is a sequence of elements with constant size.
+&lt;ul>
+&lt;li>Ordered collection&lt;/li>
+&lt;li>Random access&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="array-provides-mathcal-o1-element-access">Array provides $\mathcal O(1)$ element access.&lt;/h4>
+&lt;p>This is done by using iterator arithmetic to get to any element&amp;rsquo;s location.&lt;/p>
+&lt;h3 id="vectors">Vectors&lt;/h3>
+&lt;dl>
+&lt;dt>Vector&lt;/dt>
+&lt;dd>A &lt;em>&lt;strong>vector&lt;/strong>&lt;/em> models a dynamic array that can grow in one direction.
+&lt;ul>
+&lt;li>Ordered collection&lt;/li>
+&lt;li>Random access&lt;/li>
+&lt;li>Dynamic storage&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl></description></item><item><title>Automata Theory</title><link>https://adityakadoo.github.io/Scrolls/courses/automata_theory/</link><pubDate>Fri, 19 Aug 2022 17:00:34 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/automata_theory/</guid><description>&lt;h2 id="resources">Resources&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;h3 id="hopcrot-motwani-ullmanhttpswww-2dcubaarstaffbecherhopcroft-motwani-ullman-2001pdf">&lt;a href="https://www-2.dc.uba.ar/staff/becher/Hopcroft-Motwani-Ullman-2001.pdf">Hopcrot-Motwani-Ullman&lt;/a>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="central-concepts">Central Concepts&lt;/h2>
+&lt;h4 id="alphabets">Alphabets&lt;/h4>
+&lt;dl>
+&lt;dt>Alphabet $ (\Sigma) $&lt;/dt>
+&lt;dd>An &lt;em>&lt;strong>alphabet&lt;/strong>&lt;/em> is a finite nonempty set of symbols.&lt;/dd>
+&lt;/dl>
+&lt;ol>
+&lt;li>$ \Sigma= \{1, 0\} $&lt;/li>
+&lt;li>$ \Sigma = \{a,b,&amp;hellip;,z\}$&lt;/li>
+&lt;/ol>
+&lt;h4 id="strings">Strings&lt;/h4>
+&lt;dl>
+&lt;dt>String $(w)$&lt;/dt>
+&lt;dd>A &lt;em>&lt;strong>string&lt;/strong>&lt;/em> is a finite sequence of symbols chosen from $ \Sigma $.&lt;/dd>
+&lt;dt>Empty String $(\epsilon)$&lt;/dt>
+&lt;dd>The &lt;em>&lt;strong>empty string&lt;/strong>&lt;/em> is a string with zero symbols.&lt;/dd>
+&lt;dt>Length of a string&lt;/dt>
+&lt;dd>$|w|=\#$ Symbols in $w$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$|\epsilon|=0$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>Power of Alphabets&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$\Sigma^k=\{w:|w|=k\}$&lt;/li>
+&lt;li>$\Sigma^+=\Sigma^1\cup\Sigma^2\cup&amp;hellip;$&lt;/li>
+&lt;li>$\Sigma^*=\Sigma^+\cup\{\epsilon\}$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\Sigma^0= \{\epsilon\}$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>Concatenation of Strings&lt;/dt>
+&lt;dd>For strings $w_1$ and $w_2$, their &lt;em>&lt;strong>concatenation&lt;/strong>&lt;/em> is $w_1w_2$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$|w_1w_2| = |w_1|+|w_2|$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="languages">Languages&lt;/h4>
+&lt;dl>
+&lt;dt>Language $(L)$&lt;/dt>
+&lt;dd>A &lt;em>&lt;strong>language&lt;/strong>&lt;/em> over $\Sigma$ is basically $L\sube\Sigma^*$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>A common way on defining languages is to use set-builder form as,
+$\{w\in\Sigma^*:$ something about $w\}$.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>Empty Language $(\empty)$&lt;/dt>
+&lt;dd>The &lt;em>&lt;strong>empty language&lt;/strong>&lt;/em> contains no words.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\empty\ne\{\epsilon\}$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="problems">Problems&lt;/h4>
+&lt;dl>
+&lt;dt>Problem&lt;/dt>
+&lt;dd>Any &lt;em>&lt;strong>problem&lt;/strong>&lt;/em> is, given a $w$ in $\Sigma^*$, decide whether or not $w$ is in $L$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>If testing membership in $L_X$ is hard, then compiling programs in programming language $X$ is hard.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="finite-state-automaton">Finite State Automaton&lt;/h2>
+&lt;h3 id="dfa">DFA&lt;/h3>
+&lt;dl>
+&lt;dt>Deterministic Finite Automaton $(\mathcal D(Q,\Sigma,\delta,q_0,F) )$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>A finite set of &lt;em>states&lt;/em> $(Q)$.&lt;/li>
+&lt;li>A finite set of &lt;em>input symbols&lt;/em> $(\Sigma)$.&lt;/li>
+&lt;li>A &lt;em>transition function&lt;/em> $(\delta:Q\times\Sigma\rightarrow Q)$&lt;/li>
+&lt;li>A &lt;em>start state&lt;/em> $(q_0\in Q)$&lt;/li>
+&lt;li>A set of &lt;em>final states&lt;/em> $F\sube Q$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Transition diagram $(G_{\mathcal D}(V,E))$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>$V=\{q:q\in Q\}$&lt;/li>
+&lt;li>$E=\{q_1\xrightarrow{a}q_2:a\in\Sigma\text{ and }\delta(q_1,a)=q_2\}$&lt;/li>
+&lt;li>An arrow pointing into $q_0$.&lt;/li>
+&lt;li>All nodes in $F$ are denoted with double circle.&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Extended transition function $(\hat\delta:Q\times\Sigma^*\rightarrow Q)$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $\hat\delta(q,\epsilon)=q$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: $\hat\delta(q,w)=\delta(\hat\delta(q,w[:-1]),w[-1])$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Language of DFA $(L(\mathcal D))$&lt;/dt>
+&lt;dd>$$
+L(\mathcal D)=\{w\in\Sigma:\hat\delta(q_0,w)\in F\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="nfa">NFA&lt;/h3>
+&lt;dl>
+&lt;dt>Nondeterministic Finite Automaton $(\mathcal N(Q,\Sigma,\delta,q_0,F) )$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>A finite set of &lt;em>states&lt;/em> $(Q)$.&lt;/li>
+&lt;li>A finite set of &lt;em>input symbols&lt;/em> $(\Sigma)$.&lt;/li>
+&lt;li>A &lt;em>transition function&lt;/em> $(\delta:Q\times\Sigma\rightarrow\mathcal P(Q))$&lt;/li>
+&lt;li>A &lt;em>start state&lt;/em> $(q_0\in Q)$&lt;/li>
+&lt;li>A set of &lt;em>final states&lt;/em> $F\sube Q$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\mathcal P(S)=\{A:A\sube S\}$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>Extended transition function $(\hat\delta:Q\times\Sigma^*\rightarrow P(Q))$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $\hat\delta(q,\epsilon)=\{q\}$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: $\hat\delta(q,w)=\bigcup_{p\in \hat\delta(q,w[:-1])}\delta(p,w[-1])$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Language of NFA $(L(\mathcal N))$&lt;/dt>
+&lt;dd>$$
+L(\mathcal N)=\{w\in\Sigma:\hat\delta(q_0,w)\cap F\ne\empty\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="equivalence-of-dfa-and-nfa">Equivalence of DFA and NFA&lt;/h4>
+&lt;p>Given an NFA $(\mathcal N=\{Q_N,\Sigma,\delta_N,q_0,F_N\})$ it can be converted to a DFA $\mathcal D=\{Q_D,\Sigma,\delta_D,\{q_0\},F_D\}$ such that $L(\mathcal D)=L(\mathcal N)$ using &lt;em>&lt;strong>subset construction&lt;/strong>&lt;/em> method.&lt;/p>
+&lt;ol>
+&lt;li>$Q_D=P(Q_N)$&lt;/li>
+&lt;li>$F_D=\{S\sube Q_N:S\cap F_N\ne\empty\}$&lt;/li>
+&lt;li>$\delta_D:P(Q_N)\times\Sigma\rightarrow P(Q_N)$ is defined as,
+$$
+\delta_D(S,a)=\bigcup_{p\in S}\delta_N(p,a)
+$$&lt;/li>
+&lt;/ol>
+&lt;h5 id="theorem--lmathcal-dlmathcal-n-ie-forall-winsigma-hatdelta_dq_0whatdelta_nq_0w">&lt;strong>Theorem&lt;/strong> : $L(\mathcal D)=L(\mathcal N)$ i.e. $\forall w\in\Sigma,\\ \hat\delta_D(\{q_0\},w)=\hat\delta_N(q_0,w)$&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: For $w=\epsilon,\\ \hat\delta_D(\{q_0\},w)=\{q_0\}$ and $\hat\delta_N(q_0,w)=\{q_0\}$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: As $\hat\delta_N(q_0,w[:-1])=\hat\delta_D(\{q_0\},w[:-1])$
+$$
+\hat\delta_N(q_0,w)=\bigcup_{p\in\hat\delta_N(q_0,w[:-1])}\delta_N(p,w[-1])
+$$
+$$
+\hat\delta_D(\{q_0\},w)=\delta_D(\hat\delta_D(\{q_0\},w[:-1]),w[-1])=\bigcup_{p\in\hat\delta_D(\{q_0\},w[:-1])}\delta_N(p,w[-1])
+$$
+$$
+\therefore\hat\delta_D(\{q_0\},w)=\hat\delta_N(q_0,w)
+$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--a-language-l-is-accepted-by-some-dfa-iff-l-is-accepted-by-some-nfa">&lt;strong>Theorem&lt;/strong> : A language $L$ is accepted by some DFA iff $L$ is accepted by some NFA.&lt;/h5>
+&lt;blockquote>
+&lt;p>A bad case for subset construction is $L=\{w\in\{1,0\}^*:w[-n]=1\}$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="epsilon-nfa">$\epsilon$-NFA&lt;/h3>
+&lt;dl>
+&lt;dt>Finite Automaton with $\epsilon$-transition $(\mathcal A(Q,\Sigma,\delta,q_0,F))$&lt;/dt>
+&lt;dd>It is defined similar to the NFA with only difference in $\delta:Q\times\Sigma\cup\{\epsilon\}\rightarrow P(Q)$.&lt;/dd>
+&lt;dt>Epsilon Closure $(\text{Ecl}(.))$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $q\in\text{Ecl}(q)$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: If $p\in\text{Ecl}(q)$ and $r\in\delta(p,\epsilon)$ then $r\in\text{Ecl}(q)$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Extended Transition Function $(\hat\delta(.,.))$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $\hat\delta(q,\epsilon)=\text{Ecl}(q)$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: $$\hat\delta(q,w)=\bigcup_{r\in\bigcup_{p\in\hat\delta(q,w[:-1])}\delta(p,w[-1])}\text{Ecl}(r)$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="eliminating-epsilon-transitions">Eliminating $\epsilon$-transitions&lt;/h4>
+&lt;p>Given an $\epsilon$-NFA $\mathcal A=\{Q_A,\Sigma,\delta_A,q_0,F_A\}$ it can be converted to a DFA $\mathcal D=\{Q_D,\Sigma,\delta_D,\{q_D\},F_D\}$ such that $L(\mathcal D)=L(\mathcal A)$ as follows,&lt;/p>
+&lt;ol>
+&lt;li>$Q_D=\mathcal P(Q_A)$&lt;/li>
+&lt;li>$q_D=\text{Ecl}(q_0)$&lt;/li>
+&lt;li>$F_D=\{S:S\in Q_D$ and $S\cap F_A\ne\empty\}$&lt;/li>
+&lt;li>$\delta_D:Q_D\times\Sigma$ is defined as follows,
+$$
+\delta_D(S,a)=\bigcup_{r\in\bigcup_{p\in S}\delta_A(p,a)}\text{Ecl}(r)
+$$&lt;/li>
+&lt;/ol>
+&lt;h5 id="theorem--a-language-l-is-accepted-by-some-epsilon-nfa-iff-l-is-accepted-by-some-dfa">&lt;strong>Theorem&lt;/strong> : A language $L$ is accepted by some $\epsilon$-NFA iff $L$ is accepted by some DFA.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Use the above procedure to create a DFA.
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: Since $\hat\delta_A(q_0, \epsilon)=\text{Ecl}(q_0)$ and $\hat\delta_D(q_D, \epsilon)=\hat\delta_D(\text{Ecl}(q_0),\epsilon)=\text{Ecl}(q_0)$, $\hat\delta_A(q_0, \epsilon) = \hat\delta_D(q_D, \epsilon)$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: As $\hat\delta_A(q_0, w[:-1])=\hat\delta_D(q_D,w[:-1])$ and,
+$$
+\hat\delta_A(q_0,w)=\bigcup_{r\in\bigcup_{p\in\hat\delta_A(q_0, w[:-1])}\delta_A(p,w[-1])}\text{Ecl}(r)
+$$
+and $\hat\delta_D(q_D,w)$ is defined in a similar way,
+$$
+\therefore\hat\delta_A(q_0, w)=\hat\delta_D(q_D,w)
+$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h2 id="regular-expressions">Regular Expressions&lt;/h2>
+&lt;p>Operators on Regular Languages&lt;/p>
+&lt;dl>
+&lt;dt>Union $(\cup)$&lt;/dt>
+&lt;dd>The union of two languages $L$ and $M$ is defined as $L\cup M$.&lt;/dd>
+&lt;dt>Concatenation $(\cdot)$&lt;/dt>
+&lt;dd>The concatenation of two languages $L$ and $M$ is defined as $LM=\{x\cdot y\text{ or }xy:x\in L,y\in M\}$.&lt;/dd>
+&lt;dt>Kleene closure $(^{*})$&lt;/dt>
+&lt;dd>The Kleene closure of a language $L$ is defined inductively as,
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $\epsilon\in L^*$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: If $w\in L^*$ and $x\in L$ then, $wx\in L^*$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>RegEx $(\boldsymbol R)$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: It contains 2 parts:
+&lt;ol>
+&lt;li>The constants $\boldsymbol{\epsilon}$ and $\boldsymbol{\empty}$ are regex such that $L(\boldsymbol{\epsilon})=\{\epsilon\}$ and $L(\boldsymbol{\empty})=\empty$&lt;/li>
+&lt;li>Every symbol $\boldsymbol{a}$ such that $a\in\Sigma$ is a regex then $L(\boldsymbol{a})=\{a\}$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: There are four parts for the induction step:
+&lt;ol>
+&lt;li>$L(\boldsymbol E+\boldsymbol F)=L(\boldsymbol E)\cup L(\boldsymbol F)$&lt;/li>
+&lt;li>$L(\boldsymbol E\boldsymbol F)=L(\boldsymbol E)L(\boldsymbol F)$&lt;/li>
+&lt;li>$L(\boldsymbol E^*)=(L(\boldsymbol E))^*$&lt;/li>
+&lt;li>$L((\boldsymbol E))=L(\boldsymbol E)$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$* &amp;gt; . &amp;gt; +$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="equivalence-to-finite-automata">Equivalence to Finite Automata&lt;/h3>
+&lt;h4 id="dfa-to-regex">DFA to RegEx&lt;/h4>
+&lt;h5 id="theorem-if-llmathcal-d-for-some-dfa-mathcal-d-then-there-is-a-regular-expression-boldsymbol-r-such-that-llboldsymbol-r">&lt;strong>Theorem&lt;/strong>: If $L=L(\mathcal D)$ for some DFA $\mathcal D$, then there is a regular expression $\boldsymbol R$ such that $L=L(\boldsymbol R)$&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Let the DFA have $n$ nodes each labelled with a number from $[1,n]$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$\boldsymbol R_{ij}^{(k)}=\{w:\hat\delta(i,w)=j$ and $\forall t$ such that $0&amp;lt;t&amp;lt;|w|-1,\ \hat\delta(i,w[:t])\le k\}$&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: Let $S=\{a:\delta(i,a)=j\}$. If $S=\empty$ then $\boldsymbol R_{ij}^{(0)}=\empty$ else $\boldsymbol R_{ij}^{(0)}=\sum_{a\in S}a$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>:
+$$
+\boldsymbol R_{ij}^{(k)}=\boldsymbol R_{ij}^{(k-1)} + \boldsymbol R_{ik}^{(k-1)}\cdot(\boldsymbol R_{kk}^{(k-1)})^*\cdot\boldsymbol R_{kj}^{(k-1)}
+$$&lt;/li>
+&lt;/ul>
+&lt;h4 id="regex-to-automata">RegEx to Automata&lt;/h4>
+&lt;h5 id="theorem-every-language-accepted-by-a-regular-expression-is-also-accepted-by-a-finite-automaton">&lt;strong>Theorem&lt;/strong>: Every language accepted by a regular expression is also accepted by a finite automaton.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Let $L=L(\boldsymbol R)$ for some regular expression $\boldsymbol R$. We show that $L=L(\mathcal A)$ for some $\epsilon$-NFA $\mathcal A$ with:&lt;/dd>
+&lt;/dl>
+&lt;ol>
+&lt;li>Exactly one accepting state.&lt;/li>
+&lt;li>No arcs into the initial state.&lt;/li>
+&lt;li>No arcs out of the accepting state.&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;em>Basis&lt;/em>: For the 3 base cases:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>$\boldsymbol \empty$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_7-13.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\boldsymbol \epsilon$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_6-44.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\boldsymbol a\in\Sigma$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_7-24.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;em>Induction&lt;/em>:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>$\boldsymbol R+\boldsymbol S$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_7-48.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\boldsymbol R\boldsymbol S$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_8-10.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\boldsymbol R^{*}$&lt;/p>
+&lt;p>&lt;img src="images/DFAtoRegEx_8-26.png" alt="Emtpy">&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="algebraic-laws">Algebraic Laws&lt;/h3>
+&lt;h4 id="associativity-and-commutativity">Associativity and Commutativity&lt;/h4>
+&lt;ul>
+&lt;li>$L+M=M+L$&lt;/li>
+&lt;li>$(L+M)+N=L+(M+N)$&lt;/li>
+&lt;li>$(LM)N$=$L(MN)$&lt;/li>
+&lt;/ul>
+&lt;h4 id="identities-and-annihilators">Identities and Annihilators&lt;/h4>
+&lt;ul>
+&lt;li>$\empty+L=L+\empty=L$&lt;/li>
+&lt;li>$\epsilon L=L\epsilon=L$&lt;/li>
+&lt;li>$\empty L=L\empty=\empty$&lt;/li>
+&lt;/ul>
+&lt;h4 id="distributive-laws">Distributive Laws&lt;/h4>
+&lt;ul>
+&lt;li>$L(M+N)=LM+LN$&lt;/li>
+&lt;li>$(M+N)L=ML+NL$&lt;/li>
+&lt;/ul>
+&lt;h4 id="idempotent-law">Idempotent Law&lt;/h4>
+&lt;ul>
+&lt;li>$L+L=L$&lt;/li>
+&lt;/ul>
+&lt;h4 id="laws-with-closure">Laws with Closure&lt;/h4>
+&lt;ul>
+&lt;li>$(L^*)^*=L^*$&lt;/li>
+&lt;li>$\empty^*=\epsilon$&lt;/li>
+&lt;li>$\epsilon^*=\epsilon$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>$L^+=LL^*$&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>$L^*=L^++\epsilon$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>$L?=\epsilon+L$&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>$(L^*M^*)^*=(L+M)^*$&lt;/li>
+&lt;/ul>
+&lt;h2 id="properties-of-rls">Properties of RLs&lt;/h2>
+&lt;h3 id="pumping-lemma-for-rls">Pumping Lemma for RLs&lt;/h3>
+&lt;h4 id="statement-of-ppumping-lemma">Statement of PPumping Lemma&lt;/h4>
+&lt;h5 id="theorem-for-all-l-such-that-l-is-a-regular-language-there-exists-a-constant-n-such-that-for-all-wge-n-we-can-break-w-into-three-strings-wxyz-such-that">&lt;strong>Theorem&lt;/strong>: For all $L$ such that $L$ is a regular language, there exists a constant $n$ such that for all $|w|\ge n$ we can break $w$ into three strings, $w=xyz$, such that:&lt;/h5>
+&lt;h5 id="1-yneepsilon">1. $y\ne\epsilon$&lt;/h5>
+&lt;h5 id="2-xyle-n">2. $|xy|\le n$&lt;/h5>
+&lt;h5 id="3-forall-kge0xykzin-l">3. $\forall k\ge0,xy^kz\in L$&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Let $L=L(\mathcal D)$ be a regular language for DFA $\mathcal D$. Consider a $w$ such that $|w|\ge n$.
+We define,
+$$
+S = \{q
+_i:0\le i\le n,\hat\delta(q_0,w[:i])=q_i\}
+$$
+As size of $S$ is $n+1$ there must be two $q_i$ and $q_j$ such that $q_i=q_j$ by Pigeon-hole principle. We can break $w$ as,
+&lt;ol>
+&lt;li>$x=w[:i]$&lt;/li>
+&lt;li>$y=w[i:j]$&lt;/li>
+&lt;li>$z=w[j:]$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="proving-languages-not-to-be-regular">Proving languages not to be Regular&lt;/h4>
+&lt;p>We do a game between 2 players as follows:&lt;/p>
+&lt;ol>
+&lt;li>Player 1 picks the language $L$ to be proved nonregular.&lt;/li>
+&lt;li>Player 2 picks $n$, but doesn&amp;rsquo;t reveal to player 1 what $n$ is; player 1 must devise a play for all possible $n$&amp;rsquo;s.&lt;/li>
+&lt;li>Player 1 picks $w$, which may depend on $n$ and which must be of length at least $n$ and $w\in L$.&lt;/li>
+&lt;li>Player 2 divides $w$ into $x$, $y$ and $z$, obeying the constraints that are stipulated in the pumping lemma; $y\ne\epsilon$ and $|xy|\le n$ and doesn&amp;rsquo;t tell player 1 what $x$, $y$ and $z$ are.&lt;/li>
+&lt;li>Player 1 &amp;ldquo;wins&amp;rdquo; by picking $k$, which may be a function of $n$, $x$, $y$ and $z$, such that $xy^kz$ is not in $L$.&lt;/li>
+&lt;/ol>
+&lt;p>Thus $L$ must not be regular as it doesn&amp;rsquo;t follow the pumping lemma.&lt;/p>
+&lt;h3 id="closure-properties">Closure Properties&lt;/h3>
+&lt;h4 id="closure-under-boolean-operations">Closure under Boolean Operations&lt;/h4>
+&lt;blockquote>
+&lt;p>$\boldsymbol R_L =$ regular expression for language $L$&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="theorem-if-l-and-m-are-regular-then-lcup-m-is-also-regular">&lt;strong>Theorem&lt;/strong>: If $L$ and $M$ are regular then $L\cup M$ is also regular.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>$L\cup M=L(\boldsymbol R_L+\boldsymbol R_M)$&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem-if-l-is-regular-then-so-is-bar-l">&lt;strong>Theorem&lt;/strong>: If $L$ is regular then so is $\bar L$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Convert $\boldsymbol R_L$ to DFA and take complement of it and construct the regular expression again to get $\boldsymbol R_{\bar L}$&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem-if-l-and-m-are-regular-then-lcap-m-is-also-regular">&lt;strong>Theorem&lt;/strong>: If $L$ and $M$ are regular then $L\cap M$ is also regular.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>$L\cap M=\overline{\overline L\cup\overline M}$&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem-if-l-and-m-are-regular-then-l-m-is-also-regular">&lt;strong>Theorem&lt;/strong>: If $L$ and $M$ are regular then $L-M$ is also regular.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>$L-M=L\cap\overline M$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="reversal">Reversal&lt;/h4>
+&lt;blockquote>
+&lt;p>$L^R$ is defined as the reversal of the language $L$.&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="theorem-if-l-is-regular-language-then-so-is-lr">&lt;strong>Theorem&lt;/strong>: If $L$ is regular language then so is $L^R$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Construct the DFA $\mathcal D$ of $L$ and reverse all the edges of $\mathcal D$ and make final states as start states and start states as end states. This will make an NFA accepting only reverse of string in $L$.&lt;/dd>
+&lt;/dl>
+&lt;h3 id="descision-properties">Descision Properties&lt;/h3>
+&lt;h4 id="converting-among-representations">Converting among Representations&lt;/h4>
+&lt;ul>
+&lt;li>NFA to DFA: $\mathcal O(n^32^n)$&lt;/li>
+&lt;li>DFA to NFA: $\mathcal O(n)$&lt;/li>
+&lt;li>DFA to RegEx: $\mathcal O(n^34^n)$&lt;/li>
+&lt;li>NFA to RegEx: $\mathcal O(n^34^{n^32^n})$&lt;/li>
+&lt;li>RegEx to $\epsilon$-NFA: $\mathcal O(n^3)$&lt;/li>
+&lt;/ul>
+&lt;h4 id="testing-emptiness-of-regular-languages">Testing Emptiness of Regular Languages&lt;/h4>
+&lt;p>Given a DFA apply BFS to check if any final state is reachable from the start state.&lt;/p>
+&lt;p>For a Regular Expression,&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $\empty$ is the empty language.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: Four cases must be considered:
+&lt;ol>
+&lt;li>$R=R_1+R_2$ then $L(R)$ is empty iff both $L(R_1)$ and $L(R_2)$ are empty.&lt;/li>
+&lt;li>$R=R_1R_2$ then $L(R)$ is empty iff $L(R_1)$ or $L(R_2)$ is empty.&lt;/li>
+&lt;li>$R=R_1^*$ then $L(R)$ is not empty.&lt;/li>
+&lt;li>$R=(R_1)$ then $L(R)$ is empty iff $L(R_1)$ is empty.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="testing-membership-in-a-regular-language">Testing Membership in a Regular Language&lt;/h4>
+&lt;p>For a string $w$ with $|w|=n$ and $s$ states,&lt;/p>
+&lt;ul>
+&lt;li>DFA: $\mathcal O(n)$&lt;/li>
+&lt;li>$\epsilon$-NFA: $\mathcal O(ns^2)$&lt;/li>
+&lt;li>RegEx: $\mathcal O(ns^2)$&lt;/li>
+&lt;/ul>
+&lt;h3 id="equivalence-and-minimization">Equivalence and Minimization&lt;/h3>
+&lt;dl>
+&lt;dt>Equivalent States $(p,q)$&lt;/dt>
+&lt;dd>For all input strings $w$, $\hat\delta(p,w)$ is an accepting state iff $\hat\delta(q,w)$ is an accepting state.&lt;/dd>
+&lt;/dl>
+&lt;h4 id="testing-equivalence-of-states">Testing Equivalence of States&lt;/h4>
+&lt;p>Finding all pairs of distinguishable states by table method.&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: If $p$ is an accepting state and $q$ is a nonaccepting, then the pair $\{p,q\}$ is distinguishable.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: Let $r=\delta(p,a)$ and $s=\delta(q,a)$ then $p$ and $q$ are distinguishable if $r$ and $s$ are known to be distinguishable.&lt;/li>
+&lt;/ul>
+&lt;h5 id="theorem-any-pair-that-is-left-indistinguishable-from-the-table-filling-algorithm-is-equivatent">&lt;strong>Theorem&lt;/strong>: Any pair that is left indistinguishable from the table-filling algorithm is equivatent.&lt;/h5>
+&lt;h4 id="minimization-of-dfas">Minimization of DFA&amp;rsquo;s&lt;/h4>
+&lt;h5 id="theorem-the-equivalence-of-states-is-transitive-that-is-if-in-some-dfa-mathcal-dqsumdeltaq_0f-we-find-that-states-p-and-q-are-equivalent-and-we-also-find-that-q-and-r-are-equivalent-then-it-must-be-that-p-and-r-are-equivalent">&lt;strong>Theorem&lt;/strong>: The equivalence of states is transitive. That is, if in some DFA $\mathcal D=(Q,\sum,\delta,q_0,F)$ we find that states $p$ and $q$ are equivalent, and we also find that $q$ and $r$ are equivalent, then it must be that $p$ and $r$ are equivalent.&lt;/h5>
+&lt;p>Therefore the &amp;ldquo;equivalence of states&amp;rdquo; is an equivalence relation over $Q$. This means we can divide the $Q$ into different equivalence classes and the minimal DFA needs to have at least these many states representing each equivalence class.&lt;/p>
+&lt;h2 id="context-free-grammars">Context-free Grammars&lt;/h2>
+&lt;dl>
+&lt;dt>CFG $(\mathcal G(V,T,P,S))$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>&lt;strong>Terminals&lt;/strong>&lt;/em> $(T\sube\{a,\cdots,z\})$
+: Set of symbols of the language being defined.&lt;/li>
+&lt;li>&lt;em>&lt;strong>Variables&lt;/strong>&lt;/em> $(V\sube\{A,\cdots,Z\})$
+: Aka nonterminal or syntactic categories; Set of finite variables that each represent a language.&lt;/li>
+&lt;li>&lt;em>&lt;strong>Start Symbol&lt;/strong>&lt;/em> $(S)$
+: A special variable which represents the required language.&lt;/li>
+&lt;li>&lt;em>&lt;strong>Rules&lt;/strong>&lt;/em> $(P)$
+: A set of rules describing recursive definitions of variables such that,
+$$
+P\sube\{A_0\rightarrow w_0|A_0\in V\text{ and }w_0\in(T\cup V)^*\}
+$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Derivation Relation $(\Rightarrow)$&lt;/dt>
+&lt;dd>$$
+R_{\boldsymbol{\Rightarrow}}=\{(\alpha A\beta,\alpha\gamma\beta)|A\rightarrow\gamma\in P\}
+$$
+So in short $\alpha A\beta\Rightarrow\alpha\gamma\beta$.&lt;/dd>
+&lt;dt>Extended Derivation Relation $(\xRightarrow{*})$&lt;/dt>
+&lt;dd>We can extend the above relation to a more powerful &amp;ldquo;derivation in multiple steps&amp;rdquo; relation $\xRightarrow{*}$ as,
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: For any string $\alpha$, $\alpha\xRightarrow{*}\alpha$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: If $\alpha\xRightarrow{*}\beta$ then $\beta\Rightarrow\gamma$ then $\alpha\xRightarrow{*}\gamma$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Leftmost Derivation&lt;/dt>
+&lt;dd>While deriving the leftmost string that occurs in a rule as head is always substituted first. This gives use new relations $\xRightarrow[lm]{}$ and $\xRightarrow[lm]{*}$.&lt;/dd>
+&lt;dt>Rightmost Derivation&lt;/dt>
+&lt;dd>Similarly we can also define the relations $\xRightarrow[rm]{}$ and $\xRightarrow[rm]{*}$&lt;/dd>
+&lt;dt>Language of a Grammar&lt;/dt>
+&lt;dd>The language $L$ given by a CFG $\mathcal G$ is defined as,
+$$
+L(\mathcal G) = \{w\in T^{*}| S\xRightarrow[\mathcal G]{*}w\}
+$$&lt;/dd>
+&lt;dt>Sentential Forms&lt;/dt>
+&lt;dd>All the strings $\alpha\in(V\cup T)^{*}$ such that $S\xRightarrow{*}\alpha$ are sentential form.&lt;/dd>
+&lt;/dl>
+&lt;p>Similar we can define &lt;em>&lt;strong>right-sentential form&lt;/strong>&lt;/em> and &lt;em>&lt;strong>left-sentential form&lt;/strong>&lt;/em>.&lt;/p>
+&lt;h3 id="parse-trees">Parse Trees&lt;/h3>
+&lt;dl>
+&lt;dt>Parse Trees&lt;/dt>
+&lt;dd>For a grammar $\mathcal G$ the parse tree is defined as,
+&lt;ol>
+&lt;li>Each interior node is labelled by a variable in $V$.&lt;/li>
+&lt;li>Each leaf is either labelled by a variable or a terminal or $\epsilon$. If a leaf has $\epsilon$ as label then it must be an only child.&lt;/li>
+&lt;li>If an interior node is labeled $A$ and its children are labeled
+$$
+X_1,X_2,\dots,X_k
+$$
+then $A\rightarrow X_1X_2\dots X_k\in P$ and $A$ can have $\epsilon$ as child only if $A\rightarrow\epsilon\in P$.&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Yield&lt;/dt>
+&lt;dd>For a particular parse tree, the string obtained by joining the labels of the leafs in the parse tree.&lt;/dd>
+&lt;/dl>
+&lt;p>More important parse trees are the ones where:&lt;/p>
+&lt;ul>
+&lt;li>Yield is a terminal string.&lt;/li>
+&lt;li>Root is labeled by the start symbol.&lt;/li>
+&lt;/ul>
+&lt;h4 id="inference-derivation-and-parse-trees">Inference, Derivation and Parse Trees&lt;/h4>
+&lt;p>While describing a grammar $G$ and a string $w$ the following 5 are equivalent,&lt;/p>
+&lt;ol>
+&lt;li>The recursive inference procedure determines that terminal string $w$ is in th language $A$.&lt;/li>
+&lt;li>$A\xRightarrow{*}w$&lt;/li>
+&lt;li>$A\xRightarrow[lm]{*}e$&lt;/li>
+&lt;li>$A\xRightarrow[rm]{*}e$&lt;/li>
+&lt;li>There is a parse tree with root $A$ and yield $w$.&lt;/li>
+&lt;/ol>
+&lt;h4 id="inference-to-trees">Inference to Trees&lt;/h4>
+&lt;h5 id="theorem--if-a-recursive-inference-procedure-gives-that-terminal-string-w-is-in-the-language-of-variable-a-then-there-is-a-parse-tree-with-root-a-and-yeild-w">&lt;strong>Theorem&lt;/strong> : If a recursive inference procedure gives that terminal string $w$ is in the language of variable $A$, then there is a parse tree with root $A$ and yeild $w$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Induction on the number of steps to infer that $w$ is in $A$.
+&lt;ul>
+&lt;li>Basis: In a single step, inference procedure gets to $w$ from $A$. Thus, there must be a $A\rightarrow w\in P$. Therefore in the parse tree rooted at $A$ we can get the yield as $w$.&lt;/li>
+&lt;li>Induction: Let the fact $w$ in the language of $A$ be infered after $n+1$ steps and that the hypothesis for all inferences with $\le n$ steps.&lt;/li>
+&lt;/ul>
+&lt;p>Let $A\rightarrow X_1X_2\cdots X_k$ be a rule used to expand $A$ in the inference. Break $w=w_1w_2\cdots w_k$ such that&lt;/p>
+&lt;ol>
+&lt;li>If $X_i$ is terminal then $w_i=X_i$&lt;/li>
+&lt;li>If $X_i$ is variable then by induction hypothesis there exist a tree rooted at $X_i$ and yield $w_i$.&lt;/li>
+&lt;/ol>
+&lt;p>Now we construct the tree rooted at $A$ by adding $X_1,X_2,\dots,X_k$ as level one children and their trees as described above below them. Thus the yeild of this tree is $w$.&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="trees-to-derivations">Trees to derivations&lt;/h4>
+&lt;h5 id="theorem--suppose-there-is-a-parse-tree-root-labeled-by-variable-a-and-with-yield-w-where-w-is-in-tast-then-there-is-a-leftmost-derivation-axrightarrowlmastw-in-grammar-g">&lt;strong>Theorem&lt;/strong> : Suppose there is a parse tree root labeled by variable $A$ and with yield $w$ where $w$ is in $T^{*}$. Then there is a leftmost derivation $A\xRightarrow[lm]{*}w$ in grammar $G$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>On performing induction on the height of the tree. Similar to above proof.&lt;/dd>
+&lt;/dl>
+&lt;h4 id="derivations-to-inferences">Derivations to Inferences&lt;/h4>
+&lt;h5 id="theorem--if-there-is-a-derivation-axrightarrowgastw-for-win-tast-then-recursive-inference-procedure-applied-to-g-determines-that-w-is-in-the-language-of-a">&lt;strong>Theorem&lt;/strong> : If there is a derivation $A\xRightarrow[G]{*}w$ for $w\in T^{*}$ then recursive inference procedure applied to $G$ determines that $w$ is in the language of $A$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>On performing induction on the length of the derivation $A\xRightarrow{*}w$. Similar to above proof.&lt;/dd>
+&lt;/dl>
+&lt;h2 id="push-down-automaton">Push-down Automaton&lt;/h2>
+&lt;dl>
+&lt;dt>Pushdown Automaton $(\mathcal P(Q,\Sigma,\Gamma,\delta,q_0,Z_0,F) )$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>A finite set of &lt;em>states&lt;/em> $(Q)$.&lt;/li>
+&lt;li>A finite set of &lt;em>input symbols&lt;/em> $(\Sigma)$.&lt;/li>
+&lt;li>A finite &lt;em>stack alphabet&lt;/em> that can be push onto the stack $(\Gamma)$&lt;/li>
+&lt;li>A &lt;em>transition function&lt;/em> $(\delta:Q\times\Sigma\cup\{\epsilon\}\times\Gamma\rightarrow\mathcal P(Q\times\Gamma^{*}))$ such that $(p,\gamma)\in\delta(q,a,X)$ means that on the input symbol $a$ we go from $q$ to $p$ and change the top of the stack from symbol $X$ to string $\gamma$&lt;/li>
+&lt;li>A &lt;em>start state&lt;/em> $(q_0\in Q)$&lt;/li>
+&lt;li>The &lt;em>stack start symbol&lt;/em> $(Z_0)$ that is empty stack has this at the top initially&lt;/li>
+&lt;li>A set of &lt;em>final states&lt;/em> $F\sube Q$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Transition Diagram $(G(V,E))$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>$V=\{q:q\in Q\}$&lt;/li>
+&lt;li>An arrow pointing into $q_0$&lt;/li>
+&lt;li>Double circle around states in $F$&lt;/li>
+&lt;li>$E=\{q\xrightarrow{a,X/\gamma}p:(p,\gamma)\in\delta(q,a,X)\}$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Instantaneous Description $(ID=(q,w,\gamma))$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>$q$ is the state&lt;/li>
+&lt;li>$w$ is the remaining input&lt;/li>
+&lt;li>$\gamma$ is the stack contents&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Transition Relation $(\vdash\sube(ID)^2)$&lt;/dt>
+&lt;dd>If $(p,\alpha)\in\delta(q,a,X)$ then, $\forall w\in\Sigma^{*},\forall\beta\in\Gamma^{*}$
+$$
+(q,aw,X\beta)\vdash(p,w,\alpha\beta)
+$$&lt;/dd>
+&lt;dt>Generalised Transition Relation $(\vdash^{*})$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $I\vdash^{*}I$ for all $ID\text{s}$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: If $I\vdash K$ and $K\vdash^{*}J$ then $I\vdash^{*}J$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--if-qxalphavdashastpybeta-then-for-any-strings-w-in-sigmaast-and-gamma-in-gammaast-it-is-also-true-that-qxwalphagammavdashastpywbetagamma">&lt;strong>Theorem&lt;/strong> : If $(q,x,\alpha)\vdash^{*}(p,y,\beta)$, then for any strings $w$ in $\Sigma^{*}$ and $\gamma$ in $\Gamma^{*}$, it is also true that $(q,xw,\alpha\gamma)\vdash^{*}(p,yw,\beta\gamma)$&lt;/h5>
+&lt;h5 id="theorem--if-qxwalphavdashastpywbeta-then-qxalphavdashastpybeta">&lt;strong>Theorem&lt;/strong> : If $(q,xw,\alpha)\vdash^{*}(p,yw,\beta)$ then $(q,x,\alpha)\vdash^{*}(p,y,\beta)$&lt;/h5>
+&lt;h3 id="language-of-a-pda">Language of a PDA&lt;/h3>
+&lt;h4 id="acceptance-by-final-state">Acceptance by Final State&lt;/h4>
+&lt;p>$$
+L(P) = \{w|(q_0,w,Z_0)\vdash^{*}(q,\epsilon,\alpha)\}
+$$&lt;/p>
+&lt;h2 id="properties-of-cfls">Properties of CFLs&lt;/h2>
+&lt;h3 id="normal-forms-of-cfgs">Normal Forms of CFGs&lt;/h3>
+&lt;p>Every CFL can be converted to it&amp;rsquo;s normal form by,&lt;/p>
+&lt;ol>
+&lt;li>Eliminate all the &lt;em>useless symbols&lt;/em> i.e. those variables or terminals that do not appear in any derivation of a terminal string from the start symbol.&lt;/li>
+&lt;li>Eliminate all $\epsilon$&lt;em>-productions&lt;/em>, those of the form $A\rightarrow\epsilon$ for some variable $A$.&lt;/li>
+&lt;li>Eliminate unit productions those of the fom $A\rightarrow B$ of variables $A$ and $B$.&lt;/li>
+&lt;/ol>
+&lt;h4 id="eliminating-useless-symbols">Eliminating Useless Symbols&lt;/h4>
+&lt;dl>
+&lt;dt>Useful Symbol&lt;/dt>
+&lt;dd>A symbol $X\in T\cup V$ such that $S\xRightarrow{*}\alpha X\beta\xRightarrow{*}w$ where $w\in T^{*}$.&lt;/dd>
+&lt;/dl>
+&lt;p>A useful symbol has to be both of the following things,&lt;/p>
+&lt;dl>
+&lt;dt>Generating&lt;/dt>
+&lt;dd>A symbol $X$ is generating if $X\xRightarrow{*}w$ for some terminal string $w$.&lt;/dd>
+&lt;dt>Reachable&lt;/dt>
+&lt;dd>A symbol $X$ is reachable if there is a derivation $S\xRightarrow{*}\alpha X\beta$ for some $\alpha$ and $\beta$.&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--let-mathcal-g-be-a-cfg-and-assuming-lmathcal-gneempty-and-mathcal-g_1-be-the-grammar-we-obtain-by-eliminating">&lt;strong>Theorem&lt;/strong> : Let $\mathcal G$ be a CFG and assuming $L(\mathcal G)\ne\empty$ and $\mathcal G_1$ be the grammar we obtain by eliminating,&lt;/h5>
+&lt;h5 id="1-all-non-generating-symbols-and-productions-involving-any-of-these-symbols">1. All non-generating symbols and productions involving any of these symbols.&lt;/h5>
+&lt;h5 id="2-all-unreachable-symbols">2. All unreachable symbols.&lt;/h5>
+&lt;h5 id="thus-mathcal-g_1-has-no-useless-symbols-then-lmathcal-glmathcal-g_1">Thus $\mathcal G_1$ has no useless symbols then $L(\mathcal G)=L(\mathcal G_1)$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>To show that $L(\mathcal G_1)=L(\mathcal G)$ we need to prove,
+&lt;ul>
+&lt;li>
+&lt;p>$L(\mathcal G_1)\sube L(\mathcal G)$: Since we have only eliminated symbols and productions from $\mathcal G$ to get $\mathcal G_1$ it follows that $L(\mathcal G_1)\sube L(\mathcal G)$.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$L(\mathcal G)\sube L(\mathcal G_1)$: If $w$ is in $L(\mathcal G)$, then $S\xRightarrow[\mathcal G]{*}w$. Each symbol in this derivation is evidently both reachable and generating, so it also a derivation of $\mathcal G_1$. Thus, $S\xRightarrow[\mathcal G_1]{*}w$ i.e. $w\in L(\mathcal G_1)$.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="computing-generating-and-reachable-symbols">Computing Generating and Reachable symbols&lt;/h4>
+&lt;p>For computing the &lt;strong>generating symbols&lt;/strong> we use the following algorithm,&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: Every symbols in $T$ is obviously generating; it generates itself.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: Suppose there is a production $A\rightarrow\alpha$, and every symbols of $\alpha$ is already known to be generating. Then $A$ is generating.&lt;/li>
+&lt;/ul>
+&lt;p>For computing the &lt;strong>reachable symbols&lt;/strong> we use the following algorithm,&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $S$ is surely reachable.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: Suppose $A$ is reachable and there is a production $A\rightarrow\alpha$, then all symbols in $\alpha$ are reachable.&lt;/li>
+&lt;/ul>
+&lt;h4 id="eliminating-epsilon-productions">Eliminating $\epsilon$-Productions&lt;/h4>
+&lt;p>We have to prove is $L$ has a CFG then $L-\{\epsilon\}$ also has a CFG. But simply removing all productions that lead to $\epsilon$ may leave out certain words from the language. Thus we define the following procedure.&lt;/p>
+&lt;dl>
+&lt;dt>Nullable&lt;/dt>
+&lt;dd>A variable $A$ is nullable if $A\xRightarrow{*}\epsilon$.&lt;/dd>
+&lt;/dl>
+&lt;p>Algorithm to identify all the nullable variables,&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: If $A\rightarrow\epsilon$ is a production of $G$, then $A$ is nullable.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: If there is a production $B\rightarrow C_1C_2\cdots C_k$ where each $C_i$ is nullable, then $B$ is nullable. Note that all $C_i$ have to be variables.&lt;/li>
+&lt;/ul>
+&lt;p>Once all the nullable symbols have been determined, we construct a new grammar $\mathcal G_1$ whose set of productions $P_1$ is modified as follows.
+For a production $A\rightarrow X_1X_2\cdots X_k$ of $P$, where $k\ge1$, suppose that $m$ of the $k$ $X_i$&amp;rsquo;s are nullable symbols. We add all $2^m$ possible combinations of this production in $P_1$, where the nullable $X_i$&amp;rsquo;s, in all possible combinations are present or absent. When $m=k$ i.e. all symbols $X_i$&amp;rsquo;s are nullable then we do not include the case where all symbols are absent.&lt;/p>
+&lt;h5 id="theorem-if-grammar-mathcal-g_1-constructed-from-mathcal-g-by-the-above-construction-for-eliminating-epsilon-productions-then-lmathcal-g_1lmathcal-g-epsilon">&lt;strong>Theorem&lt;/strong>: If grammar $\mathcal G_1$ constructed from $\mathcal G$ by the above construction for eliminating $\epsilon$-productions, then $L(\mathcal G_1)=L(\mathcal G)-\{\epsilon\}$&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>By inducting of the length of the derivation we can prove,
+$$
+A\xRightarrow[\mathcal G_1]{*}w\iff A\xRightarrow[\mathcal G]{*}w\text{ and }w\ne\epsilon
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="eliminating-unit-productions">Eliminating Unit Productions&lt;/h4>
+&lt;p>Algorithm to identify all unit pairs,&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: $(A,A)$ is a unit pair for any variable $A$. That is, $A\xRightarrow{*}A$ by zero steps.&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: suppose we have determined that $(A,B)$ is a unit pair, and $B\rightarrow C$ is a production, where $C\in V$ then $(A,C)$ is a unit pair.&lt;/li>
+&lt;/ul>
+&lt;p>To eliminate all unit productions, we proceed by creating a new grammar $\mathcal G_1$ as follows,&lt;/p>
+&lt;ol>
+&lt;li>Find all the unit pairs of $\mathcal G$.&lt;/li>
+&lt;li>For each unit pair $(A,B)$, add to $P_1$ all the productions $A\rightarrow\alpha$, where $B\rightarrow\alpha$ is a non-unit production in $P$.&lt;/li>
+&lt;/ol>
+&lt;h5 id="theorem--if-grammar-mathcal-g_1-is-constructed-from-grammar-mathcal-g-by-the-algorithm-described-above-for-eliminating-unit-productions-then-lmathcal-g_1lmathcal-g">&lt;strong>Theorem&lt;/strong> : If grammar $\mathcal G_1$ is constructed from grammar $\mathcal G$ by the algorithm described above for eliminating unit productions, then $L(\mathcal G_1)=L(\mathcal G)$.&lt;/h5>
+&lt;h4 id="chomsky-normal-form">Chomsky Normal Form&lt;/h4>
+&lt;p>We can show that every CFL (without $\epsilon$) can be generated by a CFG in which all productions are of the form,&lt;/p>
+&lt;ul>
+&lt;li>$A\rightarrow BC$&lt;/li>
+&lt;li>$A\rightarrow a$&lt;/li>
+&lt;/ul>
+&lt;p>To convert a normalized CFG to it&amp;rsquo;s Chomsky form,&lt;/p>
+&lt;ol>
+&lt;li>Arrange all the bodies of length 2 or more so that they only contain variables. Thus if a terminal is present in add a new variable.&lt;/li>
+&lt;li>Break bodies of length 3 or more into a cascade of productions, each with body of 2 variables.&lt;/li>
+&lt;/ol>
+&lt;h5 id="theorem--if-mathcal-g-is-a-cfg-whose-language-contains-at-least-one-string-other-than-epsilon-then-there-is-a-grammar-mathcal-g_1-in-chomsky-normal-form-such-that-lmathcal-g_1lmathcal-g-epsilon">&lt;strong>Theorem&lt;/strong> : If $\mathcal G$ is a CFG whose language contains at least one string other than $\epsilon$, then there is a grammar $\mathcal G_1$ in Chomsky Normal Form, such that $L(\mathcal G_1)=L(\mathcal G)-\{\epsilon\}$&lt;/h5>
+&lt;h3 id="pumping-lemma-for-cfls">Pumping Lemma for CFLs&lt;/h3>
+&lt;h4 id="size-of-parse-tree">Size of Parse Tree&lt;/h4>
+&lt;blockquote>
+&lt;p>For a grammar $\mathcal G$ in Chomsky Nornal Form, a parse tree with longest path $n$ and yield $w$, $|w|\le 2^{n-1}$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="statement-of-pumping-lemma">Statement of Pumping Lemma&lt;/h4>
+&lt;h5 id="pumping-lemma-for-context-free-languages--let-l-be-a-cfl-then-there-exists-a-constant-n-such-that-if-z-is-any-string-in-l-such-that-z-is-at-least-n-then-we-can-write-zuvwxy-such-that">&lt;strong>Pumping Lemma for context-free languages&lt;/strong> : Let $L$ be a CFL. Then there exists a constant $n$ such that if $z$ is any string in $L$ such that $|z|$ is at least $n$, then we can write $z=uvwxy$ such that,&lt;/h5>
+&lt;h5 id="1-vwxle-n">1. $|vwx|\le n$&lt;/h5>
+&lt;h5 id="2-vxneepsilon">2. $vx\ne\epsilon$&lt;/h5>
+&lt;h5 id="3-for-all-ige0-uviwxiyin-l">3. For all $i\ge0$, $uv^iwx^iy\in L$&lt;/h5>
+&lt;h4 id="applications-of-pumping-lemma">Applications of Pumping Lemma&lt;/h4>
+&lt;p>Can be used to disprove a language being CFL by the following game,&lt;/p>
+&lt;ol>
+&lt;li>Player 1 picks a language $L$ that we want to show is not CFL.&lt;/li>
+&lt;li>Player 2 picks an unknown $n$.&lt;/li>
+&lt;li>Player 1 picks a $z$ based on $n$ as parameter.&lt;/li>
+&lt;li>Player 2 breaks $z$ into $uvwxy$, such that $|vwx|\le n$ and $vx\ne\epsilon$.&lt;/li>
+&lt;li>Player 1 wins if they can pick an $i$ and show that $uv^iwx^iy$ is not in $L$.&lt;/li>
+&lt;/ol>
+&lt;h3 id="closure-properties-1">Closure Properties&lt;/h3>
+&lt;dl>
+&lt;dt>Substitution $s:\Sigma\rightarrow\mathcal P(\Sigma_1^*)$&lt;/dt>
+&lt;dd>For every symbol $a\in\Sigma$, $s(a)=L_a$ where $L_a$ is a language on $\Sigma_1$ Similarly for a word $w\in\Sigma^*$
+&lt;ul>
+&lt;li>&lt;em>Basis&lt;/em>: If $w=\epsilon$ then $s(\epsilon)=\epsilon$&lt;/li>
+&lt;li>&lt;em>Induction&lt;/em>: $s(w)=s(w[:-1])\cdot s(w[-1])$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="substitution-theorem">Substitution Theorem&lt;/h4>
+&lt;h5 id="theorem-if-l-is-a-cfl-over-sigma-and-s-is-a-substitution-on-sigma-such-that-sa-is-a-cfl-for-each-ainsigma-then-sl-is-a-cfl">&lt;strong>Theorem&lt;/strong>: If $L$ is a CFL over $\Sigma$ and $s$ is a substitution on $\Sigma$ such that $s(a)$ is a CFL for each $a\in\Sigma$, then $s(L)$ is a CFL.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>In any Parse tree of a grammar $\mathcal G$ of the original
+language $L$, we replace the terminal symbols by the roots of parse trees of the language substituted at that terminal. This way a string $w$ in in $L(\mathcal G&amp;rsquo;)$ iff $w$ is in $s(L)$.&lt;/dd>
+&lt;/dl>
+&lt;h4 id="applications-of-the-substitution-theorem">Applications of the Substitution Theorem&lt;/h4>
+&lt;h5 id="theorem-all-cfls-are-closed-under-the-following-operations-">&lt;strong>Theorem&lt;/strong>: All CFLs are closed under the following operations:-&lt;/h5>
+&lt;ol>
+&lt;li>Union
+Proof: $L_1$ and $L_2$ be CFLs. Then $L_1\cup L_2$ is the language $s(L)$ where $L$ is the language $\{0,1\}$ and $s$ is the substitution defined by $s(1)=L_1$ and $s(0)=L_2$.&lt;/li>
+&lt;li>Concatenation
+Proof: $L=\{01\}$, $s(1)=L_1$, $s(0)=L_2$&lt;/li>
+&lt;li>Closure
+Proof: $L=\{1\}^*$, $s(1)=L_1$&lt;/li>
+&lt;li>Homomorphism
+Proof: $s(a)=\{h(a)\}\forall a\in\Sigma$ then $h(L)=s(L)$ where $h:\Sigma\rightarrow\Sigma$&lt;/li>
+&lt;/ol>
+&lt;h4 id="reversal-1">Reversal&lt;/h4>
+&lt;h5 id="theorem-if-l-is-a-cfl-then-so-is-lr">&lt;strong>Theorem&lt;/strong>: If $L$ is a CFL then so is $L^R$.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>If $\mathcal G$ is the grammar for $L$ then $\mathcal G^R=(V,T,P^R,S)$ is the grammar for $L^R$ where,
+$$
+P^R=\{A\rightarrow\alpha^R:A\rightarrow\alpha\in P\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;h4 id="intersection-with-regular-language">Intersection with Regular Language&lt;/h4>
+&lt;h5 id="theorem-if-l-is-a-cfl-and-r-is-a-rl-then-lcap-r-is-a-cfl">&lt;strong>Theorem&lt;/strong>: If $L$ is a CFL and $R$ is a RL then $L\cap R$ is a CFL.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Involves PDA :(&lt;/dd>
+&lt;/dl>
+&lt;h3 id="descision-properties-1">Descision Properties&lt;/h3>
+&lt;h2 id="turing-machines">Turing Machines&lt;/h2>
+&lt;dl>
+&lt;dt>Turing Machine $M(Q, \Sigma, \Gamma, \delta, q_0, B, F)$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$Q$: Finite set of states of finite control&lt;/li>
+&lt;li>$\Sigma$: Finite set of input symbols&lt;/li>
+&lt;li>$\Gamma$: Complete set of tape symbols; $\Sigma$ is always a subset of $\Gamma$ and $\Sigma\sube\Gamma$&lt;/li>
+&lt;li>$\delta$: Transition funtion such that $\delta: Q\times\Gamma\rightarrow Q\times\Gamma\times\{L,R\}$ and if $\delta(p, X)=(q, Y, L/R)$ means
+&lt;ul>
+&lt;li>Control state goes from $p$ to $q$&lt;/li>
+&lt;li>Current tape symbol $X$ is replaced by $Y$&lt;/li>
+&lt;li>Tape is shifted towards left/right based on L/R.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>$q_0$: The start state thus $q_0\in Q$&lt;/li>
+&lt;li>$B$: The blank symbol thus $B\in\Gamma$&lt;/li>
+&lt;li>$F$: The set of final accepting states thus $F\sube Q$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Instantaneous Description $ID(X_1X_2\cdots X_{i-1}qX_i\cdots X_n)$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$q$ is the state of the Turing machine&lt;/li>
+&lt;li>Tape is scanning the $i\text{th}$ symbol from the left&lt;/li>
+&lt;li>$X_1X_2\cdots X_n$ is the portion of the tape between the leftmost and the rightmost non-blank.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Moves $(\vdash$ or $\vdash^{*})$&lt;/dt>
+&lt;dd>If $\delta(q,X_i)=(p,Y,\alpha)$
+&lt;ul>
+&lt;li>$\alpha=L$
+$$
+X_1X_2\cdots X_{i-1}qX_i\cdots X_n\vdash X_1\cdots X_{i-2}pX_{i-1}Y\cdots X_n
+$$&lt;/li>
+&lt;li>$i=1$ and $\alpha=L$
+$$
+qX_1\cdots X_n\vdash pBYX_2\cdots X_n
+$$&lt;/li>
+&lt;li>$i=n$, $Y=B$ and $\alpha=L$
+$$
+X_1\cdots X_{n-1}qX_n\vdash X_1\cdots X_{n-2}pX_{n-1}
+$$&lt;/li>
+&lt;li>$\alpha=R$
+$$
+X_1X_2\cdots X_{i-1}qX_i\cdots X_n\vdash X_1\cdots X_{i-1}YpX_{i+1}\cdots X_n
+$$&lt;/li>
+&lt;li>$i=n$ and $\alpha=R$
+$$
+X_1\cdots X_{n-1}qX_n\vdash X_1\cdots X_{n-1}YpB
+$$&lt;/li>
+&lt;li>$i=1$, $Y=B$ and $\alpha=R$
+$$
+qX_1\cdots X_n\vdash pX_2\cdots X_n
+$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Transition diagram $G(V,E)$&lt;/dt>
+&lt;dd>&lt;ol>
+&lt;li>$V=Q$&lt;/li>
+&lt;li>$E=\{q\xrightarrow{X/Y\rightarrow}p:\delta(q,X)=(p,Y,R)\}\cup\{q\xrightarrow{X/Y\leftarrow}p:\delta(q,X)=(p,Y,L)\}$&lt;/li>
+&lt;li>An arrow pointing into $q_0$&lt;/li>
+&lt;li>All states in $F$ are double-circled&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;dt>Language of Turing Machine $(L(M))$&lt;/dt>
+&lt;dd>$$
+L(M) = \{w:q_0w\vdash^{*}\alpha p\beta, p\in F\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>The set of languages accepted by a Turing Machine is called Recursively Enumerable&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Another notion of acceptance is when a Turing Machine halts on words in the language.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="programming-techniques">Programming Techniques&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Storage in state&lt;/strong>: Viewing the control states as tuples to store information&lt;/li>
+&lt;li>&lt;strong>Multiple Tracks&lt;/strong>: Using multiple tracks to store data, marks, etc. in a useful way.&lt;/li>
+&lt;li>&lt;strong>Subroutines&lt;/strong>: Creating copies of con trol states and transitions every time a subroutine is to be used from its initial state.&lt;/li>
+&lt;/ol>
+&lt;h3 id="extensions-to-basic-definition">Extensions to Basic definition&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Multitape Turing Machines&lt;/strong>: Reads from more than one tapes.&lt;/li>
+&lt;li>&lt;strong>Non-deterministic Turing Machines&lt;/strong>: $\delta:Q\times\Gamma\rightarrow\mathcal P(Q\times\Gamma\times\{R,L\})$&lt;/li>
+&lt;/ol>
+&lt;h3 id="restrictions-on-basic-definition">Restrictions on Basic definition&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>TM with semi-infinite tapes&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Multistack Machines&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Counter Machines&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h2 id="undecidability">Undecidability&lt;/h2>
+&lt;dl>
+&lt;dt>Code for TM $(w_M)$&lt;/dt>
+&lt;dd>An elaborate way to encode $M$ and it&amp;rsquo;s components into a finite bit-string that is unique to $M$.&lt;/dd>
+&lt;dt>Diagonalization Language $(L_d)$&lt;/dt>
+&lt;dd>We enumerate all possible Turing Machines $M_i$ by enumerating their codes $w_i$. Now construct a table in which $(i,j)\text{th}$ entry is $1$ if $w_i$ is accepted by $M_j$ else it is $0$. Take the diagonal of this table and complement it to get the characteristic vector for $L_d$. The $i\text{th}$ bit of this characteristic vector denotes the membership of $w_i$ in $L_d$.&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--l_d-is-not-recursively-enumerable">&lt;strong>Theorem&lt;/strong> : $L_d$ is not recursively enumerable.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>There is no $M_i$ in the table as described above that matches the characteristic vector of $L_d$ over $w_i\text{&amp;rsquo;s}$ therefore $\not\exist M,\ L_d=L(M)$.&lt;/dd>
+&lt;dt>Recursive Languages&lt;/dt>
+&lt;dd>Languages that have a Turing Machine that accepts all the words in the language and halts without accepting on all the words not in the language.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Recursive(Algorithmic) $\sube$ RE(Undecidable) $\sube$ Not RE&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>If $L$ is recursive then $\bar L$ is also recursive.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>If $L$ and $\bar L$ are RE then they are both recursive.&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="rices-theorem--every-nontrivial-property-of-the-re-languages-is-undecidable">&lt;strong>Rice&amp;rsquo;s Theorem&lt;/strong> : Every nontrivial property of the RE languages is undecidable.&lt;/h5>
+&lt;blockquote>
+&lt;p>$L_u$ a.k.a. the universal language containing all the pairs $(M,w)$ where $M$ is a code for TM which accepts $w$.
+$L_u$ is &lt;strong>Undecidable&lt;/strong>.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="post-correspondence-problem">Post Correspondence Problem&lt;/h3>
+&lt;dl>
+&lt;dt>Post Correspondence Problem $(PCP)$&lt;/dt>
+&lt;dd>Given two lists of strings $A=[w_1,w_2,\dots w_k]$ and $B=[x_1,x_2,\dots x_k]$ with equal length, find a sequence of indices $i_1, i_2, \dots, i_m$ where,
+$$
+w_{i_1}w_{i_2}\cdots w_{i_m}=x_{i_1}x_{i_2}\cdots x_{i_m}
+$$&lt;/dd>
+&lt;dt>Modified PCP $(MPCP)$&lt;/dt>
+&lt;dd>Given two lists of strings $A=[w_1,w_2,\dots w_k]$ and $B=[x_1,x_2,\dots x_k]$ with equal length, find a sequence of indices $i_1, i_2, \dots, i_m$ where,
+$$
+w_1w_{i_1}w_{i_2}\cdots w_{i_m}=x_1x_{i_1}x_{i_2}\cdots x_{i_m}
+$$&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--mpcp-reduces-to-pcp">&lt;strong>Theorem&lt;/strong> : MPCP reduces to PCP&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Given an instance of MPCP with lists $A$ and $B$ alphabets not containing $*$ and $\$$ we define a PCP instance with lists $C=[y_0,y_1,\dots,y_{k+1}]$ and $D=[z_0,z_1,\dots,z_{k+1}]$
+&lt;ol>
+&lt;li>For $i=1,2,\dots,k$ let $y_i=w_i$ with a $*$ after each symbol and let $z_i=x_i$ with a $*$ before each symbol of $x_i$&lt;/li>
+&lt;li>$y_0=*y_1$ and $z_0=z_1$&lt;/li>
+&lt;li>$y_{k+1}=\$$ and $z_{k+1}=*\$$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;/dl>
+&lt;h5 id="theorem--mpcp-is-undecidable">&lt;strong>Theorem&lt;/strong> : MPCP is Undecidable.&lt;/h5>
+&lt;dl>
+&lt;dt>Proof&lt;/dt>
+&lt;dd>Reduce $L_u$ acceptability to MPCP.&lt;/dd>
+&lt;/dl>
+&lt;h2 id="intractable-problems">Intractable Problems&lt;/h2>
+&lt;dl>
+&lt;dt>Polynomial Time $(\mathcal P)$&lt;/dt>
+&lt;dd>Class of languages which are accepted by a Turing machine $M$ with a time complexity $T(n)$ such that whenever $M$ is given an input $w$ of length $n$, $M$ halts after making at most $T(n)$ moves, regardless of whether or not $w$ is accepted.&lt;/dd>
+&lt;dt>Nondeterministic Polynomial Time $(\mathcal{NP})$&lt;/dt>
+&lt;dd>Class of languages which are accepted by a nondeterministic Turing machine $M$ with a time complexity $T(n)$ such that whenever $M$ is given an input $w$ of length $n$, $M$ halts after making at most $T(n)$ moves.
+&lt;p>A language $L$ belongs to $\mathcal{NP}$ iff $\exist$ a language $L_1\in\mathcal P$:-&lt;/p>
+&lt;ul>
+&lt;li>if for every $x\in L \exist$ some additional input $y$ with (with $y≤p(|x|)$) s.t. the string $x#y\in L_1$ (where $#$ represents some kind of pair).&lt;/li>
+&lt;li>if $x\not\in L$ then for no string $y$ we have $x#y\in L_1$.&lt;/li>
+&lt;li>Here, $y$ is a proof or certificate that $x\in L$.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>A problem $A$ is said to be &lt;em>&lt;strong>Polynomial-time reducible&lt;/strong>&lt;/em> to problem $B$ if there exists a $\mathcal P$ TM which can generate solutions for $A$ given a constant time TM for solving $B$ that can be used as a subroutine.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>Complement of $\mathcal{NP}$ $(\text{Co-}\mathcal{NP})$&lt;/dt>
+&lt;dd>Complement of languages in $\mathcal{NP}$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>If $\mathcal P = \mathcal{NP}$, then Co-$\mathcal{NP}$ will also be $\mathcal{NP}$. But, whether $\mathcal P$ is equal to $\mathcal{NP}$ (or not) is not proven yet.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Language of Composite numbers is in $\mathcal{NP} and so is the language of Prime Numbers$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="np-complete-problems">NP-Complete Problems&lt;/h3>
+&lt;ul>
+&lt;li>SAT&lt;/li>
+&lt;li>CNF-SAT&lt;/li>
+&lt;li>3-SAT&lt;/li>
+&lt;li>Maximal Independent Set&lt;/li>
+&lt;li>Minimal Vertex Cover&lt;/li>
+&lt;li>Hamiltionian path&lt;/li>
+&lt;li>Travelling Salesman Problem&lt;/li>
+&lt;/ul></description></item><item><title>Operating Systems</title><link>https://adityakadoo.github.io/Scrolls/courses/operating_systems/</link><pubDate>Fri, 19 Aug 2022 10:31:05 +0530</pubDate><guid>https://adityakadoo.github.io/Scrolls/courses/operating_systems/</guid><description>&lt;h2 id="resources">Resources&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;h3 id="operating-systems---three-easy-pieceshttpstechiefood4ufileswordpresscom202002operating_systems_three_easy_piecespdf">&lt;a href="https://techiefood4u.files.wordpress.com/2020/02/operating_systems_three_easy_pieces.pdf">Operating Systems - Three Easy Pieces&lt;/a>&lt;/h3>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="introduction-to-os">Introduction to OS&lt;/h2>
+&lt;p>Main objectives of OS include:-&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>CPU Virtualization&lt;/strong> : Making using the processor easy.&lt;/li>
+&lt;li>&lt;strong>Memory Virtualization&lt;/strong> : Making storage in memory easy.&lt;/li>
+&lt;li>&lt;strong>Concurrency&lt;/strong> : Ensuring correctness when multiple programs run together.&lt;/li>
+&lt;li>&lt;strong>Persistence&lt;/strong> : Ensuring permanent memory does not get erased and stays organised.&lt;/li>
+&lt;li>&lt;strong>Design Goals&lt;/strong> : Abstractions, performance, isolation, reliability, energy-efficiency&lt;/li>
+&lt;/ol>
+&lt;h2 id="cpu-virtualization">CPU Virtualization&lt;/h2>
+&lt;h3 id="abstraction--process">Abstraction : Process&lt;/h3>
+&lt;p>The abstraction provided by the OS of a running program is called a &lt;em>&lt;strong>process&lt;/strong>&lt;/em>.&lt;/p>
+&lt;p>The OS creates the illusion of &lt;strong>virtualization&lt;/strong> the CPU by running one process, then stopping it and running another, and so forth. This is known as &lt;strong>time sharing&lt;/strong> of the CPU.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Time sharing&lt;/strong> is one of the most basic techniques used by an OS to share a resource. By allowing the resource to be used for a little while by one entity, and then a little while by another, and so forth. The natural counterpart of time sharing is &lt;strong>space sharing&lt;/strong>, where a resource is divided (in space) among those who wish to use it.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="process-api">Process API&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Create&lt;/strong>: Spawns a new process.&lt;/li>
+&lt;li>&lt;strong>Destroy&lt;/strong>: Kills a process forcefully.&lt;/li>
+&lt;li>&lt;strong>Wait&lt;/strong>: Wait for a process to finish.&lt;/li>
+&lt;li>&lt;strong>Status&lt;/strong>: Every process has a state associated with it.&lt;/li>
+&lt;li>&lt;strong>Miscellaneous Control&lt;/strong>: Halt, resume, etc.&lt;/li>
+&lt;/ul>
+&lt;h4 id="process-creation">Process Creation&lt;/h4>
+&lt;ol>
+&lt;li>Loading the &lt;em>code&lt;/em> into executable format.&lt;/li>
+&lt;li>Initializing the process&amp;rsquo;s runtime &lt;em>stack&lt;/em>.&lt;/li>
+&lt;li>Initializing the program&amp;rsquo;s &lt;em>heap&lt;/em> memory.&lt;/li>
+&lt;li>Setup &lt;em>file descriptors&lt;/em> associated with &lt;em>input&lt;/em>, &lt;em>output&lt;/em> and &lt;em>error&lt;/em> streams.&lt;/li>
+&lt;/ol>
+&lt;h4 id="process-states">Process States&lt;/h4>
+&lt;p>Following are the types of states a process can be in:-&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Running&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Ready&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Blocked&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;div class="goat svg-container ">
+&lt;svg
+xmlns="http://www.w3.org/2000/svg"
+font-family="Menlo,Lucida Console,monospace"
+viewBox="0 0 272 169"
+>
+&lt;g transform='translate(8,16)'>
+&lt;path d='M 16,0 L 64,0' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,0 L 240,0' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 88,16 L 184,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 88,32 L 184,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 16,48 L 64,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,48 L 240,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 112,96 L 160,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 72,112 L 88,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 184,112 L 200,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 112,144 L 160,144' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 0,16 L 0,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 80,16 L 80,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 96,112 L 96,128' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 176,112 L 176,128' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 192,16 L 192,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 256,16 L 256,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 200,112 L 224,64' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 48,64 L 72,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='96.000000,32.000000 84.000000,26.400000 84.000000,37.599998' fill='currentColor' transform='rotate(180.000000, 88.000000, 32.000000)'>&lt;/polygon>
+&lt;polygon points='96.000000,112.000000 84.000000,106.400002 84.000000,117.599998' fill='currentColor' transform='rotate(0.000000, 88.000000, 112.000000)'>&lt;/polygon>
+&lt;polygon points='192.000000,16.000000 180.000000,10.400000 180.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 184.000000, 16.000000)'>&lt;/polygon>
+&lt;polygon points='192.000000,112.000000 180.000000,106.400002 180.000000,117.599998' fill='currentColor' transform='rotate(180.000000, 184.000000, 112.000000)'>&lt;/polygon>
+&lt;path d='M 16,0 A 16,16 0 0,0 0,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 64,0 A 16,16 0 0,1 80,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,0 A 16,16 0 0,0 192,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 240,0 A 16,16 0 0,1 256,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 0,32 A 16,16 0 0,0 16,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 80,32 A 16,16 0 0,1 64,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 192,32 A 16,16 0 0,0 208,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 256,32 A 16,16 0 0,1 240,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 112,96 A 16,16 0 0,0 96,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 160,96 A 16,16 0 0,1 176,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 96,128 A 16,16 0 0,0 112,144' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 176,128 A 16,16 0 0,1 160,144' fill='none' stroke='currentColor'>&lt;/path>
+&lt;text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
+&lt;text text-anchor='middle' x='16' y='84' fill='currentColor' style='font-size:1em'>I&lt;/text>
+&lt;text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>s&lt;/text>
+&lt;text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>u&lt;/text>
+&lt;text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>s&lt;/text>
+&lt;text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>/&lt;/text>
+&lt;text text-anchor='middle' x='24' y='100' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>n&lt;/text>
+&lt;text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>O&lt;/text>
+&lt;text text-anchor='middle' x='32' y='100' fill='currentColor' style='font-size:1em'>a&lt;/text>
+&lt;text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>n&lt;/text>
+&lt;text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>a&lt;/text>
+&lt;text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>:&lt;/text>
+&lt;text text-anchor='middle' x='40' y='100' fill='currentColor' style='font-size:1em'>r&lt;/text>
+&lt;text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>i&lt;/text>
+&lt;text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='48' y='100' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>n&lt;/text>
+&lt;text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>g&lt;/text>
+&lt;text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>D&lt;/text>
+&lt;text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>S&lt;/text>
+&lt;text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>s&lt;/text>
+&lt;text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>c&lt;/text>
+&lt;text text-anchor='middle' x='112' y='116' fill='currentColor' style='font-size:1em'>B&lt;/text>
+&lt;text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>c&lt;/text>
+&lt;text text-anchor='middle' x='120' y='52' fill='currentColor' style='font-size:1em'>h&lt;/text>
+&lt;text text-anchor='middle' x='120' y='116' fill='currentColor' style='font-size:1em'>l&lt;/text>
+&lt;text text-anchor='middle' x='120' y='132' fill='currentColor' style='font-size:1em'>s&lt;/text>
+&lt;text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>h&lt;/text>
+&lt;text text-anchor='middle' x='128' y='52' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='128' y='116' fill='currentColor' style='font-size:1em'>o&lt;/text>
+&lt;text text-anchor='middle' x='128' y='132' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='136' y='116' fill='currentColor' style='font-size:1em'>c&lt;/text>
+&lt;text text-anchor='middle' x='136' y='132' fill='currentColor' style='font-size:1em'>a&lt;/text>
+&lt;text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='144' y='52' fill='currentColor' style='font-size:1em'>u&lt;/text>
+&lt;text text-anchor='middle' x='144' y='116' fill='currentColor' style='font-size:1em'>k&lt;/text>
+&lt;text text-anchor='middle' x='144' y='132' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>u&lt;/text>
+&lt;text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>l&lt;/text>
+&lt;text text-anchor='middle' x='152' y='116' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='152' y='132' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>l&lt;/text>
+&lt;text text-anchor='middle' x='160' y='52' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='160' y='116' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='168' y='52' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
+&lt;text text-anchor='middle' x='208' y='36' fill='currentColor' style='font-size:1em'>s&lt;/text>
+&lt;text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='216' y='36' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>a&lt;/text>
+&lt;text text-anchor='middle' x='224' y='36' fill='currentColor' style='font-size:1em'>a&lt;/text>
+&lt;text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='232' y='36' fill='currentColor' style='font-size:1em'>t&lt;/text>
+&lt;text text-anchor='middle' x='232' y='84' fill='currentColor' style='font-size:1em'>I&lt;/text>
+&lt;text text-anchor='middle' x='232' y='100' fill='currentColor' style='font-size:1em'>d&lt;/text>
+&lt;text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>y&lt;/text>
+&lt;text text-anchor='middle' x='240' y='36' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>/&lt;/text>
+&lt;text text-anchor='middle' x='240' y='100' fill='currentColor' style='font-size:1em'>o&lt;/text>
+&lt;text text-anchor='middle' x='248' y='84' fill='currentColor' style='font-size:1em'>O&lt;/text>
+&lt;text text-anchor='middle' x='248' y='100' fill='currentColor' style='font-size:1em'>n&lt;/text>
+&lt;text text-anchor='middle' x='256' y='84' fill='currentColor' style='font-size:1em'>:&lt;/text>
+&lt;text text-anchor='middle' x='256' y='100' fill='currentColor' style='font-size:1em'>e&lt;/text>
+&lt;/g>
+&lt;/svg>
+&lt;/div>
+&lt;h4 id="data-structures">Data Structures&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Process List&lt;/strong>: A list maintained by the OS of all the processes and their PCB.&lt;/li>
+&lt;li>&lt;strong>Process Control Block&lt;/strong> (PCB): A C struct that keeps track of all the meta-data associated with one process.&lt;/li>
+&lt;/ul>
+&lt;h4 id="process-api-in-linux">Process API in Linux&lt;/h4>
+&lt;p>In UNIX systems new processes are created with the use of 2 system calls &lt;code>fork()&lt;/code> and &lt;code>exec()&lt;/code>.&lt;/p>
+&lt;h4 id="fork-system-call">&lt;code>fork()&lt;/code> system call&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello world.&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> rc &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fork&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (rc&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// fork failed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">fprintf&lt;/span>(stderr, &lt;span style="color:#e6db74">&amp;#34;fork failed&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (rc &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am child.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by parent
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am parent of %d.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">getpid&lt;/span>(), rc);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="adding-wait-system-call">Adding &lt;code>wait()&lt;/code> system call&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello world.&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> rc &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fork&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (rc&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// fork failed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">fprintf&lt;/span>(stderr, &lt;span style="color:#e6db74">&amp;#34;fork failed&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (rc &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am child.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by parent
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// after waiting for child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#a6e22e">wait&lt;/span>(NULL)&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am parent of %d.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">getpid&lt;/span>(), rc);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="finally-the-exec-system-call">Finally, the &lt;code>exec()&lt;/code> system call&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello world.&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> rc &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fork&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (rc&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// fork failed
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">fprintf&lt;/span>(stderr, &lt;span style="color:#e6db74">&amp;#34;fork failed&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (rc &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am child.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">getpid&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> &lt;span style="color:#f92672">*&lt;/span>myargs[&lt;span style="color:#ae81ff">3&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> myargs[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">strdup&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;wc&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> myargs[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">strdup&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;p3.c&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> myargs[&lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> NULL;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">execvp&lt;/span>(myargs[&lt;span style="color:#ae81ff">0&lt;/span>], myargs);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// Child converted to a different program now
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;somethings wrong; I can feel it&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// only executed by parent
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// after waiting for child
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#a6e22e">wait&lt;/span>(NULL)&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d:hello, I am parent of %d.&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">getpid&lt;/span>(), rc);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="limited-direct-execution">Limited Direct Execution&lt;/h3>
+&lt;p>Direct Execution can be explained by the following table,&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OS&lt;/th>
+&lt;th>Program&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Create entry for process list&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Allocate memory to program&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Load program into memory&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Set up stack with argc/argv&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Clear registers&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Execute call &lt;code>main()&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>Run &lt;code>main()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>Execute return from &lt;code>main()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Free memory of process&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Remove from process list&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="problem-1-restricted-operations">Problem #1: Restricted Operations&lt;/h4>
+&lt;blockquote>
+&lt;p>How to perform restricted operations such as I/O or networking without giveing complete control over the system?&lt;/p>
+&lt;/blockquote>
+&lt;p>We add processor modes:-&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>User mode&lt;/strong>&lt;/em>: The code that runs here is restricted and can&amp;rsquo;t issue I/O requests and it will kill the process.&lt;/li>
+&lt;li>&lt;em>&lt;strong>Kernel mode&lt;/strong>&lt;/em>: In this mode the operating system runs the code and can do whatever it likes.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>What should a user program do to perform some kind of privileged operation?&lt;/p>
+&lt;/blockquote>
+&lt;p>The answer is &lt;em>&lt;strong>system calls&lt;/strong>&lt;/em>.&lt;/p>
+&lt;p>Every system call runs a special &lt;code>trap&lt;/code> instruction which jumps the execution to kernel mode to do any privileged operation. Once finished the program can return to user mode by executing &lt;code>return-from-trap&lt;/code> instruction.&lt;/p>
+&lt;p>While executing &lt;code>trap&lt;/code>, the hardware needs to ensure the register state of the user program is stored and must be restored when &lt;code>return-from-trap&lt;/code> is executed.&lt;/p>
+&lt;blockquote>
+&lt;p>How does the trap know which code to run inside the OS?&lt;/p>
+&lt;/blockquote>
+&lt;p>The kernel sets-up a &lt;strong>trap table&lt;/strong> at boot time in priviledged mode. OS informs the hardware of the locations of the &lt;strong>trap handlers&lt;/strong>. Using this, whenever a hardware interrupt is
+passed this code is run by the hardware from the trap handlers.
+All these operation are also &lt;strong>priviledge&lt;/strong> operations.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>OS&lt;/th>
+&lt;th>Hardware&lt;/th>
+&lt;th>Program&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Initialize trap table&lt;/td>
+&lt;td>Remember addresses of syscall handler&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/td>
+&lt;td>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/td>
+&lt;td>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Create entry for process list&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Allocate memory to program&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Load program into memory&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Set up stack with argc/argv&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Clear registers&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>return-from-trap&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>restores regs to kernel stack&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>move to user mode&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>jump to &lt;code>main()&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>Run &lt;code>main()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>Call syscall&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;code>trap&lt;/code> into OS&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>save regs to kernel stack&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>move to kernel mode&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>jump to trap handler&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Handle trap&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Execute system call&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>return-from-trap&lt;/code>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>restore regs from kernel stack&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>move to kernel mode&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>jump to PC after trap&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>return from main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;code>trap&lt;/code> via &lt;code>exit()&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Free memory of process&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Remove from process list&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="switching-between-process">Switching Between Process&lt;/h4>
+&lt;blockquote>
+&lt;p>How can the operating system &lt;strong>regain control&lt;/strong> of the CPU so that it can switch process?&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>Wait for system calls&lt;/strong>&lt;/em>: When ever the user program makes system call or makes an error it returns the control back to the OS. Otherwise it can also make a &lt;code>yield&lt;/code> call to return the control to the OS periodically.&lt;/li>
+&lt;li>&lt;em>&lt;strong>OS takes controls&lt;/strong>&lt;/em>: This can be done using a simple &lt;code>timer interrupt&lt;/code> that is raised after a fixed amount milliseconds.&lt;/li>
+&lt;/ul>
+&lt;h4 id="saving-and-restoring-context">Saving and Restoring Context&lt;/h4>
+&lt;blockquote>
+&lt;p>Once the OS gains control, how to decide which process gets executed next?&lt;/p>
+&lt;/blockquote>
+&lt;p>This is done by the &lt;strong>scheduler&lt;/strong>. Once the decision is made the OS executes a low-level piece of code which is called &lt;strong>context switch&lt;/strong>. It is basically saving the register values of the current process and restoring the same for the next process.&lt;/p>
+&lt;h3 id="scheduling">Scheduling&lt;/h3>
+&lt;h4 id="workload-assumptions">Workload Assumptions&lt;/h4>
+&lt;ol>
+&lt;li>Each job runs for the same amount of time.&lt;/li>
+&lt;li>All jobs arrive at the same time.&lt;/li>
+&lt;li>All jobs only use the CPU.&lt;/li>
+&lt;li>The run-time of each job is known.&lt;/li>
+&lt;/ol>
+&lt;h4 id="scheduling-metrics">Scheduling Metrics&lt;/h4>
+&lt;p>We first define a performance index,
+$$
+T_{turnaround} = T_{completion} - T_{arrival}
+$$
+For now, $T_{turnaround} = T_{completion}$.&lt;/p>
+&lt;p>Another metric that we need to keep track of is fairness.&lt;/p>
+&lt;blockquote>
+&lt;p>Jain&amp;rsquo;s Fairness Index?&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="first-in-first-out">First In First Out&lt;/h4>
+&lt;p>This works and produces least turnaround time with current assumptions.&lt;/p>
+&lt;p>I assumption 1 is removed, then this stops giving the most optimum solution.&lt;/p>
+&lt;h4 id="shortest-job-first">Shortest Job First&lt;/h4>
+&lt;p>This produces the best results without assumption 1.&lt;/p>
+&lt;p>If assumption 2 is also removed then in some cases this method performs poorly.&lt;/p>
+&lt;h4 id="shortest-time-to-completion-first">Shortest Time-to-Completion First&lt;/h4>
+&lt;p>With only assumptions 3 and 4 this is the theoretically most optimum solution. This can be easily implemented using a heap. It also makes use of timed interrupts and context switching.&lt;/p>
+&lt;p>In modern systems another new metric is quite important called &lt;strong>Response time&lt;/strong>.
+$$
+T_{response} = T_{firstrun}-T_{arrival}
+$$
+STCF doesn&amp;rsquo;t necessarily perform well in this case.&lt;/p>
+&lt;h4 id="round-robin">Round Robin&lt;/h4>
+&lt;p>Aka &lt;strong>time slicing&lt;/strong>, in this method a time slice is fixed and after every such time period an interrupt is passed. After an interrupt the OS makes sure to rotate between different processes to ensure low response time and fairness.&lt;/p>
+&lt;h4 id="incorporating-io">Incorporating I/O&lt;/h4>
+&lt;p>This relaxes the 3rd assumption and whenever a process is engaged in I/O operation it is &lt;em>blocked&lt;/em>. At it&amp;rsquo;s place a different process is allowed to use the CPU.&lt;/p>
+&lt;h4 id="multi-level-feedback-queues">Multi-Level Feedback Queues&lt;/h4>
+&lt;ol>
+&lt;li>If Priority(A) &amp;gt; Priority(B), A runs (B doesn’t).&lt;/li>
+&lt;li>If Priority(A) = Priority(B), A &amp;amp; B run in RR.&lt;/li>
+&lt;li>When a job enters the system, it is placed at the highest
+priority (the topmost queue).&lt;/li>
+&lt;li>Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is
+reduced (i.e., it moves down one queue).&lt;/li>
+&lt;li>After some time period S, move all the jobs in the system
+to the topmost queue.&lt;/li>
+&lt;/ol>
+&lt;h2 id="memory-virtualization">Memory Virtualization&lt;/h2>
+&lt;h3 id="abstraction--address-spaces">Abstraction : Address Spaces&lt;/h3>
+&lt;p>&lt;img src="images/address_space.png" alt="Address space example">&lt;/p>
+&lt;p>3 regions of code in the address space:-&lt;/p>
+&lt;ul>
+&lt;li>Code: Keeps the data related to the code&lt;/li>
+&lt;li>Stack: Keeps track of the function calls and scope variables&lt;/li>
+&lt;li>Heap: Holds the dynamically allocated memory&lt;/li>
+&lt;/ul>
+&lt;p>Objectives of Memory virtualization:-&lt;/p>
+&lt;ul>
+&lt;li>Transparency&lt;/li>
+&lt;li>Efficiency&lt;/li>
+&lt;li>Protection/Isolation&lt;/li>
+&lt;/ul>
+&lt;h4 id="memory-api">Memory API&lt;/h4>
+&lt;h4 id="automaticstack-memory">Automatic/Stack Memory&lt;/h4>
+&lt;p>This is the memory that is accessed when using a variable on &lt;strong>stack&lt;/strong>. This is temporary and is overwritten when the variable goes out of scope&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">func&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x; &lt;span style="color:#75715e">// declares an integer on the stack
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="heap-memory">Heap Memory&lt;/h4>
+&lt;p>This is a long-lived memory which is handled explicitly by the programmer.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">func&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>x &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>) &lt;span style="color:#a6e22e">malloc&lt;/span>(&lt;span style="color:#66d9ef">sizeof&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span>)); &lt;span style="color:#75715e">// allocates memory on heap
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> ...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">free&lt;/span>(x); &lt;span style="color:#75715e">// frees the allocated memory
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>&lt;code>malloc()&lt;/code> and &lt;code>free()&lt;/code> are not system calls but library calls built on top of system calls. Apart from these there is &lt;code>calloc()&lt;/code> and &lt;code>realloc()&lt;/code>.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;code>mmap()&lt;/code> is another call to get &lt;strong>anonymous&lt;/strong> memory allocated in the swap space.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="address-translation">Address Translation&lt;/h4>
+&lt;p>The hardware provides a generic technique called &lt;strong>hardware-based address translation&lt;/strong> to map virtual addresses to physical address but this is quite low-level and the OS has to step-in and manage which areas are free.&lt;/p>
+&lt;p>We assume that:&lt;/p>
+&lt;ul>
+&lt;li>Address space must be mapped to &lt;em>contiguous&lt;/em> physical memory&lt;/li>
+&lt;li>The physical space is large compared to the address space&lt;/li>
+&lt;li>All address spaces are of exactly same size&lt;/li>
+&lt;/ul>
+&lt;p>This is done at runtime by the &lt;strong>Memory Management Unit(MMU)&lt;/strong> in the CPU. The hardware maintains a &lt;strong>base&lt;/strong> and a &lt;strong>bound&lt;/strong> to keep track of where an address space is mapped. If memory outside this is accessed CPU raises a segmentation fault.&lt;/p>
+&lt;p>OS thus has to maintain the location of memory not in use in a data structure such as &lt;strong>free list&lt;/strong>.&lt;/p>
+&lt;h4 id="segmentation">Segmentation&lt;/h4>
+&lt;p>Instead of keeping track of base and bound pair of the entire address space as this wastes a lot of used space, store base and bound of different segments such as the code, stack and heap. Along with their seperate bounds also keep track of direction in which it grows and it&amp;rsquo;s read/write permissions.&lt;/p>
+&lt;h5 id="os-issues">OS issues&lt;/h5>
+&lt;ol>
+&lt;li>&lt;em>&lt;strong>Context Switch&lt;/strong>&lt;/em>: During a context switch the OS needs to make sure the addresses corresponding to all the segments of the address space are stored.&lt;/li>
+&lt;li>&lt;em>&lt;strong>External Fragmentation&lt;/strong>&lt;/em>: This happens when the spaces left in between allocated segments is not enough to store a new segment but the total free space is sufficient to do so.&lt;/li>
+&lt;/ol>
+&lt;h4 id="free-space-management">Free Space Management&lt;/h4>
+&lt;dl>
+&lt;dt>Free List Approach&lt;/dt>
+&lt;dd>Using a linked list to keep track of free unallocated segments of memory. Every node stores the start and size of the free segment. When new segements are to be allocated find a node with enough space and shrink it to account for newly occupied memory. Later when a segment is freed, collase joined node together.&lt;/dd>
+&lt;/dl>
+&lt;p>Some allocation strategies&lt;/p>
+&lt;ul>
+&lt;li>Best fit: node with min size greater than required.&lt;/li>
+&lt;li>Worst fit: node with max size greater than required. Basically largest node.&lt;/li>
+&lt;li>First fit: first node greater than required. Greedy but fast.&lt;/li>
+&lt;li>Next fit: Instead of searching from the start search from the next node of last allocation.&lt;/li>
+&lt;/ul>
+&lt;p>Other Approaches&lt;/p>
+&lt;ul>
+&lt;li>Segregated Allocator: Keeps a region of memory to allocate the most segments with the most frequent size and a separate block to keep segments with other sizes.&lt;/li>
+&lt;li>Buddy Allocator: Only divides free segments in half. Simplifies the coallesing part.&lt;/li>
+&lt;/ul>
+&lt;h3 id="paging">Paging&lt;/h3>
+&lt;p>Memory is divided in terms of &lt;em>&lt;strong>pages&lt;/strong>&lt;/em> with fixed sizes. Thus every address space is given a fixed amount of pages.&lt;/p>
+&lt;h4 id="address-translation-1">Address Translation&lt;/h4>
+&lt;p>Every address can be broken into 2 parts: Virtual page number and the byte offset.&lt;/p>
+&lt;blockquote>
+&lt;p>For example, for a 64-byte address space i.e. 6-bit addresses and 16 byte page-size we get the 2-bit VPN and 4-bit offset.&lt;/p>
+&lt;/blockquote>
+&lt;p>For a typical 32-bit address space with 4KB pages, the address is split into 20-bit VPN and 12-bit offset. This means $2^{20}$ VPN to PPN translation that the &lt;strong>Page Table&lt;/strong> will have to hold. This means for 4 bytes per &lt;strong>Page table entry&lt;/strong> a huge 4MB per process (400MB for 100 such processes). Thus the PgTable is stored in the memory somewhere.&lt;/p>
+&lt;h4 id="page-table-entry">Page Table entry&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Valid bit&lt;/strong>: Valid VPN or not.&lt;/li>
+&lt;li>&lt;strong>Protection bits&lt;/strong>: R/W permissions&lt;/li>
+&lt;li>&lt;strong>Present bit&lt;/strong>: Whether present in memory or not.&lt;/li>
+&lt;li>&lt;strong>Dirty bit&lt;/strong>: The page has been modified or not.&lt;/li>
+&lt;li>&lt;strong>Reference bit&lt;/strong>: Tracks whether a page has been accessed.&lt;/li>
+&lt;/ul>
+&lt;h4 id="problems-with-paging">Problems with Paging&lt;/h4>
+&lt;ol>
+&lt;li>Too slow: The page table is stored in memory so for each memory access, 2 memory accesses are needed.&lt;/li>
+&lt;li>Too large: The total size of the Page Table is so large it needs to be stored in the memory.&lt;/li>
+&lt;/ol>
+&lt;h4 id="faster-translations">Faster Translations&lt;/h4>
+&lt;dl>
+&lt;dt>Translation-Lookaside Buffer $(TLB)$&lt;/dt>
+&lt;dd>Its part of the MMU and simply caches the most popular virtual-to-physical address translations to improve performance. It works as follows&lt;/dd>
+&lt;/dl>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C" data-lang="C">&lt;span style="display:flex;">&lt;span>VPN &lt;span style="color:#f92672">=&lt;/span> (VirtualAddress &lt;span style="color:#f92672">&amp;amp;&lt;/span> VPN_MASK) &lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#a6e22e">SHIFT&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>(Success, TlbEntry) &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">TLB_Lookup&lt;/span>(VPN)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> (Success &lt;span style="color:#f92672">==&lt;/span> True) &lt;span style="color:#75715e">// TLB Hit
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">CanAccess&lt;/span>(TlbEntry.ProtectBits) &lt;span style="color:#f92672">==&lt;/span> True)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Offset &lt;span style="color:#f92672">=&lt;/span> VirtualAddress &lt;span style="color:#f92672">&amp;amp;&lt;/span> OFFSET_MASK
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PhysAddr &lt;span style="color:#f92672">=&lt;/span> (TlbEntry.PFN &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> SHIFT) &lt;span style="color:#f92672">|&lt;/span> Offset
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">AccessMemory&lt;/span>(PhysAddr)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">RaiseException&lt;/span>(PROTECTION_FAULT)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#75715e">// TLB Miss
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> PTEAddr &lt;span style="color:#f92672">=&lt;/span> PTBR &lt;span style="color:#f92672">+&lt;/span> (VPN &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#66d9ef">sizeof&lt;/span>(PTE))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> PTE &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">AccessMemory&lt;/span>(PTEAddr)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (PTE.Valid &lt;span style="color:#f92672">==&lt;/span> False)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">RaiseException&lt;/span>(SEGMENTATION_FAULT)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">CanAccess&lt;/span>(PTE.ProtectBits) &lt;span style="color:#f92672">==&lt;/span> False)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">RaiseException&lt;/span>(PROTECTION_FAULT)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">TLB_Insert&lt;/span>(VPN, PTE.PFN, PTE.ProtectBits)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">RetryInstruction&lt;/span>()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>TLB hits are typically handled by the hardware. When TLB misses are when the process traps into the OS and it is fetched this way.&lt;/p>
+&lt;p>To make sure a process has access to TLB entries relavent to it only, the TLB entries also carry a address space identifier unique to every process.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>VPN&lt;/th>
+&lt;th>PFN&lt;/th>
+&lt;th>valid&lt;/th>
+&lt;th>prot&lt;/th>
+&lt;th>ASID&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>10&lt;/td>
+&lt;td>100&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>rwx&lt;/td>
+&lt;td>1&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="smaller-tables">Smaller Tables&lt;/h4>
+&lt;p>Using Multi-level Page Tables to store the mappings instead of linear tables with exponentially more size. This works when the address space is used sparsely.&lt;/p>
+&lt;h2 id="concurrency">Concurrency&lt;/h2>
+&lt;h3 id="abstraction--threads-locks-and-cvs">Abstraction : Threads, Locks and CVs&lt;/h3>
+&lt;dl>
+&lt;dt>Threads&lt;/dt>
+&lt;dd>A process can have multiple threads that can parallely execute while sharing the address space.
+&lt;ul>
+&lt;li>&lt;code>clone(&amp;amp;t)&lt;/code> : creates a new thread&lt;/li>
+&lt;li>&lt;code>join(&amp;amp;t)&lt;/code> : waits for thread to join&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Locks&lt;/dt>
+&lt;dd>Only simple instructions available on the instruction set is executed atomically by the threads. Therefore to ensure atomicity while updating shared data structures a &lt;strong>lock&lt;/strong> is used.
+&lt;ul>
+&lt;li>&lt;code>lock(&amp;amp;m)&lt;/code> : acquires the lock is available or else blocks till available&lt;/li>
+&lt;li>&lt;code>unlock(&amp;amp;m)&lt;/code> : releases the lock&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h4 id="ways-to-create-locks">Ways to create Locks&lt;/h4>
+&lt;ul>
+&lt;li>Controlling Interrupts : Whenever lock is acquired disable interrupts and resume them when released. Dangerous as can&amp;rsquo;t trust the programmer to use fairly.&lt;/li>
+&lt;li>Test and Set(Atomic Exchange) : &lt;code>test-and-set&lt;/code> instruction in the instruction set to ensure atomicity, used to implement a spin-waiting lock. Very inefficient.&lt;/li>
+&lt;li>Compare and swap&lt;/li>
+&lt;li>Load-linked and store-conditional&lt;/li>
+&lt;li>Fetch and add&lt;/li>
+&lt;li>Yielding on fail: All the above implemented spinlocks. Simply yielding on failing to acquire performs better.&lt;/li>
+&lt;li>Waiting Queues to maintain fairness&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>Conditional variables&lt;/dt>
+&lt;dd>A flag that wait for acquiring a lock till it is signaled by another process.
+&lt;ul>
+&lt;li>&lt;code>wait(&amp;amp;cv, &amp;amp;m)&lt;/code> : Waits for conditional variable cv and releases the lock.&lt;/li>
+&lt;li>&lt;code>signal(&amp;amp;cv)&lt;/code> : First to acquire the lock and be waiting on cv will execute&lt;/li>
+&lt;li>&lt;code>broadcast(&amp;amp;cv)&lt;/code> : all waiting threads are scheduled once&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>Semaphores&lt;/dt>
+&lt;dd>Hybrid of locks and conditional variables in one object that maintains an internal state of number of active threads.
+&lt;ul>
+&lt;li>&lt;code>sem_wait(&amp;amp;s)&lt;/code> : Waits for a Semaphore&lt;/li>
+&lt;li>&lt;code>sem_post(&amp;amp;s)&lt;/code> : releases one semaphore&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h2 id="persistence">Persistence&lt;/h2>
+&lt;h3 id="abstraction--file-systems">Abstraction : File Systems&lt;/h3></description></item></channel></rss>

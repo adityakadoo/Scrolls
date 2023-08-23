@@ -4,6 +4,7 @@ date: 2022-08-24T09:49:01+05:30
 draft: false
 tags: ["Computer-Science", "Machine-Learning"]
 math: true
+footer: true
 ---
 
 ## Part of Speech Tagging

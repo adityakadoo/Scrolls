@@ -9,6 +9,7 @@ resources:
 - name: thumbnail
   src: images/thumbnail.png
 toc: true
+footer: true
 ---
 
 ## Resources

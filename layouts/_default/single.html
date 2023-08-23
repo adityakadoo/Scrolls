@@ -6,9 +6,11 @@
 <main id="main" class="post">
   {{ if ne .Section "post"}}
   <article class="content">
-    <h2>Contents</h2>
     <div class="tableofcontent">
+      {{ if .Params.toc }}
+      <h2>Contents</h2>
       {{ .TableOfContents }}
+      {{ end }}
     </div>
     {{ .Content }}
   </article>

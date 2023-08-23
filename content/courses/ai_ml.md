@@ -4,6 +4,7 @@ date: 2022-09-05T06:52:35+05:30
 draft: false
 tags: ["Machine-Learning","Computer-Science"]
 math: true
+footer: true
 ---
 
 ## Probability

@@ -4,6 +4,7 @@ date: 2022-09-02T09:46:58+05:30
 draft: false
 math: true
 tags: ["Computer-Science", "Math"]
+footer: true
 ---
 
 ## Numerical Methods (3)

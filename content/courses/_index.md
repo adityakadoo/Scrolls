@@ -7,4 +7,4 @@ emoji: ":rice_cracker:"
 footer: true
 ---
 
-## Noooooooteeeeeeeeees
+## Notes

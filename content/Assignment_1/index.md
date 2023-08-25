@@ -1,7 +1,7 @@
 ---
 title: "Assignment 1"
 date: 2023-08-21T13:51:23+05:30
-draft: true
+draft: false
 tags: []
 description: "Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"
 resources:

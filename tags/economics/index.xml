@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Economics on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/economics/</link><description>Recent content in Economics on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Fri, 25 Aug 2023 16:05:24 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/economics/index.xml" rel="self" type="application/rss+xml"/><item><title>Game Theory</title><link>https://adityakadoo.github.io/Scrolls/courses/game_theory/</link><pubDate>Fri, 25 Aug 2023 16:05:24 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/game_theory/</guid><description>&lt;h2 id="central-concepts">Central Concepts&lt;/h2>
+&lt;h3 id="game">Game&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Game&lt;/strong>
+: It is a formal representation of the &lt;em>strategic&lt;/em> interaction between &lt;em>players&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Actions&lt;/strong>
+: &lt;em>Choices&lt;/em> available to players&lt;/li>
+&lt;li>&lt;strong>Strategy&lt;/strong>
+: &lt;em>Mapping&lt;/em> from state of the game to set of valid actions&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>Normal Form&lt;/strong>, &lt;strong>Extensive Form&lt;/strong>, &lt;strong>Static&lt;/strong>, &lt;strong>Dynamic&lt;/strong>, &lt;strong>Repeated&lt;/strong>, &lt;strong>Stochastic&lt;/strong>, etc. are different kinds of games&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="game-theory">Game Theory&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Game Theory&lt;/strong>
+: It is the formal study of strategic interactions between player, who are &lt;em>rational&lt;/em> and &lt;em>intelligent&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Rational Player&lt;/strong>
+: A player who always picks the action that &lt;em>maximizes&lt;/em> their &lt;em>utility&lt;/em>&lt;/li>
+&lt;li>&lt;strong>Intelligent Player&lt;/strong>
+: A player who knows the rules of the game &lt;em>perfectly&lt;/em> and can pick the best action considering that there are other rational and intelligent players in the game&lt;/li>
+&lt;li>&lt;strong>Common Knowledge&lt;/strong>
+: A &lt;em>fact&lt;/em> is common knowledge if,
+&lt;ul>
+&lt;li>all players know the fact&lt;/li>
+&lt;li>all players know that all players know the fact&lt;/li>
+&lt;li>all players know that all players know the fact&lt;/li>
+&lt;li>&amp;hellip;ad infinitum&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="chess-example">Chess Example&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Game situations&lt;/strong>($H$)
+: Set of all finite sequence $(x_0, x_1,x_2,&amp;hellip;,x_k)$ of board positions such that,
+&lt;ul>
+&lt;li>$x_0$ is the opening board position&lt;/li>
+&lt;li>$x_k\rightarrow x_{k+1}$
+&lt;ul>
+&lt;li>$k$ even $\implies$ single action of $W$&lt;/li>
+&lt;li>$k$ odd $\implies$ single action of $B$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Strategy&lt;/strong> for $W$($s_W$)
+: Function $s_W$ that associates every game situation $(x_0,x_1,x_2,&amp;hellip;,x_k)\in H$, where $k$ is even, with a board position $x_{k+1}$ such that the move $x_k\rightarrow x_{k+1}$ is a single valid move for $W$&lt;/li>
+&lt;li>&lt;strong>Strategy&lt;/strong> for $B$($s_B$)
+: Defined similarly as above&lt;/li>
+&lt;li>&lt;strong>Outcome&lt;/strong>
+: Determined by a pair of $(s_W, s_B)$. Could be one of the following for chess,
+&lt;ul>
+&lt;li>$W$ wins: $W$ captures $B$ king&lt;/li>
+&lt;li>$B$ wins: $B$ captures $W$ king&lt;/li>
+&lt;li>Draw: Both players agree to draw&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Winning Strategy&lt;/strong> for $W$($s_W^\ast$)
+: A strategy such that $\forall s_B$, the outcome for $(s_W^\ast,s_B)$ is a win for $W$&lt;/li>
+&lt;li>&lt;strong>Draw Guaranteeing Strategy&lt;/strong> for $W$($s_W^\prime$)
+: A strategy such that $\forall s_B$, the outcome for $(s_W^\prime, s_B)$ is either a win for $W$ or a draw.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : In chess, one and only one of the following statements is true&lt;/p>
+&lt;ul>
+&lt;li>$s_W^\ast$ exists&lt;/li>
+&lt;li>$s_B^\ast$ exists&lt;/li>
+&lt;li>$s_W^\prime$ and $s_B^\prime$ exist&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="pure-strategies">Pure Strategies&lt;/h2>
+&lt;h3 id="normal-form-games">Normal Form Games&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Static Game&lt;/strong> $\langle N, \{S_i|i\in N\}, \{u_i | i\in N\} \rangle$&lt;/dt>
+&lt;dd>A game where player interact only once&lt;/dd>
+&lt;/dl>
+&lt;ul>
+&lt;li>&lt;strong>Set of players&lt;/strong>
+: $N =\{1,2,\dots,n\}$&lt;/li>
+&lt;li>&lt;strong>Set of Strategies for $i$&lt;/strong>
+: $s_i\in S_i$&lt;/li>
+&lt;li>&lt;strong>Strategy profile&lt;/strong>
+: $s=(s_1,s_2,\dots,s_n)\in S$&lt;/li>
+&lt;li>&lt;strong>Set of strategy profiles&lt;/strong>
+: $S=\times_{i\in N}S_i$&lt;/li>
+&lt;li>&lt;strong>Strategy profile w/o $i$&lt;/strong>
+: $s_{-i}=(s_1,\dots,s_{i-1},s_{s+1},\dots,s_n)$&lt;/li>
+&lt;li>&lt;strong>Utility function for player $i$&lt;/strong>
+: $u_i:S\rightarrow \R$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>Finite Game&lt;/strong> : A static game where $\forall i\in N,\ S_i$ is finite&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="dominance">Dominance&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Strictly Dominated Strategy&lt;/strong>&lt;/dt>
+&lt;dd>$s_i^\prime\in S_i,\ \exists s_i\in S_i,\ \forall s_{-i}\in S_{-i},\ u_i(s_i, s_{-i})&amp;gt;u_i(s_i^\prime,s_{-i})$&lt;/dd>
+&lt;dt>&lt;strong>Weakly Dominated Strategy&lt;/strong>&lt;/dt>
+&lt;dd>$s_i^\prime\in S_i,\ \exists s_i\in S_i,\ \forall s_{-i}\in S_{-i},\ u_i(s_i, s_{-i})\ge u_i(s_i^\prime,s_{-i})$ and $\exists \tilde s_{-i}\in S_{-i},\ u_i(s_i, \tilde s_{-i}) &amp;gt; u_i(s_i^\prime, \tilde s_{-i})$&lt;/dd>
+&lt;dt>&lt;strong>Strictly Dominant Strategy&lt;/strong>&lt;/dt>
+&lt;dd>$s_i^\prime\in S_i, \forall s_i\in S_i-\{s_i^\prime\},\ s_i$ is strictly dominated by $s_i^\prime$&lt;/dd>
+&lt;dt>&lt;strong>Weakly Dominant Strategy&lt;/strong>&lt;/dt>
+&lt;dd>$s_i^\prime\in S_i, \forall s_i\in S_i-\{s_i^\prime\},\ s_i$ is weakly dominated by $s_i^\prime$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="equilibria">Equilibria&lt;/h3>
+&lt;h4 id="dominant-strategy-equilibrium">Dominant Strategy Equilibrium&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Strictly Dominant Strategy Equilibrium [SDSE]&lt;/strong>&lt;/dt>
+&lt;dd>A strategy profile $(s_1^\ast,s_2^\ast,\dots,s_n^\ast)$, such that $\forall i\in N,\ s_i^\ast$ is a strictly dominant strategy&lt;/dd>
+&lt;dt>&lt;strong>Weakly Dominant Strategy Equilibrium [WDSE]&lt;/strong>&lt;/dt>
+&lt;dd>A strategy profile $(s_1^\ast,s_2^\ast,\dots,s_n^\ast)$, such that $\forall i\in N,\ s_i^\ast$ is a weakly dominant strategy&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Rational player never play dominated strategies.&lt;/strong>
+So it can be useful to remove such strategies.
+Strictly dominated strategies can be removed in any order.
+Weakly dominated strategies&amp;rsquo; order of removal matters as it can remove important outcomes.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="nash-equilibrium">Nash Equilibrium&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Pure Strategy Nash Equilibrium [PSNE]&lt;/strong>&lt;/dt>
+&lt;dd>A strategy profile $(s_i^\ast, s_{-i}^\ast)$ such that $\forall i\in N$ and $\forall s_i\in S_i$,
+$$
+u_i(s_i^\ast, s_{-i}^\ast)\ge u_i(s_i,s_{-i}^\ast)
+$$&lt;/dd>
+&lt;dt>&lt;strong>Best Response&lt;/strong> ($B_i(s_{-i})$)&lt;/dt>
+&lt;dd>$B_i(s_{-i}) = \{s_i\in S_i|\ \forall s_i^\ast\in S_i,\ u_i(s_i,s_{-i})\ge u_i(s_i^\ast,s_{-i})\}$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>For a PSNE $(s_i^\ast,s_{-i}^\ast)$, $s_i^\ast\in B_i(s_{-i}^\ast),\ \forall i\in N$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>SDSE $\implies$ WDSE $\implies$ PSNE&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="risk-aversion">Risk Aversion&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Max-Min Strategy&lt;/strong> ($s_i^{\max\min}$)&lt;/dt>
+&lt;dd>$s_i^{\max\min}\in\arg\max_{s_i\in S_i}\min_{s_{-i}\in S_i}u_i(s_i,s_{-i})$&lt;/dd>
+&lt;dt>&lt;strong>Max-Min value&lt;/strong> ($\underline v_i$)&lt;/dt>
+&lt;dd>$\underline v_i = \max_{s_i\in S_i}\min_{s_{-i}\in S_i}u_i(s_i,s_{-i})$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$u_i(s_i^{\max\min},s_{-i})\ge\underline v_i,\ \ \forall s_{-i}\in S_{-i}$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : $s_i^\ast$ is dominant strategy $\implies$ $s_i^\ast$ is a max-min strategy&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : Every PSNE $s^\ast=(s_1^\ast,\dots,s_n^\ast)$ satisfies $u_i(s^\ast)\ge\underline v_i,\ \forall i\in N$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="elimination-of-dominated-strategies">Elimination of dominated strategies&lt;/h3>
+&lt;h4 id="preservation-of-max-min-value">Preservation of Max-Min value&lt;/h4>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$, let $s_j^\prime\in S_j$ be a dominant strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="preservation-of-psne">Preservation of PSNE&lt;/h4>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$ and $G^\prime$ after elimination of &lt;strong>any&lt;/strong> strategy, if $s^\ast$ is a PSNE in $G$ and survives in $G^\prime$, then $s^\ast$ is a PSNE in $G^\prime$ too.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>No new PSNE if eliminated strategy is dominated.
+Old PSNE could be killed.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="matrix-games">Matrix Games&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Matrix Game&lt;/strong>&lt;/dt>
+&lt;dd>A NFG $\langle N, \{S_i|i\in N\}, \{u_i|i\in N\}\rangle$ with $N=\{1,2\}$ and $u_1(s)+u_2(s)=0,\ \forall$ strategy profile $s\in S$&lt;/dd>
+&lt;dt>&lt;strong>Utility Matrix&lt;/strong> ($U$)&lt;/dt>
+&lt;dd>$[U]_{ij} = u_1(s_i,s_j)$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Player 2&amp;rsquo;s MaxMin value is negative of the column-wise MinMax of this matrix.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Saddle Point&lt;/strong>&lt;/dt>
+&lt;dd>An element in the matrix that is maximum in it&amp;rsquo;s column and minimum in it&amp;rsquo;s row&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : In a Matrix game, $(s_1^\ast,s_2^\ast)$ is a saddle point $\iff$ $(s_1^\ast,s_2^\ast)$ is a PSNE&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Max-Min Value&lt;/strong> ($\underline v$)&lt;/dt>
+&lt;dd>$\underline v = \max_{s_1\in S_1}\min_{s_2\in S_2}U(s_1, s_2)$&lt;/dd>
+&lt;dt>&lt;strong>Min-Max Value&lt;/strong> ($\bar v$)&lt;/dt>
+&lt;dd>$\bar v = \min_{s_1\in S_1}\max_{s_2\in S_2}U(s_1, s_2)$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Lemma&lt;/strong> : For matrix games, $\bar v\ge\underline v$&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>PSNE Theorem&lt;/strong> : A Matrix game has a PSNE $\iff$ $\bar v=\underline v=U(s_1^\ast, s_2^\ast)$ where $s_1^\ast$ and $s_2^\ast$ are $\max\min$ and $\min\max$ strategies for player 1 and 2 respectively. $(s_1^\ast, s_2^\ast)$ is that PSNE.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mixed-strategies">Mixed Strategies&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Mixed Strategy Set&lt;/strong> ($\Delta A$)&lt;/dt>
+&lt;dd>$\Delta A = \{p:A\to[0,1]^{|A|}\ |\ \sum_{a\in A}p(a) = 0\}$&lt;/dd>
+&lt;dt>&lt;strong>Mixed Strategy&lt;/strong> ($\sigma_i$)&lt;/dt>
+&lt;dd>For player $i$, $\sigma_i:S_i\to[0,1]$ such that $\sum_{s_i\in S_i}\sigma_i(s_i)=1$&lt;/dd>
+&lt;dt>&lt;strong>Utility&lt;/strong> ($u_i(\sigma_i,\sigma_{-i})$)&lt;/dt>
+&lt;dd>$u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^N\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="mixed-strategy-nash-equilibrium">Mixed Strategy Nash Equilibrium&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>MSNE&lt;/strong>&lt;/dt>
+&lt;dd>A mixed strategy profile $(\sigma_i^\ast, \sigma_{-i}^\ast)$ such that,
+$$
+u_i(\sigma_i^\ast, \sigma_{-i}^\ast)\ge u_i(\sigma_i, \sigma_{-i}^\ast),\ \forall\sigma_i\in\Delta S_i,\ \forall i\in N
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>PSNE $\implies$ MSNE&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE $\iff$ $\forall s_i\in S_i,\ \forall i\in N$,
+$$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)\ge u_i(s_i,\sigma_{-i}^\ast)$$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="msne-characterization-theorem">MSNE Characterization Theorem&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Support for Mixed Strategy&lt;/strong> ($\delta(\sigma_i)$)&lt;/dt>
+&lt;dd>$\delta(\sigma_i)=\{s_i\in S_i|\ \sigma_i(s_i)&amp;gt;0\}$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : $(\sigma_i^\ast,\sigma_{-i}^\ast)$ is a MSNE $\iff$ $\forall i\in N$,&lt;/p>
+&lt;ul>
+&lt;li>$u_i(s_i,\sigma_{-i}^\ast)$ is identical $\forall s_i\in \delta(\sigma_i^\ast)$&lt;/li>
+&lt;li>$u_i(s_i,\sigma_{-i}^\ast)\ge u_i(s_i^\prime, \sigma_{-i}^\ast),\ \forall s_i\sube \delta(\sigma_i^\ast),\ s_i^\prime \not\in\delta(\sigma_i^\ast)$&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>Maximizing w.r.t. a distribution $\Leftrightarrow$ Whole probability mass at max
+$$ \max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i})=\max_{s_i\in S_i}u_i(s_i,\sigma_{-i}) $$&lt;/li>
+&lt;li>If $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE, then
+$$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)=\max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i}^\ast)=\max_{s_i\in S_i}u_i(s_i,\sigma_{-i}^\ast)=\max_{s_i\in\delta(\sigma_i)}u_i(s_i,\sigma_{-i}^\ast) $$&lt;/li>
+&lt;/ul>
+&lt;h3 id="algorithm-for-msne">Algorithm for MSNE&lt;/h3>
+&lt;p>For every support profile $X_1\times X_2\times\cdots X_n$ where $X_i\sube S_i$, solve the following feasibility program to get the MSNE,
+$$
+w_i = \sum_{s_{-i}\in S_{-i}}(\prod_{j\not =i}\sigma_j(s_j))\cdot u_i(s_i,s_{-i}),\ \forall s_i\in X_i,\ \forall i\in N\\
+w_i \ge \sum_{s_{-i}\in S_{-i}}(\prod_{j\not =i}\sigma_j(s_j))\cdot u_i(s_i,s_{-i}),\ \forall s_i\in S_i\backslash X_i,\ \forall i\in N\\
+\sigma_j(s_j)\ge0,\ \forall s_j\in S_j,\ \forall j\in N\\
+\sum_{s_j\in X_j}\sigma_j(s_j)=1,\ \forall j\in N
+$$&lt;/p>
+&lt;ul>
+&lt;li>Not linear unless $n=2$&lt;/li>
+&lt;li>No poly-time algorithm for general game&lt;/li>
+&lt;li>This is PPAD-complete (Polynomial Parity Argument on Directed graphs)&lt;/li>
+&lt;/ul>
+&lt;h3 id="existence-of-msne">Existence of MSNE&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Finite Game&lt;/strong>&lt;/dt>
+&lt;dd>A game with finite number of players and each player has a finite set of strategies&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : Every finite game has a (mixed) Nash equilibrium.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="correlated-strategies">Correlated Strategies&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Correlated Strategy&lt;/strong> ($\pi$)&lt;/dt>
+&lt;dd>A mapping $\pi:S_1\times S_2\times\cdots\times S_n\rightarrow[0,1]$ such that $\sum_{s\in S}\pi(s)=1$&lt;/dd>
+&lt;dt>&lt;strong>Correlated Equilibrium&lt;/strong>&lt;/dt>
+&lt;dd>A correlated strategy $\pi$ such that,
+$$
+\sum_{s_{-i}\in S_{-i}}\pi(s_i,s_{-i})\cdot u_i(s_i, s_{-i})\ge \sum_{s_{-i}\in S_{-i}}\pi(s_i,s_{-i})\cdot u_i(s_i^\prime, s_{-i}),\ \forall s_i,s_i^\prime\in S_i,\ \forall i\in N
+$$&lt;/dd>
+&lt;/dl>
+&lt;p>To find a CE following linear equations must be solved,
+$$
+\sum_{s_{-i}\in S_{-i}}\pi(s_i,s_{-i})\cdot u_i(s_i, s_{-i})\ge \sum_{s_{-i}\in S_{-i}}\pi(s_i,s_{-i})\cdot u_i(s_i^\prime, s_{-i}),\ \forall s_i,s_i^\prime\in S_i,\ \forall i\in N\\
+\pi(s)\ge 0,\ \forall s\in S,\ \sum_{s\in S}\pi(s)=1
+$$&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : For every MSNE $\sigma^\ast$ there exists a CE $\pi^\ast$&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="perfect-information-extensive-form-games">Perfect Information Extensive Form Games&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Perfect Information Extensive Form Games&lt;/strong> [PIEFG] $\langle N, A, H, X, P, (u_i)_{i\in N}\rangle$&lt;/dt>
+&lt;dd>A game where players interact one after the other&lt;/dd>
+&lt;/dl>
+&lt;ul>
+&lt;li>&lt;strong>Set of players&lt;/strong>: $N$&lt;/li>
+&lt;li>&lt;strong>Set of all possible actions&lt;/strong>: $A$&lt;/li>
+&lt;li>&lt;strong>Set of all sequences of actions&lt;/strong>: $H$
+&lt;ul>
+&lt;li>empty history $\varnothing\in H$&lt;/li>
+&lt;li>if $h\in H$ and any sub-sequence $h^\prime$ of $h$ starting at the root then $h^\prime\in H$&lt;/li>
+&lt;li>$h=(a^{(0)},a^{(1)},\dots,a^{(T-1)})$ is &lt;strong>terminal&lt;/strong> if $\nexists a^{(T)}$ such that $(a^{(0)},a^{(1)},\dots,a^{(T)})\in H$&lt;/li>
+&lt;li>&lt;strong>Set of terminal histories&lt;/strong>: $Z\sube H$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Action set selection function&lt;/strong>: $X:H\backslash Z\rightarrow 2^A$&lt;/li>
+&lt;li>&lt;strong>Player function&lt;/strong>: $P:H\backslash Z\rightarrow N$&lt;/li>
+&lt;li>&lt;strong>Utility&lt;/strong>: $u_i:Z\rightarrow\R$&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>&lt;strong>Strategy&lt;/strong> ($S_i$)&lt;/dt>
+&lt;dd>$S_i = \times_{\{h\in H:P(h)=i\}}X(h)$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>PSNE of PIEFG doesn&amp;rsquo;t always give credible threats for equilibrium&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="subgame-perfection">Subgame Perfection&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Subgame&lt;/strong>&lt;/dt>
+&lt;dd>Subtree of a PIEFG $G$ rooted at a history $h$. It is the &lt;em>restriction&lt;/em> of $G$ to the descendants of $h$.&lt;/dd>
+&lt;dt>&lt;strong>Subgame Perfect Nash Equilibrium&lt;/strong> [SPNE]&lt;/dt>
+&lt;dd>A strategy profile $s\in S$ such that $\forall$ subgame $G^\prime$ of $G$, the restriction of $s$ to $G^\prime$ is a PSNE of $G^\prime$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="backward-induction-algorithm">Backward Induction Algorithm&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a2f;font-weight:bold">def&lt;/span> &lt;span style="color:#00a000">BACK_IND&lt;/span>(history h):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span> h &lt;span style="color:#a2f;font-weight:bold">in&lt;/span> Z:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> u(h),[]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_util &lt;span style="color:#666">=&lt;/span> &lt;span style="color:#666">-&lt;/span>INT_MAX
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">for&lt;/span> a &lt;span style="color:#a2f;font-weight:bold">in&lt;/span> X(h):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> util_at_child &lt;span style="color:#666">=&lt;/span> BACK_IND((h, a))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span> util_at_child &lt;span style="color:#666">&amp;gt;&lt;/span> best_util:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_util &lt;span style="color:#666">=&lt;/span> util_at_child best_action &lt;span style="color:#666">=&lt;/span> a
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> best_util, best_action
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="spne-limitations">SPNE Limitations&lt;/h3>
+&lt;p>&lt;strong>Advantages&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>SPNE is guaranteed to exist in finite PIEFG&lt;/li>
+&lt;li>An SPNE is a PSNE&lt;/li>
+&lt;li>The algorithm to find SPNE is simple&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Disadvantages&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>The whole tree needs to be parsed&lt;/li>
+&lt;li>Cognitive limit of real players may prohibit playing SPNE&lt;/li>
+&lt;/ol></description></item></channel></rss>

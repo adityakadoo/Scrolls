@@ -1,7 +1,7 @@
 ---
 title: "Game Theory"
 date: 2023-08-25T16:05:24+05:30
-draft: true
+draft: false
 math: true
 tags: [Economics, Computer-Science, Math]
 description: "Notes for CS6001 course"

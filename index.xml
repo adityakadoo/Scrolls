@@ -1,4 +1,541 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Fri, 25 Aug 2023 16:05:24 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Game Theory</title><link>https://adityakadoo.github.io/Scrolls/courses/game_theory/</link><pubDate>Fri, 25 Aug 2023 16:05:24 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/game_theory/</guid><description>&lt;h2 id="central-concepts">Central Concepts&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Fri, 25 Aug 2023 16:05:24 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Assignment 2</title><link>https://adityakadoo.github.io/Scrolls/assignment_2/</link><pubDate>Wed, 06 Sep 2023 09:52:31 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/assignment_2/</guid><description>&lt;h2 id="problem-1">Problem 1&lt;/h2>
+&lt;p>Assuming the image vector $f$ to be a column vector for dimensions $n\times 1$. We can define a $(n+6)\times n$ matrix using the convolution mask $w = (w_0, w_1,\dots,w_6)$ as,
+$$
+W_{(n+6)\times n} = \begin{bmatrix}
+w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_3 &amp;amp; w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_2 &amp;amp; w_3 &amp;amp; w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_1 &amp;amp; w_2 &amp;amp; w_3 &amp;amp; w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+w_0 &amp;amp; w_1 &amp;amp; w_2 &amp;amp; w_3 &amp;amp; w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+0 &amp;amp; w_0 &amp;amp; w_1 &amp;amp; w_2 &amp;amp; w_3 &amp;amp; w_4 &amp;amp; w_5 &amp;amp; w_6 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\
+\vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \vdots \\
+0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; w_6 \\
+\end{bmatrix}
+$$&lt;/p>
+&lt;p>Using this matrix we can define convolution as,
+$$
+w\ast f\equiv W_{(n+6)\times n}\cdot f_{n\times 1}
+$$
+$W$ is a example of sparse diagonal band matrices called Toeplitz matrix. It has various symmetries about the centre and diagonals. Since convolution is associative, this matrix can be used to represent convolution as a transformation and can be used to compute a series of convolutions as a single convolution tranformation. Because of it&amp;rsquo;s sparse nature and symmetries, it can be multiplied in $\mathcal{O}(n^2)$ and stored in $\mathcal{O}(n)$.&lt;/p>
+&lt;h2 id="problem-2">Problem 2&lt;/h2>
+&lt;p>We have,
+$$
+v(x,y) = \sum_{i=0}^3\sum_{j=0}^3a_{ij}x^iy^j
+% =\begin{bmatrix}
+% 1 &amp;amp; x &amp;amp; x^2 &amp;amp; x^3\\
+% \end{bmatrix}\cdot\begin{bmatrix}
+% a_{00} &amp;amp; a_{01} &amp;amp; a_{02} &amp;amp; a_{03}\\
+% a_{10} &amp;amp; a_{11} &amp;amp; a_{12} &amp;amp; a_{13}\\
+% a_{20} &amp;amp; a_{21} &amp;amp; a_{22} &amp;amp; a_{23}\\
+% a_{30} &amp;amp; a_{31} &amp;amp; a_{32} &amp;amp; a_{33}\\
+% \end{bmatrix}\cdot\begin{bmatrix}
+% 1\\
+% y\\
+% y^2\\
+% y^3
+% \end{bmatrix}
+= \begin{bmatrix}
+1\\ y\\ y^2\\ y^3\\
+x\\ xy\\ xy^2\\ xy^3\\
+x^2\\ x^2y\\ x^2y^2\\ x^2y^3\\
+x^3\\ x^3y\\ x^3y^2\\ x^3y^3\\
+\end{bmatrix}^T\cdot\begin{bmatrix}
+a_{00}\\ a_{01}\\ a_{02}\\ a_{03}\\
+a_{10}\\ a_{11}\\ a_{12}\\ a_{13}\\
+a_{20}\\ a_{21}\\ a_{22}\\ a_{23}\\
+a_{30}\\ a_{31}\\ a_{32}\\ a_{33}\\
+\end{bmatrix}
+= p(x,y)^T\cdot A
+$$&lt;/p>
+&lt;p>Let $A$ be the column vector formed by the coeffcients and let $p(x,y)$ be the column vector formed by the bicubic terms. For a particular point $(x,y)$, let $\{(x_k,y_k):0\le k\le15\}$ be the set of nearest 16 grid-points that must be interpolated and $\{I_k:0\le k\le15\}$ be the corresponding intensities.&lt;/p>
+&lt;p>To find the elements of matrix $A$, we can satisfy the equation for $v(x,y)$ these 16 points. This can also be done using matrix notation as,
+$$
+I_{16\times 1} = \begin{bmatrix}
+I_0 &amp;amp; I_1 &amp;amp; \dots &amp;amp; I_{15}
+\end{bmatrix}^T,\ \
+P_{16\times 16} = \begin{bmatrix}
+p(x_0,y_0) &amp;amp; p(x_1,y_1) &amp;amp; \dots &amp;amp; p(x_{15}, y_{15})
+\end{bmatrix}^T
+% Y_{4\times 16} = \begin{bmatrix}
+% 1 &amp;amp; 1 &amp;amp; \dots &amp;amp; 1\\
+% y_0 &amp;amp; y_1 &amp;amp; \dots &amp;amp; y_{15}\\
+% y_0^2 &amp;amp; y_1^2 &amp;amp; \dots &amp;amp; y_{15}^2\\
+% y_0^3 &amp;amp; y_1^3 &amp;amp; \dots &amp;amp; y_{15}^3\\
+% \end{bmatrix}
+$$
+Using this we can write,
+$$
+I = P\cdot A\\
+\implies A = P^{-1}\cdot I
+$$
+Here $P^{-1}$ exists because each of $P$&amp;rsquo;s rows depends on the bicubic terms of co-ordinates of distinct 16 points. These cannot be written as linear combination of each other, making it&amp;rsquo;s rank 16.&lt;/p>
+&lt;h2 id="problem-3">Problem 3&lt;/h2>
+&lt;p>We have seen that the PDF of a random variable at point $(x,y)$ obtained as a sum of two RVs, is the convolution of the PDFs of the two at coordinate $(x,y)$. We can model the distribution of the original image as delta distribution such that,
+$$
+\delta(s;I(x,y)) = \left\{ \begin{array}{lr}
+0 &amp;amp; s\ne I(x,y)\\
+\epsilon&amp;gt;0 &amp;amp; s = I(x,y)\\
+\end{array}\right\}\\
+\ \\
+\int_{-\infty}^\infty \delta(s;I(x,y))\cdot ds=1
+$$&lt;/p>
+&lt;p>Now by convolution at $(x,y)$, we have the resultant PDF as,
+$$
+p_{x,y}(u) = \int_{-\infty}^\infty \delta(s;I(x,y))\cdot \mathcal{N}(u-s;\ 0,\sigma)\cdot ds
+$$
+Using the sifting property of the delta distribution,
+$$
+p_{x,y}(u) = \mathcal{N}(u-I(x,y);\ 0,\sigma)\\
+\ \\
+= \mathcal{N}(u;\ I(x,y),\sigma)
+$$&lt;/p>
+&lt;p>Thus the PDF of the noisy image is the mean shifted Gaussian.&lt;/p>
+&lt;h2 id="problem-4">Problem 4&lt;/h2>
+&lt;h3 id="part-a">Part (a)&lt;/h3>
+&lt;p>Let $[a,b,c]^T$ and $[p,q,r]$ be the vectors into which the Laplacian filter can be separated.
+$$
+\therefore\begin{bmatrix}
+0 &amp;amp; 1 &amp;amp; 0\\
+1 &amp;amp; -4 &amp;amp; 1\\
+0 &amp;amp; 1 &amp;amp; 0\\
+\end{bmatrix} = \begin{bmatrix}
+a\\
+b\\
+c\\
+\end{bmatrix}\cdot\begin{bmatrix}
+p &amp;amp; q &amp;amp; r\\
+\end{bmatrix} = \begin{bmatrix}
+ap &amp;amp; aq &amp;amp; ar\\
+bp &amp;amp; bq &amp;amp; br\\
+cp &amp;amp; cq &amp;amp; cr\\
+\end{bmatrix}\\
+\implies aq=1 \And bp=1\\
+\implies apbq = 1 \text{ but } ap=0\\
+\therefore \text{Contradiction}
+$$&lt;/p>
+&lt;h3 id="part-b">Part (b)&lt;/h3>
+&lt;p>Consider the following two 1D filters,
+$$
+\begin{bmatrix}
+1\\ -2\\ 1\\
+\end{bmatrix}\ast f +
+\begin{bmatrix}
+1 &amp;amp; -2 &amp;amp; 1\\
+\end{bmatrix}\ast f\\
+$$
+Convolution is distributive over addition,
+$$
+= \left(\begin{bmatrix}
+1\\ -2\\ 1\\
+\end{bmatrix} +
+\begin{bmatrix}
+1 &amp;amp; -2 &amp;amp; 1\\
+\end{bmatrix}\right)\ast f\\
+$$
+By adding zero-padding to the filters,
+$$
+= \left(\begin{bmatrix}
+0 &amp;amp; 1 &amp;amp; 0\\
+0 &amp;amp; -2 &amp;amp; 0\\
+0 &amp;amp; 1 &amp;amp; 0\\
+\end{bmatrix} +
+\begin{bmatrix}
+0 &amp;amp; 0 &amp;amp; 0\\
+1 &amp;amp; -2 &amp;amp; 1\\
+0 &amp;amp; 0 &amp;amp; 0\\
+\end{bmatrix}\right)\ast f\\
+\ \\
+= \begin{bmatrix}
+0 &amp;amp; 1 &amp;amp; 0\\
+1 &amp;amp; -4 &amp;amp; 1\\
+0 &amp;amp; 1 &amp;amp; 0\\
+\end{bmatrix}\ast f\\
+$$
+Hence we can derive the Laplacian filter using these two 1D convolutions.&lt;/p>
+&lt;h2 id="problem-5">Problem 5&lt;/h2>
+&lt;p>Let $A$ be the mean-filter of size $(2a+1)\times(2a+1)$ and f is the image(assumed to infinitely zero-padded). On applying convolution once we get,
+$$\hat f = A\ast f$$
+Repeating this $k$ times gives,
+$$
+\hat f=A\ast(\cdots(K\text{ times})\cdots A\ast(A\ast(A\ast f))\cdots)
+$$
+Since convolution is associative,
+$$
+\hat f=(A\ast A\cdots(K\text{ times})\cdots A)\ast f\\
+\ \\
+\hat f=A_K\ast f
+$$
+This shows that $A_K=(A\ast A\cdots(K\text{ times})\cdots\ast A)$ is a convolution operator that can be used for $K$ applications of any filter $A$.&lt;/p>
+&lt;p>As the mean-filter (with zero padding) corresponds to the 2-dimensional uniform PDF, it&amp;rsquo;s K convolutions with itself will correspond to the PDF of sum of $K$ discrete uniform i.i.d. random variables. Since the 2D uniform distribution is the product of two 1D uniform distributions in $x$ and $y$, the PDF after $K$ convolutions in 2D is simply the product of the resulting PDF at both coordinates in 1D after $K$ convolutions. The PDF at n after K convolutions of 1D uniform distribution between $-a$ to $a$ is,
+$$
+P_K(n;-a,a) = \text{Coefficient of }x^n\text{ in }\frac{(x^{2a+1}-1)^K}{(x-1)^K\cdot x^{aK}\cdot (2a+1)^K}\\
+\ \\
+$$
+Using this we can define the convolution mask $A_K = [A_{ij}]$ of size $(2Ka+1)\times (2Ka+1)$ where,
+$$
+A_{ij} = P_K(i-Ka;-a,a)\cdot P_K(j-Ka;-a,a),\ \ \forall 0\le i,j\le 2Ka
+$$&lt;/p>
+&lt;h2 id="problem-6">Problem 6&lt;/h2>
+&lt;p>Given intensity function,
+$$
+I(x)=cx+d
+$$
+On applying Gaussian filter,
+$$
+J(x;\sigma) = \int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma)\cdot di\\
+\ \\
+= c\cdot\int_{-\infty}^\infty i\cdot\mathcal{N}(i;x,\sigma)\cdot di+d
+= cx+d
+$$
+On applying bilateral filter,
+$$
+K(x;\sigma_s,\sigma_r) = \frac{\int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(I(x)-I(i);0,\sigma_r)\cdot di}{\int_{-\infty}^\infty\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(I(x)-I(i);0,\sigma_r)\cdot di}\\
+\ \\
+= \frac{\int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}((cx+d)-(ci+d);0,\sigma_r)\cdot di}{\int_{-\infty}^\infty\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}((cx+d)-(ci+d);0,\sigma_r)\cdot di}\\
+\ \\
+= \frac{\int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(c(x-i);0,\sigma_r)\cdot di}{\int_{-\infty}^\infty\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(c(x-i);0,\sigma_r)\cdot di}\\
+\ \\
+= \frac{\int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(i;x,\sigma_r/c)\cdot di}{\int_{-\infty}^\infty\mathcal{N}(i;x,\sigma_s)\cdot\mathcal{N}(i;x,\sigma_r/c)\cdot di}\\
+\ \\
+= \frac{\int_{-\infty}^\infty I(i)\cdot\mathcal{N}(i;x,\sigma_s\sigma_r/\sqrt{c^2\sigma_s^2+\sigma_r^2})\cdot di}{\int_{-\infty}^\infty\mathcal{N}(i;x,\sigma_s\sigma_r/\sqrt{c^2\sigma_s^2+\sigma_r^2})\cdot di}\\
+\ \\
+= J(x;\sigma_s\sigma_r/\sqrt{c^2\sigma_s^2+\sigma_r^2}) = cx+d
+$$
+Here we have used the result that product of two Gaussian distributions $\mathcal{N}(\mu_1,\sigma_1)$ and $\mathcal{N}(\mu_2,\sigma_2)$ is another Gaussian distribution $\mathcal{N}\left(\frac{\sigma_1^2\mu_2+\sigma_2^2\mu_1}{\sigma_1^2+\sigma_2^2},\frac{\sigma_1\sigma_2}{\sqrt{\sigma_1^2+\sigma_2^2}}\right)$.&lt;/p>
+&lt;h2 id="problem-7">Problem 7&lt;/h2>
+&lt;p>Relationship between given coordinate systems,
+$$
+u = x\cos\theta-y\sin\theta,\\
+v = x\sin\theta+y\cos\theta\\
+$$
+$$
+\therefore x = u\cos\theta+v\sin\theta,\\
+y = -u\sin\theta+v\cos\theta\\
+$$
+For any image $f$ on taking gradient in the 2 coordinate systems and equating them,
+$$
+\nabla f = \frac{\partial f}{\partial x}\hat i+\frac{\partial f}{\partial y}\hat j = \frac{\partial f}{\partial u}\hat u+\frac{\partial f}{\partial v}\hat v\\
+$$
+Gradient can be &lt;a href="https://proofwiki.org/wiki/Definition:Gradient_Operator/Geometrical_Representation">defined only using the scalar field&lt;/a> on which it operates, making it independent of the co-ordinate system.
+On equating components along x and y directions,
+$$
+\frac{\partial f}{\partial x}
+% = \frac{\partial f}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial x}
+= \frac{\partial f}{\partial u}\cos\theta+\frac{\partial f}{\partial v}\sin\theta\\
+\ \\
+\frac{\partial f}{\partial y}
+% = \frac{\partial f}{\partial u}\frac{\partial u}{\partial y}+\frac{\partial f}{\partial v}\frac{\partial v}{\partial y}
+= -\frac{\partial f}{\partial u}\sin\theta+\frac{\partial f}{\partial v}\cos\theta\\
+$$
+Substituting $\frac{\partial f}{\partial x}$ as $f$ in the above equation,
+$$
+\frac{\partial^2f}{\partial x^2}=\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial x}\right)
+% =\frac{\partial}{\partial u}\left(\frac{\partial f}{\partial x}\right)\frac{\partial u}{\partial x}+\frac{\partial}{\partial v}\left(\frac{\partial f}{\partial x}\right)\frac{\partial v}{\partial x}\\
+% \ \\
+=\frac{\partial}{\partial u}\left(\frac{\partial f}{\partial x}\right)\cos\theta+\frac{\partial}{\partial v}\left(\frac{\partial f}{\partial x}\right)\sin\theta\\
+\ \\
+= \frac{\partial^2f}{\partial u^2}\cos^2\theta+\frac{\partial^2f}{\partial v^2}\sin^2\theta+2\frac{\partial^2f}{\partial u\partial v}\sin\theta\cos\theta
+$$
+Similarly for $y$,
+$$
+\frac{\partial^2f}{\partial y^2}=\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial y}\right)
+% =\frac{\partial}{\partial u}\left(\frac{\partial f}{\partial x}\right)\frac{\partial u}{\partial x}+\frac{\partial}{\partial v}\left(\frac{\partial f}{\partial x}\right)\frac{\partial v}{\partial x}\\
+% \ \\
+=-\frac{\partial}{\partial u}\left(\frac{\partial f}{\partial y}\right)\sin\theta+\frac{\partial}{\partial v}\left(\frac{\partial f}{\partial y}\right)\cos\theta\\
+\ \\
+=\frac{\partial^2f}{\partial u^2}\sin^2\theta+\frac{\partial^2f}{\partial v^2}\cos^2\theta-2\frac{\partial^2f}{\partial u\partial v}\sin\theta\cos\theta
+$$
+Adding the two results,
+$$
+\frac{\partial^2f}{\partial x^2} + \frac{\partial^2f}{\partial y^2} = \frac{\partial^2f}{\partial u^2} + \frac{\partial^2f}{\partial v^2}\\
+\ \\
+\implies f_{xx}+f_{yy} = f_{uu}+f_{vv}
+$$&lt;/p>
+&lt;h2 id="problem-8">Problem 8&lt;/h2>
+&lt;h3 id="gaussian-noise-with-5-stdev">Gaussian Noise with 5 Stdev&lt;/h3>
+&lt;h4 id="barbara-sigma--5">Barbara ($\sigma = 5$)&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Original&lt;/th>
+&lt;th>Noisy&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="./images/barbara256.png" alt="barbara_5_orignal">&lt;/td>
+&lt;td>&lt;img src="images/barbara_5_noisy.png" alt="barbara_5_noisy">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(0.1,0.1)$&lt;/th>
+&lt;th>$(\sigma_s,\sigma_r)=(2,2)$&lt;/th>
+&lt;th>$(\sigma_s,\sigma_r)=(3,15)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/barbara_5_01_01.png" alt="barbara_5_01_01">&lt;/td>
+&lt;td>&lt;img src="images/barbara_5_2_2.png" alt="barbara_5_2_2">&lt;/td>
+&lt;td>&lt;img src="images/barbara_5_3_15.png" alt="barbara_5_3_15">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="kodak-sigma--5">Kodak ($\sigma = 5$)&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Original&lt;/th>
+&lt;th>Noisy&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="./images/kodak24.png" alt="kodak_5_orignal">&lt;/td>
+&lt;td>&lt;img src="images/kodak_5_noisy.png" alt="kodak_5_noisy">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(0.1,0.1)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_5_01_01.png" alt="kodak_5_01_01">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(2,2)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_5_2_2.png" alt="kodak_5_2_2">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(3,15)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_5_3_15.png" alt="kodak_5_3_15">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="gaussian-noise-with-10-stdev">Gaussian Noise with 10 Stdev&lt;/h3>
+&lt;h4 id="barbara-sigma--10">Barbara ($\sigma = 10$)&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Original&lt;/th>
+&lt;th>Noisy&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="./images/barbara256.png" alt="barbara_10_orignal">&lt;/td>
+&lt;td>&lt;img src="images/barbara_10_noisy.png" alt="barbara_10_noisy">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(0.1,0.1)$&lt;/th>
+&lt;th>$(\sigma_s,\sigma_r)=(2,2)$&lt;/th>
+&lt;th>$(\sigma_s,\sigma_r)=(3,15)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/barbara_10_01_01.png" alt="barbara_10_01_01">&lt;/td>
+&lt;td>&lt;img src="images/barbara_10_2_2.png" alt="barbara_10_2_2">&lt;/td>
+&lt;td>&lt;img src="images/barbara_10_3_15.png" alt="barbara_10_3_15">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="kodak-sigma--10">Kodak ($\sigma = 10$)&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Original&lt;/th>
+&lt;th>Noisy&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="./images/kodak24.png" alt="kodak_10_orignal">&lt;/td>
+&lt;td>&lt;img src="images/kodak_10_noisy.png" alt="kodak_10_noisy">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(0.1,0.1)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_10_01_01.png" alt="kodak_10_01_01">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(2,2)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_10_2_2.png" alt="kodak_10_2_2">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>$(\sigma_s,\sigma_r)=(3,15)$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/kodak_10_3_15.png" alt="kodak_10_3_15">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="observations">Observations&lt;/h3>
+&lt;p>For $\sigma=5$ noisy images,&lt;/p>
+&lt;ul>
+&lt;li>For both Barbara and Kodak images $(0.1,0.1)$ bilateral filter doesn&amp;rsquo;t cause much difference.&lt;/li>
+&lt;li>Although it&amp;rsquo;s subjective, best results seem to be for the $(2,2)$ bilateral filter. This can be seen for the resulting Kodak image as it resembles the original Kodak image closely.&lt;/li>
+&lt;li>For both images, $(3,15)$ bilateral filter leads to too much smoothing and loss of details compared to the original image.&lt;/li>
+&lt;/ul>
+&lt;p>For $\sigma=10$ noisy images,&lt;/p>
+&lt;ul>
+&lt;li>Both the $(0.1,0.1)$ and $(2,2)$ filters seem to be too weak.&lt;/li>
+&lt;li>The $(3,15)$ filter produces the best results but there is still some loss of finer details.&lt;/li>
+&lt;/ul>
+&lt;h2 id="problem-9">Problem 9&lt;/h2>
+&lt;h3 id="lc1-results">LC1 results&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Orignal Image&lt;/th>
+&lt;th>Global HE&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/LC1.png" alt="LC1_orignal">&lt;/td>
+&lt;td>&lt;img src="images/global_1.png" alt="LC1_global">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Local HE with $7\times 7$ filter&lt;/th>
+&lt;th>Local HE with $31\times 31$ filter&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/local_1_7.png" alt="LC1_7">&lt;/td>
+&lt;td>&lt;img src="images/local_1_31.png" alt="LC1_31">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Local HE with $51\times 51$ filter&lt;/th>
+&lt;th>Local HE with $71\times 71$ filter&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/local_1_51.png" alt="LC1_51">&lt;/td>
+&lt;td>&lt;img src="images/local_1_71.png" alt="LC1_71">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="lc2-results">LC2 results&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Orignal Image&lt;/th>
+&lt;th>Global HE&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/LC2.jpg" alt="LC2_orignal">&lt;/td>
+&lt;td>&lt;img src="images/global_2.png" alt="LC2_global">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Local HE with $7\times 7$ filter&lt;/th>
+&lt;th>Local HE with $31\times 31$ filter&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/local_2_7.png" alt="LC2_7">&lt;/td>
+&lt;td>&lt;img src="images/local_2_31.png" alt="LC2_31">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Local HE with $51\times 51$ filter&lt;/th>
+&lt;th>Local HE with $71\times 71$ filter&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/local_2_51.png" alt="LC2_51">&lt;/td>
+&lt;td>&lt;img src="images/local_2_71.png" alt="LC2_71">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="observations-1">Observations&lt;/h3>
+&lt;ul>
+&lt;li>Compared to the results from the inbuilt Global Histogram Equalizer in Matlab, the results of Local Histogram equalization seem to be more noisy at places such as the sky but manage to capture many more details of things that are far away from the camera.&lt;/li>
+&lt;li>The results for Local HE with $7\times 7$ filter are too noisy to observe any details.&lt;/li>
+&lt;li>For the $31\times 31$ filter the results for the both the images are still very noisy to differentiate distinct objects.
+&lt;ul>
+&lt;li>For example in LC1 the trees in the foreground and the houses behind them get blured out.&lt;/li>
+&lt;li>In LC2, the branches for trees are visible but it is difficult to see which tree a branch belongs to.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>The results for the $51\times 51$ and $71\times 71$ are both pretty good. First one having more deeper details whereas the later showing depth better.
+&lt;ul>
+&lt;li>This can be seen in LC2. In $51\times 51$ filter result more branches can be seen (less sky).&lt;/li>
+&lt;li>In the $71\times 71$ filter result, we can differentiate better between trees in foreground and background.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Game Theory</title><link>https://adityakadoo.github.io/Scrolls/courses/game_theory/</link><pubDate>Fri, 25 Aug 2023 16:05:24 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/game_theory/</guid><description>&lt;h2 id="central-concepts">Central Concepts&lt;/h2>
 &lt;h3 id="game">Game&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>Game&lt;/strong>
@@ -151,7 +688,7 @@ $$&lt;/dd>
 &lt;h3 id="elimination-of-dominated-strategies">Elimination of dominated strategies&lt;/h3>
 &lt;h4 id="preservation-of-max-min-value">Preservation of Max-Min value&lt;/h4>
 &lt;blockquote>
-&lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$, let $s_j^\prime\in S_j$ be a dominant strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$, let $s_j^\prime\in S_j$ be a dominated strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$&lt;/p>
 &lt;/blockquote>
 &lt;h4 id="preservation-of-psne">Preservation of PSNE&lt;/h4>
 &lt;blockquote>
@@ -182,7 +719,7 @@ Old PSNE could be killed.&lt;/p>
 &lt;dt>&lt;strong>Max-Min Value&lt;/strong> ($\underline v$)&lt;/dt>
 &lt;dd>$\underline v = \max_{s_1\in S_1}\min_{s_2\in S_2}U(s_1, s_2)$&lt;/dd>
 &lt;dt>&lt;strong>Min-Max Value&lt;/strong> ($\bar v$)&lt;/dt>
-&lt;dd>$\bar v = \min_{s_1\in S_1}\max_{s_2\in S_2}U(s_1, s_2)$&lt;/dd>
+&lt;dd>$\bar v = \min_{s_2\in S_2}\max_{s_1\in S_1}U(s_1, s_2)$&lt;/dd>
 &lt;/dl>
 &lt;blockquote>
 &lt;p>&lt;strong>Lemma&lt;/strong> : For matrix games, $\bar v\ge\underline v$&lt;/p>

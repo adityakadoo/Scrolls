@@ -150,7 +150,7 @@ $$
 
 #### Preservation of Max-Min value
 
-> **Theorem** : For NFG $G$, let $s_j^\prime\in S_j$ be a dominant strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$
+> **Theorem** : For NFG $G$, let $s_j^\prime\in S_j$ be a dominated strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$
 
 #### Preservation of PSNE
 
@@ -178,7 +178,7 @@ $$
 : $\underline v = \max_{s_1\in S_1}\min_{s_2\in S_2}U(s_1, s_2)$
 
 **Min-Max Value** ($\bar v$)
-: $\bar v = \min_{s_1\in S_1}\max_{s_2\in S_2}U(s_1, s_2)$
+: $\bar v = \min_{s_2\in S_2}\max_{s_1\in S_1}U(s_1, s_2)$
 
 > **Lemma** : For matrix games, $\bar v\ge\underline v$
 

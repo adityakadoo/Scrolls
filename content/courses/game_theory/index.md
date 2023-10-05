@@ -37,8 +37,8 @@ footer: true
 : A *fact* is common knowledge if,
   - all players know the fact
   - all players know that all players know the fact
-  - all players know that all players know the fact
-  - ...ad infinitum
+  - all players know that all players know that all players know the fact
+  - $\dots$ ad infinitum
 
 ### Chess Example
 
@@ -262,7 +262,7 @@ $$
 
 > **Theorem** : For every MSNE $\sigma^\ast$ there exists a CE $\pi^\ast$
 
-## Perfect Information Extensive Form Games
+## Perfect Information Games
 
 **Perfect Information Extensive Form Games** [PIEFG] $\langle N, A, H, X, P, (u_i)_{i\in N}\rangle$
 : A game where players interact one after the other
@@ -293,14 +293,15 @@ $$
 ### Backward Induction Algorithm
 
 ```python
-def BACK_IND(history h):
-  if h in Z:
-    return u(h),[]
-  best_util = -INT_MAX
-  for a in X(h):
-    util_at_child = BACK_IND((h, a))
+def BACK_IND(history = []):
+  if history in Z:
+    return u(history),[]
+  best_util = INT_MIN # -ve infinity
+  for action in X(history):
+    util_at_child = BACK_IND(history.append(action))[0]
     if util_at_child > best_util:
-      best_util = util_at_child best_action = a
+      best_util = util_at_child
+      best_action = action
   return best_util, best_action
 ```
 
@@ -314,3 +315,65 @@ def BACK_IND(history h):
 **Disadvantages**
 1. The whole tree needs to be parsed
 2. Cognitive limit of real players may prohibit playing SPNE
+
+## Imperfect Information Games
+
+**Imperfect Information Extensive Form Games** [IIEFG] $\langle N,A,H,X,P,(u_i)_{i\in N},\\\{I_i:i\in N\\\}\rangle$
+: A PIEFG with added condition that for every $i\in N,I_i=(I_i^1,I_i^2,\dots,I_i^{k(i)})$ is a partition of $\\\{h\in H\backslash Z:P(h)=i\\\}$ with the property that $X(h)=X(h^\prime)$ and $P(h)=P(h^\prime)=i$, whenever $\exists j, h,h^\prime\in I_i^j$
+  - **Information Set** : $I_i^j\in I_i$ 
+
+### Behavioural Strategies
+
+**Strategy Set** ($S_i$)
+: For player $i$,
+  $$S_i = \times_{j=1}^{j=k(i)}X(I_i^j)$$
+
+> In NFGs mixed strategies randomized over pure strategies.
+> In EFGs randomization can be done in different ways,
+> - randomize over the strategies defined at the beginning of the game.
+> - randomize over the action at an information set: behavioural strategy.
+
+**Behavioural Strategies** ($b_i$)
+: For player $i$,
+  $$b_i:I_i\to\\\{\Delta X(I_i^j)\\ |\\ I_i^j\in I_i\\\}$$
+
+### Equivalence
+
+**Equivalence**
+: A mixed strategy $\sigma_i$ and a behavioural strategy $b_i$ of a player $i$ in an IIEFG are equivalent is $\forall \zeta_{-i}$, mixed/behavioural strategy of other players and for every vertex $x$ in the game,
+$$
+  \rho(x;\sigma_i,\zeta_{-i}) = \rho(x;b_i,\zeta_{-i})
+$$
+
+> It is enough to check only at the leaf nodes.
+>
+> **Theorem** : If $\sigma_i$ and $b_i$ are equivalent then $\forall\zeta_{-i}$,
+> $$
+>   u_j(\sigma_i,\zeta_{-i})=u_j(b_i,\zeta_{-i})\forall j\in N
+> $$
+>
+> **Corollary** : Let $\sigma$ and $b$ be equivalent i.e. $\sigma_i$ and $b_i$ are equivalent $\forall i\in N$, then $u_i(\sigma)=u_i(b)$
+
+Equivalence doesn't hold if the players are forgetful.
+
+> **Theorem** : Consider an IIEFG such that every vertex has at least two actions. Every behavioral strategy has an equivalent mixed strategy for a player iff each information set of that player intersects every path emanating from the root at most once.
+
+### Perfect Recall
+
+**Perfect Recall**
+: For every $I_i^j$ of player $i$ and every pair of vertices $x,y\in I_i^j$, if the decision vertices of $i$ are $x_i^1,x_i^2,\dots,x_i^L=x$ and $y_i^1,y_i^2,\dots,y_i^{L^\prime}=y$ respectively for the two paths from the root to $x$ and $y$ then
+  - $L = L^\prime$,
+  - $x^l_i,y^l_i\in I_i^k$ for some $k$,
+  - $a_i(x_i^l\to x_i^{l+1})=a_i(y_i^l\to y_i^{l+1}),\\ \forall l=1,2,\dots,L-1$.
+
+**Perfect Recall Game**
+: A game where every player has a **perfect recall**
+
+> In a perfect recall game every behavioural strategy has equivalent mixed strategy.
+
+$S_i^\prime(x)$
+: The set of pure strategies of player $i$ at which he chooses actions leading to $x$
+
+> **Theorem** : If $i$ is a player with perfect recall and $x$ and $x^\prime$ are the two vertices in the same information set of i, then $S_i^\ast(x) = S_i^\ast(x^\prime)$.
+>
+> **Kuhn Theorem** : In every IIEFG, if $i$ is a player with perfect recall then for every mixed strategy of $i$, there exists a behavioural strategy.

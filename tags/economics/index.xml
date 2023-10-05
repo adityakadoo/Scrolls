@@ -24,8 +24,8 @@
 &lt;ul>
 &lt;li>all players know the fact&lt;/li>
 &lt;li>all players know that all players know the fact&lt;/li>
-&lt;li>all players know that all players know the fact&lt;/li>
-&lt;li>&amp;hellip;ad infinitum&lt;/li>
+&lt;li>all players know that all players know that all players know the fact&lt;/li>
+&lt;li>$\dots$ ad infinitum&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -271,7 +271,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : For every MSNE $\sigma^\ast$ there exists a CE $\pi^\ast$&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="perfect-information-extensive-form-games">Perfect Information Extensive Form Games&lt;/h2>
+&lt;h2 id="perfect-information-games">Perfect Information Games&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Perfect Information Extensive Form Games&lt;/strong> [PIEFG] $\langle N, A, H, X, P, (u_i)_{i\in N}\rangle$&lt;/dt>
 &lt;dd>A game where players interact one after the other&lt;/dd>
@@ -306,15 +306,16 @@ $$&lt;/p>
 &lt;dd>A strategy profile $s\in S$ such that $\forall$ subgame $G^\prime$ of $G$, the restriction of $s$ to $G^\prime$ is a PSNE of $G^\prime$&lt;/dd>
 &lt;/dl>
 &lt;h3 id="backward-induction-algorithm">Backward Induction Algorithm&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a2f;font-weight:bold">def&lt;/span> &lt;span style="color:#00a000">BACK_IND&lt;/span>(history h):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span> h &lt;span style="color:#a2f;font-weight:bold">in&lt;/span> Z:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> u(h),[]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_util &lt;span style="color:#666">=&lt;/span> &lt;span style="color:#666">-&lt;/span>INT_MAX
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">for&lt;/span> a &lt;span style="color:#a2f;font-weight:bold">in&lt;/span> X(h):
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> util_at_child &lt;span style="color:#666">=&lt;/span> BACK_IND((h, a))
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">if&lt;/span> util_at_child &lt;span style="color:#666">&amp;gt;&lt;/span> best_util:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_util &lt;span style="color:#666">=&lt;/span> util_at_child best_action &lt;span style="color:#666">=&lt;/span> a
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a2f;font-weight:bold">return&lt;/span> best_util, best_action
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln"> 1&lt;/span>&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">BACK_IND&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">history&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">[]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 2&lt;/span>&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">history&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">Z&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 3&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">u&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">history&lt;/span>&lt;span class="p">),[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 4&lt;/span>&lt;span class="cl"> &lt;span class="n">best_util&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">INT_MIN&lt;/span> &lt;span class="c1"># -ve infinity&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 5&lt;/span>&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">action&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">X&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">history&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 6&lt;/span>&lt;span class="cl"> &lt;span class="n">util_at_child&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">BACK_IND&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">history&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">action&lt;/span>&lt;span class="p">))[&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 7&lt;/span>&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">util_at_child&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="n">best_util&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 8&lt;/span>&lt;span class="cl"> &lt;span class="n">best_util&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">util_at_child&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln"> 9&lt;/span>&lt;span class="cl"> &lt;span class="n">best_action&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">action&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">10&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">best_util&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">best_action&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="spne-limitations">SPNE Limitations&lt;/h3>
 &lt;p>&lt;strong>Advantages&lt;/strong>&lt;/p>
 &lt;ol>
@@ -326,4 +327,76 @@ $$&lt;/p>
 &lt;ol>
 &lt;li>The whole tree needs to be parsed&lt;/li>
 &lt;li>Cognitive limit of real players may prohibit playing SPNE&lt;/li>
-&lt;/ol></description></item></channel></rss>
+&lt;/ol>
+&lt;h2 id="imperfect-information-games">Imperfect Information Games&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Imperfect Information Extensive Form Games&lt;/strong> [IIEFG] $\langle N,A,H,X,P,(u_i)_{i\in N},\{I_i:i\in N\}\rangle$&lt;/dt>
+&lt;dd>A PIEFG with added condition that for every $i\in N,I_i=(I_i^1,I_i^2,\dots,I_i^{k(i)})$ is a partition of $\{h\in H\backslash Z:P(h)=i\}$ with the property that $X(h)=X(h^\prime)$ and $P(h)=P(h^\prime)=i$, whenever $\exists j, h,h^\prime\in I_i^j$
+&lt;ul>
+&lt;li>&lt;strong>Information Set&lt;/strong> : $I_i^j\in I_i$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="behavioural-strategies">Behavioural Strategies&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Strategy Set&lt;/strong> ($S_i$)&lt;/dt>
+&lt;dd>For player $i$,
+$$S_i = \times_{j=1}^{j=k(i)}X(I_i^j)$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>In NFGs mixed strategies randomized over pure strategies.
+In EFGs randomization can be done in different ways,&lt;/p>
+&lt;ul>
+&lt;li>randomize over the strategies defined at the beginning of the game.&lt;/li>
+&lt;li>randomize over the action at an information set: behavioural strategy.&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Behavioural Strategies&lt;/strong> ($b_i$)&lt;/dt>
+&lt;dd>For player $i$,
+$$b_i:I_i\to\{\Delta X(I_i^j)\ |\ I_i^j\in I_i\}$$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="equivalence">Equivalence&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Equivalence&lt;/strong>&lt;/dt>
+&lt;dd>A mixed strategy $\sigma_i$ and a behavioural strategy $b_i$ of a player $i$ in an IIEFG are equivalent is $\forall \zeta_{-i}$, mixed/behavioural strategy of other players and for every vertex $x$ in the game,
+$$
+\rho(x;\sigma_i,\zeta_{-i}) = \rho(x;b_i,\zeta_{-i})
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>It is enough to check only at the leaf nodes.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong> : If $\sigma_i$ and $b_i$ are equivalent then $\forall\zeta_{-i}$,
+$$
+u_j(\sigma_i,\zeta_{-i})=u_j(b_i,\zeta_{-i})\forall j\in N
+$$&lt;/p>
+&lt;p>&lt;strong>Corollary&lt;/strong> : Let $\sigma$ and $b$ be equivalent i.e. $\sigma_i$ and $b_i$ are equivalent $\forall i\in N$, then $u_i(\sigma)=u_i(b)$&lt;/p>
+&lt;/blockquote>
+&lt;p>Equivalence doesn&amp;rsquo;t hold if the players are forgetful.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : Consider an IIEFG such that every vertex has at least two actions. Every behavioral strategy has an equivalent mixed strategy for a player iff each information set of that player intersects every path emanating from the root at most once.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="perfect-recall">Perfect Recall&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Perfect Recall&lt;/strong>&lt;/dt>
+&lt;dd>For every $I_i^j$ of player $i$ and every pair of vertices $x,y\in I_i^j$, if the decision vertices of $i$ are $x_i^1,x_i^2,\dots,x_i^L=x$ and $y_i^1,y_i^2,\dots,y_i^{L^\prime}=y$ respectively for the two paths from the root to $x$ and $y$ then
+&lt;ul>
+&lt;li>$L = L^\prime$,&lt;/li>
+&lt;li>$x^l_i,y^l_i\in I_i^k$ for some $k$,&lt;/li>
+&lt;li>$a_i(x_i^l\to x_i^{l+1})=a_i(y_i^l\to y_i^{l+1}),\ \forall l=1,2,\dots,L-1$.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Perfect Recall Game&lt;/strong>&lt;/dt>
+&lt;dd>A game where every player has a &lt;strong>perfect recall&lt;/strong>&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>In a perfect recall game every behavioural strategy has equivalent mixed strategy.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>$S_i^\prime(x)$&lt;/dt>
+&lt;dd>The set of pure strategies of player $i$ at which he chooses actions leading to $x$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : If $i$ is a player with perfect recall and $x$ and $x^\prime$ are the two vertices in the same information set of i, then $S_i^\ast(x) = S_i^\ast(x^\prime)$.&lt;/p>
+&lt;p>&lt;strong>Kuhn Theorem&lt;/strong> : In every IIEFG, if $i$ is a player with perfect recall then for every mixed strategy of $i$, there exists a behavioural strategy.&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

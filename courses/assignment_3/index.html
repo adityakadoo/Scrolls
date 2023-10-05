@@ -1,0 +1,187 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=author content="Aditya Kadoo"><meta name=description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><link rel=icon href=https://adityakadoo.github.io/Scrolls/favicon.ico><meta name=keywords content=" hugo  latex  theme "><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css integrity=sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js integrity=sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],ignoredTags:["script","noscript","style","textarea","pre","code","option"],throwOnError:!1})})</script><meta property="og:title" content="Assignment 3"><meta property="og:description" content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><meta property="og:type" content="article"><meta property="og:url" content="https://adityakadoo.github.io/Scrolls/courses/assignment_3/"><meta property="article:section" content="courses"><meta property="article:published_time" content="2023-10-02T17:37:03+05:30"><meta property="article:modified_time" content="2023-10-02T17:37:03+05:30"><link rel=canonical href=https://adityakadoo.github.io/Scrolls/courses/assignment_3/><meta itemprop=name content="Assignment 3"><meta itemprop=description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><meta itemprop=datePublished content="2023-10-02T17:37:03+05:30"><meta itemprop=dateModified content="2023-10-02T17:37:03+05:30"><meta itemprop=wordCount content="1428"><meta itemprop=keywords content><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/common.css><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/content.css><title>Assignment 3 - Scrolls</title><meta name=twitter:card content="summary"><meta name=twitter:title content="Assignment 3"><meta name=twitter:description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><link rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/single.css></head><body><div id=wrapper><header id=header><h1>Assignment 3</h1><nav><span class=nav-bar-item><a class=link href></a></span></nav><p>Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)</p></header><main id=main class=post><article class=content><div class=tableofcontent><h2>Contents</h2><nav id=TableOfContents><ol><li><a href=#problem-1>Problem 1</a><ol><li><a href=#gaussian-noise-with-5-stdev>Gaussian Noise with 5 Stdev</a><ol><li><a href=#barbara-sigma--5>Barbara ($\sigma = 5$)</a></li><li><a href=#kodak-sigma--5>Kodak ($\sigma = 5$)</a></li></ol></li><li><a href=#gaussian-noise-with-10-stdev>Gaussian Noise with 10 Stdev</a><ol><li><a href=#barbara-sigma--10>Barbara ($\sigma = 10$)</a></li><li><a href=#kodak-sigma--10>Kodak ($\sigma = 10$)</a></li></ol></li></ol></li><li><a href=#problem-2>Problem 2</a><ol><li><a href=#ideal-low-pass-filters>Ideal Low-pass Filters</a><ol><li><a href=#d40>$D=40$</a></li><li><a href=#d80>$D=80$</a></li><li><a href=#observations>Observations</a></li></ol></li><li><a href=#gaussian-low-pass-filters>Gaussian Low-pass Filters</a><ol><li><a href=#sigma40>$\sigma=40$</a></li><li><a href=#sigma80>$\sigma=80$</a></li><li><a href=#observations-1>Observations</a></li></ol></li></ol></li><li><a href=#problem-3>Problem 3</a></li><li><a href=#problem-4>Problem 4</a></li><li><a href=#problem-5>Problem 5</a><ol><li><a href=#real-f>Real $f$</a></li><li><a href=#real-and-even-f>Real and even $f$</a></li></ol></li><li><a href=#problem-6>Problem 6</a></li><li><a href=#problem-7>Problem 7</a><ol><li><a href=#ideal-high-pass-filter>Ideal High-pass Filter</a></li><li><a href=#gaussian-high-pass-filter>Gaussian High-pass Filter</a></li><li><a href=#butterworth-high-pass-filter>Butterworth High-pass Filter</a></li></ol></li></ol></nav></div><h2 id=problem-1>Problem 1</h2><h3 id=gaussian-noise-with-5-stdev>Gaussian Noise with 5 Stdev</h3><h4 id=barbara-sigma--5>Barbara ($\sigma = 5$)</h4><blockquote><table><thead><tr><th>Original</th><th>Noisy</th></tr></thead><tbody><tr><td><img src=./images/barbara256.png alt=barbara_5_orignal></td><td><img src=images/barbara_5_noisy.png alt=barbara_5_noisy></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(0.1,0.1)$</th><th>$(\sigma_s,\sigma_r)=(2,2)$</th><th>$(\sigma_s,\sigma_r)=(3,15)$</th></tr></thead><tbody><tr><td><img src=images/barbara_5_01_01.png alt=barbara_5_01_01></td><td><img src=images/barbara_5_2_2.png alt=barbara_5_2_2></td><td><img src=images/barbara_5_3_15.png alt=barbara_5_3_15></td></tr></tbody></table></blockquote><h4 id=kodak-sigma--5>Kodak ($\sigma = 5$)</h4><blockquote><table><thead><tr><th>Original</th><th>Noisy</th></tr></thead><tbody><tr><td><img src=./images/kodak24.png alt=kodak_5_orignal></td><td><img src=images/kodak_5_noisy.png alt=kodak_5_noisy></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(0.1,0.1)$</th></tr></thead><tbody><tr><td><img src=images/kodak_5_01_01.png alt=kodak_5_01_01></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(2,2)$</th></tr></thead><tbody><tr><td><img src=images/kodak_5_2_2.png alt=kodak_5_2_2></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(3,15)$</th></tr></thead><tbody><tr><td><img src=images/kodak_5_3_15.png alt=kodak_5_3_15></td></tr></tbody></table></blockquote><h3 id=gaussian-noise-with-10-stdev>Gaussian Noise with 10 Stdev</h3><h4 id=barbara-sigma--10>Barbara ($\sigma = 10$)</h4><blockquote><table><thead><tr><th>Original</th><th>Noisy</th></tr></thead><tbody><tr><td><img src=./images/barbara256.png alt=barbara_10_orignal></td><td><img src=images/barbara_10_noisy.png alt=barbara_10_noisy></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(0.1,0.1)$</th><th>$(\sigma_s,\sigma_r)=(2,2)$</th><th>$(\sigma_s,\sigma_r)=(3,15)$</th></tr></thead><tbody><tr><td><img src=images/barbara_10_01_01.png alt=barbara_10_01_01></td><td><img src=images/barbara_10_2_2.png alt=barbara_10_2_2></td><td><img src=images/barbara_10_3_15.png alt=barbara_10_3_15></td></tr></tbody></table></blockquote><h4 id=kodak-sigma--10>Kodak ($\sigma = 10$)</h4><blockquote><table><thead><tr><th>Original</th><th>Noisy</th></tr></thead><tbody><tr><td><img src=./images/kodak24.png alt=kodak_10_orignal></td><td><img src=images/kodak_10_noisy.png alt=kodak_10_noisy></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(0.1,0.1)$</th></tr></thead><tbody><tr><td><img src=images/kodak_10_01_01.png alt=kodak_10_01_01></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(2,2)$</th></tr></thead><tbody><tr><td><img src=images/kodak_10_2_2.png alt=kodak_10_2_2></td></tr></tbody></table><table><thead><tr><th>$(\sigma_s,\sigma_r)=(3,15)$</th></tr></thead><tbody><tr><td><img src=images/kodak_10_3_15.png alt=kodak_10_3_15></td></tr></tbody></table></blockquote><p>For $\sigma=5$ noisy images,</p><ul><li>For both Barbara and Kodak images $(0.1,0.1)$ mean shift algorithm doesn’t cause much difference.</li><li>Although it’s subjective, best results seem to be for the $(2,2)$ mean shift algorithm for denoising. This can be seen for the resulting Kodak image as it resembles the original Kodak image closely.</li><li>For both images, $(3,15)$ mean shift algorithm leads to too much smoothing and loss of details compared to the original image. But it segment the image into distinct parts.</li></ul><p>For $\sigma=10$ noisy images,</p><ul><li>Both the $(0.1,0.1)$ and $(2,2)$ filters seem to be too weak.</li><li>The $(3,15)$ filter produces the best results but just as in the $\sigma=5$ case, the smoothing is too strong.</li></ul><h2 id=problem-2>Problem 2</h2><blockquote><p>All Fourier transform images are shifted (center is the origin) and in Log absolute form. For example,</p><table><thead><tr><th>Input Image</th></tr></thead><tbody><tr><td><img src=images/barbara256.png alt=barbara_80_original></td></tr></tbody></table><table><thead><tr><th>Input&rsquo;s Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/input_FT.png alt=barbara_FT></td></tr></tbody></table></blockquote><h3 id=ideal-low-pass-filters>Ideal Low-pass Filters</h3><h4 id=d40>$D=40$</h4><blockquote><table><thead><tr><th>Ideal Low-pass Filter with $D=40$</th></tr></thead><tbody><tr><td><img src=images/40filter_FT.png alt=ideal_40_filter></td></tr></tbody></table><table><thead><tr><th>Output&rsquo;s Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/40output_FT.png alt=ideal_40_outFT></td></tr></tbody></table><table><thead><tr><th>Output Image</th></tr></thead><tbody><tr><td><img src=images/40output.png alt=ideal_40_output></td></tr></tbody></table></blockquote><h4 id=d80>$D=80$</h4><blockquote><table><thead><tr><th>Ideal Low-pass Filter with $D=80$</th></tr></thead><tbody><tr><td><img src=images/80filter_FT.png alt=ideal_80_filter></td></tr></tbody></table><table><thead><tr><th>Output&rsquo;s Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/80output_FT.png alt=ideal_80_outFT></td></tr></tbody></table><table><thead><tr><th>Output Image</th></tr></thead><tbody><tr><td><img src=images/80output.png alt=ideal_80_output></td></tr></tbody></table></blockquote><h4 id=observations>Observations</h4><ol><li>The filter size is naturally larger for $D=80$ than $D=40$. This means there is a loss of many higher frequencies in the $D=40$ case.</li><li>In both the output images, there seems to loss of detail compared to the original image. This validates the image compression effects discussed in class.</li><li>Wave-like pattern can be seen in both the outputs. These are much denser in the output for $D=80$.</li><li>It can also be seen that the output for $D=80$ looks closer to the original image than the output for $D=40$. This can be explained by the loss of high frequencies for $D=40$ which lead to fine details in the resulting image.</li></ol><h3 id=gaussian-low-pass-filters>Gaussian Low-pass Filters</h3><h4 id=sigma40>$\sigma=40$</h4><blockquote><table><thead><tr><th>Gaussian Low-pass Filter with $\sigma=40$</th></tr></thead><tbody><tr><td><img src=images/40filter_gauss_FT.png alt=gauss_40_filter></td></tr></tbody></table><table><thead><tr><th>Output&rsquo;s Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/40output_gauss_FT.png alt=gauss_40_outFT></td></tr></tbody></table><table><thead><tr><th>Output Image</th></tr></thead><tbody><tr><td><img src=images/40output_gauss.png alt=gauss_40_output></td></tr></tbody></table></blockquote><h4 id=sigma80>$\sigma=80$</h4><blockquote><table><thead><tr><th>Gaussian Low-pass Filter with $\sigma=80$</th></tr></thead><tbody><tr><td><img src=images/80filter_gauss_FT.png alt=gauss_80_filter></td></tr></tbody></table><table><thead><tr><th>Output&rsquo;s Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/80output_gauss_FT.png alt=gauss_80_outFT></td></tr></tbody></table><table><thead><tr><th>Output Image</th></tr></thead><tbody><tr><td><img src=images/80output_gauss.png alt=gauss_80_output></td></tr></tbody></table></blockquote><h4 id=observations-1>Observations</h4><ol><li>It might look like the filter images are identical for both $\sigma$&rsquo;s because of the colormap scalling after taking log-absolute, but the actual scale is drastically different in the images.</li><li>If we compare the outputs&rsquo; Fourier transforms to the original image&rsquo;s Fourier transform, it can be seen that the $\sigma=80$ filter preserves more qualities from the original Fourier transform, than the $\sigma=40$ filter.</li><li>The final outputs look as if the original image has been subjected to Gaussian blurring. This also follows from the fact that Fourier inverse of a Gaussian function is another Gaussian function.</li><li>On comparing the two outputs, it can be seen that $\sigma=80$ has caused less smoothing than $\sigma=40$. This also follows from the fact that upon taking Fourier inverse, the standard deviation of the new Gaussian is inversely proportional to the standard deviation of the initial Gaussian.</li></ol><h2 id=problem-3>Problem 3</h2><p>Here we assume all discrete 2D signals are of the form $\Z_M\times\Z_N\to\R$ such that their indices (inputs) add modulo $M$ along $x$ component and modulo $N$ along $y$ component. Then we can write the discrete 2D Fourier transform as,
+$$
+\hat f_{u,v} = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f_{x,y}\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)
+$$
+Here, the normalization of the Fourier transform is as per the course slides. We can write discrete 2D convolution $h=f\ast g$ as,
+$$
+h_{x,y} = \sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)g(x-m,y-n)
+$$</p><p>Hence we can write,
+$$
+\hat h_{u,v} = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}h_{x,y}\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}\ \left[\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)g(x-m,y-n)\right]\ \exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+= \sum_{m=0}^{M-1}\sum_{n=0}^{N-1}\frac{f(m,n)}{\sqrt{MN}}\exp\left(-2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)\right)\left[\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}\ g(x-m,y-n)\exp\left(-2\pi i\left(\frac{u(x-m)}{M}+\frac{v(y-n)}{N}\right)\right)\right]\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)\exp\left(-2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)\right)\left[\sum_{x=-m}^{M-1-m}\sum_{y=-n}^{N-1-n}\ g(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\right]\\
+\ \\
+$$
+In the inner square bracket, the indices over which $x$ and $y$ interate are to be taken modulo $M$ and $N$ respectively. This means for every value of $(m,n)$, the indices $(x,y)$ are guranteed to iterate over all values in $\Z_M\times\Z_N$. This inner bracket can hence be rewritten and taken out as a common factor, as it is independent of $m$ and $n$.
+$$
+\hat h_{u,v} = \frac{1}{\sqrt{MN}}\left[\sum_{m=0}^{M-1}\sum_{n=0}^{N-1}f(m,n)\exp\left(-2\pi i\left(\frac{um}{M}+\frac{vn}{N}\right)\right)\right]\cdot\left[\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}\ g(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\right]\\
+\ \\
+\therefore\hat h_{u,v}= \sqrt{MN}\cdot \hat f_{u,v}\ \hat g_{u,v}\\
+\ \\
+$$
+This proves the convolution theorem. The $\sqrt{MN}$ factor is an artifact of the normalization assumed earlier.</p><h2 id=problem-4>Problem 4</h2><p>We are given a discrete 2D image $f:\Z_{201}\times\Z_{201}\to\R$ such that,
+$$
+f_{x,y} = \left\{ \begin{array}{lr}
+255 & y=100\\
+0 & \text{otherwise}\\
+\end{array}\right\}\\
+\ \\
+$$
+We assume normalization using only a factor of $1$ and not the usual $\frac{1}{\sqrt{MN}}$ since this is what Matlab implements. The discrete 2D Fourier transform of this image $\hat f:\Z_{201}\times\Z_{201}\to\mathbb{C}$ is,
+$$
+\hat f_{u,v} = \sum_{x=0}^{200}\sum_{y=0}^{200}f_{x,y}\cdot e^{-2\pi i(ux+vy)/201}\\
+\ \\
+= \sum_{x=0}^{200}255\cdot e^{-2\pi i(ux+v100)/201}\\
+\ \\
+= 255e^{-2\pi iv100/201}\sum_{x=0}^{200}e^{-2\pi iux/201}\\
+\ \\
+= 255e^{-2\pi iv100/201}\sum_{x=0}^{200}(e^{-2\pi ix/201})^u\\
+\ \\
+$$
+The summation is simply the sum of $u^{\text{th}}$ powers of $201^{\text{st}}$ roots of unity. This evaluates to,
+$$
+\hat f_{u,v} = \left\{ \begin{array}{lr}
+51255\cdot e^{-2\pi iv100/201} & u=0\\
+0 & \text{otherwise}\\
+\end{array}\right\}\\
+\ \\
+\implies |\hat f_{u,v}| = \left\{ \begin{array}{lr}
+51255 & u=0\\
+0 & \text{otherwise}\\
+\end{array}\right\}\\
+\ \\
+$$</p><table><thead><tr><th>Original Image</th><th>Log abs of Fourier Transform</th></tr></thead><tbody><tr><td><img src=images/orig_img.png alt=q4_image></td><td><img src=images/log-abs-FT.png alt=q4_FT></td></tr></tbody></table><h2 id=problem-5>Problem 5</h2><h3 id=real-f>Real $f$</h3><p>When $f:\Z_M\times\Z_N\to\R$,
+$$
+F(u,v) = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+\therefore F^\ast(u,v) = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}\left(f(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\right)^\ast\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\left(\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\right)^\ast\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\exp\left(2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+= F(-u,-v)\\
+$$</p><h3 id=real-and-even-f>Real and even $f$</h3><p>When $f:\Z_M\times\Z_N\to\R$ such that $f(x,y)=f(-x,-y)$,
+$$
+F(u,v) = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+\therefore F(-u,-v) = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\exp\left(-2\pi i\left(\frac{-ux}{M}+\frac{-vy}{N}\right)\right)\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(-x,-y)\exp\left(-2\pi i\left(\frac{u(-x)}{M}+\frac{v(-y)}{N}\right)\right)\\
+\ \\
+= \frac{1}{\sqrt{MN}}\sum_{x=1-M}^{0}\sum_{y=1-N}^{0}f(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+$$
+Here $x$ iterates over the values in $\{1-M,2-M,\dots,-1,0\}$. As these index values are modulo $M$, the set can be rewritten as $\{1,2,\dots,M-1,0\}$ by adding $M$ to all but the last element. By doing the same for $y$ we can write,
+$$
+F(-u,-v) = \frac{1}{\sqrt{MN}}\sum_{x=0}^{M-1}\sum_{y=0}^{N-1}f(x,y)\exp\left(-2\pi i\left(\frac{ux}{M}+\frac{vy}{N}\right)\right)\\
+\ \\
+\therefore F(-u,-v)=F(u,v)
+$$
+From the previous result,
+$$
+F^\ast(u,v)=F(-u,-v)=F(u,v)
+$$
+Hence $F$ is also real and even.</p><h2 id=problem-6>Problem 6</h2><p>For a continuous signal $f:\R\to\mathbb{C}$,
+$$
+\mathcal{F}(f)(\mu) = \int_{-\infty}^{\infty}f(t)e^{-2\pi i\mu t}dt
+$$
+Since $\mathcal{F}(f):\R\to\mathbb{C}$,
+$$
+\mathcal{F}(\mathcal{F}(f))(\mu) = \int_{-\infty}^{\infty}\mathcal{F}(f)(t)e^{-2\pi i\mu t}dt\\
+\ \\
+= \int_{-\infty}^{\infty}\left[\int_{-\infty}^{\infty}f(s)e^{-2\pi its}ds\right]e^{-2\pi i\mu t}dt\\
+\ \\
+= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(s)e^{-2\pi its} e^{-2\pi i\mu t}ds\ dt\\
+\ \\
+= \int_{-\infty}^{\infty}f(s)\left[\int_{-\infty}^{\infty}e^{-2\pi it(s+\mu)}dt\right]ds\\
+\ \\
+= \int_{-\infty}^{\infty}f(s)\cdot\delta(s+\mu)ds\\
+\ \\
+= f(-\mu)
+$$
+Using the sifting property of the Dirac delta distribution we obtained the above result.
+$$
+\mathcal{F}(\mathcal{F}(\mathcal{F}(\mathcal{F}(f))))(\mu) = \mathcal{F}(\mathcal{F}(f))(-\mu)\\
+\ \\
+= f(\mu)\\
+\ \\
+\therefore \mathcal{F}(\mathcal{F}(\mathcal{F}(\mathcal{F}(f)))) = f
+$$</p><h2 id=problem-7>Problem 7</h2><p>All of the given high-pass filters $H_{\text{high}}$, can be written in terms of their corresponding low-pass variants $H_{\text{low}}$, as,
+$$
+H_{\text{high}}(u,v) = 1 - H_{\text{low}}(u,v)
+$$</p><p>The Fourier inverse of such a high-pass filter will be,
+$$
+\begin{align*}
+h_{\text{high}}(x,y) & = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}(1-H_{\text{low}}(u,v))e^{2\pi i(ux+vy)}du\cdot dv\\
+& = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{2\pi i(ux+vy)}du\cdot dv - \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}H_{\text{low}}(u,v)e^{2\pi i(ux+vy)}du\cdot dv\\
+& = \delta(x,y) - h_{\text{low}}(x,y)
+\end{align*}
+$$</p><p>If we are able to show that the Fourier inverses of the low-pass filters are bounded, then because of the delta function there will be a spike present at the origin. For any low-pass filter,
+$$
+\begin{align*}
+|h_{\text{low}}(x,y)| & = \left|\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}H_{\text{low}}(u,v)e^{2\pi i(ux+vy)}du\cdot dv\right|\\
+& \le \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|H_{\text{low}}(u,v)e^{2\pi i(ux+vy)}|du\cdot dv\\
+& = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|H_{\text{low}}(u,v)|du\cdot dv
+\end{align*}
+$$</p><p>We can bound the Fourier inverse using this integral as it is a constant for a particular filter. Now we compute or bound this constant for the given filters.</p><h3 id=ideal-high-pass-filter>Ideal High-pass Filter</h3><p>Ideal High-pass filter is,
+$$
+\begin{align*}
+H_{\text{high}}(u,v) & = 1-H_{\text{low}}(u,v)\\
+& = 1 - \left\{ \begin{array}{lr}
+1 & u^2+v^2\le D^2\\
+0 & \text{otherwise}\\
+\end{array}\right\}
+\end{align*}
+$$</p><p>For bounding the Fourier inverse of Ideal Low-pass filter,
+$$
+\begin{align*}
+|h_{\text{low}}(x,y)| & \le \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|H_{\text{low}}(u,v)|du\cdot dv\\
+& = \int_{0}^{D}\int_{0}^{2\pi}d\theta\cdot\rho d\rho\\
+& = D^2\pi
+\end{align*}
+$$</p><p>Hence the Fourier inverse of the ideal low-pass filter is bounded by $D^2\pi$.</p><h3 id=gaussian-high-pass-filter>Gaussian High-pass Filter</h3><p>Gaussian High-pass filter is,
+$$
+\begin{align*}
+H_{\text{high}}(u,v) & = 1 - H_{\text{low}}(u,v)\\
+& = 1 - e^{-(u^2+v^2)/2\sigma^2}
+\end{align*}
+$$</p><p>For bounding the Fourier inverse of Gaussian Low-pass filter,
+$$
+\begin{align*}
+|h_{\text{low}}(x,y)| & \le \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|H_{\text{low}}(u,v)|du\cdot dv\\
+& = \int_{0}^\infty\int_{0}^{2\pi}e^{-\rho^2/2\sigma^2}d\theta\cdot\rho d\rho\\
+& = 2\pi\sigma^2\int_0^\infty e^{-t}dt\\
+& = 2\pi\sigma^2
+\end{align*}
+$$</p><p>Hence the Fourier inverse of the Gaussian low-pass filter is bounded by $2\pi\sigma^2$.</p><h3 id=butterworth-high-pass-filter>Butterworth High-pass Filter</h3><p>Butterworth High-pass filter is,
+$$
+\begin{align*}
+H_{\text{high}}(u,v) & = 1 - H_{\text{low}}(u,v)\\
+& = 1 - \frac{1}{1+((u^2+v^2)/D^2)^n}
+\end{align*}
+$$</p><p>For bounding the Fourier inverse of Butterworth Low-pass filter,
+$$
+\begin{align*}
+|h_{\text{low}}(x,y)| & \le \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|H_{\text{low}}(u,v)|du\cdot dv\\
+& = \int_{0}^{\infty}\int_{0}^{2\pi}\frac{1}{1+(\rho/D)^{2n}}d\theta\cdot\rho d\rho\\
+& = \pi\int_{0}^{\infty}\frac{2\rho}{1+(\rho/D)^{2n}}d\rho\\
+& = D^2\pi\int_{0}^{\infty}\frac{dt}{1+t^n}\\
+& \le D^2\pi\left[\int_0^1dt+\int_1^\infty\frac{dt}{1+t^2}\right]\\
+& = D^2\pi(1 + \pi/4)
+\end{align*}
+$$</p><p>Hence the Fourier inverse of the Butterworth low-pass filter with parameters $[n\ge2,D]$ is bounded by $D^2\pi(1+\pi/4)$.</p><p>When $n=1$,
+$$
+\begin{align*}
+h_{\text{high}}(0,0) & = \int_{0}^{\infty}\int_{0}^{2\pi}\left(1-\frac{\rho}{1+(\rho/D)^{2}}\right)d\theta\cdot d\rho\\
+& = 2D^2\pi\int_0^\infty\frac{1-k+k^2}{1+k^2}dk\\
+& \to +\infty
+\end{align*}
+$$
+Hence we will still obeserve a spike at the origin.</p></article></main><footer id=footer></footer></div><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/syntax.css></body></html>

@@ -105,6 +105,7 @@
 
 .content pre code {
     padding: 0;
+    color: black !important;
 }
 
 .content strong.chinese {

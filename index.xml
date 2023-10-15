@@ -1,39 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Sun, 15 Oct 2023 14:18:17 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>CS 747 - Assignment 2</title><link>https://adityakadoo.github.io/Scrolls/courses/assignment_2/</link><pubDate>Sun, 15 Oct 2023 14:18:17 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/assignment_2/</guid><description>&lt;h2 id="task-1">Task 1&lt;/h2>
-&lt;p>Within the &lt;code>planner.py&lt;/code> file, all the three algorithms of value iteration, linear programming and Howard&amp;rsquo;s policy improvement are implemented under the function &lt;code>optimal_policy()&lt;/code>. The code is not parallelized much due to memory constraints and simply loops through all the transitions in the worst case. Assuming the number of states in below 10,000, the number of actions is below 100 and the number of transitions is below 3,50,000, this code should execute within a few seconds.&lt;/p>
-&lt;p>The three algorithms are implemented as described in the course slides. Linear programming algorithm makes use of the &lt;code>pulp&lt;/code> library. For this algorithm the library function for solving the linear program was found to be the bottle-neck and hence it was the slowest one out of the three algorithms. It was also observed that both of the iteration based algorithms, value iteration and Howard&amp;rsquo;s policy improvement, converge to the optimal policy very fast i.e. under 5-10 iterations. The default algorithm is value iteration as it was observed to be the fastest one out of the three.&lt;/p>
-&lt;p>There is another function called &lt;code>value_function()&lt;/code> which returns the values for all the states in the given mdp instance for a given policy. This function basically solves the Bellman equations using the &lt;code>pulp&lt;/code> library. It is called whenever &lt;code>--policy&lt;/code> argument is passed to this program.&lt;/p>
-&lt;h2 id="task-2">Task 2&lt;/h2>
-&lt;p>Let the mdp corresponding to the football problem be $\langle S, A, T, R, \gamma\rangle$. We define each component as,&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Set of states&lt;/strong>: Here the first 2 states, $\text{GOAL}$ and $\text{NO-GOAL}$ are terminal states. Rest are for a particular game state.
-$$
-S = \{\text{GOAL}, \text{NO-GOAL}\}\cup\{[b_1,b_2,r,s]\ |\ b_1,b_2,r\in\{01, 02, \dots, 16\}, s\in\{1,2\}\}\\
-\ \\
-\therefore |S| = 2 + 16^3\cdot 2 = 8194
-$$&lt;/li>
-&lt;li>&lt;strong>Set of actions&lt;/strong>: As defined in the problem statement, at each game state the agent can control the two players $b_1$ and $b_2$. These 2 players can perform 10 actions. $0,1,2,3$ correspond to $b_1$&amp;rsquo;s movement, $4,5,6,7$ correspond to $b_2$&amp;rsquo;s movement, $8$ for passing and $9$ for shooting.
-$$
-\therefore A = \{0, 1, \dots, 9\}
-$$&lt;/li>
-&lt;li>&lt;strong>Transition Function&lt;/strong>: $T:S\times A\times S\to[0,1]$ is the transition function. This is defined as given in the problem statement with parameters $p$ and $q$. Any action that leads to the episode&amp;rsquo;s unsuccessful end has a transition into the $\text{NO-GOAL}$ state. Similarly a successful shot has a transition into the $\text{GOAL}$ state.&lt;/li>
-&lt;li>&lt;strong>Reward Function&lt;/strong>: $R:S\times A\times S\to\R$ is the reward function which is defined to be 1 for a transition $s_1\xrightarrow{a}s_2$ when $s_2=\text{GOAL}$ and otherwise 0.&lt;/li>
-&lt;li>&lt;strong>Discount Factor&lt;/strong>: Since this is an episodic task it&amp;rsquo;s $\gamma=1$. This is a fair assumption since we only want to find the expected goals from any game state i.e. the probability of reaching to the $\text{GOAL}$ state. This state is terminal by definition and the reward function is also defined with this in mind.&lt;/li>
-&lt;/ul>
-&lt;h3 id="plots-and-observations">Plots and Observations&lt;/h3>
-&lt;p>The expected goals from the starting state [05, 09, 08, 1] for the 3 test-cases is,&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>Greedy Defense&lt;/strong> ($p=0.25$, $q=0.75$): 0.175000 with optimal action being 1 i.e. moving $b_1$ towards right.&lt;/li>
-&lt;li>&lt;strong>Parking the Bus&lt;/strong> ($p=0.15$, $q=0.95$): 0.203203 with opimal action being 5 i.e. moving $b_2$ towards right.&lt;/li>
-&lt;li>&lt;strong>Random Policy&lt;/strong> ($p=0.35$, $q=0.65$): 0.080244 with opitmal action being 5 i.e. moving $b_2$ towards right.&lt;/li>
-&lt;/ol>
-&lt;blockquote>
-&lt;p>The first plot is between different values of $p$ and the $xG$ for [05, 09, 08, 1] game state with $q=0.7$. For lower values of $p$ the players $b_1$ and $b_2$ are better at dribbling, avoiding tackles and overall movement. Hence I call $p$ the &lt;strong>inverse dribbling factor&lt;/strong>. This effect can also be seen in the plot below.&lt;/p>
-&lt;p>&lt;img src="images/plot-p-vs-xG.png" alt="p-vs-xG">&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
-&lt;p>The second plot is between different values of $q$ and the $xG$ for [05, 09, 08, 1] game state with $p=0.3$. For higher values of $q$ the players $b_1$ and $b_2$ are better at passing and shooting. Hence I call $q$ the &lt;strong>passing factor&lt;/strong>. This effect can also be seen in the plot below.&lt;/p>
-&lt;p>&lt;img src="images/plot-q-vs-xG.png" alt="q-vs-xG">&lt;/p>
-&lt;/blockquote></description></item><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Wed, 13 Sep 2023 14:47:25 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
 &lt;dd>&lt;ul>

@@ -1,7 +1,7 @@
 ---
 title: "Reinforcement Learning"
 date: 2023-09-13T14:47:25+05:30
-draft: true
+draft: false
 math: true
 tags: [Computer-Science, Machine-Learning]
 description: "Notes for CS 747"

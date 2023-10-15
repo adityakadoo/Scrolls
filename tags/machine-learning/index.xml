@@ -1,4 +1,410 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine-Learning on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/machine-learning/</link><description>Recent content in Machine-Learning on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Mon, 05 Sep 2022 06:52:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>&lt;h2 id="probability">Probability&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine-Learning on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/tags/machine-learning/</link><description>Recent content in Machine-Learning on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Wed, 13 Sep 2023 14:47:25 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$A$ is the set of $n$ arms&lt;/li>
+&lt;li>$\forall a\in A$, $a$ has an associated Bernoulli distribution with mean reward $p_a$&lt;/li>
+&lt;li>Highest mean is $p^\star$&lt;/li>
+&lt;li>Pull any arm to gain reward and repeat this $T$ (horizon) times&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Algorithm for maximising reward&lt;/strong>&lt;/dt>
+&lt;dd>For $t=0,1,2,\dots,T-1$:
+&lt;ul>
+&lt;li>Given the &lt;em>history&lt;/em> $h^t=(a^0,r^0,a^1,r^1,\dots,a^{t-1},r^{t-1})$&lt;/li>
+&lt;li>Pick an &lt;em>arm&lt;/em> $a^t$&lt;/li>
+&lt;li>Obtain the &lt;em>reward&lt;/em> $r^t$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Deterministic Algorithm&lt;/strong>&lt;/dt>
+&lt;dd>Set of all histories $\to A$&lt;/dd>
+&lt;dt>&lt;strong>Randomized Algorithm&lt;/strong>&lt;/dt>
+&lt;dd>Set of all histories $\to \Delta A$ a.k.a. set of all probability distributions over $A$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="epsilon-greedy-algorithms">$\epsilon$-greedy Algorithms&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>$\epsilon$-G1&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$t\le\epsilon T\implies$ sample uniformly at random&lt;/li>
+&lt;li>$t=\lfloor\epsilon T\rfloor\implies$ identify $a^\star$ with the highest empirical mean&lt;/li>
+&lt;li>$t&amp;gt;\epsilon T\implies$ sample $a^\star$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>$\epsilon$-G2&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$t\le\epsilon T\implies$ sample uniformly at random&lt;/li>
+&lt;li>$t&amp;gt;\epsilon T\implies$ sample arm with highest empirical mean&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>$\epsilon$-G3&lt;/strong>&lt;/dt>
+&lt;dd>With probability $\epsilon$ sample uniformly at random; with probability $1-\epsilon$ sample an arm with the highest empirical mean&lt;/dd>
+&lt;/dl>
+&lt;h3 id="regret">Regret&lt;/h3>
+&lt;blockquote>
+&lt;p>Consider the plot of $\mathbb{E}[r^t]$ vs $t$.
+It must be bounded between $y=p_{\min}=\min_{a\in A}p_a$ and $y=p^\star$.
+On random uniform sampling of arms the graph will be $y=p_{\text{avg}}=\frac{1}{n}\sum_{a\in A}p_a$.
+A reasonable learning algorithm will start at $p_{\text{avg}}$ and tend towards $p^\star$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Regret&lt;/strong>&lt;/dt>
+&lt;dd>For horizon $T$ and given algorithm,
+$$
+R_T = Tp^\star - \sum_{t=0}^{T-1}\mathbb{E}[r^t]
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Goal&lt;/strong> : Find an algorithm for which $\lim_{T\to\infty}\frac{R_T}{T}=0$.
+All $\epsilon$-Gi&amp;rsquo;s have linear regret.&lt;/p>
+&lt;/blockquote>
+&lt;p>How to achieve Sub-linear Regret?&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Infinite Exploration&lt;/strong>: In the limit, each arm must be pulled an infinite number of times.&lt;/li>
+&lt;li>&lt;strong>Greed in the Limit&lt;/strong>: Let $\text{exploit}(T)$ denote the number of pulls that are greedy w.r.t. the empirical mean up to the horizon $T$. We want,
+$$
+\lim_{T\to\infty}\frac{\mathbb{E}[\text{exploit}(T)]}{T}=1
+$$&lt;/li>
+&lt;/ol>
+&lt;dl>
+&lt;dt>&lt;strong>Special Bandit Instances&lt;/strong> ($\bar{\mathcal{I}}$)&lt;/dt>
+&lt;dd>Set of all bandit instances with reward means $\le 1$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Result&lt;/strong> : An algorithm $L$ achieves sub-linear regret on all instances $I\in\bar{\mathcal{I}}$ $\iff$ $L$ does infinite exploration and is greedy in the limit.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="lower-bound-on-regret">Lower bound on Regret&lt;/h4>
+&lt;blockquote>
+&lt;p>&lt;strong>Lai and Robbins&amp;rsquo; theorem&lt;/strong> : Let $L$ be an algorithm such that $\forall I\in\bar{\mathcal{I}}$ and $\forall\alpha&amp;gt;0$, as $T\to\infty$,
+$$R_T(L,I)=\mathcal{o}(T^\alpha)$$&lt;/p>
+&lt;p>Then $\forall I\in\bar{\mathcal{I}}$, as $T\to\infty$:
+$$\frac{R_T(L,I)}{\ln(T)}\ge\sum_{a:p_a(I)\not =p^\star(I)}\frac{p^\star(I)-p_a(I)}{KL(p_a(I),p^\star(I))}$$
+where for $x,y\in[0,1), KL(x,y)=x\ln\frac{x}{y}+(1-x)\ln\frac{1-x}{1-y}$&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="optimal-regret-algorithms">Optimal Regret Algorithms&lt;/h3>
+&lt;h4 id="ucb-algorithm">UCB Algorithm&lt;/h4>
+&lt;ul>
+&lt;li>At time $t$ for every arm $a$,
+$$
+\text{ucb}^t_a = \hat p^t_a + \sqrt{\frac{2\ln(t)}{u^t_a}}
+$$&lt;/li>
+&lt;li>$\hat p^t_a$ is the empirical mean of the rewards from arm $a$ and $u^t_a$ is the number of times a has been sampled at time $t$.&lt;/li>
+&lt;li>Pull an arm $a$ for which $\text{ucb}^t_a$ is maximum.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>UCB achieves $\mathcal{O}(\log(T))$ regret.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="kl-ucb-algorithm">KL-UCB Algorithm&lt;/h4>
+&lt;ul>
+&lt;li>Define, where $c\ge 3$,
+$$
+\text{ucb-kl}^t_a = \max\{q\in[\hat p^t_a,1]\ |\ u^t_a\cdot \text{KL}(\hat p_a^t,q)\le\ln(t)+c\ln(\ln(t))\}
+$$&lt;/li>
+&lt;li>Pull $\argmax_{a\in A}\text{ucb-kl}^t_a$&lt;/li>
+&lt;/ul>
+&lt;h4 id="thompson-sampling">Thompson Sampling&lt;/h4>
+&lt;ul>
+&lt;li>For every arm $a$ with $s_a^t$ successful pulls and $f_a^t$ failed pulls draw a sample,
+$$
+x_a^t\sim\text{Beta}(s_a^t+1,f_a^t+1)
+$$&lt;/li>
+&lt;li>Pull arm $a$ with max $x_a^t$&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Both KL-UCB and Thompson Sampling manage to get optimal regret.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="bound-on-ucb-regret">Bound on UCB Regret&lt;/h3>
+&lt;h2 id="markov-decision-problems">Markov Decision Problems&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Markov Decision Problem&lt;/strong> $\langle S,A,T,R,\gamma\rangle$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>&lt;strong>Set of states&lt;/strong>: $S=\{s_1,s_2,\dots,s_n\}$&lt;/li>
+&lt;li>&lt;strong>Set of actions&lt;/strong>: $A=\{a_1,a_2,\dots,a_k\}$&lt;/li>
+&lt;li>&lt;strong>Transition function&lt;/strong>: $T(s,a,s^\prime)$ is the probability of reaching $s^\prime$ by starting at $s$ and taking action $a$. Hence $\forall s\in S,\forall a\in A,\ \sum_{s^\prime\in S}T(s,a,s^\prime)=1$.&lt;/li>
+&lt;li>&lt;strong>Reward function&lt;/strong>: $T(s,a,s^\prime)$ is the reward on reaching $s^\prime$ by starting at $s$ and taking action $a$. Assuming all rewards are from $[-R_{\max},R_{\max}]$ where $R_{\max}\ge 0$.&lt;/li>
+&lt;li>&lt;strong>Discount factor&lt;/strong>: $\gamma$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Policy&lt;/strong> ($\pi$)&lt;/dt>
+&lt;dd>$\pi:S\to A$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>If $\Pi$ is the set of all policies then $|\Pi|=k^n$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>State values for Policy&lt;/strong> ($V^\pi$)&lt;/dt>
+&lt;dd>For $s\in S$, $V^\pi:S\to\R$,
+$$
+V^\pi(s)=\mathbb{E}_\pi[r^0+\gamma r^1+\gamma^2r^2+\dots|s^0=s]
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Every MDP has an optimal policy $\pi^\star$ such that,
+$$
+\forall\pi\in\Pi,\forall s\in S:V^{\pi^\star}(s)\ge V^\pi(s)
+$$&lt;/p>
+&lt;p>&lt;strong>MDP Planning Problem&lt;/strong> : Find $\pi^\star$.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="bellman-equations">Bellman Equations&lt;/h3>
+&lt;blockquote>
+&lt;p>For $\pi\in\Pi,s\in S$,
+$$
+V^\pi(s) = \sum_{s^\prime\in S}T(s,\pi(s),s^\prime)\{R(s,\pi(s),s^\prime)+\gamma V^\pi(s^\prime)\}
+$$&lt;/p>
+&lt;ul>
+&lt;li>$n$ equations $n$ variables&lt;/li>
+&lt;li>linear&lt;/li>
+&lt;li>Guaranteed solution for $\gamma&amp;lt;1$&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>Therefore brute-force way of finding the state values for all $k^n$ possible policies and then picking the most dominant one is possible but has $\mathcal{O}(\text{poly}(n,k)\cdot k^n)$ time complexity.&lt;/p>
+&lt;h4 id="episodic-tasks">Episodic Tasks&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Episodic Task&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Has a new terminal state $s_\top$ from which there are no out going transitions on rewards.&lt;/li>
+&lt;li>For every non-terminal state and every policy there is a non-zero probability of reaching the terminal state in a finite number of steps.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h5 id="definition-of-values">Definition of values&lt;/h5>
+&lt;dl>
+&lt;dt>&lt;strong>Infinite discounted reward&lt;/strong>&lt;/dt>
+&lt;dd>$V^\pi(s)=\mathbb{E}_\pi[r^0+\gamma r+\gamma^2r^2+\dots|s^0=s]$&lt;/dd>
+&lt;dt>&lt;strong>Total reward&lt;/strong>&lt;/dt>
+&lt;dd>$V^\pi(s)=\mathbb{E}_\pi[r^0+r^1+\dots+|s^0=s]$&lt;/dd>
+&lt;dt>&lt;strong>Finite horizon reward&lt;/strong>&lt;/dt>
+&lt;dd>$V^\pi(s)=\mathbb{E}_\pi[r^0+r^1+\cdots+r^{H-1}|s^0=s]$ where $H\ge 1$&lt;/dd>
+&lt;dt>&lt;strong>Average reward&lt;/strong>&lt;/dt>
+&lt;dd>$V^\pi(s)=\mathbb{E_{\pi}}[\lim_{m\to\infty}\frac{r^0+r^1+\cdots+R^{m-1}}{m}|s^0=s]$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="optimal-policy-characterization">Optimal Policy Characterization&lt;/h3>
+&lt;h4 id="banachs-fixed-point-theorem">Banach&amp;rsquo;s Fixed-point Theorem&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Banach Space&lt;/strong> ($X$)&lt;/dt>
+&lt;dd>A complete, normed vector space
+&lt;ul>
+&lt;li>&lt;strong>Vector space&lt;/strong>: $X$&lt;/li>
+&lt;li>&lt;strong>Norm&lt;/strong>: $\|\cdot\|$&lt;/li>
+&lt;li>&lt;strong>Complete&lt;/strong>: $(X,\|\cdot\|)$ such that every Cauchy sequence has a limit in $X$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Contraction mapping&lt;/strong> ($Z,l$)&lt;/dt>
+&lt;dd>$Z:X\to X$ with contraction factor $0\le l&amp;lt;1$ such that, $\forall u\in X,\forall v\in X,$
+$$
+\|Zv-Zu\|\le l\|v-u\|
+$$&lt;/dd>
+&lt;dt>&lt;strong>Fixed-point&lt;/strong> ($x^\star$)&lt;/dt>
+&lt;dd>For $Z$, such that $Zx^\star=x^\star$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Banach&amp;rsquo;s Fixed-point Theorem&lt;/strong> : For a contraction map $Z$ with contraction factor $l$ in a Banach space $(X,\|\cdot\|)$,&lt;/p>
+&lt;ol>
+&lt;li>$Z$ has a unique fixed point $x^\star\in X$&lt;/li>
+&lt;li>For $x\in X,m\le 0:\|Z^mx-x^\star\|\le l^m\|x-x^\star\|$&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h4 id="bellman-optimality-operator">Bellman Optimality Operator&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Bellman optimality operator&lt;/strong> ($B^\star$)&lt;/dt>
+&lt;dd>$B^\star:\R^n\to\R^n$ for an MDP is defined for $F\in\R^n,s\in S$ as,
+$$
+(B^\star(F))(s) = \max_{a\in A}\sum_{s^\prime\in S}T(s,a,s^\prime)\{R(s,a,s^\prime)+\gamma F(s^\prime)\}
+$$&lt;/dd>
+&lt;dt>&lt;strong>Max norm&lt;/strong> ($\|\cdot\|_\infty$)&lt;/dt>
+&lt;dd>For $F=(f_1,f_2,\dots,f_n)\in\R^n$,
+$$
+\|F\|_\infty=\max\{|f_1|,|f_2|,\dots,|f_n|\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Result&lt;/strong> : $(\R^n,\|\cdot\|_\infty)$ is a Banach space.&lt;/p>
+&lt;p>$\therefore B^\star$ is a contraction map in $(\R^n,\|\cdot\|_\infty)$ with contraction factor $\gamma$.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Optimal Value Function&lt;/strong> $(V^\star)$&lt;/dt>
+&lt;dd>Denote the fixed point $V^\star:S\to\R$ (alternatively, $V^\star\in\R^n$) such that $B^\star(V^\star)=V^\star$. For $s\in S$,
+$$
+V^\star(s)=\max_{a\in A}\sum_{s^\prime\in S}T(s,a,s^\prime)\{R(s,a,s^\prime)+\gamma V^\star(s^\prime)\}
+$$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="optimal-policy-algorithms">Optimal Policy Algorithms&lt;/h3>
+&lt;h4 id="value-iteration">Value Iteration&lt;/h4>
+&lt;ol>
+&lt;li>$V_0\leftarrow$ Arbitrary, element-wise bounded, $n$-length vector.&lt;/li>
+&lt;li>$t\leftarrow 0$&lt;/li>
+&lt;li>Repeat:
+&lt;ol>
+&lt;li>For $s\in S$:
+&lt;ol>
+&lt;li>$V_{t+1}(s)\leftarrow\max_{a\in A}\sum_{s^\prime\in S}T(s,a,s^\prime)(R(s,a,s^\prime+\gamma V_t(s^\prime)))$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>$t\leftarrow t+1$&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Until $V_t\equiv V_{t-1}$&lt;/li>
+&lt;/ol>
+&lt;h4 id="linear-programming-formulation">Linear Programming Formulation&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Vector Comparison&lt;/strong> ($\succeq,\succ$)&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>For $X:S\to\R$ and $Y:S\to\R$ (equivalently $X,Y\in\R^n$) we define,
+$$
+X\succeq Y\iff \forall s\in S:X(s)\ge Y(s)\\
+X\succ Y\iff X\succeq Y\And\exist s\in S:X(s)&amp;gt;Y(s)
+$$&lt;/li>
+&lt;li>For policies $\pi_1,\pi_2\in\Pi$ we define,
+$$
+\pi_1\succeq\pi_2\iff V^{\pi_1}\succeq V^{\pi_2}\\
+\pi_1\succ\pi_2\iff V^{\pi_1}\succ V^{\pi_2}\\
+$$&lt;/li>
+&lt;li>2 policies can also be &lt;em>incomparable&lt;/em> i.e. $\pi_1\not\succeq\pi_2$ and $\pi_2\not\succeq\pi_1$&lt;/li>
+&lt;li>$\pi_1\succeq\pi_2$ and $\pi_2\succeq\pi_1\iff V^{\pi_1}=V^{\pi_2}$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Result&lt;/strong> : $B^\star$ preserves $\succeq$. $\forall X,Y:S\to\R^n$,
+$$
+X\succeq Y\implies B^\star(X)\succeq B^\star(Y)
+$$&lt;/p>
+&lt;p>$\therefore$ For all $V\not =V^\star$ in the feasible set, $V\succ V^\star$.
+$$
+\implies\sum_{s\in S}V(s)&amp;gt;\sum_{s\in S}V^\star(s)
+$$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Linear Programming Formulation&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Maximise $\left(-\sum_{s\in S}V(s)\right)$,&lt;/li>
+&lt;li>Subject to $V(s)\ge\sum_{s^\prime\in S}T(s,a,s^\prime)\{R(s,a,s^\prime)+\gamma V(s^\prime)\},\ \forall s\in S,a\in A$.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>This LP has $n$ variables and $nk$ constraints and the solution is $V^\star$.
+The dual of this LP has nk variables with $n$ constraints and it&amp;rsquo;s solution is $\pi^\star$.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="policy-improvement">Policy Improvement&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Action Value Function&lt;/strong> ($Q^\pi:S\times A\to\R$)&lt;/dt>
+&lt;dd>For $\pi\in\Pi,s\in S,a\in A$,
+$$Q^\pi(s,a)=\mathbb{E}[r^0+\gamma r^1+\gamma^2r^2+\dots|s^0=s;a^0=a;a^t=\pi(s^t),\ \forall t\ge1$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>For $s\in S,a\in A$,
+$$
+Q^\pi(s,a) = \sum_{s^\prime\in S}T(s,a,s^\prime)\{R(s,a,s^\prime)+\gamma V^\pi(s^\prime)\}
+$$&lt;/p>
+&lt;p>$Q^\pi(s,\pi(s))=V^\pi(s)$&lt;/p>
+&lt;p>All optimal policies have the same optimal action value function $Q^\star$.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>$\text{IA}:\Pi\times S\to \mathcal{P}(A)$&lt;/dt>
+&lt;dd>For $\pi\in\Pi,s\in S$,
+$$\text{IA}(\pi,s)=\{a\in A:Q^\pi(s,a)&amp;gt;V^\pi(s)\}$$&lt;/dd>
+&lt;dt>$\text{IS}:\Pi\to\mathcal{P}(S)$&lt;/dt>
+&lt;dd>For $\pi\in\Pi$,
+$$\text{IS}(\pi)=\{s\in S:|\text{IA}(\pi,s)|\ge 1\}$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Policy Improvement Theorem&lt;/strong> :&lt;/p>
+&lt;ol>
+&lt;li>If $\text{IS}(\pi)=\emptyset$ then $\pi$ is an optimal policy, else&lt;/li>
+&lt;li>if $\pi^\prime$ is obtained by policy improvement on $\pi$, then $\pi^\prime\succ\pi$.&lt;/li>
+&lt;/ol>
+&lt;p>$\text{IS}(\pi^\star)=\emptyset\iff B^\star(V^{\pi^\star})=V^{\pi^\star}$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Bellman Operator&lt;/strong> ($B^\pi:\R^n\to\R^n$)&lt;/dt>
+&lt;dd>For $\pi\in\Pi,X:S\to\R,s\in S$,
+$$(B^\pi(X))(s)=\sum_{s^\prime\in S}T(s,\pi(s),s^\prime)(R(s,\pi(s),s^\prime)+\gamma X(s^\prime))$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>$B^\pi$ is a contraction mapping with contraction factor $\gamma$.&lt;/p>
+&lt;p>For $X:s\to\R,\ \lim_{l\to\infty}(B^\pi)^l(X)=V^\pi$
+For $X:s\to\R,Y:S\to\R,\ X\succeq Y\implies B^\pi(X)\succeq B^\pi(Y)$&lt;/p>
+&lt;p>$B^{\pi^\prime}(V^\pi)(s)=Q^\pi(s,\pi^\prime(s))$&lt;/p>
+&lt;/blockquote>
+&lt;h5 id="policy-iteration-algorithm">Policy Iteration Algorithm&lt;/h5>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="ln">1&lt;/span>&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">Policy_iteration&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">mdp&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">2&lt;/span>&lt;span class="cl"> &lt;span class="n">Pi&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">mdp&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rand_policy&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">3&lt;/span>&lt;span class="cl"> &lt;span class="k">while&lt;/span> &lt;span class="n">mdp&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">is_improvable&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Pi&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">4&lt;/span>&lt;span class="cl"> &lt;span class="n">Pi&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">mdp&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">improve&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Pi&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="ln">5&lt;/span>&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">Pi&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pi-variants">PI Variants&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Howard&amp;rsquo;s Policy Iteration&lt;/strong>&lt;/dt>
+&lt;dd>Greedy; switch all improvable states.&lt;/dd>
+&lt;dt>&lt;strong>Random Policy Iteration&lt;/strong>&lt;/dt>
+&lt;dd>Switch a non-empty subset of improvable states chosen uniformly at random.&lt;/dd>
+&lt;dt>&lt;strong>Simple Policy Iteration&lt;/strong>&lt;/dt>
+&lt;dd>Assume a fixed indexing of states and always improve the state with the highest index.&lt;/dd>
+&lt;dt>&lt;strong>Upper Bound&lt;/strong> ($U(n,k)$)&lt;/dt>
+&lt;dd>For a set of PI Variants $\mathcal{L}$ and MDP $M$, the expected number of policy evalutaions performed by $L$ on $M$ if initialised at any $\pi$ is at most $U(n,k)$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>PI Variant&lt;/th>
+&lt;th>Type&lt;/th>
+&lt;th>k=2&lt;/th>
+&lt;th>General k&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Howard&amp;rsquo;s PI&lt;/td>
+&lt;td>Deterministic&lt;/td>
+&lt;td>$\mathcal{O}(\frac{2^n}{n})$&lt;/td>
+&lt;td>$\mathcal{O}(\frac{k^n}{n})$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mansour and Singh&amp;rsquo;s Random PI [MS99]&lt;/td>
+&lt;td>Randomized&lt;/td>
+&lt;td>$1.7172^n$&lt;/td>
+&lt;td>$\mathcal{O}(\frac{k}{2})^n$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Mansour and Singh&amp;rsquo;s Random PI [HPZ14]&lt;/td>
+&lt;td>Randomized&lt;/td>
+&lt;td>$\text{poly}(n)\cdot 1.5^n$&lt;/td>
+&lt;td>&amp;ndash;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Lower Bound&lt;/strong> ($X(n,k)$)&lt;/dt>
+&lt;dd>For a set of PI Variants $\mathcal{L}$ and MDP $M$, the expected number of policy evalutaions performed by $L$ on $M$ if initialised at any $\pi$ is at least $X(n,k)$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;ul>
+&lt;li>Howard&amp;rsquo;s PI on $n$-state, 2-action MDPs : $\Omega(n)$&lt;/li>
+&lt;li>Simple PI on $n$-state, 2-action MDPs : $\Omega(2^n)$&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="howards-pi-with-k2">Howard&amp;rsquo;s PI with $k=2$&lt;/h4>
+&lt;blockquote>
+&lt;p>Non-optimal policies $\pi,\pi^\prime\in\Pi$ cannot have the same set of improvable states.&lt;/p>
+&lt;p>If $\pi$ has $m$ improvable states and $\pi$ states and $\pi,\pi^\prime$ (Howard&amp;rsquo;s PI) then there exist $m$ policies $\pi^{\prime\prime}$ such that $\pi^\prime\succeq\pi^{\prime\prime}\succ\pi$.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Number of iterations taken by Howard&amp;rsquo;s PI: $O(\frac{2^n}{n})$&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="batch-switching-policy-iteration">Batch-Switching Policy Iteration&lt;/h4>
+&lt;blockquote>
+&lt;p>Howard&amp;rsquo;s Policy Iteration takes at most 3 iterations on 2-state 2-action MDP!&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>BSPI&lt;/strong>&lt;/dt>
+&lt;dd>Partition states in 2-sized batches arranged from right to left. Improve the rightmost set containing an improvable state.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>BSPI of batch size 2 is bounded by $\mathcal{O}(\sqrt{3}^n)$.
+Tighter bounds for higher batch-sizes.&lt;/p>
+&lt;/blockquote></description></item><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>&lt;h2 id="probability">Probability&lt;/h2>
 &lt;h3 id="basic-terms">Basic Terms&lt;/h3>
 &lt;h4 id="sample-space">Sample Space&lt;/h4>
 &lt;dl>

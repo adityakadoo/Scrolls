@@ -1,4 +1,328 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Wed, 13 Sep 2023 14:47:25 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Thu, 26 Oct 2023 16:59:53 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Assignment 4</title><link>https://adityakadoo.github.io/Scrolls/courses/assignment_4/</link><pubDate>Thu, 26 Oct 2023 16:59:53 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/assignment_4/</guid><description>&lt;h2 id="problem-1">Problem 1&lt;/h2>
+&lt;h3 id="orl-dataset-recognition">ORL Dataset recognition&lt;/h3>
+&lt;p>Graphs of recognition rates for different values of $k$ (principal components).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Eigen-decomposition&lt;/th>
+&lt;th>Singular Value Decomposition&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/ORL-PCA.png" alt="eig-1">&lt;/td>
+&lt;td>&lt;img src="images/ORL-PCA-without-ticks-SVD.png" alt="svd-1">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="yale-dataset-recognition">Yale Dataset recognition&lt;/h3>
+&lt;p>Graphs of recognition rates for different values of $k$ (principal components).&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>All eigen components&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/Yale-PCA.png" alt="eig-1">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>All but top 3 eigen components&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/Yale-PCA-illum.png" alt="svd-1">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="face-reconstruction">Face Reconstruction&lt;/h3>
+&lt;p>Face reconstruction done on the first image of first subject in ORL dataset.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>-&lt;/th>
+&lt;th>-&lt;/th>
+&lt;th>-&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-2.png" alt="a">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-10.png" alt="b">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-20.png" alt="c">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-50.png" alt="d">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-75.png" alt="e">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-100.png" alt="f">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-125.png" alt="g">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-150.png" alt="h">&lt;/td>
+&lt;td>&lt;img src="images/Reconstructed-Image-k-175.png" alt="i">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="eigenfaces">Eigenfaces&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Top 25 eigenfaces of ORL dataset&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/ORL-PCA-EigenFaces.png" alt="eigenfaces">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="problem-2">Problem 2&lt;/h2>
+&lt;h3 id="proposed-mechanism">Proposed Mechanism&lt;/h3>
+&lt;blockquote>
+&lt;p>We compare the test images with all 6 images of each person (32 in total) in the training dataset. This comparison is done by taking the average of squared differences of eigen-coefficients for the test image and the 6 images of each person. If the least of all these 32 values is more than a threshold, we mark that the test person has no other photo in the training data(i.e. we mark it NEGATIVELY).&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="results">Results&lt;/h3>
+&lt;p>For K = 10 and cutoff = 100,&lt;/p>
+&lt;ul>
+&lt;li>False Positives: 16.875%&lt;/li>
+&lt;li>False Negatives: 10%&lt;/li>
+&lt;/ul>
+&lt;h2 id="problem-3">Problem 3&lt;/h2>
+&lt;p>We have to find the unit vector $f\in\R^d$ that maximises $f^TCf$ such that $f$ is perpendicular to $e$. Thus we need to maximise the following,
+$$
+\ \\
+f^TCf - \lambda(f^Tf-1) - \mu(f^Te-1)\\
+$$
+Differentiating w.r.t. $\lambda$ gives $f^Tf=1$ and w.r.t. $\mu$ gives $f^Te=1$.&lt;/p>
+&lt;p>Differentiating w.r.t. $f$ gives,
+$$
+2f^TC-2\lambda f^T-\mu e^T=0
+$$
+On post multiplying by $e$ vector,
+$$
+2f^TCe-2\lambda f^Te-\mu e^Te=0\\
+\ \\
+\implies 2\lambda_e f^Te-0-\mu = 0\\
+\ \\
+\implies 0-\mu=0\\
+\ \\
+\implies\mu=0
+$$
+Substituting this back in the above equation,
+$$
+\ \\
+\therefore f^TC=\lambda f^T\\
+\ \\
+\implies C^T f=\lambda f\\
+\ \\
+\implies Cf=\lambda f\\
+\ \\
+$$
+Therefore $f$ is an eigenvector. Putting this in the original objective,
+$$
+f^T\lambda f = \lambda
+$$
+Hence to further maximise this, $f$ must be the eigenvector with the $2^\text{nd}$ largest eigenvalue.&lt;/p>
+&lt;p>To find unit vector $g$ that maximises $g^TCg$ subject to $g$ being perpendicular to both $f$ and $e$, we should maximise the following,
+$$
+g^TCg-\lambda(g^Tg-1)-\mu_1(g^Te)-\mu_2(g^Tf)
+$$
+On differentiation w.r.t. $\lambda,\mu_1,\mu_2$ we get,
+$$
+\ \\
+g^Tg=1;\ \ g^Te=0;\ \ g^Tf=0
+$$
+Differentiating w.r.t. $g$ given,
+$$
+\ \\
+2g^TC-2\lambda g^T-\mu_1e^T-\mu_2f^T=0
+$$
+On post multiplying by $e$,
+$$
+\ \\
+2g^TCe-2\lambda g^Te-\mu_1e^Te-\mu_2f^Te=0\\
+\ \\
+\implies 2\lambda_e g^Te-0-\mu_1-0=0\\
+\ \\
+\implies \mu_1=0
+$$
+On post multiplying by $f$,
+$$
+\ \\
+2g^TCf-2\lambda g^Tf-\mu_1e^Tf-\mu_2f^Tf=0\\
+\ \\
+\implies 2\lambda_f g^Tf-0-0-\mu_2=0\\
+\ \\
+\implies \mu_2=0
+$$
+Putting these values back into the above equation,
+$$
+2g^TC-2\lambda g^T=0\\
+\ \\
+\implies g^TC=\lambda g^T\\
+\ \\
+\implies C^Tg=\lambda g\\
+\ \\
+\implies Cg=\lambda g
+$$
+Therefore $g$ is also an eigenvector with eigenvalue as the Lagrange multiplier $\lambda$. Putting this in the original objective,
+$$
+g^TCg = \lambda g^Tg=\lambda
+$$
+To maximise this $g$ must be the eigenvector with $3^\text{rd}$ largest eigenvalue.&lt;/p>
+&lt;h2 id="problem-4">Problem 4&lt;/h2>
+&lt;p>a) Covariance matrix of a dataset $\{x_i\in\R^d\}_{i=1}^N$ is defined as,&lt;/p>
+&lt;p>$$
+C = \sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\\
+\ \\
+C^T = \left(\sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\right)^T\\
+\ \\
+= \sum_{i=1}^N\left((x_i-\bar x)(x_i-\bar x)^T\right)^T\\
+\ \\
+= \sum_{i=1}^N((x_i-\bar x)^T)^T(x_i-\bar x)^T\\
+\ \\
+= \sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\\
+\ \\
+\therefore C^T=C
+$$
+Hence C is symmetric.&lt;/p>
+&lt;p>For a vector $v\in\R^d$,
+$$
+v^TCv=v^T\left(\sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\right)v\\
+\ \\
+= \sum_{i=1}^Nv^T(x_i-\bar x)(x_i-\bar x)^Tv\\
+\ \\
+= \sum_{i=1}^N((x_i-\bar x)^Tv)^T(x_i-\bar x)^Tv\\
+\ \\
+= \sum_{i=1}^N\|(x_i-\bar x)^Tv\|^2\ge 0\\
+\ \\
+\implies v^TCv\ge 0
+$$
+Hence $C$ is positive semi-definite.&lt;/p>
+&lt;p>b) Let $A$ be a symmetric matrix with eigenvectors $e_1$ and $e_2$ and the corresponding distinct eigenvalues $\lambda_1$ and $\lambda_2$.
+$$
+Ae_2=\lambda_2e_2\\
+\ \\
+\implies e_1^TAe_2=e_1^T\lambda_2e_2\\
+\ \\
+\implies e_2^TA^Te_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies e_2^TAe_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies e_2^T\lambda_1e_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies (\lambda_1-\lambda_2)e_2^Te_1=0\\
+\ \\
+\implies e_2^Te_1=0
+$$
+Hence each pair of eigenvectors of a symmetric matrix with distinct eigenvalues are orthogonal.&lt;/p>
+&lt;p>c) Assuming eigenvector are iterated in descending order of eigenvalues, $\forall i\in\{1,2,\dots,N\}$,
+$$
+\tilde x_i=\bar x+\sum_{l=1}^kV_l\alpha_{il}
+$$
+Since eigenvector of covariance matrix form an orthonormal basis, we can write,
+$$
+x_i=\bar x+\sum_{l=1}^dV_l\alpha_{il}\\
+\therefore x_i-\tilde x_i = \sum_{l=k+1}^dV_l\alpha_{il}\\
+\implies V_m^T(x_i-\tilde x_i) = \sum_{l=k+1}^dV_m^TV_l\alpha_{il} = \alpha_{im}
+$$
+This hold $\forall m\in\{k+1,\dots,d\}$. Substituting this back in,
+$$
+x_i-\tilde x_i = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))V_l\\
+\ \\
+\begin{align*}
+\implies \|x_i-\tilde x_i\|^2_2 &amp;amp; = \|\sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))V_l\|^2_2\\
+&amp;amp; = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))^2\\
+&amp;amp; = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))\cdot((x_i-\tilde x_i)^TV_l)\\
+&amp;amp; = \sum_{l=k+1}^dV_l^T(x_i-\tilde x_i)(x_i-\tilde x_i)^TV_l\\
+\ \\
+\therefore \frac{1}{N}\sum_{i=1}^N\|x_i-\tilde x_i\|^2_2 &amp;amp; = \frac{1}{N}\sum_{l=k+1}^dV_l^T\left(\sum_{i=1}^N(x_i-\tilde x_i)(x_i-\tilde x_i)^T\right)V_l\\
+&amp;amp; = \frac{1}{N}\sum_{l=k+1}^dV_l^TCV_l
+= \frac{1}{N}\sum_{l=k+1}^d\lambda_lV_l^TV_l\\
+&amp;amp; = \frac{1}{N}\sum_{l=k+1}^d\lambda_l
+\end{align*}\\
+$$
+d) If we sample a dataset $\{x_1^{(i)},x_2^{(i)}\}_{i=1}^N$ from the given distributions, we can write the covariance matrix as,&lt;/p>
+&lt;!-- $$
+C = \frac{1}{N}\sum_{i=0}^N\begin{bmatrix}
+(x_1^{(i)}-\bar x_1)^2 &amp; (x_1^{(i)}-\bar x_1)\cdot(x_2^{(i)}-\bar x_2)\\\
+(x_2^{(i)}-\bar x_2)\cdot(x_1^{(i)}-\bar x_1) &amp; (x_2^{(i)}-\bar x_2)^2\\\
+\end{bmatrix}
+$$ -->
+&lt;p>$$
+C = \begin{bmatrix}
+\hat\sigma_1^2 &amp;amp; \hat\sigma_{12}^2\\
+\hat\sigma_{2 1}^2 &amp;amp; \hat\sigma_2^2\\
+\end{bmatrix}
+$$&lt;/p>
+&lt;p>Due to law of large numbers,
+$$
+\lim_{N\to\infty}C=\begin{bmatrix}
+100 &amp;amp; 0\\
+0 &amp;amp; 1\\
+\end{bmatrix}
+$$&lt;/p>
+&lt;p>The eigenvalues of this matrix are 100 and 1 with corresponding eigenvectors $[1,0]^T$ and $[0,1]^T$. Since 100 is much larger than 1, the principal component is along $[1,0]^T$.&lt;/p>
+&lt;p>If $X_1$ and $X_2$ had exactly same $\sigma^2$,
+$$
+C=\begin{bmatrix}
+\sigma^2 &amp;amp; 0\\
+0 &amp;amp; \sigma^2\\
+\end{bmatrix}
+$$
+Any non-zero vector is an eigenvector of this matrix with eigenvalue $\sigma^2$. Hence there is no principal component.&lt;/p>
+&lt;h2 id="problem-5">Problem 5&lt;/h2>
+&lt;p>a) For any matrix $A_{m\times n}$ with singular value decomposition as,
+$$
+A = USV^T\\
+\ \\
+\begin{align*}
+AA^T &amp;amp; = USV^T(USV^T)^T\\
+&amp;amp; = USV^TVS^TU^T\\
+&amp;amp; = USS^TU^T
+\end{align*}
+$$
+As we know $U$ and $V$ are singular and $S$ is diagonal,
+$$
+AA^TU = USS^T
+$$&lt;/p>
+&lt;p>If we take the $i^{\text{th}}$ column of this equation,
+$$
+AA^Tu_i = u_is_i^2
+$$&lt;/p>
+&lt;p>This means $u_i$&amp;rsquo;s are the eigenvectors of $AA^T$ with corresponding eigenvalues $s_i^2$.&lt;/p>
+&lt;p>$$
+A^TA(A^Tu_i) = (A^Tu_i)s_i^2\\
+\ \\
+A^TAw_i = w_is_i^2\\
+$$
+Therefore $s_i^2$ is also an eigenvalue of $A^TA$. Hence proved that eigenvalues of $AA^T$ and $A^TA$ are squares of singular values of $A$.&lt;/p>
+&lt;p>b) Let $A$ be the any matrix with SVD as given below,
+$$
+A = USV^T\\
+\implies AA^T = USS^TU^T\\
+\begin{align*}
+\implies\text{Tr}(AA^T) &amp;amp; = \text{Tr}(USS^TU^T)\\
+&amp;amp; = \text{Tr}(UU^TSS^T)\\
+&amp;amp; = \text{Tr}(SS^T)\\
+&amp;amp; = \sum_{i=0}^{d}s_i^2
+\end{align*}
+$$
+where $d=\text{rank}(AA^T)$. Here we have used the result that $\text{Tr}(AB)=\text{Tr}(BA)$.&lt;/p>
+&lt;p>$$
+\begin{align*}
+\text{Tr}(AA^T) &amp;amp; = \sum_{i=0}^m\sum_{j=0}^na_{ij}^2\\
+\therefore \sum_{i=0}^ds_i^2 &amp;amp; = \|A\|_{F}^2
+\end{align*}\\
+$$
+Hence proved, squared Frobenius norm of any matrix is the same as sum of squares of it&amp;rsquo;s singular values.&lt;/p>
+&lt;p>c) $U$ and $V$ that are computed using the &lt;code>eig&lt;/code> function will have different ordering eigenvectors corresponding to the same eigenvalues. This happens because MATLAB doesn&amp;rsquo;t guarantee that all the non-zero eigenvalues will be reported at the beginning of this eigen-decomposition. Hence even though $S$ has all the singular values in the diagonal from the start and expects the eigenvectors in $U$ and $V$ to follow this same ordering, this gets violated when taking the product $USV^T$ and it comes out unequal to $A$.&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
 &lt;dd>&lt;ul>
@@ -474,8 +798,8 @@ Tighter bounds for higher batch-sizes.&lt;/p>
 &lt;li>$s_W^\prime$ and $s_B^\prime$ exist&lt;/li>
 &lt;/ul>
 &lt;/blockquote>
-&lt;h2 id="pure-strategies">Pure Strategies&lt;/h2>
-&lt;h3 id="normal-form-games">Normal Form Games&lt;/h3>
+&lt;h2 id="normal-form-games">Normal Form Games&lt;/h2>
+&lt;h3 id="pure-strategies">Pure Strategies&lt;/h3>
 &lt;dl>
 &lt;dt>&lt;strong>Static Game&lt;/strong> $\langle N, \{S_i|i\in N\}, \{u_i | i\in N\} \rangle$&lt;/dt>
 &lt;dd>A game where player interact only once&lt;/dd>
@@ -497,7 +821,7 @@ Tighter bounds for higher batch-sizes.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Finite Game&lt;/strong> : A static game where $\forall i\in N,\ S_i$ is finite&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="dominance">Dominance&lt;/h3>
+&lt;h4 id="dominance">Dominance&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>Strictly Dominated Strategy&lt;/strong>&lt;/dt>
 &lt;dd>$s_i^\prime\in S_i,\ \exists s_i\in S_i,\ \forall s_{-i}\in S_{-i},\ u_i(s_i, s_{-i})&amp;gt;u_i(s_i^\prime,s_{-i})$&lt;/dd>
@@ -508,8 +832,8 @@ Tighter bounds for higher batch-sizes.&lt;/p>
 &lt;dt>&lt;strong>Weakly Dominant Strategy&lt;/strong>&lt;/dt>
 &lt;dd>$s_i^\prime\in S_i, \forall s_i\in S_i-\{s_i^\prime\},\ s_i$ is weakly dominated by $s_i^\prime$&lt;/dd>
 &lt;/dl>
-&lt;h3 id="equilibria">Equilibria&lt;/h3>
-&lt;h4 id="dominant-strategy-equilibrium">Dominant Strategy Equilibrium&lt;/h4>
+&lt;h4 id="equilibria">Equilibria&lt;/h4>
+&lt;h5 id="dominant-strategy-equilibrium">Dominant Strategy Equilibrium&lt;/h5>
 &lt;dl>
 &lt;dt>&lt;strong>Strictly Dominant Strategy Equilibrium [SDSE]&lt;/strong>&lt;/dt>
 &lt;dd>A strategy profile $(s_1^\ast,s_2^\ast,\dots,s_n^\ast)$, such that $\forall i\in N,\ s_i^\ast$ is a strictly dominant strategy&lt;/dd>
@@ -522,7 +846,7 @@ So it can be useful to remove such strategies.
 Strictly dominated strategies can be removed in any order.
 Weakly dominated strategies&amp;rsquo; order of removal matters as it can remove important outcomes.&lt;/p>
 &lt;/blockquote>
-&lt;h4 id="nash-equilibrium">Nash Equilibrium&lt;/h4>
+&lt;h5 id="nash-equilibrium">Nash Equilibrium&lt;/h5>
 &lt;dl>
 &lt;dt>&lt;strong>Pure Strategy Nash Equilibrium [PSNE]&lt;/strong>&lt;/dt>
 &lt;dd>A strategy profile $(s_i^\ast, s_{-i}^\ast)$ such that $\forall i\in N$ and $\forall s_i\in S_i$,
@@ -538,7 +862,7 @@ $$&lt;/dd>
 &lt;blockquote>
 &lt;p>SDSE $\implies$ WDSE $\implies$ PSNE&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="risk-aversion">Risk Aversion&lt;/h3>
+&lt;h4 id="risk-aversion">Risk Aversion&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>Max-Min Strategy&lt;/strong> ($s_i^{\max\min}$)&lt;/dt>
 &lt;dd>$s_i^{\max\min}\in\arg\max_{s_i\in S_i}\min_{s_{-i}\in S_i}u_i(s_i,s_{-i})$&lt;/dd>
@@ -554,12 +878,12 @@ $$&lt;/dd>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : Every PSNE $s^\ast=(s_1^\ast,\dots,s_n^\ast)$ satisfies $u_i(s^\ast)\ge\underline v_i,\ \forall i\in N$&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="elimination-of-dominated-strategies">Elimination of dominated strategies&lt;/h3>
-&lt;h4 id="preservation-of-max-min-value">Preservation of Max-Min value&lt;/h4>
+&lt;h4 id="elimination-of-dominated-strategies">Elimination of dominated strategies&lt;/h4>
+&lt;h5 id="preservation-of-max-min-value">Preservation of Max-Min value&lt;/h5>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$, let $s_j^\prime\in S_j$ be a dominated strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$&lt;/p>
 &lt;/blockquote>
-&lt;h4 id="preservation-of-psne">Preservation of PSNE&lt;/h4>
+&lt;h5 id="preservation-of-psne">Preservation of PSNE&lt;/h5>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : For NFG $G$ and $G^\prime$ after elimination of &lt;strong>any&lt;/strong> strategy, if $s^\ast$ is a PSNE in $G$ and survives in $G^\prime$, then $s^\ast$ is a PSNE in $G^\prime$ too.&lt;/p>
 &lt;/blockquote>
@@ -567,7 +891,7 @@ $$&lt;/dd>
 &lt;p>No new PSNE if eliminated strategy is dominated.
 Old PSNE could be killed.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="matrix-games">Matrix Games&lt;/h3>
+&lt;h4 id="matrix-games">Matrix Games&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>Matrix Game&lt;/strong>&lt;/dt>
 &lt;dd>A NFG $\langle N, \{S_i|i\in N\}, \{u_i|i\in N\}\rangle$ with $N=\{1,2\}$ and $u_1(s)+u_2(s)=0,\ \forall$ strategy profile $s\in S$&lt;/dd>
@@ -596,16 +920,16 @@ Old PSNE could be killed.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>PSNE Theorem&lt;/strong> : A Matrix game has a PSNE $\iff$ $\bar v=\underline v=U(s_1^\ast, s_2^\ast)$ where $s_1^\ast$ and $s_2^\ast$ are $\max\min$ and $\min\max$ strategies for player 1 and 2 respectively. $(s_1^\ast, s_2^\ast)$ is that PSNE.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="mixed-strategies">Mixed Strategies&lt;/h2>
+&lt;h3 id="mixed-strategies">Mixed Strategies&lt;/h3>
 &lt;dl>
 &lt;dt>&lt;strong>Mixed Strategy Set&lt;/strong> ($\Delta A$)&lt;/dt>
 &lt;dd>$\Delta A = \{p:A\to[0,1]^{|A|}\ |\ \sum_{a\in A}p(a) = 0\}$&lt;/dd>
 &lt;dt>&lt;strong>Mixed Strategy&lt;/strong> ($\sigma_i$)&lt;/dt>
 &lt;dd>For player $i$, $\sigma_i:S_i\to[0,1]$ such that $\sum_{s_i\in S_i}\sigma_i(s_i)=1$&lt;/dd>
 &lt;dt>&lt;strong>Utility&lt;/strong> ($u_i(\sigma_i,\sigma_{-i})$)&lt;/dt>
-&lt;dd>$u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^N\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$&lt;/dd>
+&lt;dd>$u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^n\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$&lt;/dd>
 &lt;/dl>
-&lt;h3 id="mixed-strategy-nash-equilibrium">Mixed Strategy Nash Equilibrium&lt;/h3>
+&lt;h4 id="mixed-strategy-nash-equilibrium">Mixed Strategy Nash Equilibrium&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>MSNE&lt;/strong>&lt;/dt>
 &lt;dd>A mixed strategy profile $(\sigma_i^\ast, \sigma_{-i}^\ast)$ such that,
@@ -620,7 +944,7 @@ $$&lt;/dd>
 &lt;p>&lt;strong>Theorem&lt;/strong> : $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE $\iff$ $\forall s_i\in S_i,\ \forall i\in N$,
 $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)\ge u_i(s_i,\sigma_{-i}^\ast)$$&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="msne-characterization-theorem">MSNE Characterization Theorem&lt;/h3>
+&lt;h4 id="msne-characterization-theorem">MSNE Characterization Theorem&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>Support for Mixed Strategy&lt;/strong> ($\delta(\sigma_i)$)&lt;/dt>
 &lt;dd>$\delta(\sigma_i)=\{s_i\in S_i|\ \sigma_i(s_i)&amp;gt;0\}$&lt;/dd>
@@ -638,7 +962,7 @@ $$ \max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i})=\max_{s_i\in S_i}u_i(s_
 &lt;li>If $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE, then
 $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)=\max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i}^\ast)=\max_{s_i\in S_i}u_i(s_i,\sigma_{-i}^\ast)=\max_{s_i\in\delta(\sigma_i)}u_i(s_i,\sigma_{-i}^\ast) $$&lt;/li>
 &lt;/ul>
-&lt;h3 id="algorithm-for-msne">Algorithm for MSNE&lt;/h3>
+&lt;h4 id="algorithm-for-msne">Algorithm for MSNE&lt;/h4>
 &lt;p>For every support profile $X_1\times X_2\times\cdots X_n$ where $X_i\sube S_i$, solve the following feasibility program to get the MSNE,
 $$
 w_i = \sum_{s_{-i}\in S_{-i}}(\prod_{j\not =i}\sigma_j(s_j))\cdot u_i(s_i,s_{-i}),\ \forall s_i\in X_i,\ \forall i\in N\\
@@ -651,7 +975,7 @@ $$&lt;/p>
 &lt;li>No poly-time algorithm for general game&lt;/li>
 &lt;li>This is PPAD-complete (Polynomial Parity Argument on Directed graphs)&lt;/li>
 &lt;/ul>
-&lt;h3 id="existence-of-msne">Existence of MSNE&lt;/h3>
+&lt;h4 id="existence-of-msne">Existence of MSNE&lt;/h4>
 &lt;dl>
 &lt;dt>&lt;strong>Finite Game&lt;/strong>&lt;/dt>
 &lt;dd>A game with finite number of players and each player has a finite set of strategies&lt;/dd>
@@ -659,7 +983,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : Every finite game has a (mixed) Nash equilibrium.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="correlated-strategies">Correlated Strategies&lt;/h2>
+&lt;h3 id="correlated-strategies">Correlated Strategies&lt;/h3>
 &lt;dl>
 &lt;dt>&lt;strong>Correlated Strategy&lt;/strong> ($\pi$)&lt;/dt>
 &lt;dd>A mapping $\pi:S_1\times S_2\times\cdots\times S_n\rightarrow[0,1]$ such that $\sum_{s\in S}\pi(s)=1$&lt;/dd>
@@ -805,6 +1129,441 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Theorem&lt;/strong> : If $i$ is a player with perfect recall and $x$ and $x^\prime$ are the two vertices in the same information set of i, then $S_i^\ast(x) = S_i^\ast(x^\prime)$.&lt;/p>
 &lt;p>&lt;strong>Kuhn Theorem&lt;/strong> : In every IIEFG, if $i$ is a player with perfect recall then for every mixed strategy of $i$, there exists a behavioural strategy.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="bayesian-beliefs">Bayesian Beliefs&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Beliefs&lt;/strong> ($\mu_i^j:I_i^j\to[0,1]$)&lt;/dt>
+&lt;dd>Distribution over an information set such that $\sum_{x\in I_i^j}u_i^j(x)=1$&lt;/dd>
+&lt;dt>&lt;strong>Bayesian Belief&lt;/strong> ($\mu_i = \{\mu_i^1,\mu_i^2,\dots,\mu_i^{k(i)}\}$)&lt;/dt>
+&lt;dd>When derived from a behavioral strategy $\sigma$ such that, $\forall x\in I_i^j,\forall j\in \{1, 2, \dots, k(i)\}$,
+$$\mu_i^j(x) = P_\sigma(x) / \sum_{y\in I_i^j}P_\sigma(y)$$&lt;/dd>
+&lt;dt>&lt;strong>Sequantial Rationality&lt;/strong>&lt;/dt>
+&lt;dd>A strategy $\sigma_i$ at an information set $I_i^j$ is sequentially rational given $\sigma_{-i}$ and partial belief $\mu_i^j$ if,
+$$\sum_{x\in I_i^j}\mu_i^j(x)u(\sigma_i,\sigma_{-i}|x)\ge\sum_{x\in I_i^j}\mu_i^j(x)u(\sigma_i^\prime,\sigma_{-i}|x)$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Sequential Rationality is a refinement on Nash Equilibrium.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong>: In PIEFGs, a behavioral strategy profile $\sigma$ is an SPNE iff the tuple $(\sigma, \hat\mu)$ is sequentially rational.&lt;/p>
+&lt;p>Here $\hat\mu$ is the degenrate distribution since in PIEFGs all information sets are singleton.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Perfect Bayesian Equilibrium&lt;/strong> $(\sigma, \mu)$&lt;/dt>
+&lt;dd>$\forall i\in N$,
+&lt;ul>
+&lt;li>$\mu_i$ is Bayesian w.r.t. $\sigma$&lt;/li>
+&lt;li>$\sigma_i$ is sequentially rational given $\sigma_{-i}$ and $\mu_i$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h2 id="bayesian-games">Bayesian Games&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>Bayesian Games&lt;/strong> $\langle N, \{\Theta_i:i\in N\}, P, \{\Gamma_\theta:\theta\in(\times_{i\in N}\Theta_i)\}\rangle$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$N$ : Set of players&lt;/li>
+&lt;li>$\Theta_i$ : Set of types of player $i$&lt;/li>
+&lt;li>$P$ : Common prior distribution over $\Theta=\times_{i\in N}\Theta_i$&lt;/li>
+&lt;li>$\Gamma_\theta$ : NFG for type profile $\theta\in\Theta$ i.e. $\Gamma_\theta = \langle N,\{A_i(\theta):i\in N\},\{u_i(\theta):i\in N\}\rangle$ where $u_i:A\times\Theta\to\R$ and $A=\times_{i\in N}A_i\ \forall\theta$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Strategy&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Pure: $s_i:\Theta_i\to A_i$&lt;/li>
+&lt;li>Mixed: $\Theta_i\to\Delta A_i$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Ex-ante Utility&lt;/strong>&lt;/dt>
+&lt;dd>Expected utility before observing own types,
+$$u_i(\sigma) = \sum_{\theta\in\Theta}P(\theta)u_i(\sigma(\theta);\theta)\\
+\ \\
+\sum_{\theta\in\Theta}P(\theta)\sum_{(a_1,a_2,a_3,\dots,a_n)\in A}\prod_{j\in N}\sigma_j(\theta_j)[a_j]u_i(a_1,\dots,a_n;\theta_1,\dots,\theta_n)$$&lt;/dd>
+&lt;dt>&lt;strong>Ex-interim Utility&lt;/strong>&lt;/dt>
+&lt;dd>Expected utility after observing one&amp;rsquo;s own type,
+$$u_i(\sigma|\theta_i)=\sum_{\theta_{-i}\in\Theta_{-i}}P(\theta_{-i}|\theta_i)u_i(\sigma(\theta);\theta)$$&lt;/dd>
+&lt;/dl>
+&lt;h3 id="equilibria-1">Equilibria&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Ex ante Equilibrium&lt;/strong> $(\sigma^\star,P)$&lt;/dt>
+&lt;dd>Nash Equilibrium,
+$$u_i(\sigma^\star_i,\sigma^\star_{-i})\ge u_i(\sigma^\prime_i, \sigma^\star_{-i}),\forall\sigma_i^\prime,\forall i\in N$$&lt;/dd>
+&lt;dt>&lt;strong>Ex interim Equilibrium&lt;/strong> $(\sigma^\star, P)$&lt;/dt>
+&lt;dd>Byesian Equilibrium,
+$$u_i(\sigma_i^\star(\theta_i),\sigma_{-i}^\star|\theta_i)\ge u_i(\sigma_i^\prime(\theta_i),\sigma_{-i}^\star|\theta_i),\ \forall\sigma^\prime_i,\forall\theta_i\in\Theta_i,\forall i\in N$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong>: In a finite Bayesian Game, a strategy profile is Bayeisan Equilibrium iff it is a Nash Equilibrium.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong>: Every finite Bayesian game has a Bayesian Equilibrium.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mechanism-design">Mechanism Design&lt;/h2>
+&lt;dl>
+&lt;dt>&lt;strong>General Model&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$N$ - set of players&lt;/li>
+&lt;li>$X$ - set of outcomes&lt;/li>
+&lt;li>$\Theta_i$ - set of private information of player $i\in N$
+&lt;ul>
+&lt;li>$\theta_i\in\Theta_i$ - a type of player $i$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Type can manifest in preferences over the outcomes in different ways:
+&lt;ul>
+&lt;li>Ordinal - $\theta_i$ defines an ordering over the outcomes&lt;/li>
+&lt;li>Cardinal - an utility function maps the an (outcomes, type) pair to real numbers
+&lt;ul>
+&lt;li>$u_i:X\times\Theta_i\to\R$ : private value model&lt;/li>
+&lt;li>$u_i:X\times\Theta\to\R$ : interdependent value model&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Social Choice Function&lt;/strong> ($f$)&lt;/dt>
+&lt;dd>$f:\times_{i\in N}\Theta_i\to X$&lt;/dd>
+&lt;dt>&lt;strong>Indirect Mechanism&lt;/strong> $\langle M_1,M_2,\dots,M_N,g\rangle$&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$M_i$ is the message space of player $i$&lt;/li>
+&lt;li>$g:M_1\times M_2\times\dots\times M_N\to X$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Direct Mechanism&lt;/strong> $\langle\Theta_1,\dots,\Theta_N, g\rangle$&lt;/dt>
+&lt;dd>An indirect mechanism such that $M_i=\Theta_i,\ \forall i\in N$&lt;/dd>
+&lt;dt>&lt;strong>Weak Dominance&lt;/strong>&lt;/dt>
+&lt;dd>For a message $m_i$ of player $i$ at $\theta_i$,
+$$u_i(m_i,m_{-i})\ge u_i(m_i^\prime,m_{-i}),\ \forall m_i^\prime,\ \forall m_{-i}$$&lt;/dd>
+&lt;dt>&lt;strong>Dominant Strategy Implementable [DSI]&lt;/strong>&lt;/dt>
+&lt;dd>An indirect mechanism that implements a SCF through dominance with,
+&lt;ul>
+&lt;li>$\exist s_i:\Theta_i\to M_i$ such that $s_i(\theta_i)$ is a dominant strategy for player $i$ at $\theta_i,\ \forall\theta_i\ \forall i\in N$&lt;/li>
+&lt;li>$g(s_1(\theta_1),\dots,s_N(\theta_N))=f(\theta),\ \forall\theta\in\Theta$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Dominant Strategy Incentive Compatible [DSIC]&lt;/strong>&lt;/dt>
+&lt;dd>A direct mechanism such that,
+$$u_i(g(\theta_i,\theta_{-i}),\theta_i)\ge u_i(g(\theta_i^\prime,\theta_{-i}),\theta_i),\ \forall\theta_{-i},\theta_i^\prime,\theta_i,\ \forall i\in N$$
+&lt;blockquote>
+&lt;p>&lt;strong>Revelation Principle&lt;/strong>: An indirect mechanism is DSI $\implies$ it is DSIC.&lt;/p>
+&lt;/blockquote>
+&lt;/dd>
+&lt;dt>&lt;strong>Bayesian Implementable&lt;/strong>&lt;/dt>
+&lt;dd>An indirect mechanism that implements a SCF through Bayesian Equilibrium with,
+&lt;ul>
+&lt;li>$\exist, s_i:\Theta_i\to M_i$ such that $s_i(\theta_i)$ maximises ex-interim utility for player $i$ at $\theta_i,\ \forall\theta_i\ \forall i\in N$, i.e.,
+$$
+\mathbb{E}[u_i(g(s_i(\theta_i),s_{-i}(\theta_{-i})),\theta_i)\ |\ \theta_i]\ge\mathbb{E}[u_i(g(m_i^\prime,s_{-i}(\theta_{-i})),\theta_i)\ |\ \theta_i],\ \forall m_i^\prime,\theta_i,\ \forall i\in N
+$$&lt;/li>
+&lt;li>$g(s_i(\theta_i),s_{-i}(\theta_{-i}))=f(\theta),\ \forall\theta\in\Theta$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>An indirect mechanism is DSI $\implies$ it is Bayesian implementable.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Bayeisan Incentive Compatible [BIC]&lt;/strong>&lt;/dt>
+&lt;dd>A direct mechanism such that,
+$$\mathbb{E}[u_i(f(\theta_i,\theta_{-i}),\theta_i)\ |\ \theta_i]\ge\mathbb{E}[u_i(f(\theta_i^\prime,\theta_{-i}),\theta_i)\ |\ \theta_i],\ \forall \theta_{-i},\theta_i^\prime,\theta_i,\ \forall i\in N$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>An indirect mechanism is Bayesian Implementable $\implies$ it is BIC.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="arrows-impossibility-result">Arrow&amp;rsquo;s Impossibility Result&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Individual Preferences&lt;/strong> ($R_i$)&lt;/dt>
+&lt;dd>$\mathcal{R}$ is the set of ordering relations over a set of alternatives $A=\{a_1,a_2,\dots,a_m\}$. Every player has a preference $R_i\in\mathcal{R},\ \forall i\in N$ such that,
+&lt;ul>
+&lt;li>Completeness: $\forall a,b\in A$, $aR_ib$ or $bR_ia$&lt;/li>
+&lt;li>Reflexivity: $\forall a\in A$, $aR_ia$&lt;/li>
+&lt;li>Transitivity: $\forall a,b,c\in A$, $aR_ib\And bR_ic\implies aR_ic$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Linear Preferences&lt;/strong> ($P_i$)&lt;/dt>
+&lt;dd>$R_i$ such that $\forall a,b\in A$, $aR_ib\And bR_ia\implies a=b$
+&lt;ul>
+&lt;li>Set of all linear preferences is called $\mathcal{P}$.&lt;/li>
+&lt;li>Any arbitrary preference ordering $R_i$ can be decomposed into,
+&lt;ul>
+&lt;li>Asymmetric: $P_i$&lt;/li>
+&lt;li>Symmetric: $I_i$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Arrovian Social Welfare Function [ASWF]&lt;/strong> ($F:\mathcal{R}^n\to\mathcal{R}$)&lt;/dt>
+&lt;dd>Capture the collective ordering of the society given the individual preferences.
+&lt;ul>
+&lt;li>$F(R)=F(R_1,R_2,\dots,R_N)$&lt;/li>
+&lt;li>$\hat F(R)$ is the asymmetric part of $F(R)$&lt;/li>
+&lt;li>$\bar F(R)$ is the symmetric part of $F(R)$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Weak Pareto [WP]&lt;/strong>&lt;/dt>
+&lt;dd>F such that $\forall a,b\in A,\forall R\in \mathcal{R}^n$
+$$\forall i\in N, aP_ib\implies a\hat F(R)b$$&lt;/dd>
+&lt;dt>&lt;strong>Strong Pareto [SP]&lt;/strong>&lt;/dt>
+&lt;dd>F such that $\forall a,b\in A,\forall R\in \mathcal{R}^n$
+$$\forall i\in N, aR_ib\ \And\ \exist j\in N, aP_jb\implies a\hat F(R)b$$&lt;/dd>
+&lt;dt>&lt;strong>Agreement&lt;/strong> ($R|_{a,b}$)&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$R_i,R_i^\prime\in \mathcal{R}$ agree on $a,b\in A$ for agent $i$ iff,
+$$
+aP_ib\iff aP_i^\prime b\ ||\ bP_ia\iff bP_i^\prime a\ ||\ aI_ib\iff aI_i^\prime b
+$$&lt;/li>
+&lt;li>This means $R_i|_z=R_i^\prime|_z$ where $z=\{a,b\}$&lt;/li>
+&lt;li>When this holds for every $i\in N$, $R|_z=R^\prime|_z$ where $z=\{a,b\}$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Independence of Irrelevant Alternatives [IIA]&lt;/strong>&lt;/dt>
+&lt;dd>$F$ such that $\forall a,b\in A,\ \forall R,R^\prime\in\mathcal{R}^n$ and $z=\{a,b\}$,
+$$R|_z=R^\prime|_z\implies F(R)|_z=F(R^\prime)|_z$$&lt;/dd>
+&lt;dt>&lt;strong>Dictatorship&lt;/strong> $F^d$&lt;/dt>
+&lt;dd>An ASWF where for an agent $d$, $F^d(R) = R_d$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Arrow&amp;rsquo;s Theorem&lt;/strong>: For $|A|\ge3$ if $F$ is $IIA$ and $WP$ then $F$ must be dictatorial.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="social-choice-functions">Social Choice Functions&lt;/h3>
+&lt;dl>
+&lt;dt>&lt;strong>Social Choice Function [SWF]&lt;/strong> $f:\mathcal{P}^n\to A$&lt;/dt>
+&lt;dd>Here $\mathcal{P}$ is the set of all linear preference orderings and $A$ is the set of alternatives&lt;/dd>
+&lt;/dl>
+&lt;p>One SCF is voting where the scoring is done by any one of the following methods and the winner is the alternative with the highest score:&lt;/p>
+&lt;ol>
+&lt;li>Plurality: $(1,0,\dots,0,0)$&lt;/li>
+&lt;li>Veto: $(1,1,\dots,1,0)$&lt;/li>
+&lt;li>Borda: $(m-1,m-2,\dots,1,0)$&lt;/li>
+&lt;li>Harmonic: $(1,1/2,\dots,1/(m-1),1/m)$&lt;/li>
+&lt;li>$k$-approval: $(1,\cdots (k\text{ times})\cdots,1,0,\dots,0)$&lt;/li>
+&lt;li>Plurality with runoff (eliminations)&lt;/li>
+&lt;li>Maxmin: $\text{score}(a)=\min_y|\{i:aP_iy\}|$&lt;/li>
+&lt;li>Copeland: Score is number of wins in pairwise elections&lt;/li>
+&lt;/ol>
+&lt;dl>
+&lt;dt>&lt;strong>Condorcet Winner&lt;/strong>&lt;/dt>
+&lt;dd>A candidate that defeats all other candidates in pairwise election&lt;/dd>
+&lt;dt>&lt;strong>Condorcet Consistent&lt;/strong>&lt;/dt>
+&lt;dd>A voting rule that always selects the &lt;em>Condorcet winner&lt;/em> when one exists.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>None out of Plurality, Copeland, Maxmin are Condorcet consistent.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Pareto Dominance&lt;/strong>&lt;/dt>
+&lt;dd>An alternative $a$ is Pareto dominant over $b$ when $\forall i\in N,\ aP_ib$.&lt;/dd>
+&lt;dt>&lt;strong>Pareto Efficiency [PE]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\forall P\in \mathcal{P}^n$ and $\forall a\in A$, a is Pareto dominated $\implies f(P)\not ={a}$&lt;/dd>
+&lt;dt>&lt;strong>Unanimity [UN]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\forall P\in\mathcal{P}^n$ and $\exists a\in A$, $P_1(1)=P_2(1)=\dots=P_N(1)=a\implies f(P)=a$&lt;/dd>
+&lt;dt>&lt;strong>Onto [ONTO]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\forall a\in A$, $\exists P^{(a)}\in\mathcal{P}^n$ where $f(P^{(a)})=a$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>PE $\implies$ UN $\implies$ ONTO&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Manipulability&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\exists i\in N$ and a profile $P\in\mathcal{P}^n$ such that $\exists P_i^\prime,\ f(P_i^\prime,P_{-i})P_if(P_i,P_{-i})$&lt;/dd>
+&lt;dt>&lt;strong>Strategy-proof [SP]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF that is not manipulable by any player for any profile&lt;/dd>
+&lt;dt>&lt;strong>Dominated Set&lt;/strong> ($D:A\times\mathcal{P}\to \mathcal{P}(A)$)&lt;/dt>
+&lt;dd>$D(a,P_i)=\{b\in A:aP_ib\}$&lt;/dd>
+&lt;dt>&lt;strong>Monotone [MONO]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\forall P,P^\prime\in\mathcal{P}^n$ and $\exists a\in A$, $f(P)=a$ and $D(a,P_i)\sube D(a,P_i^\prime)\ \forall i\in N\implies f(P^\prime)=a$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : SP $\iff$ MONO.&lt;/p>
+&lt;p>&lt;strong>Lemma&lt;/strong> : MONO+ONTO $\implies$ PE.&lt;/p>
+&lt;p>&lt;strong>Corollary&lt;/strong> : SP+PE $\iff$ SP+UN $\iff$ SP+ONTO&lt;/p>
+&lt;p>&lt;strong>Gareth and Satterthwaite Theorem&lt;/strong> : If $|A|\ge 3$ then SP+ONTO $\iff$ Dictatorial.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="domain-restrictions">Domain Restrictions&lt;/h3>
+&lt;h4 id="single-peaked-preferences">Single Peaked Preferences&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Single Peaked Preferences&lt;/strong> ($\mathcal{S}$)&lt;/dt>
+&lt;dd>Set of linear preferences $P$ w.r.t. a common order $&amp;lt;$ over the alternatives such that
+&lt;ul>
+&lt;li>$\forall b,c\in A,\ b&amp;lt;c\le P(1)\implies cPb$&lt;/li>
+&lt;li>$\forall b,c\in A,\ P(1)\le b&amp;lt;c\implies bPc$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>From now onwards $f:\mathcal{S}^n\to A$&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Median Voter SCF&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\exists B=\{y_1, y_2,\dots,y_{n-1}\},\forall P\in\mathcal{S}^n,\ f(P)=\text{median}(B\cup\text{peaks}(P))$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Points in $B$ are called phantom peaks and these are independent of $P$.&lt;/p>
+&lt;p>&lt;strong>Moulin&amp;rsquo;s Theorem&lt;/strong> : Every median voter SCF is SP.&lt;/p>
+&lt;p>&lt;strong>Claim&lt;/strong> : Let $p_{\min}$ and $p_{\max}$ be the leftmost and rightmost peaks of $P$ according to $&amp;lt;$, then $f$ is PE $\iff\ f(P)\in[p_{\min},p_{\max}]$.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong> : SP $\implies$ MONO.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong> : If $f$ is SP then ONTO $\iff$ UN $\iff$ PE.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Anonimity [ANON]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF $f$ such that $\forall P$ and for all permutations of agents $\sigma$, $f(P^\sigma)=f(P)$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Moulin&amp;rsquo;s Theorem 2&lt;/strong> : $f$ is SP+ONTO+ANON $\iff$ $f$ is median voter SCF.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="task-allocation-domain">Task Allocation Domain&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Task Allocation SCFs&lt;/strong> ($f:T^n\to A$)&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Here $A=\{(a_1,a_2,\dots,a_n)\in [0,1]^n\ |\ \sum_{i=1}^na_i=1\}$.&lt;/li>
+&lt;li>For $P\in T^n,\ f(P)=(f_1(P),f_2(P),\dots,f_n(P))$.&lt;/li>
+&lt;li>Each player has a peak allocation $p_i=w/2c_i$ where the reward is given by $wt-c_i t^2$.&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Pareto Efficiency [PE]&lt;/strong>&lt;/dt>
+&lt;dd>An SCF such that $\forall P\in T^n, \not\exists a\in A$,
+$$
+aR_if(P)\ \ \forall i\in N\\
+aP_jf(P)\ \ \exists j\in N
+$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Implications of Pareto Efficiency:&lt;/p>
+&lt;ul>
+&lt;li>If $\sum_{i=1}^np_i=1$ then $\forall i\in N, f_i(P)=p_i$&lt;/li>
+&lt;li>If $\sum_{i=1}^np_i&amp;gt;1$ then $\forall i\in N, f_i(P)\ge p_i$&lt;/li>
+&lt;li>If $\sum_{i=1}^np_i&amp;lt;1$ then $\forall i\in N, f_i(P)\le p_i$&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Serial Dictatorship&lt;/strong>&lt;/dt>
+&lt;dd>Each agent gets their peak allocation except the last one which is given the leftover share.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Serial Dictatorship is not ANON since it is unfair to the last agent.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Proportional SCF&lt;/strong>&lt;/dt>
+&lt;dd>Every agent is assigned a share that is $1/\sum_{i=1}^np_i$ times their peak allocation.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Proportional SCF is not SP.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Uniform Rule&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$\sum_{i=1}^np_i=1:f_i(P)=p_i$&lt;/li>
+&lt;li>$\sum_{i=1}^np_i&amp;gt;1:f_i(P)=\max[p_i,\mu(P)]$ where $\mu$ solves $\sum_{i=1}^n\max[\mu,p_i]=1$&lt;/li>
+&lt;li>$\sum_{i=1}^np_i&amp;lt;1:f_i(P)=\min[p_i,\lambda(P)]$ where $\lambda$ solves $\sum_{i=1}^n\min[\lambda,p_i]=1$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Sprumont Theorem&lt;/strong>: Uniform Rule is SP, ANON and PE.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong>: SCF in task allocation domain is SP, PE and ANON $\iff$ it is an uniform rule.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="quasi-linear-domain">Quasi-Linear Domain&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;strong>Quasi-linear Payoff&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Preferences are of the form $a\in A$&lt;/li>
+&lt;li>Payments are defined for every player as $\pi=(\pi_1,\pi_2,\dots,\pi_n)\in\R^n$&lt;/li>
+&lt;li>Utility of an agent $i$ depends on the outcome $(a,\pi)$ and their type $\theta_i\in\Theta_i$ as,
+$$
+u_i((a,\pi),\theta_i)=v_i(a,\theta_i)-\pi_i
+$$&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Quasi-Linear Preferences&lt;/strong> $(f,p)$&lt;/dt>
+&lt;dd>Has following components,
+&lt;ol>
+&lt;li>Allocation rule:
+$$
+f:\Theta_1\times\Theta_2\times\cdots\times\Theta_n\to A
+$$&lt;/li>
+&lt;li>Payment function: $p=(p_1,p_2,\dots,p_n)$ such that,
+$$
+p_i:\Theta_1\times\Theta_2\times\cdots\times\Theta_n\to\R
+$$&lt;/li>
+&lt;/ol>
+&lt;/dd>
+&lt;/dl>
+&lt;p>Examples of Allocation rules:&lt;/p>
+&lt;ul>
+&lt;li>Constant rule: $f^c(\theta)=a\in A,\forall\theta\in\Theta$&lt;/li>
+&lt;li>Dictatorial rule: $f^D(\theta)=\arg\max_{a\in A}v_d(a,\theta_d),\forall\theta\in\Theta$ and $\exists d\in N$&lt;/li>
+&lt;li>Allocative efficiency / Utilitarian rule:
+$$
+f^{AE}(\theta) = \arg\max_{a\in A}\sum_{i\in N}v_i(a,\theta_i)
+$$&lt;/li>
+&lt;li>Affine Maximizer rule: When $\lambda_i\ge 0$ and not all zero,
+$$
+f^{AM}(\theta) = \arg\max_{a\in A}\left(\sum_{i\in N}\lambda_iv_i(a,\theta_i)+\kappa(a)\right)
+$$&lt;/li>
+&lt;li>Max-min / Egalitarian rule:
+$$
+f^{MM}(\theta) = \arg\max_{a\in A}\min_{i\in N}v_i(a,\theta_i)
+$$&lt;/li>
+&lt;/ul>
+&lt;p>Examples of Payment functions:&lt;/p>
+&lt;ul>
+&lt;li>No deficit: $\sum_{i\in N}p_i(\theta)\ge 0,\forall\theta\in\Theta$&lt;/li>
+&lt;li>No subsidy: $p_i(\theta)\ge 0,\forall\theta\in\Theta,\forall i\in N$&lt;/li>
+&lt;li>Budget Balanced: $\sum_{i\in N}p_i(\theta) = 0,\forall\theta\in\Theta$&lt;/li>
+&lt;/ul>
+&lt;dl>
+&lt;dt>&lt;strong>Dominant Strategy Incentive Compatible [DSIC]&lt;/strong>&lt;/dt>
+&lt;dd>An $(f,p)$ such that $\forall\theta_{-i}\in\Theta_{-i},\forall\theta_i,\tilde\theta_i\in\Theta_i,\forall i\in N$,
+$$v_i(f(\theta_i,\theta_{-i}),\theta_i)-p_i(\theta_i,\theta_{-i})\ge v_i(f(\tilde\theta_i,\theta_{-i}),\theta_i)-p_i(\tilde\theta_i,\theta_{-i})$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>If $(f,p)$ is DSIC then for any $q$ defined as,
+$$
+q_i(\theta_i,\theta_{-i})=p_i(\theta_i,\theta_{-i})+h_i(\theta_{-i}),\ \forall\theta,\forall i\in N
+$$
+$(f,q)$ is also DSIC.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Pareto Optimal&lt;/strong>&lt;/dt>
+&lt;dd>A mechanism $(f,p)$ such that $\forall\theta\in\Theta$ there does not exist $b\in A$ and payments $(\pi_1,\pi_2,\dots,\pi_n)$ with $\sum_{i\in N}\pi_i\ge \sum_{i\in N}p_i(\theta)$,
+$$v_i(b,\theta_i)-\pi_i\ge v_i(f(\theta),\theta_i)-p_i(\theta)$$
+with inequality being strict for some $i\in N$.&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Theorem&lt;/strong> : Pareto Optimal $\iff$ Allocatively efficient.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Groves Payment fucntion&lt;/strong>&lt;/dt>
+&lt;dd>For agent $i\in N$ and an arbitrary $h_i:\Theta_{-i}\to\R$,
+$$p_i^G(\theta_i,\theta_{-i}) = h_i(\theta_{-i})-\sum_{j\not ={i}}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)$$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>Groves payment functions implement the Allocatively efficiency allocation function.&lt;/p>
+&lt;p>&lt;strong>Theorem&lt;/strong>: Groves mechanisms are DSIC.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Vickrey-Clarke-Groves Mechanism [VCG]&lt;/strong>&lt;/dt>
+&lt;dd>Groves mechanism with $h_i(\theta_{-i})$ as,
+$$h_i(\theta_{-i})=\max_{a\in A}\sum_{j\in N,\ j\not={i}}v_j(a,\theta_j)\\
+\ \\
+p_i^{VCG}(\theta_i,\theta_{-i})=\max_{a\in A}\sum_{j\in N,\ j\not={i}}v_j(a,\theta_j)-\sum_{j\in N,\ j\not={i}}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)\\
+\ \\
+u_i^{VCG}(\theta_i,\theta_{-i}) = \sum_{j\in N}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)-\max_{a\in A}\sum_{j\in N,\ j\not={i}}v_j(a,\theta_j)$$&lt;/dd>
+&lt;dt>&lt;strong>Combinatorial Allocation&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>$M=\{1,2,\dots,m\}$ : set of objects&lt;/li>
+&lt;li>$\Omega=2^M$ : set of bundles&lt;/li>
+&lt;li>$\theta_i:\Omega\to\R$ : type/values of player $i$ such that $\theta_i(s)\ge 0,\ \forall s\in\Omega$ and $\theta_i(a)=\theta_i(a_i)$&lt;/li>
+&lt;li>$N=\{1,2,\dots,n\}$ : set of agents&lt;/li>
+&lt;li>$A=\{(a_0,a_1,\dots,a_n)\ |\ a_i\in\Omega,a_i\cap a_j=\empty\ \forall i\not={j},\bigcup_{i=0}^na_i=\Omega\}$ : set of allocations where $a_0$ is the set of unallocated items&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Claim&lt;/strong>: The payment of an agent that gets no goods in VCG mechanism is zero.&lt;/p>
+&lt;/blockquote>
+&lt;dl>
+&lt;dt>&lt;strong>Individually Rational&lt;/strong>&lt;/dt>
+&lt;dd>A mechanism $(f,p)$ such that $v_i(f(\theta),\theta_i)-p_i(\theta)\ge 0,\ \forall\theta\in\Theta,\ \forall i\in N$&lt;/dd>
+&lt;/dl>
+&lt;blockquote>
+&lt;p>&lt;strong>Claim&lt;/strong>: In allocation of goods VCG mechanism is Individually rational.&lt;/p>
 &lt;/blockquote></description></item><item><title>Artificial Intelligence and Machine Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</link><pubDate>Mon, 05 Sep 2022 06:52:35 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/ai_ml/</guid><description>&lt;h2 id="probability">Probability&lt;/h2>
 &lt;h3 id="basic-terms">Basic Terms&lt;/h3>
 &lt;h4 id="sample-space">Sample Space&lt;/h4>

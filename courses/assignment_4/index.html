@@ -1,0 +1,205 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=author content="Aditya Kadoo"><meta name=description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><link rel=icon href=https://adityakadoo.github.io/Scrolls/favicon.ico><meta name=keywords content=" hugo  latex  theme "><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css integrity=sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js integrity=sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],ignoredTags:["script","noscript","style","textarea","pre","code","option"],throwOnError:!1})})</script><meta property="og:title" content="Assignment 4"><meta property="og:description" content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><meta property="og:type" content="article"><meta property="og:url" content="https://adityakadoo.github.io/Scrolls/courses/assignment_4/"><meta property="article:section" content="courses"><meta property="article:published_time" content="2023-10-26T16:59:53+05:30"><meta property="article:modified_time" content="2023-10-26T16:59:53+05:30"><link rel=canonical href=https://adityakadoo.github.io/Scrolls/courses/assignment_4/><meta itemprop=name content="Assignment 4"><meta itemprop=description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><meta itemprop=datePublished content="2023-10-26T16:59:53+05:30"><meta itemprop=dateModified content="2023-10-26T16:59:53+05:30"><meta itemprop=wordCount content="1089"><meta itemprop=keywords content><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/common.css><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/content.css><title>Assignment 4 - Scrolls</title><meta name=twitter:card content="summary"><meta name=twitter:title content="Assignment 4"><meta name=twitter:description content="Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)"><link rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/single.css></head><body><div id=wrapper><header id=header><h1>Assignment 4</h1><nav><span class=nav-bar-item><a class=link href></a></span></nav><p>Aditya Kadoo(200050055), Prerak Meshram(200050110) and Shikhar Mundra(200050131)</p></header><main id=main class=post><article class=content><div class=tableofcontent><h2>Contents</h2><nav id=TableOfContents><ol><li><a href=#problem-1>Problem 1</a><ol><li><a href=#orl-dataset-recognition>ORL Dataset recognition</a></li><li><a href=#yale-dataset-recognition>Yale Dataset recognition</a></li><li><a href=#face-reconstruction>Face Reconstruction</a></li><li><a href=#eigenfaces>Eigenfaces</a></li></ol></li><li><a href=#problem-2>Problem 2</a><ol><li><a href=#proposed-mechanism>Proposed Mechanism</a></li><li><a href=#results>Results</a></li></ol></li><li><a href=#problem-3>Problem 3</a></li><li><a href=#problem-4>Problem 4</a></li><li><a href=#problem-5>Problem 5</a></li></ol></nav></div><h2 id=problem-1>Problem 1</h2><h3 id=orl-dataset-recognition>ORL Dataset recognition</h3><p>Graphs of recognition rates for different values of $k$ (principal components).</p><table><thead><tr><th>Eigen-decomposition</th><th>Singular Value Decomposition</th></tr></thead><tbody><tr><td><img src=images/ORL-PCA.png alt=eig-1></td><td><img src=images/ORL-PCA-without-ticks-SVD.png alt=svd-1></td></tr></tbody></table><h3 id=yale-dataset-recognition>Yale Dataset recognition</h3><p>Graphs of recognition rates for different values of $k$ (principal components).</p><table><thead><tr><th>All eigen components</th></tr></thead><tbody><tr><td><img src=images/Yale-PCA.png alt=eig-1></td></tr></tbody></table><table><thead><tr><th>All but top 3 eigen components</th></tr></thead><tbody><tr><td><img src=images/Yale-PCA-illum.png alt=svd-1></td></tr></tbody></table><h3 id=face-reconstruction>Face Reconstruction</h3><p>Face reconstruction done on the first image of first subject in ORL dataset.</p><table><thead><tr><th>-</th><th>-</th><th>-</th></tr></thead><tbody><tr><td><img src=images/Reconstructed-Image-k-2.png alt=a></td><td><img src=images/Reconstructed-Image-k-10.png alt=b></td><td><img src=images/Reconstructed-Image-k-20.png alt=c></td></tr><tr><td><img src=images/Reconstructed-Image-k-50.png alt=d></td><td><img src=images/Reconstructed-Image-k-75.png alt=e></td><td><img src=images/Reconstructed-Image-k-100.png alt=f></td></tr><tr><td><img src=images/Reconstructed-Image-k-125.png alt=g></td><td><img src=images/Reconstructed-Image-k-150.png alt=h></td><td><img src=images/Reconstructed-Image-k-175.png alt=i></td></tr></tbody></table><h3 id=eigenfaces>Eigenfaces</h3><table><thead><tr><th>Top 25 eigenfaces of ORL dataset</th></tr></thead><tbody><tr><td><img src=images/ORL-PCA-EigenFaces.png alt=eigenfaces></td></tr></tbody></table><h2 id=problem-2>Problem 2</h2><h3 id=proposed-mechanism>Proposed Mechanism</h3><blockquote><p>We compare the test images with all 6 images of each person (32 in total) in the training dataset. This comparison is done by taking the average of squared differences of eigen-coefficients for the test image and the 6 images of each person. If the least of all these 32 values is more than a threshold, we mark that the test person has no other photo in the training data(i.e. we mark it NEGATIVELY).</p></blockquote><h3 id=results>Results</h3><p>For K = 10 and cutoff = 100,</p><ul><li>False Positives: 16.875%</li><li>False Negatives: 10%</li></ul><h2 id=problem-3>Problem 3</h2><p>We have to find the unit vector $f\in\R^d$ that maximises $f^TCf$ such that $f$ is perpendicular to $e$. Thus we need to maximise the following,
+$$
+\ \\
+f^TCf - \lambda(f^Tf-1) - \mu(f^Te-1)\\
+$$
+Differentiating w.r.t. $\lambda$ gives $f^Tf=1$ and w.r.t. $\mu$ gives $f^Te=1$.</p><p>Differentiating w.r.t. $f$ gives,
+$$
+2f^TC-2\lambda f^T-\mu e^T=0
+$$
+On post multiplying by $e$ vector,
+$$
+2f^TCe-2\lambda f^Te-\mu e^Te=0\\
+\ \\
+\implies 2\lambda_e f^Te-0-\mu = 0\\
+\ \\
+\implies 0-\mu=0\\
+\ \\
+\implies\mu=0
+$$
+Substituting this back in the above equation,
+$$
+\ \\
+\therefore f^TC=\lambda f^T\\
+\ \\
+\implies C^T f=\lambda f\\
+\ \\
+\implies Cf=\lambda f\\
+\ \\
+$$
+Therefore $f$ is an eigenvector. Putting this in the original objective,
+$$
+f^T\lambda f = \lambda
+$$
+Hence to further maximise this, $f$ must be the eigenvector with the $2^\text{nd}$ largest eigenvalue.</p><p>To find unit vector $g$ that maximises $g^TCg$ subject to $g$ being perpendicular to both $f$ and $e$, we should maximise the following,
+$$
+g^TCg-\lambda(g^Tg-1)-\mu_1(g^Te)-\mu_2(g^Tf)
+$$
+On differentiation w.r.t. $\lambda,\mu_1,\mu_2$ we get,
+$$
+\ \\
+g^Tg=1;\ \ g^Te=0;\ \ g^Tf=0
+$$
+Differentiating w.r.t. $g$ given,
+$$
+\ \\
+2g^TC-2\lambda g^T-\mu_1e^T-\mu_2f^T=0
+$$
+On post multiplying by $e$,
+$$
+\ \\
+2g^TCe-2\lambda g^Te-\mu_1e^Te-\mu_2f^Te=0\\
+\ \\
+\implies 2\lambda_e g^Te-0-\mu_1-0=0\\
+\ \\
+\implies \mu_1=0
+$$
+On post multiplying by $f$,
+$$
+\ \\
+2g^TCf-2\lambda g^Tf-\mu_1e^Tf-\mu_2f^Tf=0\\
+\ \\
+\implies 2\lambda_f g^Tf-0-0-\mu_2=0\\
+\ \\
+\implies \mu_2=0
+$$
+Putting these values back into the above equation,
+$$
+2g^TC-2\lambda g^T=0\\
+\ \\
+\implies g^TC=\lambda g^T\\
+\ \\
+\implies C^Tg=\lambda g\\
+\ \\
+\implies Cg=\lambda g
+$$
+Therefore $g$ is also an eigenvector with eigenvalue as the Lagrange multiplier $\lambda$. Putting this in the original objective,
+$$
+g^TCg = \lambda g^Tg=\lambda
+$$
+To maximise this $g$ must be the eigenvector with $3^\text{rd}$ largest eigenvalue.</p><h2 id=problem-4>Problem 4</h2><p>a) Covariance matrix of a dataset $\{x_i\in\R^d\}_{i=1}^N$ is defined as,</p><p>$$
+C = \sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\\
+\ \\
+C^T = \left(\sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\right)^T\\
+\ \\
+= \sum_{i=1}^N\left((x_i-\bar x)(x_i-\bar x)^T\right)^T\\
+\ \\
+= \sum_{i=1}^N((x_i-\bar x)^T)^T(x_i-\bar x)^T\\
+\ \\
+= \sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\\
+\ \\
+\therefore C^T=C
+$$
+Hence C is symmetric.</p><p>For a vector $v\in\R^d$,
+$$
+v^TCv=v^T\left(\sum_{i=1}^N(x_i-\bar x)(x_i-\bar x)^T\right)v\\
+\ \\
+= \sum_{i=1}^Nv^T(x_i-\bar x)(x_i-\bar x)^Tv\\
+\ \\
+= \sum_{i=1}^N((x_i-\bar x)^Tv)^T(x_i-\bar x)^Tv\\
+\ \\
+= \sum_{i=1}^N\|(x_i-\bar x)^Tv\|^2\ge 0\\
+\ \\
+\implies v^TCv\ge 0
+$$
+Hence $C$ is positive semi-definite.</p><p>b) Let $A$ be a symmetric matrix with eigenvectors $e_1$ and $e_2$ and the corresponding distinct eigenvalues $\lambda_1$ and $\lambda_2$.
+$$
+Ae_2=\lambda_2e_2\\
+\ \\
+\implies e_1^TAe_2=e_1^T\lambda_2e_2\\
+\ \\
+\implies e_2^TA^Te_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies e_2^TAe_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies e_2^T\lambda_1e_1=\lambda_2e_2^Te_1\\
+\ \\
+\implies (\lambda_1-\lambda_2)e_2^Te_1=0\\
+\ \\
+\implies e_2^Te_1=0
+$$
+Hence each pair of eigenvectors of a symmetric matrix with distinct eigenvalues are orthogonal.</p><p>c) Assuming eigenvector are iterated in descending order of eigenvalues, $\forall i\in\{1,2,\dots,N\}$,
+$$
+\tilde x_i=\bar x+\sum_{l=1}^kV_l\alpha_{il}
+$$
+Since eigenvector of covariance matrix form an orthonormal basis, we can write,
+$$
+x_i=\bar x+\sum_{l=1}^dV_l\alpha_{il}\\
+\therefore x_i-\tilde x_i = \sum_{l=k+1}^dV_l\alpha_{il}\\
+\implies V_m^T(x_i-\tilde x_i) = \sum_{l=k+1}^dV_m^TV_l\alpha_{il} = \alpha_{im}
+$$
+This hold $\forall m\in\{k+1,\dots,d\}$. Substituting this back in,
+$$
+x_i-\tilde x_i = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))V_l\\
+\ \\
+\begin{align*}
+\implies \|x_i-\tilde x_i\|^2_2 & = \|\sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))V_l\|^2_2\\
+& = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))^2\\
+& = \sum_{l=k+1}^d(V_l^T(x_i-\tilde x_i))\cdot((x_i-\tilde x_i)^TV_l)\\
+& = \sum_{l=k+1}^dV_l^T(x_i-\tilde x_i)(x_i-\tilde x_i)^TV_l\\
+\ \\
+\therefore \frac{1}{N}\sum_{i=1}^N\|x_i-\tilde x_i\|^2_2 & = \frac{1}{N}\sum_{l=k+1}^dV_l^T\left(\sum_{i=1}^N(x_i-\tilde x_i)(x_i-\tilde x_i)^T\right)V_l\\
+& = \frac{1}{N}\sum_{l=k+1}^dV_l^TCV_l
+= \frac{1}{N}\sum_{l=k+1}^d\lambda_lV_l^TV_l\\
+& = \frac{1}{N}\sum_{l=k+1}^d\lambda_l
+\end{align*}\\
+$$
+d) If we sample a dataset $\{x_1^{(i)},x_2^{(i)}\}_{i=1}^N$ from the given distributions, we can write the covariance matrix as,</p><p>$$
+C = \begin{bmatrix}
+\hat\sigma_1^2 & \hat\sigma_{12}^2\\
+\hat\sigma_{2 1}^2 & \hat\sigma_2^2\\
+\end{bmatrix}
+$$</p><p>Due to law of large numbers,
+$$
+\lim_{N\to\infty}C=\begin{bmatrix}
+100 & 0\\
+0 & 1\\
+\end{bmatrix}
+$$</p><p>The eigenvalues of this matrix are 100 and 1 with corresponding eigenvectors $[1,0]^T$ and $[0,1]^T$. Since 100 is much larger than 1, the principal component is along $[1,0]^T$.</p><p>If $X_1$ and $X_2$ had exactly same $\sigma^2$,
+$$
+C=\begin{bmatrix}
+\sigma^2 & 0\\
+0 & \sigma^2\\
+\end{bmatrix}
+$$
+Any non-zero vector is an eigenvector of this matrix with eigenvalue $\sigma^2$. Hence there is no principal component.</p><h2 id=problem-5>Problem 5</h2><p>a) For any matrix $A_{m\times n}$ with singular value decomposition as,
+$$
+A = USV^T\\
+\ \\
+\begin{align*}
+AA^T & = USV^T(USV^T)^T\\
+& = USV^TVS^TU^T\\
+& = USS^TU^T
+\end{align*}
+$$
+As we know $U$ and $V$ are singular and $S$ is diagonal,
+$$
+AA^TU = USS^T
+$$</p><p>If we take the $i^{\text{th}}$ column of this equation,
+$$
+AA^Tu_i = u_is_i^2
+$$</p><p>This means $u_i$&rsquo;s are the eigenvectors of $AA^T$ with corresponding eigenvalues $s_i^2$.</p><p>$$
+A^TA(A^Tu_i) = (A^Tu_i)s_i^2\\
+\ \\
+A^TAw_i = w_is_i^2\\
+$$
+Therefore $s_i^2$ is also an eigenvalue of $A^TA$. Hence proved that eigenvalues of $AA^T$ and $A^TA$ are squares of singular values of $A$.</p><p>b) Let $A$ be the any matrix with SVD as given below,
+$$
+A = USV^T\\
+\implies AA^T = USS^TU^T\\
+\begin{align*}
+\implies\text{Tr}(AA^T) & = \text{Tr}(USS^TU^T)\\
+& = \text{Tr}(UU^TSS^T)\\
+& = \text{Tr}(SS^T)\\
+& = \sum_{i=0}^{d}s_i^2
+\end{align*}
+$$
+where $d=\text{rank}(AA^T)$. Here we have used the result that $\text{Tr}(AB)=\text{Tr}(BA)$.</p><p>$$
+\begin{align*}
+\text{Tr}(AA^T) & = \sum_{i=0}^m\sum_{j=0}^na_{ij}^2\\
+\therefore \sum_{i=0}^ds_i^2 & = \|A\|_{F}^2
+\end{align*}\\
+$$
+Hence proved, squared Frobenius norm of any matrix is the same as sum of squares of it&rsquo;s singular values.</p><p>c) $U$ and $V$ that are computed using the <code>eig</code> function will have different ordering eigenvectors corresponding to the same eigenvalues. This happens because MATLAB doesn&rsquo;t guarantee that all the non-zero eigenvalues will be reported at the beginning of this eigen-decomposition. Hence even though $S$ has all the singular values in the diagonal from the start and expects the eigenvectors in $U$ and $V$ to follow this same ordering, this gets violated when taking the product $USV^T$ and it comes out unequal to $A$.</p></article></main><footer id=footer></footer></div><link media=screen rel=stylesheet href=https://adityakadoo.github.io/Scrolls/css/syntax.css></body></html>

@@ -67,9 +67,9 @@ footer: true
 > - $s_B^\ast$ exists
 > - $s_W^\prime$ and $s_B^\prime$ exist
 
-## Pure Strategies
+## Normal Form Games
 
-### Normal Form Games
+### Pure Strategies
 
 **Static Game** $\langle N, \\\{S_i|i\in N\\\}, \\\{u_i | i\in N\\\} \rangle$
 : A game where player interact only once
@@ -88,7 +88,7 @@ footer: true
 
 > **Finite Game** : A static game where $\forall i\in N,\\ S_i$ is finite
 
-### Dominance
+#### Dominance
 
 **Strictly Dominated Strategy**
 : $s_i^\prime\in S_i,\\ \exists s_i\in S_i,\\ \forall s_{-i}\in S_{-i},\\ u_i(s_i, s_{-i})>u_i(s_i^\prime,s_{-i})$
@@ -102,9 +102,9 @@ footer: true
 **Weakly Dominant Strategy**
 : $s_i^\prime\in S_i, \forall s_i\in S_i-\\\{s_i^\prime\\\},\\ s_i$ is weakly dominated by $s_i^\prime$
 
-### Equilibria
+#### Equilibria
 
-#### Dominant Strategy Equilibrium
+##### Dominant Strategy Equilibrium
 
 **Strictly Dominant Strategy Equilibrium [SDSE]**
 : A strategy profile $(s_1^\ast,s_2^\ast,\dots,s_n^\ast)$, such that $\forall i\in N,\\ s_i^\ast$ is a strictly dominant strategy
@@ -117,7 +117,7 @@ footer: true
 > Strictly dominated strategies can be removed in any order.
 > Weakly dominated strategies' order of removal matters as it can remove important outcomes.
 
-#### Nash Equilibrium
+##### Nash Equilibrium
 
 **Pure Strategy Nash Equilibrium [PSNE]**
 : A strategy profile $(s_i^\ast, s_{-i}^\ast)$ such that $\forall i\in N$ and $\forall s_i\in S_i$,
@@ -132,7 +132,7 @@ $$
 
 > SDSE $\implies$ WDSE $\implies$ PSNE
 
-### Risk Aversion
+#### Risk Aversion
 
 **Max-Min Strategy** ($s_i^{\max\min}$)
 : $s_i^{\max\min}\in\arg\max_{s_i\in S_i}\min_{s_{-i}\in S_i}u_i(s_i,s_{-i})$
@@ -146,20 +146,20 @@ $$
 
 > **Theorem** : Every PSNE $s^\ast=(s_1^\ast,\dots,s_n^\ast)$ satisfies $u_i(s^\ast)\ge\underline v_i,\\ \forall i\in N$
 
-### Elimination of dominated strategies
+#### Elimination of dominated strategies
 
-#### Preservation of Max-Min value
+##### Preservation of Max-Min value
 
 > **Theorem** : For NFG $G$, let $s_j^\prime\in S_j$ be a dominated strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$
 
-#### Preservation of PSNE
+##### Preservation of PSNE
 
 > **Theorem** : For NFG $G$ and $G^\prime$ after elimination of **any** strategy, if $s^\ast$ is a PSNE in $G$ and survives in $G^\prime$, then $s^\ast$ is a PSNE in $G^\prime$ too.
 
 > No new PSNE if eliminated strategy is dominated.
 > Old PSNE could be killed.
 
-### Matrix Games
+#### Matrix Games
 
 **Matrix Game**
 : A NFG $\langle N, \\\{S_i|i\in N\\\}, \\\{u_i|i\in N\\\}\rangle$ with $N=\\\{1,2\\\}$ and $u_1(s)+u_2(s)=0,\\ \forall$ strategy profile $s\in S$
@@ -184,7 +184,7 @@ $$
 
 > **PSNE Theorem** : A Matrix game has a PSNE $\iff$ $\bar v=\underline v=U(s_1^\ast, s_2^\ast)$ where $s_1^\ast$ and $s_2^\ast$ are $\max\min$ and $\min\max$ strategies for player 1 and 2 respectively. $(s_1^\ast, s_2^\ast)$ is that PSNE.
 
-## Mixed Strategies
+### Mixed Strategies
 
 **Mixed Strategy Set** ($\Delta A$)
 : $\Delta A = \\\{p:A\to[0,1]^{|A|}\\ |\\ \sum_{a\in A}p(a) = 0\\\}$
@@ -193,9 +193,9 @@ $$
 : For player $i$, $\sigma_i:S_i\to[0,1]$ such that $\sum_{s_i\in S_i}\sigma_i(s_i)=1$
 
 **Utility** ($u_i(\sigma_i,\sigma_{-i})$)
-: $u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^N\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$
+: $u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^n\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$
 
-### Mixed Strategy Nash Equilibrium
+#### Mixed Strategy Nash Equilibrium
 
 **MSNE**
 : A mixed strategy profile $(\sigma_i^\ast, \sigma_{-i}^\ast)$ such that,
@@ -208,7 +208,7 @@ $$
 > **Theorem** : $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE $\iff$ $\forall s_i\in S_i,\\ \forall i\in N$, 
 > $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)\ge u_i(s_i,\sigma_{-i}^\ast)$$
 
-### MSNE Characterization Theorem
+#### MSNE Characterization Theorem
 
 **Support for Mixed Strategy** ($\delta(\sigma_i)$)
 : $\delta(\sigma_i)=\\\{s_i\in S_i|\\ \sigma_i(s_i)>0\\\}$
@@ -222,7 +222,7 @@ $$ \max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i})=\max_{s_i\in S_i}u_i(s_
 - If $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE, then
 $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)=\max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i}^\ast)=\max_{s_i\in S_i}u_i(s_i,\sigma_{-i}^\ast)=\max_{s_i\in\delta(\sigma_i)}u_i(s_i,\sigma_{-i}^\ast) $$
 
-### Algorithm for MSNE
+#### Algorithm for MSNE
 
 For every support profile $X_1\times X_2\times\cdots X_n$ where $X_i\sube S_i$, solve the following feasibility program to get the MSNE,
 $$
@@ -236,14 +236,14 @@ $$
 - No poly-time algorithm for general game
 - This is PPAD-complete (Polynomial Parity Argument on Directed graphs)
 
-### Existence of MSNE
+#### Existence of MSNE
 
 **Finite Game**
 : A game with finite number of players and each player has a finite set of strategies
 
 > **Theorem** : Every finite game has a (mixed) Nash equilibrium.
 
-## Correlated Strategies
+### Correlated Strategies
 
 **Correlated Strategy** ($\pi$)
 : A mapping $\pi:S_1\times S_2\times\cdots\times S_n\rightarrow[0,1]$ such that $\sum_{s\in S}\pi(s)=1$
@@ -377,3 +377,377 @@ $S_i^\prime(x)$
 > **Theorem** : If $i$ is a player with perfect recall and $x$ and $x^\prime$ are the two vertices in the same information set of i, then $S_i^\ast(x) = S_i^\ast(x^\prime)$.
 >
 > **Kuhn Theorem** : In every IIEFG, if $i$ is a player with perfect recall then for every mixed strategy of $i$, there exists a behavioural strategy.
+
+### Bayesian Beliefs
+
+**Beliefs** ($\mu_i^j:I_i^j\to[0,1]$)
+: Distribution over an information set such that $\sum_{x\in I_i^j}u_i^j(x)=1$
+
+**Bayesian Belief** ($\mu_i = \\\{\mu_i^1,\mu_i^2,\dots,\mu_i^{k(i)}\\\}$)
+: When derived from a behavioral strategy $\sigma$ such that, $\forall x\in I_i^j,\forall j\in \\\{1, 2, \dots, k(i)\\\}$,
+  $$\mu_i^j(x) = P_\sigma(x) / \sum_{y\in I_i^j}P_\sigma(y)$$
+
+**Sequantial Rationality**
+: A strategy $\sigma_i$ at an information set $I_i^j$ is sequentially rational given $\sigma_{-i}$ and partial belief $\mu_i^j$ if,
+  $$\sum_{x\in I_i^j}\mu_i^j(x)u(\sigma_i,\sigma_{-i}|x)\ge\sum_{x\in I_i^j}\mu_i^j(x)u(\sigma_i^\prime,\sigma_{-i}|x)$$
+
+> Sequential Rationality is a refinement on Nash Equilibrium.
+> 
+> **Theorem**: In PIEFGs, a behavioral strategy profile $\sigma$ is an SPNE iff the tuple $(\sigma, \hat\mu)$ is sequentially rational.
+>
+> Here $\hat\mu$ is the degenrate distribution since in PIEFGs all information sets are singleton.
+
+**Perfect Bayesian Equilibrium** $(\sigma, \mu)$
+: $\forall i\in N$,
+  - $\mu_i$ is Bayesian w.r.t. $\sigma$
+  - $\sigma_i$ is sequentially rational given $\sigma_{-i}$ and $\mu_i$
+
+## Bayesian Games
+
+**Bayesian Games** $\langle N, \\\{\Theta_i:i\in N\\\}, P, \\\{\Gamma_\theta:\theta\in(\times_{i\in N}\Theta_i)\\\}\rangle$
+: - $N$ : Set of players
+  - $\Theta_i$ : Set of types of player $i$
+  - $P$ : Common prior distribution over $\Theta=\times_{i\in N}\Theta_i$
+  - $\Gamma_\theta$ : NFG for type profile $\theta\in\Theta$ i.e. $\Gamma_\theta = \langle N,\\\{A_i(\theta):i\in N\\\},\\\{u_i(\theta):i\in N\\\}\rangle$ where $u_i:A\times\Theta\to\R$ and $A=\times_{i\in N}A_i\\ \forall\theta$
+
+**Strategy**
+: - Pure: $s_i:\Theta_i\to A_i$
+  - Mixed: $\Theta_i\to\Delta A_i$
+
+**Ex-ante Utility**
+: Expected utility before observing own types,
+  $$u_i(\sigma) = \sum_{\theta\in\Theta}P(\theta)u_i(\sigma(\theta);\theta)\\\
+  \\ \\\
+  \sum_{\theta\in\Theta}P(\theta)\sum_{(a_1,a_2,a_3,\dots,a_n)\in A}\prod_{j\in N}\sigma_j(\theta_j)[a_j]u_i(a_1,\dots,a_n;\theta_1,\dots,\theta_n)$$
+
+**Ex-interim Utility**
+: Expected utility after observing one's own type,
+  $$u_i(\sigma|\theta_i)=\sum_{\theta_{-i}\in\Theta_{-i}}P(\theta_{-i}|\theta_i)u_i(\sigma(\theta);\theta)$$
+
+### Equilibria
+
+**Ex ante Equilibrium** $(\sigma^\star,P)$
+: Nash Equilibrium,
+  $$u_i(\sigma^\star_i,\sigma^\star_{-i})\ge u_i(\sigma^\prime_i, \sigma^\star_{-i}),\forall\sigma_i^\prime,\forall i\in N$$
+
+**Ex interim Equilibrium** $(\sigma^\star, P)$
+: Byesian Equilibrium,
+  $$u_i(\sigma_i^\star(\theta_i),\sigma_{-i}^\star|\theta_i)\ge u_i(\sigma_i^\prime(\theta_i),\sigma_{-i}^\star|\theta_i),\\ \forall\sigma^\prime_i,\forall\theta_i\in\Theta_i,\forall i\in N$$
+
+> **Theorem**: In a finite Bayesian Game, a strategy profile is Bayeisan Equilibrium iff it is a Nash Equilibrium.
+>
+> **Theorem**: Every finite Bayesian game has a Bayesian Equilibrium.
+
+## Mechanism Design
+
+**General Model**
+: - $N$ - set of players
+  - $X$ - set of outcomes
+  - $\Theta_i$ - set of private information of player $i\in N$
+    - $\theta_i\in\Theta_i$ - a type of player $i$
+  - Type can manifest in preferences over the outcomes in different ways:
+    - Ordinal - $\theta_i$ defines an ordering over the outcomes
+    - Cardinal - an utility function maps the an (outcomes, type) pair to real numbers
+      - $u_i:X\times\Theta_i\to\R$ : private value model
+      - $u_i:X\times\Theta\to\R$ : interdependent value model
+
+**Social Choice Function** ($f$)
+: $f:\times_{i\in N}\Theta_i\to X$
+
+**Indirect Mechanism** $\langle M_1,M_2,\dots,M_N,g\rangle$
+: - $M_i$ is the message space of player $i$
+  - $g:M_1\times M_2\times\dots\times M_N\to X$
+
+**Direct Mechanism** $\langle\Theta_1,\dots,\Theta_N, g\rangle$
+: An indirect mechanism such that $M_i=\Theta_i,\\ \forall i\in N$
+
+**Weak Dominance**
+: For a message $m_i$ of player $i$ at $\theta_i$,
+  $$u_i(m_i,m_{-i})\ge u_i(m_i^\prime,m_{-i}),\\ \forall m_i^\prime,\\ \forall m_{-i}$$
+
+**Dominant Strategy Implementable [DSI]**
+: An indirect mechanism that implements a SCF through dominance with,
+  - $\exist s_i:\Theta_i\to M_i$ such that $s_i(\theta_i)$ is a dominant strategy for player $i$ at $\theta_i,\\ \forall\theta_i\\ \forall i\in N$
+  - $g(s_1(\theta_1),\dots,s_N(\theta_N))=f(\theta),\\ \forall\theta\in\Theta$
+
+**Dominant Strategy Incentive Compatible [DSIC]**
+: A direct mechanism such that,
+  $$u_i(g(\theta_i,\theta_{-i}),\theta_i)\ge u_i(g(\theta_i^\prime,\theta_{-i}),\theta_i),\\ \forall\theta_{-i},\theta_i^\prime,\theta_i,\\ \forall i\in N$$
+
+  > **Revelation Principle**: An indirect mechanism is DSI $\implies$ it is DSIC.
+
+**Bayesian Implementable**
+: An indirect mechanism that implements a SCF through Bayesian Equilibrium with,
+  - $\exist, s_i:\Theta_i\to M_i$ such that $s_i(\theta_i)$ maximises ex-interim utility for player $i$ at $\theta_i,\\ \forall\theta_i\\ \forall i\in N$, i.e.,
+      $$
+        \mathbb{E}[u_i(g(s_i(\theta_i),s_{-i}(\theta_{-i})),\theta_i)\\ |\\ \theta_i]\ge\mathbb{E}[u_i(g(m_i^\prime,s_{-i}(\theta_{-i})),\theta_i)\\ |\\ \theta_i],\\ \forall m_i^\prime,\theta_i,\\ \forall i\in N
+      $$
+  - $g(s_i(\theta_i),s_{-i}(\theta_{-i}))=f(\theta),\\ \forall\theta\in\Theta$
+
+> An indirect mechanism is DSI $\implies$ it is Bayesian implementable.
+
+**Bayeisan Incentive Compatible [BIC]**
+: A direct mechanism such that,
+  $$\mathbb{E}[u_i(f(\theta_i,\theta_{-i}),\theta_i)\\ |\\ \theta_i]\ge\mathbb{E}[u_i(f(\theta_i^\prime,\theta_{-i}),\theta_i)\\ |\\ \theta_i],\\ \forall \theta_{-i},\theta_i^\prime,\theta_i,\\ \forall i\in N$$
+
+> An indirect mechanism is Bayesian Implementable $\implies$ it is BIC.
+
+### Arrow's Impossibility Result
+
+**Individual Preferences** ($R_i$)
+: $\mathcal{R}$ is the set of ordering relations over a set of alternatives $A=\\\{a_1,a_2,\dots,a_m\\\}$. Every player has a preference $R_i\in\mathcal{R},\\ \forall i\in N$ such that,
+  - Completeness: $\forall a,b\in A$, $aR_ib$ or $bR_ia$
+  - Reflexivity: $\forall a\in A$, $aR_ia$
+  - Transitivity: $\forall a,b,c\in A$, $aR_ib\And bR_ic\implies aR_ic$
+
+**Linear Preferences** ($P_i$)
+: $R_i$ such that $\forall a,b\in A$, $aR_ib\And bR_ia\implies a=b$
+  - Set of all linear preferences is called $\mathcal{P}$.
+  - Any arbitrary preference ordering $R_i$ can be decomposed into,
+    - Asymmetric: $P_i$
+    - Symmetric: $I_i$
+
+**Arrovian Social Welfare Function [ASWF]** ($F:\mathcal{R}^n\to\mathcal{R}$)
+: Capture the collective ordering of the society given the individual preferences.
+  - $F(R)=F(R_1,R_2,\dots,R_N)$
+  - $\hat F(R)$ is the asymmetric part of $F(R)$
+  - $\bar F(R)$ is the symmetric part of $F(R)$
+
+**Weak Pareto [WP]**
+: F such that $\forall a,b\in A,\forall R\in \mathcal{R}^n$
+  $$\forall i\in N, aP_ib\implies a\hat F(R)b$$
+
+**Strong Pareto [SP]**
+: F such that $\forall a,b\in A,\forall R\in \mathcal{R}^n$
+  $$\forall i\in N, aR_ib\\ \And\\ \exist j\in N, aP_jb\implies a\hat F(R)b$$
+
+**Agreement** ($R|_{a,b}$)
+: - $R_i,R_i^\prime\in \mathcal{R}$ agree on $a,b\in A$ for agent $i$ iff,
+    $$
+      aP_ib\iff aP_i^\prime b\\ ||\\ bP_ia\iff bP_i^\prime a\\ ||\\ aI_ib\iff aI_i^\prime b
+    $$
+  - This means $R_i|_z=R_i^\prime|_z$ where $z=\\\{a,b\\\}$
+  - When this holds for every $i\in N$, $R|_z=R^\prime|_z$ where $z=\\\{a,b\\\}$
+
+**Independence of Irrelevant Alternatives [IIA]**
+: $F$ such that $\forall a,b\in A,\\ \forall R,R^\prime\in\mathcal{R}^n$ and $z=\\\{a,b\\\}$,
+  $$R|_z=R^\prime|_z\implies F(R)|_z=F(R^\prime)|_z$$
+
+**Dictatorship** $F^d$
+: An ASWF where for an agent $d$, $F^d(R) = R_d$
+
+> **Arrow's Theorem**: For $|A|\ge3$ if $F$ is $IIA$ and $WP$ then $F$ must be dictatorial.
+
+### Social Choice Functions
+
+**Social Choice Function [SWF]** $f:\mathcal{P}^n\to A$
+: Here $\mathcal{P}$ is the set of all linear preference orderings and $A$ is the set of alternatives
+
+One SCF is voting where the scoring is done by any one of the following methods and the winner is the alternative with the highest score:
+1. Plurality: $(1,0,\dots,0,0)$
+2. Veto: $(1,1,\dots,1,0)$
+3. Borda: $(m-1,m-2,\dots,1,0)$
+4. Harmonic: $(1,1/2,\dots,1/(m-1),1/m)$
+5. $k$-approval: $(1,\cdots (k\text{ times})\cdots,1,0,\dots,0)$
+6. Plurality with runoff (eliminations)
+7. Maxmin: $\text{score}(a)=\min_y|\\\{i:aP_iy\\\}|$
+8. Copeland: Score is number of wins in pairwise elections
+
+**Condorcet Winner**
+: A candidate that defeats all other candidates in pairwise election
+
+**Condorcet Consistent**
+: A voting rule that always selects the *Condorcet winner* when one exists.
+
+> None out of Plurality, Copeland, Maxmin are Condorcet consistent.
+
+**Pareto Dominance**
+: An alternative $a$ is Pareto dominant over $b$ when $\forall i\in N,\\ aP_ib$.
+
+**Pareto Efficiency [PE]**
+: An SCF $f$ such that $\forall P\in \mathcal{P}^n$ and $\forall a\in A$, a is Pareto dominated $\implies f(P)\not ={a}$
+
+**Unanimity [UN]**
+: An SCF $f$ such that $\forall P\in\mathcal{P}^n$ and $\exists a\in A$, $P_1(1)=P_2(1)=\dots=P_N(1)=a\implies f(P)=a$
+
+**Onto [ONTO]**
+: An SCF $f$ such that $\forall a\in A$, $\exists P^{(a)}\in\mathcal{P}^n$ where $f(P^{(a)})=a$
+
+> PE $\implies$ UN $\implies$ ONTO
+
+**Manipulability**
+: An SCF $f$ such that $\exists i\in N$ and a profile $P\in\mathcal{P}^n$ such that $\exists P_i^\prime,\\ f(P_i^\prime,P_{-i})P_if(P_i,P_{-i})$
+
+**Strategy-proof [SP]**
+: An SCF that is not manipulable by any player for any profile
+
+**Dominated Set** ($D:A\times\mathcal{P}\to \mathcal{P}(A)$)
+: $D(a,P_i)=\\\{b\in A:aP_ib\\}$
+
+**Monotone [MONO]**
+: An SCF $f$ such that $\forall P,P^\prime\in\mathcal{P}^n$ and $\exists a\in A$, $f(P)=a$ and $D(a,P_i)\sube D(a,P_i^\prime)\\ \forall i\in N\implies f(P^\prime)=a$
+
+> **Theorem** : SP $\iff$ MONO.
+>
+> **Lemma** : MONO+ONTO $\implies$ PE.
+>
+> **Corollary** : SP+PE $\iff$ SP+UN $\iff$ SP+ONTO
+>
+> **Gareth and Satterthwaite Theorem** : If $|A|\ge 3$ then SP+ONTO $\iff$ Dictatorial.
+
+### Domain Restrictions
+
+#### Single Peaked Preferences
+
+**Single Peaked Preferences** ($\mathcal{S}$)
+: Set of linear preferences $P$ w.r.t. a common order $<$ over the alternatives such that
+  - $\forall b,c\in A,\\ b<c\le P(1)\implies cPb$
+  - $\forall b,c\in A,\\ P(1)\le b<c\implies bPc$
+
+> From now onwards $f:\mathcal{S}^n\to A$
+
+**Median Voter SCF**
+: An SCF $f$ such that $\exists B=\\\{y_1, y_2,\dots,y_{n-1}\\\},\forall P\in\mathcal{S}^n,\\ f(P)=\text{median}(B\cup\text{peaks}(P))$
+
+> Points in $B$ are called phantom peaks and these are independent of $P$.
+>
+> **Moulin's Theorem** : Every median voter SCF is SP.
+>
+> **Claim** : Let $p_{\min}$ and $p_{\max}$ be the leftmost and rightmost peaks of $P$ according to $<$, then $f$ is PE $\iff\\ f(P)\in[p_{\min},p_{\max}]$.
+>
+> **Theorem** : SP $\implies$ MONO.
+>
+> **Theorem** : If $f$ is SP then ONTO $\iff$ UN $\iff$ PE.
+
+**Anonimity [ANON]**
+: An SCF $f$ such that $\forall P$ and for all permutations of agents $\sigma$, $f(P^\sigma)=f(P)$
+
+> **Moulin's Theorem 2** : $f$ is SP+ONTO+ANON $\iff$ $f$ is median voter SCF.
+
+#### Task Allocation Domain
+
+**Task Allocation SCFs** ($f:T^n\to A$)
+: - Here $A=\\\{(a_1,a_2,\dots,a_n)\in [0,1]^n\\ |\\ \sum_{i=1}^na_i=1\\\}$.
+  - For $P\in T^n,\\ f(P)=(f_1(P),f_2(P),\dots,f_n(P))$.
+  - Each player has a peak allocation $p_i=w/2c_i$ where the reward is given by $wt-c_i t^2$.
+
+**Pareto Efficiency [PE]**
+: An SCF such that $\forall P\in T^n, \not\exists a\in A$,
+$$
+   aR_if(P)\\ \\ \forall i\in N\\\
+   aP_jf(P)\\ \\ \exists j\in N
+$$
+
+> Implications of Pareto Efficiency:
+> - If $\sum_{i=1}^np_i=1$ then $\forall i\in N, f_i(P)=p_i$
+> - If $\sum_{i=1}^np_i>1$ then $\forall i\in N, f_i(P)\ge p_i$
+> - If $\sum_{i=1}^np_i<1$ then $\forall i\in N, f_i(P)\le p_i$
+
+**Serial Dictatorship**
+: Each agent gets their peak allocation except the last one which is given the leftover share.
+
+> Serial Dictatorship is not ANON since it is unfair to the last agent.
+
+**Proportional SCF**
+: Every agent is assigned a share that is $1/\sum_{i=1}^np_i$ times their peak allocation.
+
+> Proportional SCF is not SP.
+
+**Uniform Rule**
+: - $\sum_{i=1}^np_i=1:f_i(P)=p_i$
+  - $\sum_{i=1}^np_i>1:f_i(P)=\max[p_i,\mu(P)]$ where $\mu$ solves $\sum_{i=1}^n\max[\mu,p_i]=1$
+  - $\sum_{i=1}^np_i<1:f_i(P)=\min[p_i,\lambda(P)]$ where $\lambda$ solves $\sum_{i=1}^n\min[\lambda,p_i]=1$
+
+> **Sprumont Theorem**: Uniform Rule is SP, ANON and PE.
+>
+> **Theorem**: SCF in task allocation domain is SP, PE and ANON $\iff$ it is an uniform rule.
+
+#### Quasi-Linear Domain
+
+**Quasi-linear Payoff**
+: - Preferences are of the form $a\in A$
+  - Payments are defined for every player as $\pi=(\pi_1,\pi_2,\dots,\pi_n)\in\R^n$
+  - Utility of an agent $i$ depends on the outcome $(a,\pi)$ and their type $\theta_i\in\Theta_i$ as,
+    $$
+      u_i((a,\pi),\theta_i)=v_i(a,\theta_i)-\pi_i
+    $$
+
+**Quasi-Linear Preferences** $(f,p)$
+: Has following components,
+  1. Allocation rule:
+    $$
+      f:\Theta_1\times\Theta_2\times\cdots\times\Theta_n\to A
+    $$
+  2. Payment function: $p=(p_1,p_2,\dots,p_n)$ such that,
+    $$
+      p_i:\Theta_1\times\Theta_2\times\cdots\times\Theta_n\to\R
+    $$
+
+Examples of Allocation rules:
+- Constant rule: $f^c(\theta)=a\in A,\forall\theta\in\Theta$
+- Dictatorial rule: $f^D(\theta)=\arg\max_{a\in A}v_d(a,\theta_d),\forall\theta\in\Theta$ and $\exists d\in N$
+- Allocative efficiency / Utilitarian rule:
+  $$
+    f^{AE}(\theta) = \arg\max_{a\in A}\sum_{i\in N}v_i(a,\theta_i)
+  $$
+- Affine Maximizer rule: When $\lambda_i\ge 0$ and not all zero,
+  $$
+    f^{AM}(\theta) = \arg\max_{a\in A}\left(\sum_{i\in N}\lambda_iv_i(a,\theta_i)+\kappa(a)\right)
+  $$
+- Max-min / Egalitarian rule:
+  $$
+    f^{MM}(\theta) = \arg\max_{a\in A}\min_{i\in N}v_i(a,\theta_i)
+  $$
+
+
+Examples of Payment functions:
+- No deficit: $\sum_{i\in N}p_i(\theta)\ge 0,\forall\theta\in\Theta$
+- No subsidy: $p_i(\theta)\ge 0,\forall\theta\in\Theta,\forall i\in N$
+- Budget Balanced: $\sum_{i\in N}p_i(\theta) = 0,\forall\theta\in\Theta$
+
+**Dominant Strategy Incentive Compatible [DSIC]**
+: An $(f,p)$ such that $\forall\theta_{-i}\in\Theta_{-i},\forall\theta_i,\tilde\theta_i\in\Theta_i,\forall i\in N$,
+  $$v_i(f(\theta_i,\theta_{-i}),\theta_i)-p_i(\theta_i,\theta_{-i})\ge v_i(f(\tilde\theta_i,\theta_{-i}),\theta_i)-p_i(\tilde\theta_i,\theta_{-i})$$
+
+> If $(f,p)$ is DSIC then for any $q$ defined as,
+> $$
+>   q_i(\theta_i,\theta_{-i})=p_i(\theta_i,\theta_{-i})+h_i(\theta_{-i}),\\ \forall\theta,\forall i\in N
+> $$
+> $(f,q)$ is also DSIC.
+
+**Pareto Optimal**
+: A mechanism $(f,p)$ such that $\forall\theta\in\Theta$ there does not exist $b\in A$ and payments $(\pi_1,\pi_2,\dots,\pi_n)$ with $\sum_{i\in N}\pi_i\ge \sum_{i\in N}p_i(\theta)$,
+  $$v_i(b,\theta_i)-\pi_i\ge v_i(f(\theta),\theta_i)-p_i(\theta)$$
+with inequality being strict for some $i\in N$.
+
+> **Theorem** : Pareto Optimal $\iff$ Allocatively efficient.
+
+**Groves Payment fucntion**
+: For agent $i\in N$ and an arbitrary $h_i:\Theta_{-i}\to\R$,
+  $$p_i^G(\theta_i,\theta_{-i}) = h_i(\theta_{-i})-\sum_{j\not ={i}}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)$$
+
+> Groves payment functions implement the Allocatively efficiency allocation function.
+> 
+> **Theorem**: Groves mechanisms are DSIC.
+
+**Vickrey-Clarke-Groves Mechanism [VCG]**
+: Groves mechanism with $h_i(\theta_{-i})$ as,
+  $$h_i(\theta_{-i})=\max_{a\in A}\sum_{j\in N,\\ j\not={i}}v_j(a,\theta_j)\\\
+    \\ \\\
+    p_i^{VCG}(\theta_i,\theta_{-i})=\max_{a\in A}\sum_{j\in N,\\ j\not={i}}v_j(a,\theta_j)-\sum_{j\in N,\\ j\not={i}}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)\\\
+    \\ \\\
+    u_i^{VCG}(\theta_i,\theta_{-i}) = \sum_{j\in N}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)-\max_{a\in A}\sum_{j\in N,\\ j\not={i}}v_j(a,\theta_j)$$
+
+**Combinatorial Allocation**
+: - $M=\\\{1,2,\dots,m\\\}$ : set of objects
+  - $\Omega=2^M$ : set of bundles
+  - $\theta_i:\Omega\to\R$ : type/values of player $i$ such that $\theta_i(s)\ge 0,\\ \forall s\in\Omega$ and $\theta_i(a)=\theta_i(a_i)$
+  - $N=\\\{1,2,\dots,n\\\}$ : set of agents
+  - $A=\\\{(a_0,a_1,\dots,a_n)\\ |\\ a_i\in\Omega,a_i\cap a_j=\empty\\ \forall i\not={j},\bigcup_{i=0}^na_i=\Omega\\\}$ : set of allocations where $a_0$ is the set of unallocated items
+
+> **Claim**: The payment of an agent that gets no goods in VCG mechanism is zero.
+
+**Individually Rational**
+: A mechanism $(f,p)$ such that $v_i(f(\theta),\theta_i)-p_i(\theta)\ge 0,\\ \forall\theta\in\Theta,\\ \forall i\in N$
+
+> **Claim**: In allocation of goods VCG mechanism is Individually rational.

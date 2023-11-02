@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Wed, 13 Sep 2023 14:47:25 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Thu, 02 Nov 2023 17:50:35 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Assignment 4</title><link>https://adityakadoo.github.io/Scrolls/courses/hw4/</link><pubDate>Thu, 02 Nov 2023 17:50:35 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/hw4/</guid><description>&lt;h2 id="capm">CAPM&lt;/h2>
+&lt;h3 id="assumptions">Assumptions&lt;/h3>
+&lt;ul>
+&lt;li>Analysis done over returns of RELIANCE, HDFCBANK and TCS by prices from NSE.&lt;/li>
+&lt;li>Market returns are taken to be returns of NIFTY-50 index.&lt;/li>
+&lt;li>Data is of 10 years from 29th Oct, 2013 to 29th Oct, 2023.&lt;/li>
+&lt;/ul>
+&lt;h3 id="results">Results&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Beta estimation&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/results.png" alt="results">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="conclusions">Conclusions&lt;/h3>
+&lt;ul>
+&lt;li>RELIANCE has beta well over 1 implying that it has out-performed the market in the span of 10 years.&lt;/li>
+&lt;li>HDFCBANK also has a beta close to 1 meaning it also has generated comparable returns as the market.&lt;/li>
+&lt;li>TCS has beta that is smaller than 1 meaning this stock&amp;rsquo;s growth hasn&amp;rsquo;t been as high as the overall market.&lt;/li>
+&lt;li>On comparing these betas to the ones reported on &lt;a href="https://moneycontrol.com/">moneycontrol.com&lt;/a>, we can see that even if the values (possibly due to different estimate of market returns) don&amp;rsquo;t match the performance trend of RELIANCE &amp;gt; HDFCBANK &amp;gt; TCS still exists.&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>RELIANCE&lt;/th>
+&lt;th>HDFCBANK&lt;/th>
+&lt;th>TCS&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/reliance.png" alt="reliance">&lt;/td>
+&lt;td>&lt;img src="images/hdfcbank.png" alt="hdfcbank">&lt;/td>
+&lt;td>&lt;img src="images/tcs.png" alt="tcs">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
 &lt;dd>&lt;ul>

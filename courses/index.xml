@@ -1,4 +1,327 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Courses on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/courses/</link><description>Recent content in Courses on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Sun, 04 Dec 2022 10:55:14 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/courses/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Courses on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/courses/</link><description>Recent content in Courses on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Sun, 04 Dec 2022 10:55:14 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/courses/index.xml" rel="self" type="application/rss+xml"/><item><title>Assignment 5</title><link>https://adityakadoo.github.io/Scrolls/courses/assignment_5/</link><pubDate>Tue, 07 Nov 2023 23:47:59 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/assignment_5/</guid><description>&lt;h2 id="problem-1">Problem 1&lt;/h2>
+&lt;h3 id="part-1a">Part 1a&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Noisy &lt;em>barbara&lt;/em>&lt;/th>
+&lt;th>Denoised &lt;em>barbara&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/A_noised_barbara256.png" alt="1">&lt;/td>
+&lt;td>&lt;img src="images/A_denoised_barbara256.png" alt="2">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Noisy &lt;em>stream&lt;/em>&lt;/th>
+&lt;th>Denoised &lt;em>stream&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/A_noised_stream.png" alt="3">&lt;/td>
+&lt;td>&lt;img src="images/A_denoised_stream.png" alt="4">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;dl>
+&lt;dt>&lt;strong>RMSE values&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Stream: 0.0774&lt;/li>
+&lt;li>Barbara: 0.0722&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="part-1b">Part 1b&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Noisy &lt;em>barbara&lt;/em>&lt;/th>
+&lt;th>Denoised &lt;em>barbara&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/B_noised_barbara256.png" alt="5">&lt;/td>
+&lt;td>&lt;img src="images/B_denoised_barbara256.png" alt="6">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Noisy &lt;em>stream&lt;/em>&lt;/th>
+&lt;th>Denoised &lt;em>stream&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/B_noised_stream.png" alt="7">&lt;/td>
+&lt;td>&lt;img src="images/B_denoised_stream.png" alt="8">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;dl>
+&lt;dt>&lt;strong>RMSE values&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Stream: 0.0735&lt;/li>
+&lt;li>Barbara: 0.0573&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="part-1c">Part 1c&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Part 1a denoised &lt;em>barbara&lt;/em>&lt;/th>
+&lt;th>Part 1b denoised &lt;em>barbara&lt;/em>&lt;/th>
+&lt;th>Bilateral denoised &lt;em>barbara&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/A_denoised_barbara256.png" alt="9">&lt;/td>
+&lt;td>&lt;img src="images/B_denoised_barbara256.png" alt="10">&lt;/td>
+&lt;td>&lt;img src="images/bi_denoised_barbara256_3_15.png" alt="11">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Part 1a denoised &lt;em>stream&lt;/em>&lt;/th>
+&lt;th>Part 1b denoised &lt;em>stream&lt;/em>&lt;/th>
+&lt;th>Bilateral denoised &lt;em>stream&lt;/em>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/A_denoised_stream.png" alt="12">&lt;/td>
+&lt;td>&lt;img src="images/B_denoised_stream.png" alt="13">&lt;/td>
+&lt;td>&lt;img src="images/bi_denoised_stream_3_15.png" alt="14">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;dl>
+&lt;dt>&lt;strong>RMSE values&lt;/strong>&lt;/dt>
+&lt;dd>&lt;ul>
+&lt;li>Stream: 0.1028&lt;/li>
+&lt;li>Barbara: 0.1175&lt;/li>
+&lt;/ul>
+&lt;/dd>
+&lt;dt>&lt;strong>Differences between PCA and Bilateral&lt;/strong>&lt;/dt>
+&lt;dd>The bilateral filter with spatial SD = 3, intensity SD = 15 isn’t successful in denoising the image, the image still looks grainy, while the second PCA based approach with K = 200, does a good job in denoising. The first PCA approach doesn’t denoise as much as the second approach but still it looks smoother and less noisy than the Bilateral approach.
+&lt;p>PCA approach denoises Gaussian noise better while Bilateral Filter is a spatial-domain filtering which helps in preserving edges while also reducing noise. PCA approach utilizes the fact that the noise present is gaussian and uses its statistical properties while Bilateral filter applies weighted averaging of the pixels where weights are assigned based on spatial and intensity differences. PCA may smoothen out the fine details like edges which are preserved by the Bilateral filter.&lt;/p>
+&lt;/dd>
+&lt;/dl>
+&lt;h3 id="part-1d">Part 1d&lt;/h3>
+&lt;p>PCA removes the lower components associated with noise. PCA denoising technique utilizes the statistical properties of the noise added, i.e. zero mean Gaussian Noise, if we clamp the values to the range [0, 255], the mean and the variance of the noise added might change, thus leading to fluctuations in the denoising. Thus also shifting the intensity range of the image by an amount proportional to the mean of the noise.&lt;/p>
+&lt;h2 id="problem-2">Problem 2&lt;/h2>
+&lt;h3 id="part-2a">Part 2a&lt;/h3>
+&lt;p>If we are given 2 images, $f_1$ and $f_2$ of sizes $N\times N$, that only differ by a translation of $(x_0,y_0)$.
+$$
+\therefore f_2(x,y) = f_1(x-x_0,y-y_0)
+$$&lt;/p>
+&lt;p>To find these $(x_0,y_0)$ the paper suggests the following algorithm,&lt;/p>
+&lt;ol>
+&lt;li>Take discrete fourier transforms for both images,
+$$
+F_1(u,v) = \sum_{x=0}^{N-1}\sum_{y=0}^{N-1}f_1(x,y)e^{-2\pi i(ux+vy)/N}\\
+\ \\
+F_2(u,v) = \sum_{x=0}^{N-1}\sum_{y=0}^{N-1}f_2(x,y)e^{-2\pi i(ux+vy)/N}\\
+$$
+where,
+$$
+F_2(u,v) = e^{-2\pi i(ux_0+vy_0)/N}F_1(u,v)\\
+\ \\
+$$&lt;/li>
+&lt;li>Compute the cross-power spectrum with the 2 Fourier transforms,
+$$
+G(u,v) = \frac{F_1(u,v)\cdot F_2^{\ast}(u,v)}{|F_1(u,v)\cdot F_2(u,v)|} = e^{2\pi i(ux_0+vy_0)/N}\\
+\ \\
+$$&lt;/li>
+&lt;li>Take the discrete Fourier inverse of $G$,
+$$
+\begin{align*}
+g(x,y) &amp;amp; = \frac{1}{N^2}\sum_{u=0}^{N-1}\sum_{v=0}^{N-1}G(u,v)e^{2\pi i(ux+vy)/N}\\
+\ \\
+&amp;amp; = \begin{Bmatrix}
+1 &amp;amp; (-x_0,-y_0)\\
+0 &amp;amp; \text{otherwise}\\
+\end{Bmatrix}
+\end{align*}
+$$&lt;/li>
+&lt;li>$g$ will be an impulse image with peak at $(-x_0,-y_0)$ which can be found easily by iterating over $g$.&lt;/li>
+&lt;/ol>
+&lt;p>The complexities for each step described above are,&lt;/p>
+&lt;ol>
+&lt;li>Fast Fourier Transform - $\mathcal{O}(N^2\log N)$&lt;/li>
+&lt;li>Iterating over all values of $(u,v)$ - $\mathcal{O}(N^2)$&lt;/li>
+&lt;li>Fast Inverse Fourier Transform - $\mathcal{O}(N^2\log N)$&lt;/li>
+&lt;li>Iterating over all values of $(x,y)$ - $\mathcal{O}(N^2)$&lt;/li>
+&lt;/ol>
+&lt;p>Hence overall complexity is $\mathcal{O}(N^2\log N)$.&lt;/p>
+&lt;p>In contrast to the pixel-wise image comparison procedure, where the whole search space of $(x_0,y_0)$ is iterated over and the translation with highest joint entropy is picked, the above algorithm should run superfast. This is because the pixel-wise algorithm has $\mathcal{O}(N^4)$ complexity as compared to the $\mathcal{O}(N^2\log N)$ of the above algorithm.&lt;/p>
+&lt;h3 id="part-2b">Part 2b&lt;/h3>
+&lt;p>If we are given 2 images $f_1$ and $f_2$ with translational and rotation in between them as,
+$$
+f_2(x,y) = f_1(x\cos\theta_0+y\sin\theta_0-x_0,-x\sin\theta_0+y\cos\theta_0-y_0)
+$$&lt;/p>
+&lt;p>On taking the Fourier transform on both sides,
+$$
+F_2(u,v) = e^{-2\pi i(ux_0+vy_0)}F_1(u\cos\theta_0+v\sin\theta_0,-u\sin\theta_0+v\cos\theta_0)
+$$&lt;/p>
+&lt;p>Let $M_1$ and $M_2$ be the magnitudes of $F_1$ and $F_2$ respecetively.
+$$
+\therefore M_2(u,v) = M_1(u\cos\theta_0+v\sin\theta_0,-u\sin\theta_0+v\cos\theta_0)
+$$&lt;/p>
+&lt;p>Coverting to polar co-ordinates where $u=\rho\cos\theta$ and $v=\rho\sin\theta$,
+$$
+M_2(\rho,\theta) = M_1(\rho,\theta-\theta_0)
+$$&lt;/p>
+&lt;p>Now $M_1$ and $M_2$ are 2 translated images and this translation can be found using the phase correlation procedure explained in &lt;a href="#part-2a">Part 2a&lt;/a>.&lt;/p>
+&lt;h2 id="problem-3">Problem 3&lt;/h2>
+&lt;h3 id="part-3a">Part 3a&lt;/h3>
+&lt;p>For any $y\in\R^{n\times 1}$,
+$$
+\begin{align*}
+y^TPy &amp;amp; = y^TA^TAy\\
+&amp;amp; = (Ay)^T(Ay)\\
+&amp;amp; \ge 0
+\end{align*}
+$$
+Because the norm of $Ay\in\R^{m\times 1}$ is non-negative. If $y$ were to be an eigenvector of $P$ with eigenvalue $\lambda$,
+$$
+\begin{align*}
+y^TPy &amp;amp; \ge 0\\
+\lambda y^Ty &amp;amp; \ge 0\\
+\implies \lambda &amp;amp; \ge 0
+\end{align*}
+$$&lt;/p>
+&lt;p>Similarly for any $z\in\R^{m\times 1}$,
+$$
+\begin{align*}
+z^TQz &amp;amp; = z^TAA^Tz\\
+&amp;amp; = (A^Tz)^T(A^Tz)\\
+&amp;amp; \ge 0
+\end{align*}
+$$&lt;/p>
+&lt;p>Because the norm of $A^Tz\in\R^{n\times 1}$ is non-negative. If $z$ were to be an eigenvector of $Q$ with eigenvalue $\lambda$,
+$$
+\begin{align*}
+z^TQz &amp;amp; \ge 0\\
+\lambda z^Tz &amp;amp; \ge 0\\
+\implies \lambda &amp;amp; \ge 0
+\end{align*}
+$$&lt;/p>
+&lt;h3 id="part-3b">Part 3b&lt;/h3>
+&lt;p>For an eigenvector $u\in\R^{n\times 1}$ of $P$,
+$$
+\begin{align*}
+Pu &amp;amp; = \lambda u\\
+A^TAu &amp;amp; = \lambda u\\
+AA^TAu &amp;amp; = \lambda Au\\
+Q(Au) &amp;amp; = \lambda (Au)
+\end{align*}
+$$&lt;/p>
+&lt;p>For an eigenvector $v\in\R^{m\times 1}$ of $Q$,
+$$
+\begin{align*}
+Qv &amp;amp; = \lambda v\\
+AA^Tv &amp;amp; = \lambda v\\
+A^TAA^Tv &amp;amp; = \lambda A^Tv\\
+P(A^Tv) &amp;amp; = \lambda (A^Tv)
+\end{align*}
+$$&lt;/p>
+&lt;h3 id="part-3c">Part 3c&lt;/h3>
+&lt;p>Let $\lambda_i$ be the eigenvalue of $Q$ corresponding to $v_i$.
+$$
+\begin{align*}
+u_i &amp;amp; =\frac{A^Tv_i}{\|A^Tv_i\|_2}\\
+\implies Au_i &amp;amp; =\frac{AA^Tv_i}{\|A^Tv_i\|_2}\\
+&amp;amp; = \frac{Qv_i}{\|A^Tv_i\|_2}\\
+&amp;amp; = \frac{\lambda_i v_i}{\|A^Tv_i\|_2}\\
+&amp;amp; = \gamma_i v_i
+\end{align*}
+$$
+Hence $\gamma_i = \frac{\lambda_i}{\|A^Tv_i\|_2}\ge0$ as all eigenvectors of $Q$ are non-negative as well from &lt;a href="#part-3a">Part 3a&lt;/a>.&lt;/p>
+&lt;h3 id="part-3d">Part 3d&lt;/h3>
+&lt;p>As defined in the problem statement $U\in\R^{m\times m}$ and $V\in\R^{n\times n}$. For $i,j\in\{1,\dots,m\}$,
+$$
+[U^TU]_{ij} = v_i^Tv_j = \begin{Bmatrix}
+1 &amp;amp; i=j\\
+0 &amp;amp; i\not ={j}
+\end{Bmatrix}\\
+\ \\
+\implies U^TU=I_m=UU^T\\
+$$&lt;/p>
+&lt;p>For $i,j\in\{1,\dots,n\}$,
+$$
+[V^TV]_{ij} = u_i^Tu_j = \begin{Bmatrix}
+1 &amp;amp; i=j\\
+0 &amp;amp; i\not ={j}
+\end{Bmatrix}\\
+\ \\
+\implies V^TV=I_n=VV^T\\
+$$&lt;/p>
+&lt;p>As per the definition of $V$,
+$$
+\begin{align*}
+V &amp;amp; = [u_1|u_2|\dots|u_n]\\
+AV &amp;amp; = [Au_1|Au_2|\dots|Au_n]\\
+\end{align*}\\
+\ \\
+\begin{align*}
+\therefore [U^TAV]_{ij} &amp;amp; = v_iAu_j\\
+&amp;amp; = \gamma_j v_iv_j\\
+&amp;amp; = \begin{Bmatrix}
+\gamma_j &amp;amp; i=j\\
+0 &amp;amp; i\not ={j}\\
+\end{Bmatrix}\\
+\end{align*}\\
+\ \\
+\begin{align*}
+\therefore U^TAV &amp;amp; = \Gamma\\
+A &amp;amp; = U\Gamma V^T
+\end{align*}
+$$&lt;/p>
+&lt;h2 id="problem-4">Problem 4&lt;/h2>
+&lt;p>For the 2 images taken with different foci, the following relations hold,
+$$
+g_1 = f_1 + h_2\ast f_2\\
+g_2 = h_1\ast f_1 + f_2
+$$&lt;/p>
+&lt;p>On taking Fourier transforms,
+$$
+G_1 = F_1 + H_2\cdot F_2\\
+G_2 = H_1\cdot F_1 + F_2
+$$&lt;/p>
+&lt;p>On solving the 2 equations,
+$$
+\ \\
+F_1 = \frac{G_1-H_2\cdot G_2}{1-H_2\cdot H_1}\\
+\ \\
+F_2 = \frac{G_2-H_1\cdot G_1}{1-H_1\cdot H_2}\\
+$$&lt;/p>
+&lt;p>This way we can find $f_1$ and $f_2$ by taking the inverse Fourier transforms.&lt;/p>
+&lt;p>But all this will only work if $\not\exists u,v$,
+$$
+H_1(u,v)\cdot H_2(u,v) = 1\\
+$$
+Even if for a single pair of $(u,v)$ the LHS in above equation is close to 1, the whole computation for taking Fourier inverses will become unstable. For most blurring filters $h$ like $h_1$ and $h_2$,
+$$
+\int_{-\infty}^\infty\int_{-\infty}^\infty h(x,y)dxdy=1\\
+$$&lt;/p>
+&lt;p>$$
+H(u,v) = \int_{-\infty}^\infty\int_{-\infty}^\infty h(x,y)e^{-2\pi i(ux+vy)}dxdy\\
+\ \\
+\therefore H(0,0) = 1
+$$
+Hence at $(0,0)$, $H_1(0,0)\cdot H_2(0,0)$ is likely to be 1, making $f_1$ and $f_2$ unknowable exactly.&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
 &lt;dd>&lt;ul>

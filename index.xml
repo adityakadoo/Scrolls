@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Wed, 13 Sep 2023 14:47:25 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrolls</title><link>https://adityakadoo.github.io/Scrolls/</link><description>Recent content on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Thu, 09 Nov 2023 08:56:49 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/index.xml" rel="self" type="application/rss+xml"/><item><title>Summary Statistics</title><link>https://adityakadoo.github.io/Scrolls/courses/hw1/</link><pubDate>Thu, 09 Nov 2023 08:56:49 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/hw1/</guid><description>&lt;p>Analysis done on prices of Tata Motors stock price from early Sept 2018 to Sept 2023.&lt;/p>
+&lt;h2 id="summary-statistics">Summary Statistics&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Statistic&lt;/th>
+&lt;th>Value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Mean&lt;/td>
+&lt;td>0.000040&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Stdev&lt;/td>
+&lt;td>0.030552&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Min&lt;/td>
+&lt;td>-0.193375&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>25% Quartile&lt;/td>
+&lt;td>-0.014307&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>50% Quartile&lt;/td>
+&lt;td>0.000752&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>75% Quartile&lt;/td>
+&lt;td>0.014353&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Max&lt;/td>
+&lt;td>0.186037&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Var&lt;/td>
+&lt;td>0.000933&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Skewness&lt;/td>
+&lt;td>0.272770&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Kurtosis&lt;/td>
+&lt;td>6.256084&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Jarque Bera&lt;/td>
+&lt;td>565.421595&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>Positive skew means longer the returns are more skewed towards right side&lt;/li>
+&lt;li>Significant +ve kurtosis means the distribution has thick tails&lt;/li>
+&lt;li>Jarque Bera &amp;gt; 6 means returns do not follow a normal distribution&lt;/li>
+&lt;/ul>
+&lt;h2 id="prices-trend">Prices trend&lt;/h2>
+&lt;p>&lt;img src="images/TATAMOTORS_px_time.png" alt="pricesXtime">&lt;/p>
+&lt;h2 id="returns-trend">Returns trend&lt;/h2>
+&lt;p>&lt;img src="images/TATAMOTORS_ret_time.png" alt="returnsXtime">&lt;/p>
+&lt;h2 id="returns-histogram">Returns Histogram&lt;/h2>
+&lt;p>&lt;img src="images/TATAMOTORS_ret.png" alt="returns">&lt;/p></description></item><item><title>Reinforcement Learning</title><link>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</link><pubDate>Wed, 13 Sep 2023 14:47:25 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/courses/reinforcement_learning/</guid><description>&lt;h2 id="multi-armed-bandits">Multi-armed Bandits&lt;/h2>
 &lt;dl>
 &lt;dt>&lt;strong>Stochastic Multi-armed Bandits&lt;/strong>&lt;/dt>
 &lt;dd>&lt;ul>

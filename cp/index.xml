@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cp on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/cp/</link><description>Recent content in Cp on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Sun, 04 Dec 2022 10:55:21 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/cp/index.xml" rel="self" type="application/rss+xml"/><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cp on Scrolls</title><link>https://adityakadoo.github.io/Scrolls/cp/</link><description>Recent content in Cp on Scrolls</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>aditya1449kadoo@gmail.com (Aditya Kadoo)</managingEditor><webMaster>aditya1449kadoo@gmail.com (Aditya Kadoo)</webMaster><lastBuildDate>Sun, 04 Dec 2022 10:55:21 +0530</lastBuildDate><atom:link href="https://adityakadoo.github.io/Scrolls/cp/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Report</title><link>https://adityakadoo.github.io/Scrolls/cp/project_report/</link><pubDate>Tue, 28 Nov 2023 09:49:40 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/cp/project_report/</guid><description>&lt;h2 id="image-quilting">Image Quilting&lt;/h2>
+&lt;p>Image Quilting is a texture synthesis and transfer algorithm developed by Alexei A. Efros and William T. Freeman, presented in their influential paper in 2001. This algorithm provides a method for generating larger textures from smaller sample textures while maintaining visual coherence and avoiding visible seams.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Patch Selection&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>The algorithm starts by selecting overlapping patches from the input texture. These patches serve as the building blocks for the synthesis process.&lt;/p>
+&lt;p>Best possible patch-size that will produce most seamless results can vary a lot between different textures as this depends on reeccuring qualities within each texture. Therefore we have tried sampling patches with many sizes ranging from 18 to 54 in multiples of 6.&lt;/p>
+&lt;p>In some case like the text-based texture given below the patches can also be restricted along an axis. This improves the output quality and also reduces computing time.&lt;/p>
+&lt;p>&lt;img src="images/d2.png" alt="text">&lt;/p>
+&lt;ol start="2">
+&lt;li>&lt;strong>Matching and Stitching&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Image Quilting employs a matching criterion to find the most suitable patches for stitching. This criterion considers the similarity between the overlapping regions of candidate patches.&lt;/p>
+&lt;p>The selected patches are then stitched together to create a larger texture. The algorithm pays attention to minimizing the appearance of seams by carefully aligning and blending the patches.&lt;/p>
+&lt;p>&lt;img src="images/d1.png" alt="stiching">&lt;/p>
+&lt;p>For example in the above figure, there are 2 patches B1 and B2 which have an overlapping region as shown. Keeping B1 fixed, to find the minimum error cut in the overlapping region, the following error is minimized.
+$$
+E = \min_{X,b_2}\sum_{j=1}^{\text{N}} (\ B_1[j,X(j)] - b_2[j,X(j)]\ )^2
+$$
+Here $X$ are possible growing cuts in the overlapping region and $N$ is the patch-size. The best cut for a patch $b_2$ is found using dynamic programming.&lt;/p>
+&lt;ol start="3">
+&lt;li>&lt;strong>Overlapping and Randomization&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Overlapping patches contribute to the algorithm&amp;rsquo;s ability to generate coherent textures. This overlap ensures a smooth transition between adjacent patches. As the paper suggests, the overlapping region&amp;rsquo;s 1 sided width is taken to be $1/6^{\text{th}}$ of the patch-size.&lt;/p>
+&lt;p>Randomization is introduced in the patch selection process to avoid repetitive patterns and to add diversity to the synthesized texture. A threshold value of error that 1.3 times minimum possible error is set. The final $B_2$ is chosen randomly from all $b_2$&amp;rsquo;s with min-cut error less that this threshold.&lt;/p>
+&lt;h2 id="synthesis">Synthesis&lt;/h2>
+&lt;p>For the texture synthesis task the base image quilting algorithm is applied repeatedly. First the top-left corner is chosen from the possible patches. All other patches are determined from the patches adjacent to them. At worst, a patch might need to optimize over 2 boundaries, for patches above and towards left.&lt;/p>
+&lt;h3 id="results">Results&lt;/h3>
+&lt;!-- |![bricks](images/bricks.png) ![bricks](images/bricks_output.png)|![tomatoes](images/tomatoes.png) ![tomatoes_output](images/tomatoes_output.png)| -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;/th>
+&lt;th>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/pebbles.png" alt="pebbles"> &lt;img src="images/pebbles_18_216.png" alt="pebbles_output"> &lt;img src="images/pebbles_18_360.png" alt="pebbles_output">&lt;/td>
+&lt;td>&lt;img src="images/pepper.png" alt="pepper"> &lt;img src="images/pepper_36_216.png" alt="pepper_output"> &lt;img src="images/pepper_36_360.png" alt="pepper_output">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/people.png" alt="people"> &lt;img src="images/people_36_216.png" alt="people_output"> &lt;img src="images/people_36_360.png" alt="people_output">&lt;/td>
+&lt;td>&lt;img src="images/waves.png" alt="waves"> &lt;img src="images/waves_36_216.png" alt="waves_output"> &lt;img src="images/waves_36_360.png" alt="waves_output">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/nuts.png" alt="nuts"> &lt;img src="images/nuts_36.png" alt="nuts_output">&lt;/td>
+&lt;td>&lt;img src="images/text_1.png" alt="text"> &lt;img src="images/text_18_216.png" alt="text_output">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/tomatoes.png" alt="tomatoes"> &lt;img src="images/tomatoes_output.png" alt="tomatoes_output">&lt;/td>
+&lt;td>&lt;img src="images/bricks.png" alt="bricks"> &lt;img src="images/bricks_output.png" alt="brick_output">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="transfer">Transfer&lt;/h2>
+&lt;p>For texture transfer onto a target image, the base algorithm is slightly modified. Specifically the error term now includes the difference between the new patch and the corresponding patch from the target image. This difference is simply the euclidean norm between the values from the 2 images. There is parameter $\alpha$ that is used to control the contribution of the 2 error terms.&lt;/p>
+&lt;h3 id="results-1">Results&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Texture&lt;/th>
+&lt;th>Target&lt;/th>
+&lt;th>Output&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;img src="images/rice.png" alt="rice">&lt;/td>
+&lt;td>&lt;img src="images/bill.png" alt="bill">&lt;/td>
+&lt;td>&lt;img src="images/bill_rice.png" alt="bill_rice">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;img src="images/picasso.jpeg" alt="picasso">&lt;/td>
+&lt;td>&lt;img src="images/feynman.jpeg" alt="rich">&lt;/td>
+&lt;td>&lt;img src="images/rich-pic-0.9.png" alt="rich_pic">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Algorithms</title><link>https://adityakadoo.github.io/Scrolls/cp/algorithms/</link><pubDate>Fri, 02 Sep 2022 09:46:58 +0530</pubDate><author>aditya1449kadoo@gmail.com (Aditya Kadoo)</author><guid>https://adityakadoo.github.io/Scrolls/cp/algorithms/</guid><description>&lt;h2 id="numerical-methods-3">Numerical Methods (3)&lt;/h2>
 &lt;h3 id="ternary-search">Ternary Search&lt;/h3>
 &lt;p>We are given a funtion $f(x)$ which is unimodal on an interval $[l,r]$. This means it has one of the following two behaviours:&lt;/p>
 &lt;ol>

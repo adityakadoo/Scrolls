@@ -1,15 +1,37 @@
-<header id="header">
+<header>
+  <nav id="nav">
+    {{$data := newScratch}}
+    {{$data.Set "link" "//"}}
+    <a href="{{.Site.BaseURL}}">
+      ~
+    </a>
+    {{if (eq .Kind "404")}}
+    {{$data.Set "currlink" "/Scrolls/404.html"}}
+    {{else}}
+    {{$data.Set "currlink" (path.Dir .RelPermalink)}}
+    {{end}}
+    {{range (split .RelPermalink "/")}}
+    {{if not (eq . "")}}
+    {{$data.Set "link" (path.Join ($data.Get "link") .)}}
+    /
+    {{if not (eq ($data.Get "link") ($data.Get "currlink"))}}
+    <a href="{{$data.Get `link`}}" style="width: {{add 1.5 (mul 1.05 (len .))}}ch;">
+      {{title (replace . "_" " ")}}
+    </a>
+    {{end}}
+    {{end}}
+    {{end}}
+  </nav>
+
+  {{if (not .IsHome)}}
+  <div id="date">
+    <b>[{{ .Page.PublishDate.Format .Site.Params.dateFormat }}]</b>
+  </div>
+  {{end}}
+
   <h1>
     {{ .Page.Title }}
   </h1>
+  {{.Page.Description}}
 
-  <nav>
-    {{ range .Site.Menus.main }}
-    <span class="nav-bar-item">
-      <a class="link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-    </span>
-    {{ end }}
-  </nav>
-
-  <p>{{.Page.Description}}</p>
 </header>

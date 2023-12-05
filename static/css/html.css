@@ -2,6 +2,6 @@
     display: inline-block;
 }
 
-#date {
+#date, #theme {
     float: right;
 }

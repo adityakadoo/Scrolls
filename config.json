@@ -15,7 +15,7 @@
         }
       },
       "highlight": {
-        "anchorLineNos": false,
+        "anchorLineNos": true,
         "codeFences": true,
         "guessSyntax": true,
         "hl_Lines": "",
@@ -39,9 +39,8 @@
       "description": "my blogging website",
       "favicon": "favicon.ico",
       "footnote": "Follow me on <a class=link href=https://github.com/adityakadoo>GitHub</a> |\n<a class=link href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank rel=noopener>CC BY-NC-SA 4.0</a>\n",
-      "customCSS": [
-        "common.css"
-      ],
+      "themes": ["Latex", "HTML"],
+      "customCSS": [],
       "customJS": [],
       "dateFormat": "2006-01-02",
       "since": "2022",

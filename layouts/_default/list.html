@@ -1,55 +1,57 @@
 {{ define "main" }}
-<h2>
-  Contents
-</h2>
-<ol>
-  {{ range .Pages }}
-  <li>
-    {{if .IsSection}}
-    <b>
-      {{end}}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{if .IsSection}}
-    </b>
-    {{end}}
-    {{if .IsSection}}
-    <ol>
-      {{ range .Pages }}
-      <li>
-        {{if .IsSection}}
-        <b>
-          {{end}}
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+<main id="main" class="post">
+  <article class="content">
+    <div class="tableofcontent">
+      <h2>Contents</h2>
+      <ol>
+        {{ range .Pages }}
+        <li>
           {{if .IsSection}}
-        </b>
-        {{end}}
-        {{if .IsSection}}
-        <ol>
-          {{ range .Pages }}
-          <li>
-            {{if .IsSection}}
-            <b>
-              {{end}}
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              {{if .IsSection}}
-            </b>
+          <b>
             {{end}}
-          </li>
-          {{ end }}
-        </ol>
-        {{end}}
-      </li>
-      {{ end }}
-    </ol>
+            <a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{if .IsSection}}
+          </b>
+          {{end}}
+          {{if .IsSection}}
+          <ol>
+            {{ range .Pages }}
+            <li>
+              {{if .IsSection}}
+              <b>
+                {{end}}
+                <a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{if .IsSection}}
+              </b>
+              {{end}}
+              {{if .IsSection}}
+              <ol>
+                {{ range .Pages }}
+                <li>
+                  {{if .IsSection}}
+                  <b>
+                    {{end}}
+                    <a class="link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{if .IsSection}}
+                  </b>
+                  {{end}}
+                </li>
+                {{ end }}
+              </ol>
+              {{end}}
+            </li>
+            {{ end }}
+          </ol>
+          {{end}}
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+  </article>
+    {{if .IsHome}}
+    {{partial "homepage.html" .}}
+    {{else}}
+    {{.Content}}
     {{end}}
-  </li>
-  {{ end }}
-</ol>
-<main>
-  {{if .IsHome}}
-  {{partial "homepage.html" .}}
-  {{else}}
-  {{.Content}}
-  {{end}}
 </main>
 {{ end }}

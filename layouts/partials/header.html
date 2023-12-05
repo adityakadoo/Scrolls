@@ -1,33 +1,59 @@
 <header>
-  <nav id="nav">
-    {{$data := newScratch}}
-    {{$data.Set "link" "//"}}
-    <a href="{{.Site.BaseURL}}">
-      ~
-    </a>
-    {{if (eq .Kind "404")}}
-    {{$data.Set "currlink" "/Scrolls/404.html"}}
-    {{else}}
-    {{$data.Set "currlink" (path.Dir .RelPermalink)}}
-    {{end}}
-    {{range (split .RelPermalink "/")}}
-    {{if not (eq . "")}}
-    {{$data.Set "link" (path.Join ($data.Get "link") .)}}
-    /
-    {{if not (eq ($data.Get "link") ($data.Get "currlink"))}}
-    <a href="{{$data.Get `link`}}" style="width: {{add 1.5 (mul 1.05 (len .))}}ch;">
-      {{title (replace . "_" " ")}}
-    </a>
-    {{end}}
-    {{end}}
-    {{end}}
-  </nav>
+  <div id="navbar">
+    <nav id="nav">
+      {{$data := newScratch}}
+      {{$data.Set "link" "//"}}
+      <a class="link" id="home" href="{{.Site.BaseURL}}">
+        ~
+      </a>
+      {{if (eq .Kind "404")}}
+      {{$data.Set "currlink" "/Scrolls/404.html"}}
+      {{else}}
+      {{$data.Set "currlink" (path.Dir .RelPermalink)}}
+      {{end}}
+      {{range (split .RelPermalink "/")}}
+      {{if not (eq . "")}}
+      {{$data.Set "link" (path.Join ($data.Get "link") .)}}
+      /
+      {{if not (eq ($data.Get "link") ($data.Get "currlink"))}}
+      <a class="link" href="{{$data.Get `link`}}" style="width: {{add 1.5 (mul 1.05 (len .))}}ch;">
+        {{title (replace . "_" " ")}}
+      </a>
+      {{end}}
+      {{end}}
+      {{end}}
+    </nav>
 
-  {{if (not .IsHome)}}
-  <div id="date">
-    <b>[{{ .Page.PublishDate.Format .Site.Params.dateFormat }}]</b>
+    <select id="theme" name="theme" onchange="
+    var head = document.head;
+    var link = document.createElement(`link`);
+    var home = document.getElementById(`home`).href;
+    var children = head.childNodes;
+    var prev_link = null;
+    for(let i=0;i<children.length;i++)
+      if(children[i].media === `screen` && children[i].rel === `stylesheet`
+        && children[i].href.startsWith(home))
+        prev_link = children[i];
+    link.media = `screen`;
+    link.rel = `stylesheet`;
+    link.href = home+`css/`+this.value.toLowerCase()+`.css`;
+    console.log(link, prev_link);
+    if(prev_link)
+      document.head.replaceChild(link, prev_link);
+    else
+      document.head.appendChild(link);
+  " onfocus="this.selectedIndex = -1;">
+      {{range .Site.Params.themes}}
+      <option value="{{.}}">{{.}}</option>
+      {{end}}
+    </select>
+
+    {{if (not .IsHome)}}
+    <div id="date">
+      <time><b>[{{ .Page.PublishDate.Format .Site.Params.dateFormat }}]</b></time>
+    </div>
+    {{end}}
   </div>
-  {{end}}
 
   <h1>
     {{ .Page.Title }}

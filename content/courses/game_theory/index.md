@@ -12,9 +12,7 @@ toc: true
 footer: true
 ---
 
-## Central Concepts
-
-### Game
+## Game Theory
 
 - **Game**
 : It is a formal representation of the *strategic* interaction between *players*
@@ -24,8 +22,6 @@ footer: true
 : *Mapping* from state of the game to set of valid actions
 
 > **Normal Form**, **Extensive Form**, **Static**, **Dynamic**, **Repeated**, **Stochastic**, etc. are different kinds of games
-
-### Game Theory
 
 - **Game Theory**
 : It is the formal study of strategic interactions between player, who are *rational* and *intelligent*
@@ -39,8 +35,6 @@ footer: true
   - all players know that all players know the fact
   - all players know that all players know that all players know the fact
   - $\dots$ ad infinitum
-
-### Chess Example
 
 - **Game situations**($H$)
 : Set of all finite sequence $(x_0, x_1,x_2,...,x_k)$ of board positions such that,
@@ -67,9 +61,9 @@ footer: true
 > - $s_B^\ast$ exists
 > - $s_W^\prime$ and $s_B^\prime$ exist
 
-## Normal Form Games
+### Normal Form Games
 
-### Pure Strategies
+#### Pure Strategies
 
 **Static Game** $\langle N, \\\{S_i|i\in N\\\}, \\\{u_i | i\in N\\\} \rangle$
 : A game where player interact only once
@@ -88,7 +82,7 @@ footer: true
 
 > **Finite Game** : A static game where $\forall i\in N,\\ S_i$ is finite
 
-#### Dominance
+##### Dominance
 
 **Strictly Dominated Strategy**
 : $s_i^\prime\in S_i,\\ \exists s_i\in S_i,\\ \forall s_{-i}\in S_{-i},\\ u_i(s_i, s_{-i})>u_i(s_i^\prime,s_{-i})$
@@ -102,9 +96,9 @@ footer: true
 **Weakly Dominant Strategy**
 : $s_i^\prime\in S_i, \forall s_i\in S_i-\\\{s_i^\prime\\\},\\ s_i$ is weakly dominated by $s_i^\prime$
 
-#### Equilibria
+##### Equilibria
 
-##### Dominant Strategy Equilibrium
+###### Dominant Strategy Equilibrium
 
 **Strictly Dominant Strategy Equilibrium [SDSE]**
 : A strategy profile $(s_1^\ast,s_2^\ast,\dots,s_n^\ast)$, such that $\forall i\in N,\\ s_i^\ast$ is a strictly dominant strategy
@@ -117,7 +111,7 @@ footer: true
 > Strictly dominated strategies can be removed in any order.
 > Weakly dominated strategies' order of removal matters as it can remove important outcomes.
 
-##### Nash Equilibrium
+###### Nash Equilibrium
 
 **Pure Strategy Nash Equilibrium [PSNE]**
 : A strategy profile $(s_i^\ast, s_{-i}^\ast)$ such that $\forall i\in N$ and $\forall s_i\in S_i$,
@@ -132,7 +126,7 @@ $$
 
 > SDSE $\implies$ WDSE $\implies$ PSNE
 
-#### Risk Aversion
+##### Risk Aversion
 
 **Max-Min Strategy** ($s_i^{\max\min}$)
 : $s_i^{\max\min}\in\arg\max_{s_i\in S_i}\min_{s_{-i}\in S_i}u_i(s_i,s_{-i})$
@@ -146,20 +140,20 @@ $$
 
 > **Theorem** : Every PSNE $s^\ast=(s_1^\ast,\dots,s_n^\ast)$ satisfies $u_i(s^\ast)\ge\underline v_i,\\ \forall i\in N$
 
-#### Elimination of dominated strategies
+##### Elimination of dominated strategies
 
-##### Preservation of Max-Min value
+###### Preservation of Max-Min value
 
 > **Theorem** : For NFG $G$, let $s_j^\prime\in S_j$ be a dominated strategy. Let $G^\prime$ be the residual game after removing $s_j^\prime$. Then, the maxmin value of $j$ in $G^\prime$ is equal to the maxmin value in $G$
 
-##### Preservation of PSNE
+###### Preservation of PSNE
 
 > **Theorem** : For NFG $G$ and $G^\prime$ after elimination of **any** strategy, if $s^\ast$ is a PSNE in $G$ and survives in $G^\prime$, then $s^\ast$ is a PSNE in $G^\prime$ too.
 
 > No new PSNE if eliminated strategy is dominated.
 > Old PSNE could be killed.
 
-#### Matrix Games
+##### Matrix Games
 
 **Matrix Game**
 : A NFG $\langle N, \\\{S_i|i\in N\\\}, \\\{u_i|i\in N\\\}\rangle$ with $N=\\\{1,2\\\}$ and $u_1(s)+u_2(s)=0,\\ \forall$ strategy profile $s\in S$
@@ -184,7 +178,7 @@ $$
 
 > **PSNE Theorem** : A Matrix game has a PSNE $\iff$ $\bar v=\underline v=U(s_1^\ast, s_2^\ast)$ where $s_1^\ast$ and $s_2^\ast$ are $\max\min$ and $\min\max$ strategies for player 1 and 2 respectively. $(s_1^\ast, s_2^\ast)$ is that PSNE.
 
-### Mixed Strategies
+#### Mixed Strategies
 
 **Mixed Strategy Set** ($\Delta A$)
 : $\Delta A = \\\{p:A\to[0,1]^{|A|}\\ |\\ \sum_{a\in A}p(a) = 0\\\}$
@@ -195,7 +189,7 @@ $$
 **Utility** ($u_i(\sigma_i,\sigma_{-i})$)
 : $u_i(\sigma_i,\sigma_{-i}) = \sum_{s_1\in S_1}\sum_{s_2\in S_2}\cdots\sum_{s_n\in S_n}\prod_{j=1}^n\sigma_j(s_j)\cdot u_i(s_1,s_2,\dots,s_n)$
 
-#### Mixed Strategy Nash Equilibrium
+##### Mixed Strategy Nash Equilibrium
 
 **MSNE**
 : A mixed strategy profile $(\sigma_i^\ast, \sigma_{-i}^\ast)$ such that,
@@ -208,7 +202,7 @@ $$
 > **Theorem** : $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE $\iff$ $\forall s_i\in S_i,\\ \forall i\in N$, 
 > $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)\ge u_i(s_i,\sigma_{-i}^\ast)$$
 
-#### MSNE Characterization Theorem
+##### MSNE Characterization Theorem
 
 **Support for Mixed Strategy** ($\delta(\sigma_i)$)
 : $\delta(\sigma_i)=\\\{s_i\in S_i|\\ \sigma_i(s_i)>0\\\}$
@@ -222,7 +216,7 @@ $$ \max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i})=\max_{s_i\in S_i}u_i(s_
 - If $(\sigma_i^\ast, \sigma_{-i}^\ast)$ is an MSNE, then
 $$ u_i(\sigma_i^\ast,\sigma_{-i}^\ast)=\max_{\sigma_i\in\Delta S_i}u_i(\sigma_i,\sigma_{-i}^\ast)=\max_{s_i\in S_i}u_i(s_i,\sigma_{-i}^\ast)=\max_{s_i\in\delta(\sigma_i)}u_i(s_i,\sigma_{-i}^\ast) $$
 
-#### Algorithm for MSNE
+##### Algorithm for MSNE
 
 For every support profile $X_1\times X_2\times\cdots X_n$ where $X_i\sube S_i$, solve the following feasibility program to get the MSNE,
 $$
@@ -236,14 +230,14 @@ $$
 - No poly-time algorithm for general game
 - This is PPAD-complete (Polynomial Parity Argument on Directed graphs)
 
-#### Existence of MSNE
+##### Existence of MSNE
 
 **Finite Game**
 : A game with finite number of players and each player has a finite set of strategies
 
 > **Theorem** : Every finite game has a (mixed) Nash equilibrium.
 
-### Correlated Strategies
+#### Correlated Strategies
 
 **Correlated Strategy** ($\pi$)
 : A mapping $\pi:S_1\times S_2\times\cdots\times S_n\rightarrow[0,1]$ such that $\sum_{s\in S}\pi(s)=1$
@@ -262,7 +256,7 @@ $$
 
 > **Theorem** : For every MSNE $\sigma^\ast$ there exists a CE $\pi^\ast$
 
-## Perfect Information Games
+### Perfect Information Games
 
 **Perfect Information Extensive Form Games** [PIEFG] $\langle N, A, H, X, P, (u_i)_{i\in N}\rangle$
 : A game where players interact one after the other
@@ -282,7 +276,7 @@ $$
 
 > PSNE of PIEFG doesn't always give credible threats for equilibrium
 
-### Subgame Perfection
+#### Subgame Perfection
 
 **Subgame**
 : Subtree of a PIEFG $G$ rooted at a history $h$. It is the *restriction* of $G$ to the descendants of $h$.
@@ -290,7 +284,7 @@ $$
 **Subgame Perfect Nash Equilibrium** [SPNE]
 : A strategy profile $s\in S$ such that $\forall$ subgame $G^\prime$ of $G$, the restriction of $s$ to $G^\prime$ is a PSNE of $G^\prime$
 
-### Backward Induction Algorithm
+#### Backward Induction Algorithm
 
 ```python
 def BACK_IND(history = []):
@@ -305,7 +299,7 @@ def BACK_IND(history = []):
   return best_util, best_action
 ```
 
-### SPNE Limitations
+#### SPNE Limitations
 
 **Advantages**
 1. SPNE is guaranteed to exist in finite PIEFG
@@ -316,13 +310,13 @@ def BACK_IND(history = []):
 1. The whole tree needs to be parsed
 2. Cognitive limit of real players may prohibit playing SPNE
 
-## Imperfect Information Games
+### Imperfect Information Games
 
 **Imperfect Information Extensive Form Games** [IIEFG] $\langle N,A,H,X,P,(u_i)_{i\in N},\\\{I_i:i\in N\\\}\rangle$
 : A PIEFG with added condition that for every $i\in N,I_i=(I_i^1,I_i^2,\dots,I_i^{k(i)})$ is a partition of $\\\{h\in H\backslash Z:P(h)=i\\\}$ with the property that $X(h)=X(h^\prime)$ and $P(h)=P(h^\prime)=i$, whenever $\exists j, h,h^\prime\in I_i^j$
   - **Information Set** : $I_i^j\in I_i$ 
 
-### Behavioural Strategies
+#### Behavioural Strategies
 
 **Strategy Set** ($S_i$)
 : For player $i$,
@@ -337,7 +331,7 @@ def BACK_IND(history = []):
 : For player $i$,
   $$b_i:I_i\to\\\{\Delta X(I_i^j)\\ |\\ I_i^j\in I_i\\\}$$
 
-### Equivalence
+#### Equivalence
 
 **Equivalence**
 : A mixed strategy $\sigma_i$ and a behavioural strategy $b_i$ of a player $i$ in an IIEFG are equivalent is $\forall \zeta_{-i}$, mixed/behavioural strategy of other players and for every vertex $x$ in the game,
@@ -358,7 +352,7 @@ Equivalence doesn't hold if the players are forgetful.
 
 > **Theorem** : Consider an IIEFG such that every vertex has at least two actions. Every behavioral strategy has an equivalent mixed strategy for a player iff each information set of that player intersects every path emanating from the root at most once.
 
-### Perfect Recall
+#### Perfect Recall
 
 **Perfect Recall**
 : For every $I_i^j$ of player $i$ and every pair of vertices $x,y\in I_i^j$, if the decision vertices of $i$ are $x_i^1,x_i^2,\dots,x_i^L=x$ and $y_i^1,y_i^2,\dots,y_i^{L^\prime}=y$ respectively for the two paths from the root to $x$ and $y$ then
@@ -378,7 +372,7 @@ $S_i^\prime(x)$
 >
 > **Kuhn Theorem** : In every IIEFG, if $i$ is a player with perfect recall then for every mixed strategy of $i$, there exists a behavioural strategy.
 
-### Bayesian Beliefs
+#### Bayesian Beliefs
 
 **Beliefs** ($\mu_i^j:I_i^j\to[0,1]$)
 : Distribution over an information set such that $\sum_{x\in I_i^j}u_i^j(x)=1$
@@ -402,7 +396,7 @@ $S_i^\prime(x)$
   - $\mu_i$ is Bayesian w.r.t. $\sigma$
   - $\sigma_i$ is sequentially rational given $\sigma_{-i}$ and $\mu_i$
 
-## Bayesian Games
+### Bayesian Games
 
 **Bayesian Games** $\langle N, \\\{\Theta_i:i\in N\\\}, P, \\\{\Gamma_\theta:\theta\in(\times_{i\in N}\Theta_i)\\\}\rangle$
 : - $N$ : Set of players
@@ -424,7 +418,7 @@ $S_i^\prime(x)$
 : Expected utility after observing one's own type,
   $$u_i(\sigma|\theta_i)=\sum_{\theta_{-i}\in\Theta_{-i}}P(\theta_{-i}|\theta_i)u_i(\sigma(\theta);\theta)$$
 
-### Equilibria
+#### Equilibria
 
 **Ex ante Equilibrium** $(\sigma^\star,P)$
 : Nash Equilibrium,
@@ -738,6 +732,8 @@ with inequality being strict for some $i\in N$.
     \\ \\\
     u_i^{VCG}(\theta_i,\theta_{-i}) = \sum_{j\in N}v_j(f^{AE}(\theta_i,\theta_{-i}),\theta_j)-\max_{a\in A}\sum_{j\in N,\\ j\not={i}}v_j(a,\theta_j)$$
 
+### Combinatorial Allocation
+
 **Combinatorial Allocation**
 : - $M=\\\{1,2,\dots,m\\\}$ : set of objects
   - $\Omega=2^M$ : set of bundles
@@ -751,3 +747,177 @@ with inequality being strict for some $i\in N$.
 : A mechanism $(f,p)$ such that $v_i(f(\theta),\theta_i)-p_i(\theta)\ge 0,\\ \forall\theta\in\Theta,\\ \forall i\in N$
 
 > **Claim**: In allocation of goods VCG mechanism is Individually rational.
+
+**Independence of Non-influential agents [INA]**
+: An affine maximizer $f^{AM}$ such that for all $i\in N$ with $\lambda_i=0$,
+  $$
+    f^{AM}(\theta_i,\theta_{-i}) = f^{AM}(\theta_i^\prime,\theta_{-i})
+  $$
+
+> **Theorem** : ANI $\implies$ DSIC.
+> Payements for such rule are,
+> $$
+>   p_i^{AM}(\theta_i,\theta_{-i})=\begin{Bmatrix}
+>     \frac{1}{\lambda_i}\\\{h_i(\theta_{-i})-\sum_{j\ne=i}[\lambda_jv_j(f^{AM}(\theta))+\kappa(f^{AM}(\theta))]\\\} & \lambda_i>0\\\
+>     0 & \lambda_i=0
+>   \end{Bmatrix}
+> $$
+
+> **Robert's Theorem** : If type space is unrestricted then, $ONTO+DSIC\implies$ affine maximizer.
+
+### Single Object Allocation
+
+**Single object allocation**
+: - $t_i\in T_i$ : value of agent $i$ if they win
+  - $a\in \Delta A$ : Allocation probabilities of each agent
+    $$
+      \Delta A = \\\{a\in[0,1]^{n+1} : \sum_{i\in N}a_i=1\\\}
+    $$
+  - $f:T_1\times T_2\times\cdots\times T_n\to\Delta A$ : Allocation rule
+    - $f_i(t)$ is the probability of agent $i$ winning.
+    - $f_0(t)$ is the probability the object goes unallocated.
+  - $v_i=a_i\cdot t_i$ : Expected valuation
+
+**Non-decreasing Allocation rule**
+: An allocation rule such that $\forall i\in N$ and $\forall t_{-i}\in T_{-i}$ we have $f_i(t_i,t_{-i}), \forall s_i,t_i\in T_i,t_i>s_i$.
+
+> **Myerson Theorem** : Suppose $T_i=[0,b_i],\forall i\in N$ and the valuations are in the product form (as above). An allocation rule and payment function is DSIC iff,
+> 1. $f$ is non-decreasing
+> 2. payements are given by,
+>   $$
+>     p_i(t_i,t_{-i})=p_i(0,t_{-i})+t_if_i(t_i,t_{-i})-\int_0^{t_i}f_i(x,t_{-i})dx
+>   $$
+>
+> **Corollary** : In single object allocation domain, DSIC $\iff$ non-decreasing.
+
+**Ex-post Individual rational [IR]**
+: A mechanism $(f,p)$ such that,
+  $$
+    t_if_i(t_i,t_{-i})-p_i(t_i,t_{-i})\ge 0
+  $$
+
+> **Lemma** : In single object allocation, a DSIC mechanism is,
+> 1. IR $\iff\forall i\in N$ and $\forall t_{-i}\in T_{-i},p_i(0,t_{-i})\le 0$.
+> 2. IR and follows no subsidy $\iff\forall i\in N$ and $\forall t_{-i}\in T_{-i},p_i(0,t_{-i})=0$
+
+**Revenue Maximization Setup**
+: - Common prior $G$ over all the $T$. $g$ denotes the desity.
+  - Every allocation $(f,p)$ induces an expected allocation and payement rule,
+    $$
+      \alpha_i(s_i|t_i) = \int_{s_{-i}\in T_{-i}}f_i(s_i,s_{-i})g_{-i}(s_{-i}|t_i)ds_{-i}\\\
+      \\ \\\
+      \pi_i(s_i|t_i) = \int_{s_{-i}\in T_{-i}}p_i(s_i,s_{-i})g_{-i}(s_{-i}|t_i)ds_{-i}
+    $$
+  - Expected utilty of agent $i$: $u_i=t_i\alpha_i(s_i|t_i)-\pi_i(s_i|t_i)$
+
+**Bayesian Incentive compatibility [BIC]**
+: $\forall i\in N, \forall s_i,t_i\in T_i$,
+  $$
+    t_i\alpha_i(t_i|t_i)-\pi_i(t_i|t_i) \ge t_i\alpha_i(s_i|t_i)-\pi_i(s_i|t_i)
+  $$
+
+If we assume priors are independent i.e.,
+$$
+  G(s_1,s_2,\dots,s_n)=\Pi_{i\in N}G_i(s_i)\\\
+  \\ \\\
+  \implies \alpha_i(s_i|t_i) = \alpha_i(s_i)
+$$
+
+**Non decreasing expectations [NDE]**
+: $s_i<t_i\implies \alpha_i(s_i)\le \alpha_i(t_i)$
+
+> **Myerson Theorem 2** : A mechanism $(f,p)$ in independent prior setting is BIC iff,
+> 1. $f$ is NDE
+> 2. $p_i$ satisfies $\pi_i(t_i) = \pi_i(0)+t_i\alpha_i(t_i)-\int_0^{t_i}\alpha_i(x)dx$
+
+**Interim Individual rationality [IIR]**
+: $\forall i\in N, t_i\alpha_i(t_i)-\pi_i(t_i)\ge 0$
+
+> **Lemma** : A mechanism $(f,p)$ in independent prior setting is BIC and IIR iff,
+> 1. $f$ is NDE
+> 2. $p_i$ satisfies $\pi_i(t_i) = \pi_i(0)+t_i\alpha_i(t_i)-\int_0^{t_i}\alpha_i(x)dx$
+> 3. $\forall i\in N, \pi_i(0)\le 0$
+
+#### Single Agent Optimal Mechanism
+
+**Optimal Mechanism**
+: A mechanism $M^\ast$ in the class of all single agent mechanisms that are IC (BIC and DSIC equivalent) and IR (IR and IIR equivalent) such that, $\Pi^{M^\ast}\ge\Pi^M,\\ \forall M$ where,
+$$
+  \Pi^M = \int^\beta_0p(t)g(t)dt
+$$
+
+> **Lemma** : For any implementable allocation rule $f$ we have,
+> $$
+>   \Pi^f=\int_0^\beta\left(t-\frac{1-G(t)}{g(t)}\right)g(t)f(t)dt\\\
+>   =\int_0^\beta w(t)f(t)dt
+> $$
+> Here $w(t)$ is called the virtual valuation of the agent.
+
+**Monotone Hazard Rate condition [MHR]**
+: A $G$ for which $\frac{g(x)}{1-G(x)}$ is non-decreasing
+
+> **Fact** : If $G$ satisfies MHR then $x=\frac{1-G(x)}{g(x)}$ has a solution.
+>
+> **Theorem** : A mechanism $(f,p)$ is optimal under MHR iff,
+> - $x^\ast$ is the solution from above fact and $\alpha\in[0,1]$ then,
+>   $$
+>     f(t) = \begin{Bmatrix}
+>       0 & t < x^\ast\\\
+>       \alpha & t = x^\ast\\\
+>       1 & t > x^\ast\\\
+>     \end{Bmatrix}
+>   $$
+> - For all $t\in T$,
+>   $$
+>     p(t) = \begin{Bmatrix}
+>       x^\ast & t\ge x^\ast\\\
+>       0 & \text{otherwise}\\\
+>     \end{Bmatrix}
+>   $$
+
+#### Many Agents Optimal Mechanism
+
+**Optimal Mechanism**
+: A mechanism with NDE $f$ maximizing,
+  $$
+    \max\int_T\left(\sum_{i\in N}w_i(t_i)f_i(t)\right)g(t)dt\\\
+    \\ \\\
+    w_i(t_i) = t_i-\frac{1-G_i(t_i)}{g_i(t_i)}
+  $$
+
+**Regular**
+: A virtual valuation $w_i$ such that $\forall s_i,t_i\in T_i$ with $s_i<t_i$ it holds that $w_i(s_i)\le w_i(t_i)$
+
+> **Theorem** : When every agent's valuation is regular then for every type profile $t$ is $w_i(t_i)<0\forall i\in N,f_i(t)=0,\forall i\in N.$
+>
+> Otherwise,
+> $$
+>   f_i(t)=\begin{Bmatrix}
+>     1 & w_i(t_i)\le w_j(t_j)\forall j\in N\\\
+>     0 & \text{otherwise}\\\
+>   \end{Bmatrix}\\\
+>   \\ \\\
+>   p_i(t) = \begin{Bmatrix}
+>     0 & f_i(t)=0\\\
+>     \max\\\{w_i^{-1}(0),K_i^\ast(t_{-i})\\\} & f_i(t)=1\\\
+>   \end{Bmatrix}\\\
+> $$
+> where $K_i^\ast(t_{-i}) = \inf\\\{t_i:f_i(t_i,t_{-i})=1\\\}$ then (f,p) is optimal.
+
+### Efficiency and Budget Balance
+
+> **Green-Laffont-Holmstrom Theorem** : If the type space is 'sufficiently rich', every efficient and DSIC mechanism is a Groves mechanism.
+> 
+> **Green and Laffont Theorem** : No Groves mechanism is budget balanced, i.e. $\not\exist p_i^G$ s.t., $\sum_{i\in N}p_i^G(t)=0,\forall t\in T$.
+> 
+> **Corollary** : If the valuation space is sufficiently rich no efficient mechanism can be both DSIC and BB.
+
+**dAGVA payments** ($p^\text{dAGVA}$)
+: Given by,
+  $$
+    p_i^\text{dAGVA}(t) = \frac{1}{n-1}\sum_{j\not=i}\delta_j(t_j)-\delta_i(t_i)
+  $$
+
+> **Theorem** : The dAGVA mechanism is efficient, BIC and BB.
+>
+> **Myerson-Satterthwaite Theorem** : In bilateral trade (seller and buyer) no mechanism can be simultaneously BIC, effcient, IIR and budget balanced.

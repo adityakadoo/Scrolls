@@ -1,15 +1,66 @@
-<header id="header">
+<header>
+  <div id="navbar">
+    <nav id="nav">
+      {{$data := newScratch}}
+      {{$data.Set "link" "//"}}
+      <a class="link" id="home" href="{{.Site.BaseURL}}">
+        ~
+      </a>
+      {{if (eq .Kind "404")}}
+      {{$data.Set "currlink" "/Scrolls/404.html"}}
+      {{else}}
+      {{$data.Set "currlink" (path.Dir .RelPermalink)}}
+      {{end}}
+      {{range (split .RelPermalink "/")}}
+      {{if not (eq . "")}}
+      {{$data.Set "link" (path.Join ($data.Get "link") .)}}
+      /
+      {{if not (eq ($data.Get "link") ($data.Get "currlink"))}}
+      <a class="link" href="{{$data.Get `link`}}" style="width: {{add 1.5 (mul 1.05 (len .))}}ch;">
+        {{title (replace . "_" " ")}}
+      </a>
+      {{end}}
+      {{end}}
+      {{end}}
+    </nav>
+
+    {{if (not .IsHome)}}
+    <button id="print" onclick="window.print()">Print</button>
+    {{end}}
+
+    <select id="theme" name="theme" onchange="
+    var head = document.head;
+    var link = document.createElement(`link`);
+    var home = document.getElementById(`home`).href;
+    var children = head.childNodes;
+    var prev_link = null;
+    for(let i=0;i<children.length;i++)
+      if(children[i].type === `text/css` && children[i].rel === `stylesheet`
+        && children[i].href.startsWith(home))
+        prev_link = children[i];
+    link.type = `text/css`;
+    link.rel = `stylesheet`;
+    link.href = home+`css/`+this.value.toLowerCase()+`.css`;
+    if(prev_link)
+      document.head.replaceChild(link, prev_link);
+    else
+      document.head.appendChild(link);
+  " onfocus="this.selectedIndex = -1;">
+      {{range .Site.Params.themes}}
+      <option value="{{.}}">{{.}}</option>
+      {{end}}
+    </select>
+
+    {{if (not .IsHome)}}
+    <div id="date">
+      <time><b>[{{ .Page.PublishDate.Format .Site.Params.dateFormat }}]</b></time>
+    </div>
+    {{end}}
+  </div>
+
   <h1>
     {{ .Page.Title }}
   </h1>
+  {{.Page.Description}}
 
-  <nav>
-    {{ range .Site.Menus.main }}
-    <span class="nav-bar-item">
-      <a class="link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-    </span>
-    {{ end }}
-  </nav>
-
-  <p>{{.Page.Description}}</p>
 </header>

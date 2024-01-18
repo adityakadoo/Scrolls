@@ -1,0 +1,54 @@
+{
+    "baseURL": "https://adityakadoo.github.io/Scrolls/",
+    "languageCode": "en-us",
+    "theme": "",
+    "title": "Scrolls",
+    "author": {
+      "email": "aditya1449kadoo@gmail.com",
+      "name": "Aditya Kadoo"
+    },
+    "markup": {
+      "defaultMarkdownHandler": "goldmark",
+      "goldmark": {
+        "renderer": {
+          "unsafe": true
+        }
+      },
+      "highlight": {
+        "anchorLineNos": true,
+        "codeFences": true,
+        "guessSyntax": true,
+        "hl_Lines": "",
+        "hl_inline": false,
+        "lineAnchors": "",
+        "lineNoStart": 1,
+        "lineNos": true,
+        "lineNumbersInTable": false,
+        "noClasses": false,
+        "noHl": false,
+        "style": "algol_nu",
+        "tabWidth": 2
+      },
+      "tableOfContents": {
+        "endLevel": 4,
+        "ordered": true,
+        "startLevel": 2
+      }
+    },
+    "params": {
+      "description": "my blogging website",
+      "favicon": "favicon.ico",
+      "footnote": "Follow me on <a class=link href=https://github.com/adityakadoo>GitHub</a> |\n<a class=link href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank rel=noopener>CC BY-NC-SA 4.0</a>\n",
+      "themes": ["Latex", "HTML"],
+      "customCSS": [],
+      "customJSStart": [""],
+      "customJSEnd": [""],
+      "dateFormat": "2006-01-02",
+      "since": "2022",
+      "toc": false,
+      "math": {
+        "enable": false,
+        "use": "katex"
+      }
+    }
+  }

@@ -1,3 +1,4 @@
+# Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 
 on:
@@ -31,7 +32,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.121.2
+      HUGO_VERSION: 0.121.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -73,6 +74,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public

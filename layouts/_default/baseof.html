@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}" style="--sp-color: hsl(262, 100%, 50%)">
+<html lang="{{ .Site.LanguageCode }}" style="--sp-color: #AA0000; --hl-color: #AA000050">
 
 <head>
   <meta charset="UTF-8">
@@ -49,7 +49,7 @@
   {{ template "_internal/schema.html" . }}
 
   <!-- style -->
-  <link media="screen" rel="stylesheet" href='{{ "css/latex.css" | absURL }}'>
+  <link type="text/css" rel="stylesheet" href='{{ "css/latex.css" | absURL }}'>
 
   <!-- title -->
   {{ if .IsHome }}
@@ -59,12 +59,17 @@
   {{ end }}
 
   <!-- twitter -->
-  {{ template "_internal/twitter_cards.html" . }}
+  {{/*  {{ template "_internal/twitter_cards.html" . }}  */}}
 
   {{ block "head" . }}{{ end }}
 </head>
 
 <body>
+  <!-- custom js -->
+  {{ range .Site.Params.customJSStart }}
+  <script src="{{ . | absURL }}"></script>
+  {{ end }}
+
   <div id="wrapper">
     {{ partial "header.html" . }}
     {{ block "main" . }}{{ end }}
@@ -73,11 +78,11 @@
 
   <!-- custom css -->
   {{ range .Site.Params.customCSS }}
-  <link media="screen" rel="stylesheet" href="{{ . | absURL }}" />
+  <link type="text/css" rel="stylesheet" href="{{ . | absURL }}" />
   {{ end }}
 
   <!-- custom js -->
-  {{ range .Site.Params.customJS }}
+  {{ range .Site.Params.customJSEnd }}
   <script src="{{ . | absURL }}"></script>
   {{ end }}
 

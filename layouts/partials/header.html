@@ -24,6 +24,10 @@
       {{end}}
     </nav>
 
+    {{if (not .IsHome)}}
+    <button id="print" onclick="window.print()">Print</button>
+    {{end}}
+
     <select id="theme" name="theme" onchange="
     var head = document.head;
     var link = document.createElement(`link`);
@@ -31,13 +35,12 @@
     var children = head.childNodes;
     var prev_link = null;
     for(let i=0;i<children.length;i++)
-      if(children[i].media === `screen` && children[i].rel === `stylesheet`
+      if(children[i].type === `text/css` && children[i].rel === `stylesheet`
         && children[i].href.startsWith(home))
         prev_link = children[i];
-    link.media = `screen`;
+    link.type = `text/css`;
     link.rel = `stylesheet`;
     link.href = home+`css/`+this.value.toLowerCase()+`.css`;
-    console.log(link, prev_link);
     if(prev_link)
       document.head.replaceChild(link, prev_link);
     else

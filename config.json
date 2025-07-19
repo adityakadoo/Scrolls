@@ -49,5 +49,10 @@
         "enable": false,
         "use": "katex"
       }
+    },
+    "caches": {
+      "images": {
+        "dir": ":cacheDir/images"
+      }
     }
   }

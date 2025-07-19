@@ -11,14 +11,15 @@ resources:
 toc: true
 footer: true
 ---
-
+<!--
 ## Resources
 
 - ### [Hopcrot-Motwani-Ullman](https://www-2.dc.uba.ar/staff/becher/Hopcroft-Motwani-Ullman-2001.pdf)
+-->
 
 ## Central Concepts
 
-#### Alphabets
+### Alphabets
 
 Alphabet $ (\Sigma) $
 : An ***alphabet*** is a finite nonempty set of symbols.
@@ -26,7 +27,7 @@ Alphabet $ (\Sigma) $
 1. $ \Sigma= \\\{1, 0\\\} $
 2. $ \Sigma = \\\{a,b,...,z\\\}$
 
-#### Strings
+### Strings
 
 String $(w)$
 : A ***string*** is a finite sequence of symbols chosen from $ \Sigma $.
@@ -51,7 +52,7 @@ Concatenation of Strings
 
 > $|w_1w_2| = |w_1|+|w_2|$
 
-#### Languages
+### Languages
 
 Language $(L)$
 : A ***language*** over $\Sigma$ is basically $L\sube\Sigma^&ast;$.
@@ -64,7 +65,7 @@ Empty Language $(\empty)$
 
 > $\empty\ne\\\{\epsilon\\\}$
 
-#### Problems
+### Problems
 
 Problem
 : Any ***problem*** is, given a $w$ in $\Sigma^*$, decide whether or not $w$ is in $L$.

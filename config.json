@@ -2,10 +2,6 @@
     "baseURL": "https://adityakadoo.github.io/Scrolls/",
     "languageCode": "en-us",
     "title": "Scrolls",
-    "author": {
-      "email": "aditya1449kadoo@gmail.com",
-      "name": "Aditya Kadoo"
-    },
     "markup": {
       "defaultMarkdownHandler": "goldmark",
       "goldmark": {
@@ -48,6 +44,10 @@
       "math": {
         "enable": false,
         "use": "katex"
+      },
+      "author": {
+        "email": "aditya1449kadoo@gmail.com",
+        "name": "Aditya Kadoo"
       }
     },
     "caches": {
